@@ -166,7 +166,73 @@
               
               <div>
                 
-  
+  <span class="target" id="module-stravalib.tests.functional.test_client_utils"></span><dl class="py class">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientUtilsTest">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.tests.functional.test_client_utils.</span></span><span class="sig-name descname"><span class="pre">ClientUtilsTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientUtilsTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientUtilsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stravalib.tests.html#stravalib.tests.TestBase" title="stravalib.tests.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.tests.TestBase</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientUtilsTest.client">
+<span class="sig-name descname"><span class="pre">client</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;stravalib.client.Client</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientUtilsTest.client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientUtilsTest.test_utc_datetime_to_epoch_utc_datetime_given_correct_epoch_returned">
+<span class="sig-name descname"><span class="pre">test_utc_datetime_to_epoch_utc_datetime_given_correct_epoch_returned</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientUtilsTest.test_utc_datetime_to_epoch_utc_datetime_given_correct_epoch_returned"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientUtilsTest.test_utc_datetime_to_epoch_utc_datetime_given_correct_epoch_returned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.tests.functional.test_client_utils.</span></span><span class="sig-name descname"><span class="pre">ClientAuthorizationUrlTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stravalib.tests.html#stravalib.tests.TestBase" title="stravalib.tests.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.tests.TestBase</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.client">
+<span class="sig-name descname"><span class="pre">client</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;stravalib.client.Client</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.get_url_param">
+<span class="sig-name descname"><span class="pre">get_url_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest.get_url_param"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.get_url_param" title="Permalink to this definition">¶</a></dt>
+<dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_url_param</span><span class="p">(</span><span class="s2">&quot;http://www.example.com/?key=1&quot;</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_incorrect_scope_raises">
+<span class="sig-name descname"><span class="pre">test_incorrect_scope_raises</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest.test_incorrect_scope_raises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_incorrect_scope_raises" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_correct_scope">
+<span class="sig-name descname"><span class="pre">test_correct_scope</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest.test_correct_scope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_correct_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_scope_may_be_list">
+<span class="sig-name descname"><span class="pre">test_scope_may_be_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest.test_scope_may_be_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_scope_may_be_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_incorrect_approval_prompt_raises">
+<span class="sig-name descname"><span class="pre">test_incorrect_approval_prompt_raises</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest.test_incorrect_approval_prompt_raises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_incorrect_approval_prompt_raises" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_state_param">
+<span class="sig-name descname"><span class="pre">test_state_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest.test_state_param"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_state_param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_params">
+<span class="sig-name descname"><span class="pre">test_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/functional/test_client_utils.html#ClientAuthorizationUrlTest.test_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.functional.test_client_utils.ClientAuthorizationUrlTest.test_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+
 
               </div>
               

@@ -218,7 +218,7 @@
 <div class="section" id="retrieve-an-activity">
 <h2>Retrieve An Activity<a class="headerlink" href="#retrieve-an-activity" title="Permalink to this headline">¶</a></h2>
 <p>To get a given activity, use the get_activity function and provide activity_id,
-The function will return a <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code> object.:</p>
+The function will return a <a class="reference internal" href="../api/stravalib.model.html#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a> object.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activity</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="mi">207650614</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type = &quot;</span> <span class="o">+</span> <span class="n">activity</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
 </pre></div>
@@ -239,8 +239,8 @@ The function will return a <code class="xref py py-class docutils literal notran
 </div>
 <div class="section" id="activity-information">
 <h3>Activity information<a class="headerlink" href="#activity-information" title="Permalink to this headline">¶</a></h3>
-<p>Most information pertaining to actitity is available directly on the <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code> object.  Some additional information can be retrieved relevant methods.</p>
-<p>Below is example of <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activity_streams()</span></code>:</p>
+<p>Most information pertaining to actitity is available directly on the <a class="reference internal" href="../api/stravalib.model.html#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a> object.  Some additional information can be retrieved relevant methods.</p>
+<p>Below is example of <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_activity_streams" title="stravalib.client.Client.get_activity_streams"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activity_streams()</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Activities can have many streams, you can request desired stream types</span>
 <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;latlng&#39;</span><span class="p">,</span> <span class="s1">&#39;altitude&#39;</span><span class="p">,</span> <span class="s1">&#39;heartrate&#39;</span><span class="p">,</span> <span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="p">]</span>
 
@@ -251,13 +251,13 @@ The function will return a <code class="xref py py-class docutils literal notran
     <span class="nb">print</span><span class="p">(</span><span class="n">streams</span><span class="p">[</span><span class="s1">&#39;altitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Additionally, activity zones can be retrieved with <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activity_zones()</span></code> and activity laps can be retrieved with <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activity_laps()</span></code> .</p>
+<p>Additionally, activity zones can be retrieved with <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_activity_zones" title="stravalib.client.Client.get_activity_zones"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activity_zones()</span></code></a> and activity laps can be retrieved with <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_activity_laps" title="stravalib.client.Client.get_activity_laps"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activity_laps()</span></code></a> .</p>
 </div>
 </div>
 <div class="section" id="list-of-activities">
 <h2>List of Activities<a class="headerlink" href="#list-of-activities" title="Permalink to this headline">¶</a></h2>
 <p>Three functions return lists of activities.</p>
-<p>List the authenticated athlete’s activities with <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activities()</span></code>.:</p>
+<p>List the authenticated athlete’s activities with <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_activities" title="stravalib.client.Client.get_activities"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_activities()</span></code></a>.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">get_activities</span><span class="p">(</span><span class="n">after</span> <span class="o">=</span> <span class="s2">&quot;2010-01-01T00:00:00Z&quot;</span><span class="p">,</span>  <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0.name}</span><span class="s2"> </span><span class="si">{0.moving_time}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">))</span>
 </pre></div>
@@ -266,7 +266,7 @@ The function will return a <code class="xref py py-class docutils literal notran
 <p class="admonition-title">Tip</p>
 <p>To get activities in oldest to newest, specify a value for the <cite>after</cite> argument. To get newest to oldest use <cite>before</cite> argument.</p>
 </div>
-<p>Additionally list the authenticated athlete’s friends activities with <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_friend_activities()</span></code>, or list a club member’s activities with <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_club_activities()</span></code>.</p>
+<p>Additionally list the authenticated athlete’s friends activities with <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_friend_activities" title="stravalib.client.Client.get_friend_activities"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_friend_activities()</span></code></a>, or list a club member’s activities with <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_club_activities" title="stravalib.client.Client.get_club_activities"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_club_activities()</span></code></a>.</p>
 </div>
 <div class="section" id="manage-activities">
 <h2>Manage Activities<a class="headerlink" href="#manage-activities" title="Permalink to this headline">¶</a></h2>
@@ -283,13 +283,13 @@ The function will return a <code class="xref py py-class docutils literal notran
 </thead>
 <tbody>
 <tr class="row-even"><td><p>create_activity</p></td>
-<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.create_activity()</span></code></p></td>
+<td><p><a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.create_activity" title="stravalib.client.Client.create_activity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.create_activity()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>upload_activity</p></td>
-<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.upload_activity()</span></code></p></td>
+<td><p><a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.upload_activity" title="stravalib.client.Client.upload_activity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.upload_activity()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p>update_activity</p></td>
-<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.update_activity()</span></code></p></td>
+<td><p><a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.update_activity" title="stravalib.client.Client.update_activity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.update_activity()</span></code></a></p></td>
 </tr>
 </tbody>
 </table>

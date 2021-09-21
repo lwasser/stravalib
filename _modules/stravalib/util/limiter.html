@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stravalib.util.limiter &#8212; stravalib 0.6.0 documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../index.html">
+<p class="title">stravalib</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../index.html">
+  Home
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../get-started/index.html">
+  Get Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../contributing.html">
+  Contributing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../changelog.html">
+  Change Log
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api/stravalib.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for stravalib.util.limiter</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Rate limiter classes.</span>
+
+<span class="sd">These are basically callables that when called register that a request was</span>
+<span class="sd">issued.  Depending on how they are configured that may cause a pause or exception</span>
+<span class="sd">if a rate limit has been exceeded.  Obviously it is up to the calling code to ensure</span>
+<span class="sd">that these callables are invoked with every (successful?) call to the backend</span>
+<span class="sd">API.  (There is probably a better way to hook these into the requests library</span>
+<span class="sd">directly ... TBD.)</span>
+
+<span class="sd">From the Strava docs:</span>
+<span class="sd">  Strava API usage is limited on a per-application basis using a short term,</span>
+<span class="sd">  15 minute, limit and a long term, daily, limit. The default rate limit allows</span>
+<span class="sd">  600 requests every 15 minutes, with up to 30,000 requests per day.</span>
+
+<span class="sd">  This limit allows applications to make 40 requests per minute for about</span>
+<span class="sd">  half the day.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
+
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">import</span> <span class="nn">arrow</span>
+
+<span class="kn">from</span> <span class="nn">stravalib</span> <span class="kn">import</span> <span class="n">exc</span>
+
+
+<div class="viewcode-block" id="total_seconds"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.total_seconds">[docs]</a><span class="k">def</span> <span class="nf">total_seconds</span><span class="p">(</span><span class="n">td</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Alternative to datetime.timedelta.total_seconds</span>
+<span class="sd">    total_seconds() only available since Python 2.7</span>
+<span class="sd">    https://docs.python.org/2/library/datetime.html#datetime.timedelta.total_seconds</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">microseconds</span> <span class="o">+</span> <span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">td</span><span class="o">.</span><span class="n">days</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span></div>
+
+
+<span class="n">RequestRate</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;RequestRate&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;short_usage&#39;</span><span class="p">,</span> <span class="s1">&#39;long_usage&#39;</span><span class="p">,</span> <span class="s1">&#39;short_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;long_limit&#39;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="get_rates_from_response_headers"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.get_rates_from_response_headers">[docs]</a><span class="k">def</span> <span class="nf">get_rates_from_response_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a namedtuple with values for short - and long usage and limit rates found in provided HTTP response headers</span>
+<span class="sd">    :param headers: HTTP response headers</span>
+<span class="sd">    :type headers: dict</span>
+<span class="sd">    :return: namedtuple with request rates or None if no rate-limit headers present in response.</span>
+<span class="sd">    :rtype: Optional[RequestRate]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">usage_rates</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X-RateLimit-Usage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+        <span class="n">limit_rates</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X-RateLimit-Limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+
+        <span class="k">return</span> <span class="n">RequestRate</span><span class="p">(</span><span class="n">short_usage</span><span class="o">=</span><span class="n">usage_rates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">long_usage</span><span class="o">=</span><span class="n">usage_rates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                           <span class="n">short_limit</span><span class="o">=</span><span class="n">limit_rates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">long_limit</span><span class="o">=</span><span class="n">limit_rates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="get_seconds_until_next_quarter"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.get_seconds_until_next_quarter">[docs]</a><span class="k">def</span> <span class="nf">get_seconds_until_next_quarter</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the number of seconds until the next quarter of an hour. This is the short-term rate limit used by Strava.</span>
+<span class="sd">    :param now: A (utc) timestamp</span>
+<span class="sd">    :type now: arrow.arrow.Arrow</span>
+<span class="sd">    :return: the number of seconds until the next quarter, as int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+    <span class="k">return</span> <span class="mi">899</span> <span class="o">-</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">minute</span><span class="o">=</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">//</span> <span class="mi">15</span><span class="p">)</span> <span class="o">*</span> <span class="mi">15</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">seconds</span></div>
+
+
+<div class="viewcode-block" id="get_seconds_until_next_day"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.get_seconds_until_next_day">[docs]</a><span class="k">def</span> <span class="nf">get_seconds_until_next_day</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the number of seconds until the next day (utc midnight). This is the long-term rate limit used by Strava.</span>
+<span class="sd">    :param now: A (utc) timestamp</span>
+<span class="sd">    :type now: arrow.arrow.Arrow</span>
+<span class="sd">    :return: the number of seconds until next day, as int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span></div>
+
+
+<div class="viewcode-block" id="XRateLimitRule"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.XRateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">XRateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limits</span><span class="p">,</span> <span class="n">force_limits</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param limits: THe limits structure.</span>
+<span class="sd">        :param force_limits: If False (default), this rule will set/update its limits based on what the Strava API</span>
+<span class="sd">        tells it. If True, the provided limits will be enforced, i.e. ignoring the limits given by the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span> <span class="o">=</span> <span class="n">limits</span>
+        <span class="c1"># should limit args be validated?</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_time_invalid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">force_limits</span> <span class="o">=</span> <span class="n">force_limits</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">limit_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit_time_invalid</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_usage</span><span class="p">(</span><span class="n">response_headers</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">limit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_limit_time_invalid</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_limit_rates</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_update_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">):</span>
+        <span class="n">rates</span> <span class="o">=</span> <span class="n">get_rates_from_response_headers</span><span class="p">(</span><span class="n">response_headers</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">rates</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Updating rate-limit limits and usage from headers: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rates</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;usage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">short_usage</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;usage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">long_usage</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">force_limits</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">short_limit</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">long_limit</span>
+
+    <span class="k">def</span> <span class="nf">_check_limit_rates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;usage&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;limit&#39;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Rate limit of </span><span class="si">{0}</span><span class="s2"> reached.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">limit</span><span class="p">[</span><span class="s1">&#39;limit&#39;</span><span class="p">]))</span>
+            <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;lastExceeded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_raise_rate_limit_exception</span><span class="p">(</span><span class="n">limit</span><span class="p">[</span><span class="s1">&#39;limit&#39;</span><span class="p">],</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_check_limit_time_invalid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_time_invalid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;lastExceeded&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;lastExceeded&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">limit_time_invalid</span> <span class="o">=</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Rate limit invalid duration </span><span class="si">{0}</span><span class="s2"> seconds.&quot;</span>
+                               <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">limit_time_invalid</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_raise_rate_limit_timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">limit_timeout</span><span class="p">,</span> <span class="n">limit</span><span class="p">[</span><span class="s1">&#39;limit&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_raise_rate_limit_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">limit_rate</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">RateLimitExceeded</span><span class="p">(</span><span class="s2">&quot;Rate limit of </span><span class="si">{0}</span><span class="s2"> exceeded. &quot;</span>
+                                    <span class="s2">&quot;Try again in </span><span class="si">{1}</span><span class="s2"> seconds.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">limit_rate</span><span class="p">,</span> <span class="n">timeout</span><span class="p">),</span>
+                                    <span class="n">limit</span><span class="o">=</span><span class="n">limit_rate</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_raise_rate_limit_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">limit_rate</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">RateLimitTimeout</span><span class="p">(</span><span class="s2">&quot;Rate limit of </span><span class="si">{0}</span><span class="s2"> exceeded. &quot;</span>
+                                   <span class="s2">&quot;Try again in </span><span class="si">{1}</span><span class="s2"> seconds.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">limit_rate</span><span class="p">,</span> <span class="n">timeout</span><span class="p">),</span>
+                                   <span class="n">limit</span><span class="o">=</span><span class="n">limit_rate</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SleepingRateLimitRule"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.SleepingRateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">SleepingRateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A rate limit rule that can be prioritized and can dynamically adapt its limits based on API responses.</span>
+<span class="sd">    Given its priority, it will enforce a variable &quot;cool-down&quot; period after each response. When rate limits</span>
+<span class="sd">    are reached within their period, this limiter will wait until the end of that period. It will NOT raise</span>
+<span class="sd">    any kind of exception in this case.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="s1">&#39;high&#39;</span><span class="p">,</span> <span class="n">short_limit</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">long_limit</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">force_limits</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructs a new SleepingRateLimitRule.</span>
+<span class="sd">        :param priority: The priority for this rule. When &#39;low&#39;, the cool-down period after each request will be such</span>
+<span class="sd">        that the long-term limits will not be exceeded. When &#39;medium&#39;, the cool-down period will be such that the</span>
+<span class="sd">        short-term limits will not be exceeded. When &#39;high&#39;, there will be no cool-down period.</span>
+<span class="sd">        :type priority: str</span>
+<span class="sd">        :param short_limit: (Optional) explicit short-term limit</span>
+<span class="sd">        :type short_limit: int</span>
+<span class="sd">        :param long_limit: (Optional) explicit long-term limit</span>
+<span class="sd">        :type long_limit: int</span>
+<span class="sd">        :param force_limits: If False (default), this rule will set/update its limits based on what the Strava API</span>
+<span class="sd">        tells it. If True, the provided limits will be enforced, i.e. ignoring the limits given by the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">priority</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid priority &quot;</span><span class="si">{0}</span><span class="s1">&quot;, expecting one of &quot;low&quot;, &quot;medium&quot; or &quot;high&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">priority</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">priority</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">short_limit</span> <span class="o">=</span> <span class="n">short_limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">long_limit</span> <span class="o">=</span> <span class="n">long_limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">force_limits</span> <span class="o">=</span> <span class="n">force_limits</span>
+
+    <span class="k">def</span> <span class="nf">_get_wait_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">short_usage</span><span class="p">,</span> <span class="n">long_usage</span><span class="p">,</span> <span class="n">seconds_until_short_limit</span><span class="p">,</span> <span class="n">seconds_until_long_limit</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">long_usage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">long_limit</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Long term API rate limit exceeded&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">seconds_until_long_limit</span>
+        <span class="k">elif</span> <span class="n">short_usage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">short_limit</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Short term API rate limit exceeded&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">seconds_until_short_limit</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">==</span> <span class="s1">&#39;medium&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">seconds_until_short_limit</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">short_limit</span> <span class="o">-</span> <span class="n">short_usage</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">==</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">seconds_until_long_limit</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">long_limit</span> <span class="o">-</span> <span class="n">long_usage</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">):</span>
+        <span class="n">rates</span> <span class="o">=</span> <span class="n">get_rates_from_response_headers</span><span class="p">(</span><span class="n">response_headers</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">rates</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_wait_time</span><span class="p">(</span><span class="n">rates</span><span class="o">.</span><span class="n">short_usage</span><span class="p">,</span> <span class="n">rates</span><span class="o">.</span><span class="n">long_usage</span><span class="p">,</span>
+                                           <span class="n">get_seconds_until_next_quarter</span><span class="p">(),</span> <span class="n">get_seconds_until_next_day</span><span class="p">()))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">force_limits</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">short_limit</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">short_limit</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">long_limit</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">long_limit</span></div>
+
+
+<div class="viewcode-block" id="RateLimitRule"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.RateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">RateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">raise_exc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param requests: Number of requests for limit.</span>
+<span class="sd">        :param seconds: The number of seconds for that number of requests (may be float)</span>
+<span class="sd">        :param raise_exc: Whether to raise an exception when limit is reached (as opposed to pausing)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeframe</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">seconds</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requests</span> <span class="o">=</span> <span class="n">requests</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raise_exc</span> <span class="o">=</span> <span class="n">raise_exc</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register another request is being issued.</span>
+
+<span class="sd">        Depending on configuration of the rule will pause if rate limit has</span>
+<span class="sd">        been reached, or raise exception, etc.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># First check if the deque is full; that indicates that we&#39;d better check whether</span>
+        <span class="c1"># we need to pause.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tab</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="p">:</span>
+            <span class="c1"># Grab the oldest (leftmost) timestamp and check to see if it is greater than 1 second</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeframe</span><span class="p">:</span>  <span class="c1"># Has it been less than configured timeframe since oldest request?</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">raise_exc</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">RateLimitExceeded</span><span class="p">(</span><span class="s2">&quot;Rate limit exceeded (can try again in </span><span class="si">{0}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timeframe</span> <span class="o">-</span> <span class="n">delta</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Wait the difference between timeframe and the oldest request.</span>
+                    <span class="n">td</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeframe</span> <span class="o">-</span> <span class="n">delta</span>
+                    <span class="n">sleeptime</span> <span class="o">=</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">td</span><span class="p">,</span> <span class="s1">&#39;total_seconds&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">td</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="ow">or</span> <span class="n">total_seconds</span><span class="p">(</span><span class="n">td</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Rate limit triggered; sleeping for </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sleeptime</span><span class="p">))</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleeptime</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="RateLimiter"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.RateLimiter">[docs]</a><span class="k">class</span> <span class="nc">RateLimiter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register another request is being issued.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">:</span>
+            <span class="n">r</span><span class="p">(</span><span class="n">args</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DefaultRateLimiter"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.DefaultRateLimiter">[docs]</a><span class="k">class</span> <span class="nc">DefaultRateLimiter</span><span class="p">(</span><span class="n">RateLimiter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implements something similar to the default rate limit for Strava apps.</span>
+
+<span class="sd">    To do this correctly we would actually need to change our logic to reset</span>
+<span class="sd">    the limit at midnight, etc.  Will make this more complex in the future.</span>
+
+<span class="sd">    Strava API usage is limited on a per-application basis using a short term,</span>
+<span class="sd">    15 minute, limit and a long term, daily, limit. The default rate limit allows</span>
+<span class="sd">    600 requests every 15 minutes, with up to 30,000 requests per day.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Strava API usage is limited on a per-application basis using a short term,</span>
+<span class="sd">        15 minute, limit and a long term, daily, limit. The default rate limit</span>
+<span class="sd">        allows 600 requests every 15 minutes, with up to 30,000 requests per day.</span>
+<span class="sd">        This limit allows applications to make 40 requests per minute for about half the day.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">DefaultRateLimiter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">XRateLimitRule</span><span class="p">(</span>
+            <span class="p">{</span><span class="s1">&#39;short&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;usageFieldIndex&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;usage&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                         <span class="c1"># 60s * 15 = 15 min</span>
+                         <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">15</span><span class="p">),</span>
+                         <span class="s1">&#39;lastExceeded&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+             <span class="s1">&#39;long&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;usageFieldIndex&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;usage&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="c1"># 60s * 60m * 24 = 1 day</span>
+                        <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="p">),</span>
+                        <span class="s1">&#39;lastExceeded&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}}))</span></div>
+
+        <span class="c1"># XRateLimitRule used instead of timer based RateLimitRule</span>
+        <span class="c1"># self.rules.append(RateLimitRule(requests=40, seconds=60, raise_exc=False))</span>
+        <span class="c1"># self.rules.append(RateLimitRule(requests=30000, seconds=(3600 * 24), raise_exc=True))</span>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Hans Lellelid.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -228,24 +228,24 @@
 describe the methods for working with athlete data in the Strava API.</p>
 <div class="section" id="retrieve-current-athlete">
 <h2>Retrieve Current Athlete<a class="headerlink" href="#retrieve-current-athlete" title="Permalink to this headline">¶</a></h2>
-<p>This is the simplest request.  It is provided by the <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_athlete()</span></code> when called
+<p>This is the simplest request.  It is provided by the <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_athlete" title="stravalib.client.Client.get_athlete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_athlete()</span></code></a> when called
 with no parameters.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">athlete</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_athlete</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">athlete</span><span class="o">.</span><span class="n">firstname</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>See the <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code> class for details on what is returned.  For this method, full detailed-level
+<p>See the <a class="reference internal" href="../api/stravalib.model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> class for details on what is returned.  For this method, full detailed-level
 attribute set is returned.</p>
 </div>
 <div class="section" id="retrieve-another-athlete">
 <h2>Retrieve Another Athlete<a class="headerlink" href="#retrieve-another-athlete" title="Permalink to this headline">¶</a></h2>
-<p>A variation on the above request, this is provided by the <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_athlete()</span></code> when called
+<p>A variation on the above request, this is provided by the <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.get_athlete" title="stravalib.client.Client.get_athlete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.get_athlete()</span></code></a> when called
 with an athlete ID.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">athlete</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_athlete</span><span class="p">(</span><span class="mi">227615</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">athlete</span><span class="o">.</span><span class="n">firstname</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>See the <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code> class for details.  only summary-level subset of attributes is returned
+<p>See the <a class="reference internal" href="../api/stravalib.model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> class for details.  only summary-level subset of attributes is returned
 when fetching information about another athlete.</p>
 </div>
 <div class="section" id="friends-and-followers">

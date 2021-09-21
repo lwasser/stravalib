@@ -182,7 +182,285 @@
               
               <div>
                 
-  
+  <span class="target" id="module-stravalib.attributes"></span><p>Attribute types used for the model.</p>
+<p>The types system provides a mechanism for serializing/un the data to/from JSON
+structures and for capturing additional information about the model attributes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.Attribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">Attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#Attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.Attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base descriptor class for a Strava model attribute.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="stravalib.attributes.Attribute.type">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#stravalib.attributes.Attribute.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.Attribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#Attribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.Attribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn this value into format for wire (JSON).</p>
+<p>(By default this will just return the underlying object; subclasses
+can override for specific behaviors – e.g. date formatting.)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.Attribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#Attribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.Attribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the value from parsed JSON structure to native python representation.</p>
+<p>By default this will leave the value as-is since the JSON parsing routines
+typically convert to native types. The exception may be date strings or other
+more complex types, where subclasses will override this behavior.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.DateAttribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">DateAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#DateAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.DateAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.Attribute" title="stravalib.attributes.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.Attribute</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.DateAttribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#DateAttribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.DateAttribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>date</em>) – The date object to convert.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.DateAttribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#DateAttribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.DateAttribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a date in “2012-12-13” format to a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.TimestampAttribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">TimestampAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">resource_states=None</span></em>, <em class="sig-param"><span class="pre">tzinfo=&lt;UTC&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimestampAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimestampAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.Attribute" title="stravalib.attributes.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.Attribute</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.TimestampAttribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimestampAttribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimestampAttribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize the timestamp to string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>datetime</em>) – The timestamp.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The serialized date time.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.TimestampAttribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimestampAttribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimestampAttribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a timestamp in “2012-12-13T03:43:19Z” format to a <cite>datetime.datetime</cite> object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.LatLon">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">LatLon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stravalib.attributes.LatLon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.attributes.LatLon.lat">
+<span class="sig-name descname"><span class="pre">lat</span></span><a class="headerlink" href="#stravalib.attributes.LatLon.lat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.attributes.LatLon.lon">
+<span class="sig-name descname"><span class="pre">lon</span></span><a class="headerlink" href="#stravalib.attributes.LatLon.lon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.LocationAttribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">LocationAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#LocationAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.LocationAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.Attribute" title="stravalib.attributes.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.Attribute</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.LocationAttribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#LocationAttribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.LocationAttribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn this value into format for wire (JSON).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>v</strong> (<a class="reference internal" href="#stravalib.attributes.LatLon" title="stravalib.attributes.LatLon"><em>LatLon</em></a>) – The lat/lon.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Serialized format.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.LocationAttribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#LocationAttribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.LocationAttribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.TimezoneAttribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">TimezoneAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimezoneAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimezoneAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.Attribute" title="stravalib.attributes.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.Attribute</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.TimezoneAttribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimezoneAttribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimezoneAttribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a timestamp in format “America/Los_Angeles” or
+“(GMT-08:00) America/Los_Angeles” to
+a <cite>pytz.timestamp</cite> object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.TimezoneAttribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimezoneAttribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimezoneAttribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize time zone name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>tzdata</em>) – The timezone.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The name of the time zone.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.TimeIntervalAttribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">TimeIntervalAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimeIntervalAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimeIntervalAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.Attribute" title="stravalib.attributes.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.Attribute</span></code></a></p>
+<p>Handles time durations, assumes upstream int value in seconds.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.TimeIntervalAttribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimeIntervalAttribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimeIntervalAttribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the value from parsed JSON structure to native python representation.</p>
+<p>By default this will leave the value as-is since the JSON parsing routines
+typically convert to native types. The exception may be date strings or other
+more complex types, where subclasses will override this behavior.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.TimeIntervalAttribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#TimeIntervalAttribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.TimeIntervalAttribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize native python timedelta object to seconds as int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>timedelta</em>) – time interval.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>time interval in seconds as int.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.ChoicesAttribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">ChoicesAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#ChoicesAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.ChoicesAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.Attribute" title="stravalib.attributes.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.Attribute</span></code></a></p>
+<p>Attribute where there are several choices the attribute may take.</p>
+<p>Allows conversion from the API value to a more helpful python value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.ChoicesAttribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#ChoicesAttribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.ChoicesAttribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn this value into API format.</p>
+<p>Do a reverse dictionary lookup on choices to find the original value. If
+there are no keys or too many keys for now we raise a NotImplementedError
+as marshal is not used anywhere currently. In the future we will want to
+fail gracefully.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.ChoicesAttribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#ChoicesAttribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.ChoicesAttribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the value from Strava API format to useful python representation.</p>
+<p>If the value does not appear in the choices attribute we log an error rather
+than raising an exception as this may be caused by a change to the API upstream
+so we want to fail gracefully.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.EntityAttribute">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">EntityAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#EntityAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.EntityAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.Attribute" title="stravalib.attributes.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.Attribute</span></code></a></p>
+<p>Attribute for another entity.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="stravalib.attributes.EntityAttribute.type">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#stravalib.attributes.EntityAttribute.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.EntityAttribute.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#EntityAttribute.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.EntityAttribute.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn an entity into a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>v</strong> (<a class="reference internal" href="stravalib.model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><em>stravalib.model.BaseEntity</em></a>) – The entity to serialize.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary of attributes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.EntityAttribute.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#EntityAttribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.EntityAttribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast the specified value to the entity type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.attributes.EntityCollection">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.attributes.</span></span><span class="sig-name descname"><span class="pre">EntityCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#EntityCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.EntityCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.attributes.EntityAttribute" title="stravalib.attributes.EntityAttribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.attributes.EntityAttribute</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.EntityCollection.marshal">
+<span class="sig-name descname"><span class="pre">marshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#EntityCollection.marshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.EntityCollection.marshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn a list of entities into a list of dictionaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>List</em><em>[</em><a class="reference internal" href="stravalib.model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><em>stravalib.model.BaseEntity</em></a><em>]</em>) – The entities to serialize.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of dictionaries of attributes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.attributes.EntityCollection.unmarshal">
+<span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/attributes.html#EntityCollection.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.EntityCollection.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast the list.</p>
+</dd></dl>
+
+</dd></dl>
+
+
 
               </div>
               

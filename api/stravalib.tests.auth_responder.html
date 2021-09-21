@@ -166,7 +166,50 @@
               
               <div>
                 
-  
+  <span class="target" id="module-stravalib.tests.auth_responder"></span><p>A basic authorization server.  Run this with your Strava Client ID and Client Secret and access from your
+browser (because the Strava OAuth page uses javascript) in order to get a resulting access token.  That access
+token can then be used to initialize a Client that can read (and/or write) data from the Strava API.</p>
+<p>You must run this from a virtualenv that has stravalib installed.</p>
+<p>Example Usage:</p>
+<blockquote>
+<div><p>(env) shell$ python -m stravalib.tests.auth_responder –port=8000 –client-id=123 –client-secret=deadbeefdeadbeefdeadbeefdeadbeefdeadbeef</p>
+<p>Then connect in your browser to <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a></p>
+<p>The redirected response (from Strava) will deliver a code that can be exchanged for a token.  The access token will be
+presented in the browser after the exchange.  Save this value into your config (e.g. into your test.ini) to run
+functional tests.</p>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.tests.auth_responder.StravaAuthHTTPServer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.tests.auth_responder.</span></span><span class="sig-name descname"><span class="pre">StravaAuthHTTPServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RequestHandlerClass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_and_activate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/auth_responder.html#StravaAuthHTTPServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.auth_responder.StravaAuthHTTPServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/http.server.html#http.server.HTTPServer" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">http.server.HTTPServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.auth_responder.StravaAuthHTTPServer.serve_forever">
+<span class="sig-name descname"><span class="pre">serve_forever</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/auth_responder.html#StravaAuthHTTPServer.serve_forever"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.auth_responder.StravaAuthHTTPServer.serve_forever" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle one request at a time until shutdown.</p>
+<p>Polls for shutdown every poll_interval seconds. Ignores
+self.timeout. If you need to do periodic tasks, do them in
+another thread.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.tests.auth_responder.RequestHandler">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.tests.auth_responder.</span></span><span class="sig-name descname"><span class="pre">RequestHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/auth_responder.html#RequestHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.auth_responder.RequestHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/http.server.html#http.server.BaseHTTPRequestHandler" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">http.server.BaseHTTPRequestHandler</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.auth_responder.RequestHandler.do_GET">
+<span class="sig-name descname"><span class="pre">do_GET</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/auth_responder.html#RequestHandler.do_GET"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.auth_responder.RequestHandler.do_GET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stravalib.tests.auth_responder.main">
+<span class="sig-prename descclassname"><span class="pre">stravalib.tests.auth_responder.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/auth_responder.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.auth_responder.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+
 
               </div>
               

@@ -182,7 +182,133 @@
               
               <div>
                 
-  
+  <span class="target" id="module-stravalib.util.limiter"></span><p>Rate limiter classes.</p>
+<p>These are basically callables that when called register that a request was
+issued.  Depending on how they are configured that may cause a pause or exception
+if a rate limit has been exceeded.  Obviously it is up to the calling code to ensure
+that these callables are invoked with every (successful?) call to the backend
+API.  (There is probably a better way to hook these into the requests library
+directly … TBD.)</p>
+<dl>
+<dt>From the Strava docs:</dt><dd><p>Strava API usage is limited on a per-application basis using a short term,
+15 minute, limit and a long term, daily, limit. The default rate limit allows
+600 requests every 15 minutes, with up to 30,000 requests per day.</p>
+<p>This limit allows applications to make 40 requests per minute for about
+half the day.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="stravalib.util.limiter.total_seconds">
+<span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">total_seconds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">td</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#total_seconds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.total_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternative to datetime.timedelta.total_seconds
+total_seconds() only available since Python 2.7
+<a class="reference external" href="https://docs.python.org/2/library/datetime.html#datetime.timedelta.total_seconds">https://docs.python.org/2/library/datetime.html#datetime.timedelta.total_seconds</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.util.limiter.RequestRate">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">RequestRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">short_usage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_usage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_limit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stravalib.util.limiter.RequestRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.util.limiter.RequestRate.long_limit">
+<span class="sig-name descname"><span class="pre">long_limit</span></span><a class="headerlink" href="#stravalib.util.limiter.RequestRate.long_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.util.limiter.RequestRate.long_usage">
+<span class="sig-name descname"><span class="pre">long_usage</span></span><a class="headerlink" href="#stravalib.util.limiter.RequestRate.long_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.util.limiter.RequestRate.short_limit">
+<span class="sig-name descname"><span class="pre">short_limit</span></span><a class="headerlink" href="#stravalib.util.limiter.RequestRate.short_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.util.limiter.RequestRate.short_usage">
+<span class="sig-name descname"><span class="pre">short_usage</span></span><a class="headerlink" href="#stravalib.util.limiter.RequestRate.short_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stravalib.util.limiter.get_rates_from_response_headers">
+<span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">get_rates_from_response_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#get_rates_from_response_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.get_rates_from_response_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a namedtuple with values for short - and long usage and limit rates found in provided HTTP response headers
+:param headers: HTTP response headers
+:type headers: dict
+:return: namedtuple with request rates or None if no rate-limit headers present in response.
+:rtype: Optional[RequestRate]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stravalib.util.limiter.get_seconds_until_next_quarter">
+<span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">get_seconds_until_next_quarter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#get_seconds_until_next_quarter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.get_seconds_until_next_quarter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of seconds until the next quarter of an hour. This is the short-term rate limit used by Strava.
+:param now: A (utc) timestamp
+:type now: arrow.arrow.Arrow
+:return: the number of seconds until the next quarter, as int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stravalib.util.limiter.get_seconds_until_next_day">
+<span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">get_seconds_until_next_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#get_seconds_until_next_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.get_seconds_until_next_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of seconds until the next day (utc midnight). This is the long-term rate limit used by Strava.
+:param now: A (utc) timestamp
+:type now: arrow.arrow.Arrow
+:return: the number of seconds until next day, as int</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.util.limiter.XRateLimitRule">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">XRateLimitRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#XRateLimitRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.XRateLimitRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="stravalib.util.limiter.XRateLimitRule.limit_timeout">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">limit_timeout</span></span><a class="headerlink" href="#stravalib.util.limiter.XRateLimitRule.limit_timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.util.limiter.SleepingRateLimitRule">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">SleepingRateLimitRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'high'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#SleepingRateLimitRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.SleepingRateLimitRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A rate limit rule that can be prioritized and can dynamically adapt its limits based on API responses.
+Given its priority, it will enforce a variable “cool-down” period after each response. When rate limits
+are reached within their period, this limiter will wait until the end of that period. It will NOT raise
+any kind of exception in this case.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.util.limiter.RateLimitRule">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">RateLimitRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requests</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_exc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#RateLimitRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.RateLimitRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.util.limiter.RateLimiter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">RateLimiter</span></span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#RateLimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.RateLimiter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.util.limiter.DefaultRateLimiter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">DefaultRateLimiter</span></span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#DefaultRateLimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.DefaultRateLimiter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stravalib.util.limiter.RateLimiter" title="stravalib.util.limiter.RateLimiter"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.util.limiter.RateLimiter</span></code></a></p>
+<p>Implements something similar to the default rate limit for Strava apps.</p>
+<p>To do this correctly we would actually need to change our logic to reset
+the limit at midnight, etc.  Will make this more complex in the future.</p>
+<p>Strava API usage is limited on a per-application basis using a short term,
+15 minute, limit and a long term, daily, limit. The default rate limit allows
+600 requests every 15 minutes, with up to 30,000 requests per day.</p>
+</dd></dl>
+
+
 
               </div>
               

@@ -181,7 +181,38 @@
               
               <div>
                 
-  
+  <span class="target" id="module-stravalib.unithelper"></span><p>Helpers for converting Strava’s units to something more practical.</p>
+<p>These are really just thin wrappers to the brilliant ‘units’ python library.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stravalib.unithelper.c2f">
+<span class="sig-prename descclassname"><span class="pre">stravalib.unithelper.</span></span><span class="sig-name descname"><span class="pre">c2f</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">celsius</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/unithelper.html#c2f"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.unithelper.c2f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Celsius to Fahrenheit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>celsius</strong> – Temperature in Celsius.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Temperature in Fahrenheit.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stravalib.unithelper.timedelta_to_seconds">
+<span class="sig-prename descclassname"><span class="pre">stravalib.unithelper.</span></span><span class="sig-name descname"><span class="pre">timedelta_to_seconds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">td</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/unithelper.html#timedelta_to_seconds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.unithelper.timedelta_to_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a timedelta to total seconds, including support for microseconds.</p>
+<p>Return value is (potentially truncated) integer.</p>
+<p>(This is built-in in Python &gt;= 2.7, but we are still supporting Python 2.6 here.)
+:param td: The timedelta object
+:type td: datetime.timedelta
+:return: The number of total seconds in the timedelta object.
+:rtype: int</p>
+</dd></dl>
+
+
 
               </div>
               

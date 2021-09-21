@@ -166,7 +166,109 @@
               
               <div>
                 
-  
+  <span class="target" id="module-stravalib.tests.unit.test_limiter"></span><dl class="py class">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.LimiterTest">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.tests.unit.test_limiter.</span></span><span class="sig-name descname"><span class="pre">LimiterTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#LimiterTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.LimiterTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stravalib.tests.html#stravalib.tests.TestBase" title="stravalib.tests.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.tests.TestBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.LimiterTest.test_get_rates_from_response_headers">
+<span class="sig-name descname"><span class="pre">test_get_rates_from_response_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#LimiterTest.test_get_rates_from_response_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.LimiterTest.test_get_rates_from_response_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should return namedtuple with rates</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.LimiterTest.test_get_rates_from_response_headers_missing_rates">
+<span class="sig-name descname"><span class="pre">test_get_rates_from_response_headers_missing_rates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#LimiterTest.test_get_rates_from_response_headers_missing_rates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.LimiterTest.test_get_rates_from_response_headers_missing_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should return namedtuple with None values for rates in case of missing rates in headers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.LimiterTest.test_get_seconds_until_next_quarter">
+<span class="sig-name descname"><span class="pre">test_get_seconds_until_next_quarter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#LimiterTest.test_get_seconds_until_next_quarter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.LimiterTest.test_get_seconds_until_next_quarter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should return number of seconds to next quarter of an hour</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.LimiterTest.test_get_seconds_until_next_day">
+<span class="sig-name descname"><span class="pre">test_get_seconds_until_next_day</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#LimiterTest.test_get_seconds_until_next_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.LimiterTest.test_get_seconds_until_next_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should return the number of seconds until next day</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.XRateLimitRuleTest">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.tests.unit.test_limiter.</span></span><span class="sig-name descname"><span class="pre">XRateLimitRuleTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#XRateLimitRuleTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.XRateLimitRuleTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stravalib.tests.html#stravalib.tests.TestBase" title="stravalib.tests.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.tests.TestBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.XRateLimitRuleTest.test_rule_normal_response">
+<span class="sig-name descname"><span class="pre">test_rule_normal_response</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#XRateLimitRuleTest.test_rule_normal_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.XRateLimitRuleTest.test_rule_normal_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.XRateLimitRuleTest.test_rule_missing_rates_response">
+<span class="sig-name descname"><span class="pre">test_rule_missing_rates_response</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#XRateLimitRuleTest.test_rule_missing_rates_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.XRateLimitRuleTest.test_rule_missing_rates_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.tests.unit.test_limiter.</span></span><span class="sig-name descname"><span class="pre">SleepingRateLimitRuleTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stravalib.tests.html#stravalib.tests.TestBase" title="stravalib.tests.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.tests.TestBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_invalid_priority">
+<span class="sig-name descname"><span class="pre">test_invalid_priority</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.test_invalid_priority"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_invalid_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should raise ValueError in case of invalid priority</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_high_priority">
+<span class="sig-name descname"><span class="pre">test_get_wait_time_high_priority</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.test_get_wait_time_high_priority"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_high_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should never sleep/wait after high priority requests</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_medium_priority">
+<span class="sig-name descname"><span class="pre">test_get_wait_time_medium_priority</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.test_get_wait_time_medium_priority"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_medium_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should return number of seconds to next short limit divided by number of remaining requests
+for that period</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_low_priority">
+<span class="sig-name descname"><span class="pre">test_get_wait_time_low_priority</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.test_get_wait_time_low_priority"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_low_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should return number of seconds to next long limit divided by number of remaining requests
+for that period</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_limit_reached">
+<span class="sig-name descname"><span class="pre">test_get_wait_time_limit_reached</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.test_get_wait_time_limit_reached"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_get_wait_time_limit_reached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should wait until end of period when limit is reached, regardless priority</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_invocation_unchanged_limits">
+<span class="sig-name descname"><span class="pre">test_invocation_unchanged_limits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.test_invocation_unchanged_limits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_invocation_unchanged_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should not update limits if these don’t change</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_invocation_changed_limits">
+<span class="sig-name descname"><span class="pre">test_invocation_changed_limits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/tests/unit/test_limiter.html#SleepingRateLimitRuleTest.test_invocation_changed_limits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.tests.unit.test_limiter.SleepingRateLimitRuleTest.test_invocation_changed_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should update limits in case of changes, depending on limit enforcement</p>
+</dd></dl>
+
+</dd></dl>
+
+
 
               </div>
               

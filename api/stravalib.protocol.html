@@ -182,7 +182,122 @@
               
               <div>
                 
-  
+  <span class="target" id="module-stravalib.protocol"></span><p>Low-level classes for interacting directly with the Strava API webservers.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.protocol.</span></span><span class="sig-name descname"><span class="pre">ApiV3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class is responsible for performing the HTTP requests, rate limiting, and error handling.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.server">
+<span class="sig-name descname"><span class="pre">server</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'www.strava.com'</span></em><a class="headerlink" href="#stravalib.protocol.ApiV3.server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.api_base">
+<span class="sig-name descname"><span class="pre">api_base</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'/api/v3'</span></em><a class="headerlink" href="#stravalib.protocol.ApiV3.api_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.authorization_url">
+<span class="sig-name descname"><span class="pre">authorization_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">approval_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3.authorization_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3.authorization_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the URL needed to authorize your application to access a Strava user’s information.</p>
+<p>See <a class="reference external" href="https://developers.strava.com/docs/authentication/">https://developers.strava.com/docs/authentication/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric developer client id.</p></li>
+<li><p><strong>redirect_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The URL that Strava will redirect to after successful (or failed) authorization.</p></li>
+<li><p><strong>approval_prompt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Whether to prompt for approval even if approval already granted to app.
+Choices are ‘auto’ or ‘force’.  (Default is ‘auto’)</p></li>
+<li><p><strong>scope</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – The access scope required.  Omit to imply “read” and “activity:read”
+Valid values are ‘read’, ‘read_all’, ‘profile:read_all’, ‘profile:write’, ‘profile:read_all’,
+‘activity:read_all’, ‘activity:write’.</p></li>
+<li><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – An arbitrary variable that will be returned to your application in the redirect URI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The URL to use for authorization link.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.exchange_code_for_token">
+<span class="sig-name descname"><span class="pre">exchange_code_for_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3.exchange_code_for_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3.exchange_code_for_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exchange the temporary authorization code (returned with redirect from strava authorization URL)
+for a short-lived access token and a refresh token (used to obtain the next access token later on).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric developer client id.</p></li>
+<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The developer client secret</p></li>
+<li><p><strong>code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The temporary authorization code</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary containing the access_token, refresh_token
+and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.refresh_access_token">
+<span class="sig-name descname"><span class="pre">refresh_access_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3.refresh_access_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3.refresh_access_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exchanges the previous refresh token for a short-lived access token and a new
+refresh token (used to obtain the next access token later on).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric developer client id.</p></li>
+<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The developer client secret</p></li>
+<li><p><strong>refresh_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The refresh token obtain from a previous authorization request</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary containing the access_token, refresh_token
+and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_for_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a generic GET request for specified params, returning the response.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_for_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a generic POST request for specified params, returning the response.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_for_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a generic PUT request for specified params, returning the response.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.protocol.ApiV3.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_for_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/protocol.html#ApiV3.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.protocol.ApiV3.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a generic DELETE request for specified params, returning the response.</p>
+</dd></dl>
+
+</dd></dl>
+
+
 
               </div>
               

@@ -203,7 +203,7 @@ you will need authorization to do so.</p>
 for a description of the OAuth2 protocol that Strava uses to authenticate users.</p>
 <div class="section" id="requesting-authorization">
 <h2>Requesting Authorization<a class="headerlink" href="#requesting-authorization" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code> class provides the <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.authorization_url()</span></code> method
+<p>The <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client" title="stravalib.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code></a> class provides the <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.authorization_url" title="stravalib.client.Client.authorization_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.authorization_url()</span></code></a> method
 to build an authorization URL which can be clicked on by a user in order to grant your application access to
 their account data.</p>
 <p>In its simplest form:</p>
@@ -240,7 +240,7 @@ explicitly revokes application access.  This token can  be stored so that you ca
 <span class="n">client</span><span class="o">.</span><span class="n">get_athlete</span><span class="p">()</span> <span class="c1"># Get current athlete details</span>
 </pre></div>
 </div>
-<p>To refresh the token you would call the <code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.refresh_access_token()</span></code> method.</p>
+<p>To refresh the token you would call the <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client.refresh_access_token" title="stravalib.client.Client.refresh_access_token"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stravalib.client.Client.refresh_access_token()</span></code></a> method.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stravalib</span> <span class="kn">import</span> <span class="n">Client</span>
 <span class="n">code</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">)</span> <span class="c1"># e.g.</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>

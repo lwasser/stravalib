@@ -92,8 +92,20 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../reference.html">
+  Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../api/stravalib.html">
   API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api.html">
+  API 2
  </a>
 </li>
 
@@ -153,9 +165,10 @@
 <span class="sd">==============</span>
 <span class="sd">Provides the main interface classes for the Strava version 3 REST API.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
 <span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="c1"># import warnings # unused import</span>
 <span class="kn">import</span> <span class="nn">functools</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">collections</span>
@@ -175,15 +188,21 @@
 <span class="kn">from</span> <span class="nn">stravalib</span> <span class="kn">import</span> <span class="n">unithelper</span>
 
 
-<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../reference/api/stravalib.Client.html#stravalib.client.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Main client class for interacting with the exposed Strava v3 API methods.</span>
 
 <span class="sd">    This class can be instantiated without an access_token when performing authentication;</span>
 <span class="sd">    however, most methods will require a valid access token.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    access_token : str</span>
+<span class="sd">        The token that provides access to a specific Strava account.  If empty, assume that this</span>
+<span class="sd">        account is not yet authenticated.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.__init__"><a class="viewcode-back" href="../../reference/api/stravalib.Client.html#stravalib.client.Client.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">rate_limit_requests</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                  <span class="n">rate_limiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -191,21 +210,19 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a new client object.</span>
 
-<span class="sd">        :param access_token: The token that provides access to a specific Strava account.  If empty, assume that this</span>
-<span class="sd">                             account is not yet authenticated.</span>
-<span class="sd">        :type access_token: str</span>
-
-<span class="sd">        :param rate_limit_requests: Whether to apply a rate limiter to the requests. (default True)</span>
-<span class="sd">        :type rate_limit_requests: bool</span>
-
-<span class="sd">        :param rate_limiter: A :class:`stravalib.util.limiter.RateLimiter&#39; object to use.</span>
-<span class="sd">                             If not specified (and rate_limit_requests is True), then</span>
-<span class="sd">                             :class:`stravalib.util.limiter.DefaultRateLimiter&#39; will</span>
-<span class="sd">                             be used.</span>
-<span class="sd">        :type rate_limiter: callable</span>
-
-<span class="sd">        :param requests_session: (Optional) pass request session object.</span>
-<span class="sd">        :type requests_session: requests.Session() object</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        access_token : str</span>
+<span class="sd">            The token that provides access to a specific Strava account.  If empty, assume that this</span>
+<span class="sd">            account is not yet authenticated.</span>
+<span class="sd">        rate_limit_requests : bool</span>
+<span class="sd">            Whether to apply a rate limiter to the requests. (default True)</span>
+<span class="sd">        rate_limiter : callable</span>
+<span class="sd">            A :class:`stravalib.util.limiter.RateLimiter&#39; object to use.</span>
+<span class="sd">            If not specified (and rate_limit_requests is True), then</span>
+<span class="sd">            :class:`stravalib.util.limiter.DefaultRateLimiter&#39; will be used.</span>
+<span class="sd">        requests_session : requests.Session() object</span>
+<span class="sd">            (Optional) pass request session object.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
@@ -218,7 +235,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="n">ApiV3</span><span class="p">(</span><span class="n">access_token</span><span class="o">=</span><span class="n">access_token</span><span class="p">,</span>
                               <span class="n">requests_session</span><span class="o">=</span><span class="n">requests_session</span><span class="p">,</span>
-                              <span class="n">rate_limiter</span><span class="o">=</span><span class="n">rate_limiter</span><span class="p">)</span>
+                              <span class="n">rate_limiter</span><span class="o">=</span><span class="n">rate_limiter</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -234,7 +251,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">access_token</span> <span class="o">=</span> <span class="n">v</span>
 
-<div class="viewcode-block" id="Client.authorization_url"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.authorization_url">[docs]</a>    <span class="k">def</span> <span class="nf">authorization_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.authorization_url"><a class="viewcode-back" href="../../reference/api/stravalib.Client.authorization_url.html#stravalib.client.Client.authorization_url">[docs]</a>    <span class="k">def</span> <span class="nf">authorization_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                           <span class="n">client_id</span><span class="p">,</span>
                           <span class="n">redirect_uri</span><span class="p">,</span>
                           <span class="n">approval_prompt</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
@@ -271,7 +288,7 @@
                                                <span class="n">approval_prompt</span><span class="o">=</span><span class="n">approval_prompt</span><span class="p">,</span>
                                                <span class="n">scope</span><span class="o">=</span><span class="n">scope</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.exchange_code_for_token"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.exchange_code_for_token">[docs]</a>    <span class="k">def</span> <span class="nf">exchange_code_for_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.exchange_code_for_token"><a class="viewcode-back" href="../../reference/api/stravalib.Client.exchange_code_for_token.html#stravalib.client.Client.exchange_code_for_token">[docs]</a>    <span class="k">def</span> <span class="nf">exchange_code_for_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Exchange the temporary authorization code (returned with redirect from strava authorization URL)</span>
 <span class="sd">        for a short-lived access token and a refresh token (used to obtain the next access token later on).</span>
@@ -293,7 +310,7 @@
                                                      <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
                                                      <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.refresh_access_token"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.refresh_access_token">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.refresh_access_token"><a class="viewcode-back" href="../../reference/api/stravalib.Client.refresh_access_token.html#stravalib.client.Client.refresh_access_token">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Exchanges the previous refresh token for a short-lived access token and a new</span>
 <span class="sd">        refresh token (used to obtain the next access token later on).</span>
@@ -315,12 +332,12 @@
                                                   <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
                                                   <span class="n">refresh_token</span><span class="o">=</span><span class="n">refresh_token</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.deauthorize"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.deauthorize">[docs]</a>    <span class="k">def</span> <span class="nf">deauthorize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.deauthorize"><a class="viewcode-back" href="../../reference/api/stravalib.Client.deauthorize.html#stravalib.client.Client.deauthorize">[docs]</a>    <span class="k">def</span> <span class="nf">deauthorize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deauthorize the application. This causes the application to be removed</span>
 <span class="sd">        from the athlete&#39;s &quot;My Apps&quot; settings page.</span>
 
-<span class="sd">        See http://strava.github.io/api/v3/oauth/#deauthorization</span>
+<span class="sd">        https://developers.strava.com/docs/authentication/#deauthorization</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;oauth/deauthorize&quot;</span><span class="p">)</span></div>
 
@@ -341,11 +358,11 @@
 
         <span class="k">return</span> <span class="n">calendar</span><span class="o">.</span><span class="n">timegm</span><span class="p">(</span><span class="n">activity_datetime</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
 
-<div class="viewcode-block" id="Client.get_activities"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activities"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activities.html#stravalib.client.Client.get_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get activities for authenticated user sorted by newest first.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/activities/</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities</span>
 
 
 <span class="sd">        :param before: Result will start with activities whose start date is</span>
@@ -379,15 +396,17 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_athlete"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="c1"># TODO: Doble check these endpoint doc URLs are correct</span>
+<div class="viewcode-block" id="Client.get_athlete"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete.html#stravalib.client.Client.get_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the specified athlete; if athlete_id is None then retrieves a</span>
 <span class="sd">        detail-level representation of currently authenticated athlete;</span>
 <span class="sd">        otherwise summary-level representation returned of athlete.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/athlete/#get-details</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Athletes</span>
 
-<span class="sd">        http://strava.github.io/api/v3/athlete/#get-another-details</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Athletes-getLoggedInAthlete</span>
 
 <span class="sd">        :return: The athlete model object.</span>
 <span class="sd">        :rtype: :class:`stravalib.model.Athlete`</span>
@@ -402,11 +421,12 @@
 
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Athlete</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_athlete_friends"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_athlete_friends">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_friends</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># TODO: this endpoint was removed so do we want to remove the URL altogether?</span>
+<div class="viewcode-block" id="Client.get_athlete_friends"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete_friends.html#stravalib.client.Client.get_athlete_friends">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_friends</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets friends for current (or specified) athlete.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/follow/#friends</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-models-DetailedAthlete</span>
 
 <span class="sd">        :param: athlete_id</span>
 <span class="sd">        :type: athlete_id: int</span>
@@ -435,7 +455,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Updates the properties of the authorized athlete.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/athlete/#update</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Athletes-updateLoggedInAthlete</span>
 
 <span class="sd">        :param city: City the athlete lives in</span>
 <span class="sd">        :param state: State the athlete lives in</span>
@@ -460,8 +480,6 @@
 <div class="viewcode-block" id="Client.get_athlete_followers"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_athlete_followers">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_followers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets followers for current (or specified) athlete.</span>
-
-<span class="sd">        http://strava.github.io/api/v3/follow/#followers</span>
 
 <span class="sd">        :param: athlete_id</span>
 <span class="sd">        :type athlete_id: int</span>
@@ -491,7 +509,7 @@
 <span class="sd">        Retrieve the athletes who both the authenticated user and the indicated</span>
 <span class="sd">         athlete are following.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/follow/#both</span>
+<span class="sd">        This endpoint was removed by Strava in Jan 2018.</span>
 
 <span class="sd">        :param athlete_id: The ID of the other athlete (for follower intersection with current athlete)</span>
 <span class="sd">        :type athlete_id: int</span>
@@ -513,13 +531,12 @@
         <span class="c1">#                               result_fetcher=result_fetcher,</span>
         <span class="c1">#                               limit=limit)</span>
 
+    <span class="c1"># TODO: Can&#39;t find this in the api documentation either. Does it still work?</span>
 <div class="viewcode-block" id="Client.get_athlete_koms"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_athlete_koms">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_koms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets Q/KOMs/CRs for specified athlete.</span>
 
 <span class="sd">        KOMs are returned as `stravalib.model.SegmentEffort` objects.</span>
-
-<span class="sd">        http://strava.github.io/api/v3/athlete/#koms</span>
 
 <span class="sd">        :param athlete_id: The ID of the athlete.</span>
 <span class="sd">        :type athlete_id: int</span>
@@ -546,7 +563,7 @@
 <span class="sd">        If it is left blank two requests will be made - first to get the</span>
 <span class="sd">        authenticated athlete&#39;s id and second to get the Stats.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/athlete/#stats</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Athletes-getStats</span>
 
 <span class="sd">        :return: A model containing the Stats</span>
 <span class="sd">        :rtype: :py:class:`stravalib.model.AthleteStats`</span>
@@ -564,7 +581,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List the clubs for the currently authenticated athlete.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/clubs/#get-athletes</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Clubs-getLoggedInAthleteClubs</span>
 
 <span class="sd">        :return: A list of :class:`stravalib.model.Club`</span>
 <span class="sd">        :rtype: :py:class:`list`</span>
@@ -596,7 +613,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a specific club object.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/clubs/#get-details</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Clubs-getClubById</span>
 
 <span class="sd">        :param club_id: The ID of the club to fetch.</span>
 <span class="sd">        :type club_id: int</span>
@@ -610,7 +627,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the member objects for specified club ID.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/clubs/#get-members</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Clubs-getClubMembersById</span>
 
 <span class="sd">        :param club_id: The numeric ID for the club.</span>
 <span class="sd">        :type club_id: int</span>
@@ -632,7 +649,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the activities associated with specified club.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/clubs/#get-activities</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Clubs-getClubActivitiesById</span>
 
 <span class="sd">        :param club_id: The numeric ID for the club.</span>
 <span class="sd">        :type club_id: int</span>
@@ -656,7 +673,7 @@
 
 <span class="sd">        Will be detail-level if owned by authenticated user; otherwise summary-level.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/activities/#get-details</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Clubs-getClubActivitiesById</span>
 
 <span class="sd">        :param activity_id: The ID of activity to fetch.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -673,9 +690,7 @@
 
 <div class="viewcode-block" id="Client.get_friend_activities"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_friend_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_friend_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets activities for friends (of currently authenticated athlete).</span>
-
-<span class="sd">        http://strava.github.io/api/v3/activities/#get-feed</span>
+<span class="sd">        DEPRECATED This endpoint was removed by Strava in Jan 2018.</span>
 
 <span class="sd">        :param limit: Maximum number of activities to return. (default unlimited)</span>
 <span class="sd">        :type limit: int</span>
@@ -751,7 +766,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Updates the properties of a specific activity.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/activities/#put-updates</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities-updateActivityById</span>
 
 <span class="sd">        :param activity_id: The ID of the activity to update.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -811,7 +826,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uploads a GPS file (tcx, gpx) to create a new activity for current athlete.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/athlete/#get-details</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Uploads-createUpload</span>
 
 <span class="sd">        :param activity_file: The file object to upload or file contents.</span>
 <span class="sd">        :type activity_file: file or str</span>
@@ -871,11 +886,12 @@
 
         <span class="k">return</span> <span class="n">ActivityUploader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">initial_response</span><span class="p">)</span></div>
 
+    <span class="c1"># TODO: I don&#39;t think this is the correct link but can&#39;t find it in the docs</span>
 <div class="viewcode-block" id="Client.delete_activity"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.delete_activity">[docs]</a>    <span class="k">def</span> <span class="nf">delete_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deletes the specified activity.</span>
 
-<span class="sd">        https://strava.github.io/api/v3/activities/#delete</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities</span>
 
 <span class="sd">        :param activity_id: The activity to delete.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -888,7 +904,7 @@
 
 <span class="sd">        Requires premium account.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/activities/#zones</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId</span>
 
 <span class="sd">        :param activity_id: The activity for which to zones.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -904,7 +920,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the comments for an activity.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/comments/#list</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities-getCommentsByActivityId</span>
 
 <span class="sd">        :param activity_id: The activity for which to fetch comments.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -930,7 +946,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the kudos for an activity.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/kudos/#list</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities-getKudoersByActivityId</span>
 
 <span class="sd">        :param activity_id: The activity for which to fetch kudos.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -950,11 +966,12 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
+    <span class="c1"># TODO not sure this is the correct api doc link - couldn&#39;t find &quot;photos&quot;</span>
 <div class="viewcode-block" id="Client.get_activity_photos"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_activity_photos">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_photos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">only_instagram</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the photos from an activity.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/photos/</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities</span>
 
 <span class="sd">        :param activity_id: The activity for which to fetch photos.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -989,7 +1006,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the laps from an activity.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/activities/#laps</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Activities-getLapsByActivityId</span>
 
 <span class="sd">        :param activity_id: The activity for which to fetch laps.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -1007,9 +1024,7 @@
 
 <div class="viewcode-block" id="Client.get_related_activities"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_related_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_related_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the activities that were matched as &#39;with this activity&#39;.</span>
-
-<span class="sd">        http://strava.github.io/api/v3/activities/#get-related</span>
+<span class="sd">        Deprecated. This endpoint was removed by strava in Jan 2018.</span>
 
 <span class="sd">        :param activity_id: The activity for which to fetch related activities.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -1033,7 +1048,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get details for an item of gear.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/gear/#show</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Gears</span>
 
 <span class="sd">        :param gear_id: The gear id.</span>
 <span class="sd">        :type gear_id: str</span>
@@ -1047,7 +1062,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a specific segment effort by ID.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/efforts/#retrieve</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-SegmentEfforts</span>
 
 <span class="sd">        :param effort_id: The id of associated effort to fetch.</span>
 <span class="sd">        :type effort_id: int</span>
@@ -1062,7 +1077,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets a specific segment by ID.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/segments/#retrieve</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById</span>
 
 <span class="sd">        :param segment_id: The segment to fetch.</span>
 <span class="sd">        :type segment_id: int</span>
@@ -1078,7 +1093,7 @@
 <span class="sd">        Returns a summary representation of the segments starred by the</span>
 <span class="sd">         authenticated user. Pagination is supported.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/segments/#starred</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments</span>
 
 <span class="sd">        :param limit: (optional), limit number of starred segments returned.</span>
 <span class="sd">        :type limit: int</span>
@@ -1099,12 +1114,14 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
+    <span class="c1"># TODO: i&#39;m not sure what the diff is between this method and the one above</span>
+    <span class="c1"># So i used the SAME API doc link for both. may need to revisit</span>
 <div class="viewcode-block" id="Client.get_athlete_starred_segments"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_athlete_starred_segments">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_starred_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a summary representation of the segments starred by the</span>
 <span class="sd">         specified athlete. Pagination is supported.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/segments/#starred</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments</span>
 
 <span class="sd">        :param athlete_id: The ID of the athlete.</span>
 <span class="sd">        :type athlete_id: int</span>
@@ -1124,13 +1141,12 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
+    <span class="c1"># TODO find the new equavilent link in the strava docs</span>
 <div class="viewcode-block" id="Client.get_segment_leaderboard"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_segment_leaderboard">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_leaderboard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">age_group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weight_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                 <span class="n">following</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">club_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeframe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top_results_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                 <span class="n">page</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context_entries</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the leaderboard for a segment.</span>
-
-<span class="sd">        http://strava.github.io/api/v3/segments/#leaderboard</span>
 
 <span class="sd">        Note that by default Strava will return the top 10 results, and if the current user has ridden</span>
 <span class="sd">        that segment, the current user&#39;s result along with the two results above in rank and the two</span>
@@ -1240,7 +1256,7 @@
 <span class="sd">        for a segment in San Francisco, CA can be fetched using</span>
 <span class="sd">        2014-01-01T00:00:00Z and 2014-01-01T23:59:59Z.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/segments/#all_efforts</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-SegmentEfforts-getEffortsBySegmentId</span>
 
 <span class="sd">        :param segment_id: ID of the segment.</span>
 <span class="sd">        :type segment_id: param</span>
@@ -1292,7 +1308,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns an array of up to 10 segments.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/segments/#explore</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Segments-exploreSegments</span>
 
 <span class="sd">        :param bounds: list of bounding box corners lat/lon [sw.lat, sw.lng, ne.lat, ne.lng] (south,west,north,east)</span>
 <span class="sd">        :type bounds: list of 4 floats or list of 2 (lat,lon) tuples</span>
@@ -1335,11 +1351,11 @@
 <div class="viewcode-block" id="Client.get_activity_streams"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_activity_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                              <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">series_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns an streams for an activity.</span>
+<span class="sd">        Returns a stream for an activity.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/streams/#activity</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams</span>
 
-<span class="sd">        Streams represent the raw data of the uploaded file. External</span>
+<span class="sd">        Streams represent the raw spatial data for the uploaded file. External</span>
 <span class="sd">        applications may only access this information for activities owned</span>
 <span class="sd">        by the authenticated athlete.</span>
 
@@ -1349,8 +1365,6 @@
 
 <span class="sd">        Streams types are: time, latlng, distance, altitude, velocity_smooth,</span>
 <span class="sd">                           heartrate, cadence, watts, temp, moving, grade_smooth</span>
-
-<span class="sd">        http://strava.github.io/api/v3/streams/#activity</span>
 
 <span class="sd">        :param activity_id: The ID of activity.</span>
 <span class="sd">        :type activity_id: int</span>
@@ -1403,7 +1417,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns an streams for an effort.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/streams/#effort</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Streams-getSegmentEffortStreams</span>
 
 <span class="sd">        Streams represent the raw data of the uploaded file. External</span>
 <span class="sd">        applications may only access this information for activities owned</span>
@@ -1415,8 +1429,6 @@
 
 <span class="sd">        Streams types are: time, latlng, distance, altitude, velocity_smooth,</span>
 <span class="sd">                           heartrate, cadence, watts, temp, moving, grade_smooth</span>
-
-<span class="sd">        http://strava.github.io/api/v3/streams/#effort</span>
 
 <span class="sd">        :param effort_id: The ID of effort.</span>
 <span class="sd">        :type effort_id: int</span>
@@ -1467,7 +1479,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns an streams for a segment.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/streams/#segment</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams</span>
 
 <span class="sd">        Streams represent the raw data of the uploaded file. External</span>
 <span class="sd">        applications may only access this information for activities owned</span>
@@ -1479,8 +1491,6 @@
 
 <span class="sd">        Streams types are: time, latlng, distance, altitude, velocity_smooth,</span>
 <span class="sd">                           heartrate, cadence, watts, temp, moving, grade_smooth</span>
-
-<span class="sd">        http://strava.github.io/api/v3/streams/#effort</span>
 
 <span class="sd">        :param segment_id: The ID of segment.</span>
 <span class="sd">        :type segment_id: int</span>
@@ -1527,9 +1537,9 @@
 
 <div class="viewcode-block" id="Client.get_running_race"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.get_running_race">[docs]</a>    <span class="k">def</span> <span class="nf">get_running_race</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">race_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets a running race for a given identifier.t</span>
+<span class="sd">        Gets a running race for a given identifier.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/running_races/#list</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-models-RunningRace</span>
 
 <span class="sd">        :param race_id: id for the race</span>
 
@@ -1543,7 +1553,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets a running races for a given year.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/running_races/#list</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-RunningRaces-getRunningRaces</span>
 
 <span class="sd">        :param year: year for the races (default current)</span>
 
@@ -1567,7 +1577,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the routes list for an authenticated user.</span>
 
-<span class="sd">        http://strava.github.io/api/v3/routes/#list</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Routes-getRoutesByAthleteId</span>
 
 <span class="sd">        :param athlete_id: id for the</span>
 
@@ -1594,7 +1604,7 @@
 
 <span class="sd">        Will be detail-level if owned by authenticated user; otherwise summary-level.</span>
 
-<span class="sd">        https://strava.github.io/api/v3/routes/#retreive</span>
+<span class="sd">        https://developers.strava.com/docs/reference/#api-Routes-getRouteById</span>
 
 <span class="sd">        :param route_id: The ID of route to fetch.</span>
 <span class="sd">        :type route_id: int</span>
@@ -1633,12 +1643,12 @@
         <span class="c1"># Pack streams into dictionary</span>
         <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">type</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">streams</span><span class="p">}</span></div>
 
+    <span class="c1"># TODO: removed old link to create a subscription but can&#39;t find new equiv</span>
+    <span class="c1"># in current strava docs</span>
 <div class="viewcode-block" id="Client.create_subscription"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.create_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">create_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">callback_url</span><span class="p">,</span>
                             <span class="n">verify_token</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">Subscription</span><span class="o">.</span><span class="n">VERIFY_TOKEN_DEFAULT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a webhook event subscription.</span>
-
-<span class="sd">        http://strava.github.io/api/partner/v3/events/#create-a-subscription</span>
 
 <span class="sd">        :param client_id: application&#39;s ID, obtained during registration</span>
 <span class="sd">        :type client_id: int</span>
@@ -1688,11 +1698,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">SubscriptionUpdate</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
+    <span class="c1"># TODO can&#39;t find a api doc link here so just removed old link.</span>
 <div class="viewcode-block" id="Client.list_subscriptions"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.list_subscriptions">[docs]</a>    <span class="k">def</span> <span class="nf">list_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List current webhook event subscriptions in place for the current application.</span>
-
-<span class="sd">        http://strava.github.io/api/partner/v3/events/#list-push-subscriptions</span>
 
 <span class="sd">        :param client_id: application&#39;s ID, obtained during registration</span>
 <span class="sd">        :type client_id: int</span>
@@ -1710,11 +1719,10 @@
                                       <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">)</span></div>
 
+    <span class="c1"># TODO can&#39;t find a api doc link here so just removed old link.</span>
 <div class="viewcode-block" id="Client.delete_subscription"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.Client.delete_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">delete_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subscription_id</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Unsubscribe from webhook events for an existing subscription.</span>
-
-<span class="sd">        http://strava.github.io/api/partner/v3/events/#delete-a-subscription</span>
 
 <span class="sd">        :param subscription_id: ID of subscription to remove.</span>
 <span class="sd">        :type subscription_id: int</span>

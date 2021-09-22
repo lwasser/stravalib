@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoDataFrame &#8212; stravalib 0.6.0 documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="stravalib.Client" href="api/stravalib.Client.html" />
+    <link rel="prev" title="API Reference" href="../reference.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">stravalib</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Home
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../get-started/index.html">
+  Get Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../contributing.html">
+  Contributing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../changelog.html">
+  Change Log
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../reference.html">
+  Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api/stravalib.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API 2
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Client
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.html">
+     stravalib.Client
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.authorization_url.html">
+     stravalib.Client.authorization_url
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.exchange_code_for_token.html">
+     stravalib.Client.exchange_code_for_token
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.refresh_access_token.html">
+     stravalib.Client.refresh_access_token
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.deauthorize.html">
+     stravalib.Client.deauthorize
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.get_activities.html">
+     stravalib.Client.get_activities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.get_athlete.html">
+     stravalib.Client.get_athlete
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.get_athlete_friends.html">
+     stravalib.Client.get_athlete_friends
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constructor">
+   Constructor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-methods-and-attributes">
+   General methods and attributes
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="geodataframe">
+<h1>GeoDataFrame<a class="headerlink" href="#geodataframe" title="Permalink to this headline">¶</a></h1>
+<p>A <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> is a tabular data structure that contains a column
+which contains a <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> storing geometry.</p>
+<div class="section" id="constructor">
+<h2>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.html#stravalib.Client" title="stravalib.Client"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client</span></code></a>([access_token, rate_limit_requests, ...])</p></td>
+<td><p>Main client class for interacting with the exposed Strava v3 API methods.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="general-methods-and-attributes">
+<h2>General methods and attributes<a class="headerlink" href="#general-methods-and-attributes" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.authorization_url.html#stravalib.Client.authorization_url" title="stravalib.Client.authorization_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.authorization_url</span></code></a>(client_id, redirect_uri)</p></td>
+<td><p>Get the URL needed to authorize your application to access a Strava user's information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/stravalib.Client.exchange_code_for_token.html#stravalib.Client.exchange_code_for_token" title="stravalib.Client.exchange_code_for_token"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.exchange_code_for_token</span></code></a>(client_id, ...)</p></td>
+<td><p>Exchange the temporary authorization code (returned with redirect from strava authorization URL) for a short-lived access token and a refresh token (used to obtain the next access token later on).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.refresh_access_token.html#stravalib.Client.refresh_access_token" title="stravalib.Client.refresh_access_token"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.refresh_access_token</span></code></a>(client_id, ...)</p></td>
+<td><p>Exchanges the previous refresh token for a short-lived access token and a new refresh token (used to obtain the next access token later on).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/stravalib.Client.deauthorize.html#stravalib.Client.deauthorize" title="stravalib.Client.deauthorize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.deauthorize</span></code></a>()</p></td>
+<td><p>Deauthorize the application.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.get_activities.html#stravalib.Client.get_activities" title="stravalib.Client.get_activities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_activities</span></code></a>([before, after, limit])</p></td>
+<td><p>Get activities for authenticated user sorted by newest first.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/stravalib.Client.get_athlete.html#stravalib.Client.get_athlete" title="stravalib.Client.get_athlete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_athlete</span></code></a>([athlete_id])</p></td>
+<td><p>Gets the specified athlete; if athlete_id is None then retrieves a detail-level representation of currently authenticated athlete; otherwise summary-level representation returned of athlete.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.get_athlete_friends.html#stravalib.Client.get_athlete_friends" title="stravalib.Client.get_athlete_friends"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_athlete_friends</span></code></a>([athlete_id, limit])</p></td>
+<td><p>Gets friends for current (or specified) athlete.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../reference.html" title="previous page">API Reference</a>
+    <a class='right-next' id="next-link" href="api/stravalib.Client.html" title="next page">stravalib.Client</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Hans Lellelid.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

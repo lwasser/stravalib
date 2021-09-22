@@ -93,9 +93,21 @@
  </a>
 </li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../reference.html">
+  Reference
+ </a>
+</li>
+
 <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="stravalib.html">
   API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API 2
  </a>
 </li>
 
@@ -224,6 +236,11 @@
 <p>Main client class for interacting with the exposed Strava v3 API methods.</p>
 <p>This class can be instantiated without an access_token when performing authentication;
 however, most methods will require a valid access token.</p>
+<dl class="simple">
+<dt>access_token<span class="classifier">str</span></dt><dd><p>The token that provides access to a specific Strava account.  If empty, assume that this
+account is not yet authenticated.</p>
+</dd>
+</dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.client.Client.access_token">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">access_token</span></span><a class="headerlink" href="#stravalib.client.Client.access_token" title="Permalink to this definition">¶</a></dt>
@@ -308,14 +325,14 @@ and expires_at (number of seconds since Epoch when the provided access token wil
 <span class="sig-name descname"><span class="pre">deauthorize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.deauthorize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.deauthorize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deauthorize the application. This causes the application to be removed
 from the athlete’s “My Apps” settings page.</p>
-<p>See <a class="reference external" href="http://strava.github.io/api/v3/oauth/#deauthorization">http://strava.github.io/api/v3/oauth/#deauthorization</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/authentication/#deauthorization">https://developers.strava.com/docs/authentication/#deauthorization</a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="stravalib.client.Client.get_activities">
 <span class="sig-name descname"><span class="pre">get_activities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get activities for authenticated user sorted by newest first.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/activities/">http://strava.github.io/api/v3/activities/</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities">https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -341,8 +358,8 @@ specified value. (UTC)</p></li>
 <dd><p>Gets the specified athlete; if athlete_id is None then retrieves a
 detail-level representation of currently authenticated athlete;
 otherwise summary-level representation returned of athlete.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/athlete/#get-details">http://strava.github.io/api/v3/athlete/#get-details</a></p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/athlete/#get-another-details">http://strava.github.io/api/v3/athlete/#get-another-details</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Athletes">https://developers.strava.com/docs/reference/#api-Athletes</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Athletes-getLoggedInAthlete">https://developers.strava.com/docs/reference/#api-Athletes-getLoggedInAthlete</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The athlete model object.</p>
@@ -357,7 +374,7 @@ otherwise summary-level representation returned of athlete.</p>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_athlete_friends">
 <span class="sig-name descname"><span class="pre">get_athlete_friends</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">athlete_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_athlete_friends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_athlete_friends" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets friends for current (or specified) athlete.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/follow/#friends">http://strava.github.io/api/v3/follow/#friends</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-models-DetailedAthlete">https://developers.strava.com/docs/reference/#api-models-DetailedAthlete</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Param</dt>
 <dd class="field-odd"><p>athlete_id</p>
@@ -381,7 +398,7 @@ otherwise summary-level representation returned of athlete.</p>
 <dt class="sig sig-object py" id="stravalib.client.Client.update_athlete">
 <span class="sig-name descname"><span class="pre">update_athlete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.update_athlete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.update_athlete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the properties of the authorized athlete.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/athlete/#update">http://strava.github.io/api/v3/athlete/#update</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Athletes-updateLoggedInAthlete">https://developers.strava.com/docs/reference/#api-Athletes-updateLoggedInAthlete</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -405,7 +422,6 @@ otherwise summary-level representation returned of athlete.</p>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_athlete_followers">
 <span class="sig-name descname"><span class="pre">get_athlete_followers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">athlete_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_athlete_followers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_athlete_followers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets followers for current (or specified) athlete.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/follow/#followers">http://strava.github.io/api/v3/follow/#followers</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Param</dt>
 <dd class="field-odd"><p>athlete_id</p>
@@ -429,7 +445,7 @@ otherwise summary-level representation returned of athlete.</p>
 <dt>Retrieve the athletes who both the authenticated user and the indicated</dt><dd><p>athlete are following.</p>
 </dd>
 </dl>
-<p><a class="reference external" href="http://strava.github.io/api/v3/follow/#both">http://strava.github.io/api/v3/follow/#both</a></p>
+<p>This endpoint was removed by Strava in Jan 2018.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -451,7 +467,6 @@ otherwise summary-level representation returned of athlete.</p>
 <span class="sig-name descname"><span class="pre">get_athlete_koms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">athlete_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_athlete_koms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_athlete_koms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets Q/KOMs/CRs for specified athlete.</p>
 <p>KOMs are returned as <cite>stravalib.model.SegmentEffort</cite> objects.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/athlete/#koms">http://strava.github.io/api/v3/athlete/#koms</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -475,7 +490,7 @@ otherwise summary-level representation returned of athlete.</p>
 athlete_id must be the id of the authenticated athlete or left blank.
 If it is left blank two requests will be made - first to get the
 authenticated athlete’s id and second to get the Stats.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/athlete/#stats">http://strava.github.io/api/v3/athlete/#stats</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Athletes-getStats">https://developers.strava.com/docs/reference/#api-Athletes-getStats</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A model containing the Stats</p>
@@ -490,7 +505,7 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_athlete_clubs">
 <span class="sig-name descname"><span class="pre">get_athlete_clubs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_athlete_clubs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_athlete_clubs" title="Permalink to this definition">¶</a></dt>
 <dd><p>List the clubs for the currently authenticated athlete.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/clubs/#get-athletes">http://strava.github.io/api/v3/clubs/#get-athletes</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Clubs-getLoggedInAthleteClubs">https://developers.strava.com/docs/reference/#api-Clubs-getLoggedInAthleteClubs</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A list of <a class="reference internal" href="stravalib.model.html#stravalib.model.Club" title="stravalib.model.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Club</span></code></a></p>
@@ -529,7 +544,7 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_club">
 <span class="sig-name descname"><span class="pre">get_club</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">club_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_club"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_club" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a specific club object.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/clubs/#get-details">http://strava.github.io/api/v3/clubs/#get-details</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Clubs-getClubById">https://developers.strava.com/docs/reference/#api-Clubs-getClubById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of the club to fetch.</p>
@@ -544,7 +559,7 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_club_members">
 <span class="sig-name descname"><span class="pre">get_club_members</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">club_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_club_members"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_club_members" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the member objects for specified club ID.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/clubs/#get-members">http://strava.github.io/api/v3/clubs/#get-members</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Clubs-getClubMembersById">https://developers.strava.com/docs/reference/#api-Clubs-getClubMembersById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -565,7 +580,7 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_club_activities">
 <span class="sig-name descname"><span class="pre">get_club_activities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">club_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_club_activities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_club_activities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the activities associated with specified club.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/clubs/#get-activities">http://strava.github.io/api/v3/clubs/#get-activities</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Clubs-getClubActivitiesById">https://developers.strava.com/docs/reference/#api-Clubs-getClubActivitiesById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -587,7 +602,7 @@ authenticated athlete’s id and second to get the Stats.</p>
 <span class="sig-name descname"><span class="pre">get_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_all_efforts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets specified activity.</p>
 <p>Will be detail-level if owned by authenticated user; otherwise summary-level.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/activities/#get-details">http://strava.github.io/api/v3/activities/#get-details</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Clubs-getClubActivitiesById">https://developers.strava.com/docs/reference/#api-Clubs-getClubActivitiesById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -605,8 +620,7 @@ available to the owner of the activty.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="stravalib.client.Client.get_friend_activities">
 <span class="sig-name descname"><span class="pre">get_friend_activities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_friend_activities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_friend_activities" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets activities for friends (of currently authenticated athlete).</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/activities/#get-feed">http://strava.github.io/api/v3/activities/#get-feed</a></p>
+<dd><p>DEPRECATED This endpoint was removed by Strava in Jan 2018.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of activities to return. (default unlimited)</p>
@@ -647,7 +661,7 @@ windsurf, workout, snowboard, snowshoe</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.update_activity">
 <span class="sig-name descname"><span class="pre">update_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activity_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">private</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gear_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.update_activity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.update_activity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the properties of a specific activity.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/activities/#put-updates">http://strava.github.io/api/v3/activities/#put-updates</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-updateActivityById">https://developers.strava.com/docs/reference/#api-Activities-updateActivityById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -679,7 +693,7 @@ windsurf, workout, snowboard, snowshoe</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.upload_activity">
 <span class="sig-name descname"><span class="pre">upload_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activity_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">private</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.upload_activity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.upload_activity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uploads a GPS file (tcx, gpx) to create a new activity for current athlete.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/athlete/#get-details">http://strava.github.io/api/v3/athlete/#get-details</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Uploads-createUpload">https://developers.strava.com/docs/reference/#api-Uploads-createUpload</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -703,7 +717,7 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <dt class="sig sig-object py" id="stravalib.client.Client.delete_activity">
 <span class="sig-name descname"><span class="pre">delete_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.delete_activity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.delete_activity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes the specified activity.</p>
-<p><a class="reference external" href="https://strava.github.io/api/v3/activities/#delete">https://strava.github.io/api/v3/activities/#delete</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities">https://developers.strava.com/docs/reference/#api-Activities</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity to delete.</p>
@@ -716,7 +730,7 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <span class="sig-name descname"><span class="pre">get_activity_zones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activity_zones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activity_zones" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets zones for activity.</p>
 <p>Requires premium account.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/activities/#zones">http://strava.github.io/api/v3/activities/#zones</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId">https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to zones.</p>
@@ -734,7 +748,7 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <dt class="sig sig-object py" id="stravalib.client.Client.get_activity_comments">
 <span class="sig-name descname"><span class="pre">get_activity_comments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activity_comments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activity_comments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the comments for an activity.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/comments/#list">http://strava.github.io/api/v3/comments/#list</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-getCommentsByActivityId">https://developers.strava.com/docs/reference/#api-Activities-getCommentsByActivityId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -756,7 +770,7 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <dt class="sig sig-object py" id="stravalib.client.Client.get_activity_kudos">
 <span class="sig-name descname"><span class="pre">get_activity_kudos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activity_kudos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activity_kudos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the kudos for an activity.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/kudos/#list">http://strava.github.io/api/v3/kudos/#list</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-getKudoersByActivityId">https://developers.strava.com/docs/reference/#api-Activities-getKudoersByActivityId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -777,7 +791,7 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <dt class="sig sig-object py" id="stravalib.client.Client.get_activity_photos">
 <span class="sig-name descname"><span class="pre">get_activity_photos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_instagram</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activity_photos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activity_photos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the photos from an activity.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/photos/">http://strava.github.io/api/v3/photos/</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities">https://developers.strava.com/docs/reference/#api-Activities</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -800,7 +814,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_activity_laps">
 <span class="sig-name descname"><span class="pre">get_activity_laps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activity_laps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activity_laps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the laps from an activity.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/activities/#laps">http://strava.github.io/api/v3/activities/#laps</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-getLapsByActivityId">https://developers.strava.com/docs/reference/#api-Activities-getLapsByActivityId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to fetch laps.</p>
@@ -817,8 +831,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="stravalib.client.Client.get_related_activities">
 <span class="sig-name descname"><span class="pre">get_related_activities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_related_activities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_related_activities" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the activities that were matched as ‘with this activity’.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/activities/#get-related">http://strava.github.io/api/v3/activities/#get-related</a></p>
+<dd><p>Deprecated. This endpoint was removed by strava in Jan 2018.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to fetch related activities.</p>
@@ -836,7 +849,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_gear">
 <span class="sig-name descname"><span class="pre">get_gear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gear_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_gear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_gear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get details for an item of gear.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/gear/#show">http://strava.github.io/api/v3/gear/#show</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Gears">https://developers.strava.com/docs/reference/#api-Gears</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>gear_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The gear id.</p>
@@ -854,7 +867,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_segment_effort">
 <span class="sig-name descname"><span class="pre">get_segment_effort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effort_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_segment_effort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_segment_effort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a specific segment effort by ID.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/efforts/#retrieve">http://strava.github.io/api/v3/efforts/#retrieve</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-SegmentEfforts">https://developers.strava.com/docs/reference/#api-SegmentEfforts</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>effort_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The id of associated effort to fetch.</p>
@@ -872,7 +885,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_segment">
 <span class="sig-name descname"><span class="pre">get_segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_segment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_segment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a specific segment by ID.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/segments/#retrieve">http://strava.github.io/api/v3/segments/#retrieve</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById">https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>segment_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The segment to fetch.</p>
@@ -893,7 +906,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dt>Returns a summary representation of the segments starred by the</dt><dd><p>authenticated user. Pagination is supported.</p>
 </dd>
 </dl>
-<p><a class="reference external" href="http://strava.github.io/api/v3/segments/#starred">http://strava.github.io/api/v3/segments/#starred</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments">https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional), limit number of starred segments returned.</p>
@@ -914,7 +927,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dt>Returns a summary representation of the segments starred by the</dt><dd><p>specified athlete. Pagination is supported.</p>
 </dd>
 </dl>
-<p><a class="reference external" href="http://strava.github.io/api/v3/segments/#starred">http://strava.github.io/api/v3/segments/#starred</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments">https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -935,7 +948,6 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_segment_leaderboard">
 <span class="sig-name descname"><span class="pre">get_segment_leaderboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">following</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">club_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_results_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_entries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_segment_leaderboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_segment_leaderboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the leaderboard for a segment.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/segments/#leaderboard">http://strava.github.io/api/v3/segments/#leaderboard</a></p>
 <p>Note that by default Strava will return the top 10 results, and if the current user has ridden
 that segment, the current user’s result along with the two results above in rank and the two
 results below will be included.  The top X results can be configured by setting the top_results_limit
@@ -983,7 +995,7 @@ filtering is done over local time for the segment, so there is no need
 for timezone conversion. For example, all efforts on Jan. 1st, 2014
 for a segment in San Francisco, CA can be fetched using
 2014-01-01T00:00:00Z and 2014-01-01T23:59:59Z.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/segments/#all_efforts">http://strava.github.io/api/v3/segments/#all_efforts</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-SegmentEfforts-getEffortsBySegmentId">https://developers.strava.com/docs/reference/#api-SegmentEfforts-getEffortsBySegmentId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1011,7 +1023,7 @@ Either as ISO8601 or datetime object</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.explore_segments">
 <span class="sig-name descname"><span class="pre">explore_segments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activity_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_cat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.explore_segments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.explore_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an array of up to 10 segments.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/segments/#explore">http://strava.github.io/api/v3/segments/#explore</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Segments-exploreSegments">https://developers.strava.com/docs/reference/#api-Segments-exploreSegments</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1033,9 +1045,9 @@ Either as ISO8601 or datetime object</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="stravalib.client.Client.get_activity_streams">
 <span class="sig-name descname"><span class="pre">get_activity_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">series_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_activity_streams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_activity_streams" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an streams for an activity.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/streams/#activity">http://strava.github.io/api/v3/streams/#activity</a></p>
-<p>Streams represent the raw data of the uploaded file. External
+<dd><p>Returns a stream for an activity.</p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams">https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams</a></p>
+<p>Streams represent the raw spatial data for the uploaded file. External
 applications may only access this information for activities owned
 by the authenticated athlete.</p>
 <p>Streams are available in 11 different types. If the stream is not
@@ -1045,7 +1057,6 @@ results.</p>
 <dt>Streams types are: time, latlng, distance, altitude, velocity_smooth,</dt><dd><p>heartrate, cadence, watts, temp, moving, grade_smooth</p>
 </dd>
 </dl>
-<p><a class="reference external" href="http://strava.github.io/api/v3/streams/#activity">http://strava.github.io/api/v3/streams/#activity</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1073,7 +1084,7 @@ reduced.</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_effort_streams">
 <span class="sig-name descname"><span class="pre">get_effort_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effort_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">series_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_effort_streams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_effort_streams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an streams for an effort.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/streams/#effort">http://strava.github.io/api/v3/streams/#effort</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Streams-getSegmentEffortStreams">https://developers.strava.com/docs/reference/#api-Streams-getSegmentEffortStreams</a></p>
 <p>Streams represent the raw data of the uploaded file. External
 applications may only access this information for activities owned
 by the authenticated athlete.</p>
@@ -1084,7 +1095,6 @@ results.</p>
 <dt>Streams types are: time, latlng, distance, altitude, velocity_smooth,</dt><dd><p>heartrate, cadence, watts, temp, moving, grade_smooth</p>
 </dd>
 </dl>
-<p><a class="reference external" href="http://strava.github.io/api/v3/streams/#effort">http://strava.github.io/api/v3/streams/#effort</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1112,7 +1122,7 @@ reduced.</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_segment_streams">
 <span class="sig-name descname"><span class="pre">get_segment_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">series_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_segment_streams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_segment_streams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an streams for a segment.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/streams/#segment">http://strava.github.io/api/v3/streams/#segment</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams">https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams</a></p>
 <p>Streams represent the raw data of the uploaded file. External
 applications may only access this information for activities owned
 by the authenticated athlete.</p>
@@ -1123,7 +1133,6 @@ results.</p>
 <dt>Streams types are: time, latlng, distance, altitude, velocity_smooth,</dt><dd><p>heartrate, cadence, watts, temp, moving, grade_smooth</p>
 </dd>
 </dl>
-<p><a class="reference external" href="http://strava.github.io/api/v3/streams/#effort">http://strava.github.io/api/v3/streams/#effort</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1150,8 +1159,8 @@ reduced.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="stravalib.client.Client.get_running_race">
 <span class="sig-name descname"><span class="pre">get_running_race</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">race_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_running_race"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_running_race" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a running race for a given identifier.t</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/running_races/#list">http://strava.github.io/api/v3/running_races/#list</a></p>
+<dd><p>Gets a running race for a given identifier.</p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-models-RunningRace">https://developers.strava.com/docs/reference/#api-models-RunningRace</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>race_id</strong> – id for the race</p>
@@ -1166,7 +1175,7 @@ reduced.</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_running_races">
 <span class="sig-name descname"><span class="pre">get_running_races</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_running_races"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_running_races" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a running races for a given year.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/running_races/#list">http://strava.github.io/api/v3/running_races/#list</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-RunningRaces-getRunningRaces">https://developers.strava.com/docs/reference/#api-RunningRaces-getRunningRaces</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>year</strong> – year for the races (default current)</p>
@@ -1184,7 +1193,7 @@ reduced.</p></li>
 <dt class="sig sig-object py" id="stravalib.client.Client.get_routes">
 <span class="sig-name descname"><span class="pre">get_routes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">athlete_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_routes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_routes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the routes list for an authenticated user.</p>
-<p><a class="reference external" href="http://strava.github.io/api/v3/routes/#list">http://strava.github.io/api/v3/routes/#list</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Routes-getRoutesByAthleteId">https://developers.strava.com/docs/reference/#api-Routes-getRoutesByAthleteId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1206,7 +1215,7 @@ reduced.</p></li>
 <span class="sig-name descname"><span class="pre">get_route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">route_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.get_route"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.get_route" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets specified route.</p>
 <p>Will be detail-level if owned by authenticated user; otherwise summary-level.</p>
-<p><a class="reference external" href="https://strava.github.io/api/v3/routes/#retreive">https://strava.github.io/api/v3/routes/#retreive</a></p>
+<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Routes-getRouteById">https://developers.strava.com/docs/reference/#api-Routes-getRouteById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>route_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of route to fetch.</p>
@@ -1243,7 +1252,6 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dt class="sig sig-object py" id="stravalib.client.Client.create_subscription">
 <span class="sig-name descname"><span class="pre">create_subscription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'STRAVA'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.create_subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.create_subscription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a webhook event subscription.</p>
-<p><a class="reference external" href="http://strava.github.io/api/partner/v3/events/#create-a-subscription">http://strava.github.io/api/partner/v3/events/#create-a-subscription</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1297,7 +1305,6 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dt class="sig sig-object py" id="stravalib.client.Client.list_subscriptions">
 <span class="sig-name descname"><span class="pre">list_subscriptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.list_subscriptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.list_subscriptions" title="Permalink to this definition">¶</a></dt>
 <dd><p>List current webhook event subscriptions in place for the current application.</p>
-<p><a class="reference external" href="http://strava.github.io/api/partner/v3/events/#list-push-subscriptions">http://strava.github.io/api/partner/v3/events/#list-push-subscriptions</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1318,7 +1325,6 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dt class="sig sig-object py" id="stravalib.client.Client.delete_subscription">
 <span class="sig-name descname"><span class="pre">delete_subscription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscription_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.delete_subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.delete_subscription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsubscribe from webhook events for an existing subscription.</p>
-<p><a class="reference external" href="http://strava.github.io/api/partner/v3/events/#delete-a-subscription">http://strava.github.io/api/partner/v3/events/#delete-a-subscription</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

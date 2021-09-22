@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stravalib.Client &#8212; stravalib 0.6.0 documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="stravalib.Client.authorization_url" href="stravalib.Client.authorization_url.html" />
+    <link rel="prev" title="GeoDataFrame" href="../client.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">stravalib</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  Home
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../get-started/index.html">
+  Get Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../contributing.html">
+  Contributing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../changelog.html">
+  Change Log
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../../reference.html">
+  Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api/stravalib.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api.html">
+  API 2
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../client.html">
+   Client
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     stravalib.Client
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.authorization_url.html">
+     stravalib.Client.authorization_url
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.exchange_code_for_token.html">
+     stravalib.Client.exchange_code_for_token
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.refresh_access_token.html">
+     stravalib.Client.refresh_access_token
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.deauthorize.html">
+     stravalib.Client.deauthorize
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_activities.html">
+     stravalib.Client.get_activities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_athlete.html">
+     stravalib.Client.get_athlete
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_athlete_friends.html">
+     stravalib.Client.get_athlete_friends
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="stravalib-client">
+<h1>stravalib.Client<a class="headerlink" href="#stravalib-client" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="stravalib.Client">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limit_requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/client.html#Client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main client class for interacting with the exposed Strava v3 API methods.</p>
+<p>This class can be instantiated without an access_token when performing authentication;
+however, most methods will require a valid access token.</p>
+<dl class="simple">
+<dt>access_token<span class="classifier">str</span></dt><dd><p>The token that provides access to a specific Strava account.  If empty, assume that this
+account is not yet authenticated.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.Client.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limit_requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/client.html#Client.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.Client.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a new client object.</p>
+<dl class="simple">
+<dt>access_token<span class="classifier">str</span></dt><dd><p>The token that provides access to a specific Strava account.  If empty, assume that this
+account is not yet authenticated.</p>
+</dd>
+<dt>rate_limit_requests<span class="classifier">bool</span></dt><dd><p>Whether to apply a rate limiter to the requests. (default True)</p>
+</dd>
+<dt>rate_limiter<span class="classifier">callable</span></dt><dd><p>A :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>stravalib.util.limiter.RateLimiter’ object to use.
+If not specified (and rate_limit_requests is True), then
+:class:<a href="#id3"><span class="problematic" id="id4">`</span></a>stravalib.util.limiter.DefaultRateLimiter’ will be used.</p>
+</dd>
+<dt>requests_session<span class="classifier">requests.Session() object</span></dt><dd><p>(Optional) pass request session object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stravalib.Client.__init__" title="stravalib.Client.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([access_token, ...])</p></td>
+<td><p>Initialize a new client object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stravalib.Client.authorization_url.html#stravalib.Client.authorization_url" title="stravalib.Client.authorization_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">authorization_url</span></code></a>(client_id, redirect_uri[, ...])</p></td>
+<td><p>Get the URL needed to authorize your application to access a Strava user's information.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_activity</span></code>(name, activity_type, ...[, ...])</p></td>
+<td><p>Create a new manual activity.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_subscription</span></code>(client_id, ...[, ...])</p></td>
+<td><p>Creates a webhook event subscription.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="stravalib.Client.deauthorize.html#stravalib.Client.deauthorize" title="stravalib.Client.deauthorize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deauthorize</span></code></a>()</p></td>
+<td><p>Deauthorize the application.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete_activity</span></code>(activity_id)</p></td>
+<td><p>Deletes the specified activity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete_subscription</span></code>(subscription_id, ...)</p></td>
+<td><p>Unsubscribe from webhook events for an existing subscription.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stravalib.Client.exchange_code_for_token.html#stravalib.Client.exchange_code_for_token" title="stravalib.Client.exchange_code_for_token"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exchange_code_for_token</span></code></a>(client_id, ...)</p></td>
+<td><p>Exchange the temporary authorization code (returned with redirect from strava authorization URL) for a short-lived access token and a refresh token (used to obtain the next access token later on).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">explore_segments</span></code>(bounds[, activity_type, ...])</p></td>
+<td><p>Returns an array of up to 10 segments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stravalib.Client.get_activities.html#stravalib.Client.get_activities" title="stravalib.Client.get_activities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activities</span></code></a>([before, after, limit])</p></td>
+<td><p>Get activities for authenticated user sorted by newest first.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activity</span></code>(activity_id[, include_all_efforts])</p></td>
+<td><p>Gets specified activity.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activity_comments</span></code>(activity_id[, ...])</p></td>
+<td><p>Gets the comments for an activity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activity_kudos</span></code>(activity_id[, limit])</p></td>
+<td><p>Gets the kudos for an activity.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activity_laps</span></code>(activity_id)</p></td>
+<td><p>Gets the laps from an activity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activity_photos</span></code>(activity_id[, size, ...])</p></td>
+<td><p>Gets the photos from an activity.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activity_streams</span></code>(activity_id[, types, ...])</p></td>
+<td><p>Returns a stream for an activity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activity_zones</span></code>(activity_id)</p></td>
+<td><p>Gets zones for activity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stravalib.Client.get_athlete.html#stravalib.Client.get_athlete" title="stravalib.Client.get_athlete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_athlete</span></code></a>([athlete_id])</p></td>
+<td><p>Gets the specified athlete; if athlete_id is None then retrieves a detail-level representation of currently authenticated athlete; otherwise summary-level representation returned of athlete.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_athlete_clubs</span></code>()</p></td>
+<td><p>List the clubs for the currently authenticated athlete.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_athlete_followers</span></code>([athlete_id, limit])</p></td>
+<td><p>Gets followers for current (or specified) athlete.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="stravalib.Client.get_athlete_friends.html#stravalib.Client.get_athlete_friends" title="stravalib.Client.get_athlete_friends"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_athlete_friends</span></code></a>([athlete_id, limit])</p></td>
+<td><p>Gets friends for current (or specified) athlete.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_athlete_koms</span></code>(athlete_id[, limit])</p></td>
+<td><p>Gets Q/KOMs/CRs for specified athlete.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_athlete_starred_segments</span></code>(athlete_id[, limit])</p></td>
+<td><p>Returns a summary representation of the segments starred by the</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_athlete_stats</span></code>([athlete_id])</p></td>
+<td><p>Returns Statistics for the athlete.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_both_following</span></code>(athlete_id[, limit])</p></td>
+<td><p>Retrieve the athletes who both the authenticated user and the indicated</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_club</span></code>(club_id)</p></td>
+<td><p>Return a specific club object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_club_activities</span></code>(club_id[, limit])</p></td>
+<td><p>Gets the activities associated with specified club.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_club_members</span></code>(club_id[, limit])</p></td>
+<td><p>Gets the member objects for specified club ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_effort_streams</span></code>(effort_id[, types, ...])</p></td>
+<td><p>Returns an streams for an effort.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_friend_activities</span></code>([limit])</p></td>
+<td><p>DEPRECATED This endpoint was removed by Strava in Jan 2018.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_gear</span></code>(gear_id)</p></td>
+<td><p>Get details for an item of gear.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_related_activities</span></code>(activity_id[, limit])</p></td>
+<td><p>Deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_route</span></code>(route_id)</p></td>
+<td><p>Gets specified route.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_route_streams</span></code>(route_id)</p></td>
+<td><p>Returns streams for a route.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_routes</span></code>([athlete_id, limit])</p></td>
+<td><p>Gets the routes list for an authenticated user.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_running_race</span></code>(race_id)</p></td>
+<td><p>Gets a running race for a given identifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_running_races</span></code>([year])</p></td>
+<td><p>Gets a running races for a given year.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_segment</span></code>(segment_id)</p></td>
+<td><p>Gets a specific segment by ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_segment_effort</span></code>(effort_id)</p></td>
+<td><p>Return a specific segment effort by ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_segment_efforts</span></code>(segment_id[, ...])</p></td>
+<td><p>Gets all efforts on a particular segment sorted by start_date_local</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_segment_leaderboard</span></code>(segment_id[, ...])</p></td>
+<td><p>Gets the leaderboard for a segment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_segment_streams</span></code>(segment_id[, types, ...])</p></td>
+<td><p>Returns an streams for a segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_starred_segments</span></code>([limit])</p></td>
+<td><p>Returns a summary representation of the segments starred by the</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_subscription_callback</span></code>(raw[, verify_token])</p></td>
+<td><p>Validate callback request and return valid response with challenge.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_subscription_update</span></code>(raw)</p></td>
+<td><p>Converts a raw subscription update into a model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">join_club</span></code>(club_id)</p></td>
+<td><p>Joins the club on behalf of authenticated athlete.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">leave_club</span></code>(club_id)</p></td>
+<td><p>Leave club on behalf of authenticated user.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_subscriptions</span></code>(client_id, client_secret)</p></td>
+<td><p>List current webhook event subscriptions in place for the current application.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="stravalib.Client.refresh_access_token.html#stravalib.Client.refresh_access_token" title="stravalib.Client.refresh_access_token"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refresh_access_token</span></code></a>(client_id, ...)</p></td>
+<td><p>Exchanges the previous refresh token for a short-lived access token and a new refresh token (used to obtain the next access token later on).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_activity</span></code>(activity_id[, name, ...])</p></td>
+<td><p>Updates the properties of a specific activity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_athlete</span></code>([city, state, country, sex, ...])</p></td>
+<td><p>Updates the properties of the authorized athlete.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">upload_activity</span></code>(activity_file, data_type[, ...])</p></td>
+<td><p>Uploads a GPS file (tcx, gpx) to create a new activity for current athlete.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">access_token</span></code></p></td>
+<td><p>The currently configured authorization token.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../client.html" title="previous page">GeoDataFrame</a>
+    <a class='right-next' id="next-link" href="stravalib.Client.authorization_url.html" title="next page">stravalib.Client.authorization_url</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Hans Lellelid.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -92,8 +92,20 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../reference.html">
+  Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../api/stravalib.html">
   API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api.html">
+  API 2
  </a>
 </li>
 
@@ -615,7 +627,7 @@
     <span class="n">athlete_id</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: ID of athlete</span>
     <span class="n">activity_id</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: ID of activity</span>
     <span class="n">activity_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Name of activity.</span>
-    <span class="n">ref</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: ref eg. &quot;http://instagram.com/p/eAvA-tir85/&quot;</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: ref eg. &quot;https://www.instagram.com/accounts/login/&quot;</span>
 
     <span class="n">uid</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: unique id for instagram photo</span>
     <span class="n">unique_id</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: unique id for strava photos</span>
@@ -1212,7 +1224,7 @@
 <span class="sd">    Activity zone for power.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># these 2 below were removed according to June 3, 2014 update @</span>
-    <span class="c1">#    http://strava.github.io/api/v3/changelog/</span>
+    <span class="c1"># https://developers.strava.com/docs/changelog/</span>
     <span class="n">bike_weight</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="n">uh</span><span class="o">.</span><span class="n">kgs</span><span class="p">)</span>  <span class="c1">#: Weight of bike being used (factored into power calculations)</span>
     <span class="n">athlete_weight</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="n">uh</span><span class="o">.</span><span class="n">kgs</span><span class="p">)</span>  <span class="c1">#: Weight of athlete (factored into power calculations)</span></div>
 
@@ -1268,12 +1280,12 @@
     <span class="n">timestamp</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Unix timestamp when route was last updated.</span></div>
     <span class="c1"># segments = NOT IMPLEMENTED</span>
 
-
+<span class="c1"># OLD URL - http://strava.github.io/api/partner/v3/events/</span>
 <div class="viewcode-block" id="Subscription"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Subscription">[docs]</a><span class="k">class</span> <span class="nc">Subscription</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a Webhook Event Subscription.</span>
 
-<span class="sd">    http://strava.github.io/api/partner/v3/events/</span>
+<span class="sd">    https://developers.strava.com/docs/reference/#api-models-SummaryAthlete</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">OBJECT_TYPE_ACTIVITY</span> <span class="o">=</span> <span class="s1">&#39;activity&#39;</span>
     <span class="n">ASPECT_TYPE_CREATE</span> <span class="o">=</span> <span class="s1">&#39;create&#39;</span>

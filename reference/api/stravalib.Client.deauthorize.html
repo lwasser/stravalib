@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>stravalib.tests &#8212; stravalib 0.6.0 documentation</title>
+    <title>stravalib.Client.deauthorize &#8212; stravalib 0.6.0 documentation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -36,6 +36,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="stravalib.Client.get_activities" href="stravalib.Client.get_activities.html" />
+    <link rel="prev" title="stravalib.Client.refresh_access_token" href="stravalib.Client.refresh_access_token.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -91,9 +93,21 @@
  </a>
 </li>
 
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../../reference.html">
+  Reference
+ </a>
+</li>
+
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../api/stravalib.html">
   API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api.html">
+  API 2
  </a>
 </li>
 
@@ -126,7 +140,61 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../client.html">
+   Client
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.html">
+     stravalib.Client
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.authorization_url.html">
+     stravalib.Client.authorization_url
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.exchange_code_for_token.html">
+     stravalib.Client.exchange_code_for_token
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.refresh_access_token.html">
+     stravalib.Client.refresh_access_token
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     stravalib.Client.deauthorize
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_activities.html">
+     stravalib.Client.get_activities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_athlete.html">
+     stravalib.Client.get_athlete
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_athlete_friends.html">
+     stravalib.Client.get_athlete_friends
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
   </div>
 </nav>
             </div>
@@ -135,6 +203,20 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
             
           </div>
           
@@ -147,37 +229,26 @@
               
               <div>
                 
-  <h1>Source code for stravalib.tests</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os.path</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+  <div class="section" id="stravalib-client-deauthorize">
+<h1>stravalib.Client.deauthorize<a class="headerlink" href="#stravalib-client-deauthorize" title="Permalink to this headline">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="stravalib.Client.deauthorize">
+<span class="sig-prename descclassname"><span class="pre">Client.</span></span><span class="sig-name descname"><span class="pre">deauthorize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/client.html#Client.deauthorize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.Client.deauthorize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deauthorize the application. This causes the application to be removed
+from the athlete’s “My Apps” settings page.</p>
+<p><a class="reference external" href="https://developers.strava.com/docs/authentication/#deauthorization">https://developers.strava.com/docs/authentication/#deauthorization</a></p>
+</dd></dl>
 
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
-    <span class="c1"># TODO: We can probably add this smartly to setup.py</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="kn">from</span> <span class="nn">unittest2</span> <span class="kn">import</span> <span class="n">TestCase</span>
-    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Need unittest2 for running tests under python 2.6&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+</div>
 
-<span class="n">TESTS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
-<span class="n">RESOURCES_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TESTS_DIR</span><span class="p">,</span> <span class="s1">&#39;resources&#39;</span><span class="p">)</span>
-
-
-<div class="viewcode-block" id="TestBase"><a class="viewcode-back" href="../../api/stravalib.tests.html#stravalib.tests.TestBase">[docs]</a><span class="k">class</span> <span class="nc">TestBase</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-
-<div class="viewcode-block" id="TestBase.setUp"><a class="viewcode-back" href="../../api/stravalib.tests.html#stravalib.tests.TestBase.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">TestBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span></div>
-
-<div class="viewcode-block" id="TestBase.tearDown"><a class="viewcode-back" href="../../api/stravalib.tests.html#stravalib.tests.TestBase.tearDown">[docs]</a>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">TestBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span></div></div>
-</pre></div>
 
               </div>
               
               
               <div class='prev-next-bottom'>
                 
+    <a class='left-prev' id="prev-link" href="stravalib.Client.refresh_access_token.html" title="previous page">stravalib.Client.refresh_access_token</a>
+    <a class='right-next' id="next-link" href="stravalib.Client.get_activities.html" title="next page">stravalib.Client.get_activities</a>
 
               </div>
               

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Stravalib! &#8212; stravalib 0.6.0 documentation</title>
+    <title>API Reference &#8212; stravalib 0.6.0 documentation</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -36,7 +36,8 @@
     <script src="_static/copybutton.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Get Started Using Stravalib" href="get-started/index.html" />
+    <link rel="next" title="GeoDataFrame" href="reference/client.html" />
+    <link rel="prev" title="Change Log" href="changelog.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -51,7 +52,7 @@
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="#">
+<a class="navbar-brand" href="index.html">
 <p class="title">stravalib</p>
 </a>
 
@@ -68,8 +69,8 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index.html">
   Home
  </a>
 </li>
@@ -92,8 +93,8 @@
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="reference.html">
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
   Reference
  </a>
 </li>
@@ -139,7 +140,61 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="reference/client.html">
+   Client
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.html">
+     stravalib.Client
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.authorization_url.html">
+     stravalib.Client.authorization_url
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.exchange_code_for_token.html">
+     stravalib.Client.exchange_code_for_token
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.refresh_access_token.html">
+     stravalib.Client.refresh_access_token
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.deauthorize.html">
+     stravalib.Client.deauthorize
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.get_activities.html">
+     stravalib.Client.get_activities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.get_athlete.html">
+     stravalib.Client.get_athlete
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reference/api/stravalib.Client.get_athlete_friends.html">
+     stravalib.Client.get_athlete_friends
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
   </div>
 </nav>
             </div>
@@ -152,31 +207,9 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
 
 <nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Welcome to Stravalib!
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-started">
-     Getting Started
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indices-and-tables">
-   Indices and tables
-  </a>
- </li>
-</ul>
-
+    
 </nav>
               </div>
               
@@ -196,44 +229,27 @@
               
               <div>
                 
-  <div class="section" id="welcome-to-stravalib">
-<h1>Welcome to Stravalib!<a class="headerlink" href="#welcome-to-stravalib" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="api-reference">
+<span id="reference"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>This is another approach to API documentation that feels a bit more readable compared
+to vanilla autodoc. The downside is that i’m manuall adding methods. The upside
+is that it’s very easy to see the various methods and classes in a readable format.’
+I think in the long run readibility may make it easier for others to contribute.</p>
+<p>The API Reference provides an overview of all public objects, functions and methods implemented in GeoPandas.
+All classes and function exposed in <code class="docutils literal notranslate"><span class="pre">geopandas.*</span></code> namespace plus those listed in the reference are public.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>text here.</p>
+</div>
 <div class="toctree-wrapper compound">
-</div>
-<p><strong>stravalib</strong> is a python library for interacting with
-<a class="reference external" href="https://developers.strava.com/docs/reference/">version 3</a> of the
-<a class="reference external" href="https://www.strava.com">Strava</a>  API.</p>
-<p>This library is designed provide a simple and easy-to-use object model paradigm for interacting
-with the API, support modern versions of Python (2.7, 3.2+), and expose the full functionality of the REST API.</p>
-<p><strong>Why use stravalib?</strong>  The Strava REST API is fairly straightforward.  The main reasons to use something like
-stravalib would be:</p>
-<ul class="simple">
-<li><p>Result structs (dicts) are returned as more “strongly typed” model objects.</p></li>
-<li><p>Relationships can be traversed on model objects to pull in related content “seamlessly”.</p></li>
-<li><p>Units and date/time/durations types are converted to python objects to facilite converting and displaying these values.</p></li>
-<li><p>Built-in support for rate limiting and more intelligent error handling.</p></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/client.html">Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/client.html#constructor">Constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/client.html#general-methods-and-attributes">General methods and attributes</a></li>
 </ul>
-<div class="section" id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>The package is available on PyPI to be installed using <code class="docutils literal notranslate"><span class="pre">easy_install</span></code> or pip:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>shell$ pip install stravalib
-</pre></div>
-</div>
-<p>Of course, by itself this package doesn’t do much; it’s a library.  So it is more likely that you will
-list this package as a dependency in your own <cite>install_requires</cite> directive in <cite>setup.py</cite>.  Or you can
-download it and explore Strava content in your favorite python REPL.</p>
-<p>In order to make use of this library, you will need to have access keys for one or more Strava users.
-These access keys can be fetched by using helper methods provided by <a class="reference internal" href="api/stravalib.client.html#stravalib.client.Client" title="stravalib.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code></a> class.
-See <a class="reference internal" href="get-started/auth.html#auth"><span class="std std-ref">Authentication and Authorization</span></a> for more details.</p>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</li>
 </ul>
+</div>
 </div>
 
 
@@ -242,7 +258,8 @@ See <a class="reference internal" href="get-started/auth.html#auth"><span class=
               
               <div class='prev-next-bottom'>
                 
-    <a class='right-next' id="next-link" href="get-started/index.html" title="next page">Get Started Using Stravalib</a>
+    <a class='left-prev' id="prev-link" href="changelog.html" title="previous page">Change Log</a>
+    <a class='right-next' id="next-link" href="reference/client.html" title="next page">GeoDataFrame</a>
 
               </div>
               

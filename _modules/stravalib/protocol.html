@@ -92,8 +92,20 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../reference.html">
+  Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../api/stravalib.html">
   API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api.html">
+  API 2
  </a>
 </li>
 
@@ -359,7 +371,7 @@
 
         <span class="n">raw</span> <span class="o">=</span> <span class="n">requester</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
         <span class="c1"># Rate limits are taken from HTTP response headers</span>
-        <span class="c1"># https://strava.github.io/api/#rate-limiting</span>
+        <span class="c1"># https://developers.strava.com/docs/rate-limits/</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rate_limiter</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">check_for_errors</span><span class="p">:</span>

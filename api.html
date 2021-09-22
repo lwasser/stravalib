@@ -154,16 +154,37 @@
     <a class="reference internal nav-link" href="#module-stravalib.client">
      Client
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Client
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#module-stravalib.model">
      Model
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Client
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#errors">
      Errors
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exc">
+       Exc
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -200,6 +221,8 @@
 <p>This part of the documentation covers the primary API for interacting with Strava.</p>
 <div class="section" id="module-stravalib.client">
 <span id="client"></span><h3>Client<a class="headerlink" href="#module-stravalib.client" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Client<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>Provides the main interface classes for the Strava version 3 REST API.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.client.Client">
@@ -1392,8 +1415,11 @@ timeout has elapsed.</p></li>
 </dd></dl>
 
 </div>
+</div>
 <div class="section" id="module-stravalib.model">
 <span id="model"></span><h3>Model<a class="headerlink" href="#module-stravalib.model" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>Client<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>Entity classes for representing the various Strava datatypes.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.BaseEntity">
@@ -3905,10 +3931,14 @@ of instances of this class.</p>
 </dd></dl>
 
 </div>
+</div>
 <div class="section" id="errors">
 <h3>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h3>
 <p>The exception classes raised by the library.</p>
-<span class="target" id="module-stravalib.exc"></span><dl class="py exception">
+<span class="target" id="module-stravalib.exc"></span><div class="section" id="exc">
+<h4>Exc<a class="headerlink" href="#exc" title="Permalink to this headline">¶</a></h4>
+<p>More here…</p>
+<dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.AuthError">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">AuthError</span></span><a class="reference internal" href="_modules/stravalib/exc.html#AuthError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.AuthError" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
@@ -4159,6 +4189,7 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
+</div>
 </div>
 </div>
 <div class="section" id="under-the-hood">

@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Utilities &#8212; stravalib 0.6.0 documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -23,10 +24,10 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,7 +40,10 @@
     <link rel="next" title="Attributes" href="stravalib.attributes.html" />
     <link rel="prev" title="stravalib.util package" href="stravalib.util.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,12 +100,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../api.html">
-  API Reference V2
  </a>
 </li>
 
@@ -226,7 +224,7 @@
               
               <div>
                 
-  <span class="target" id="module-stravalib.util.limiter"></span><div class="section" id="utilities">
+  <span class="target" id="module-stravalib.util.limiter"></span><section id="utilities">
 <h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
 <p>Rate limiter classes.</p>
 <p>These are basically callables that when called register that a request was
@@ -254,7 +252,7 @@ total_seconds() only available since Python 2.7
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.util.limiter.RequestRate">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">RequestRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">short_usage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_usage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_limit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stravalib.util.limiter.RequestRate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.util.limiter.RequestRate.long_limit">
 <span class="sig-name descname"><span class="pre">long_limit</span></span><a class="headerlink" href="#stravalib.util.limiter.RequestRate.long_limit" title="Permalink to this definition">¶</a></dt>
@@ -312,7 +310,7 @@ total_seconds() only available since Python 2.7
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.util.limiter.XRateLimitRule">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">XRateLimitRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#XRateLimitRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.XRateLimitRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.util.limiter.XRateLimitRule.limit_timeout">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">limit_timeout</span></span><a class="headerlink" href="#stravalib.util.limiter.XRateLimitRule.limit_timeout" title="Permalink to this definition">¶</a></dt>
@@ -323,7 +321,7 @@ total_seconds() only available since Python 2.7
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.util.limiter.SleepingRateLimitRule">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">SleepingRateLimitRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'high'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#SleepingRateLimitRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.SleepingRateLimitRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A rate limit rule that can be prioritized and can dynamically adapt its limits based on API responses.
 Given its priority, it will enforce a variable “cool-down” period after each response. When rate limits
 are reached within their period, this limiter will wait until the end of that period. It will NOT raise
@@ -333,13 +331,13 @@ any kind of exception in this case.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.util.limiter.RateLimitRule">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">RateLimitRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requests</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_exc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#RateLimitRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.RateLimitRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.util.limiter.RateLimiter">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.util.limiter.</span></span><span class="sig-name descname"><span class="pre">RateLimiter</span></span><a class="reference internal" href="../_modules/stravalib/util/limiter.html#RateLimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.util.limiter.RateLimiter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -354,18 +352,29 @@ the limit at midnight, etc.  Will make this more complex in the future.</p>
 600 requests every 15 minutes, with up to 30,000 requests per day.</p>
 </dd></dl>
 
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="stravalib.util.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">stravalib.util package</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="stravalib.attributes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Attributes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-
-
-              </div>
-              
-              
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="stravalib.util.html" title="previous page">stravalib.util package</a>
-    <a class='right-next' id="next-link" href="stravalib.attributes.html" title="next page">Attributes</a>
-
-              </div>
               
           </main>
           
@@ -373,20 +382,19 @@ the limit at midnight, etc.  Will make this more complex in the future.</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  <footer class="footer mt-5 mt-md-0">
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Hans Lellelid.<br/>
+    &copy; Copyright 2021, Hans Lellelid.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Client &#8212; stravalib 0.6.0 documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -23,10 +24,10 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,7 +40,10 @@
     <link rel="next" title="Exc" href="stravalib.exc.html" />
     <link rel="prev" title="Attributes" href="stravalib.attributes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,12 +100,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../api.html">
-  API Reference V2
  </a>
 </li>
 
@@ -226,13 +224,13 @@
               
               <div>
                 
-  <span class="target" id="module-stravalib.client"></span><div class="section" id="client">
+  <span class="target" id="module-stravalib.client"></span><section id="client">
 <h1>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h1>
 <p>Provides the main interface classes for the Strava version 3 REST API.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.client.Client">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.client.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limit_requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Main client class for interacting with the exposed Strava v3 API methods.</p>
 <p>This class can be instantiated without an access_token when performing authentication;
 however, most methods will require a valid access token.</p>
@@ -255,21 +253,21 @@ account is not yet authenticated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>redirect_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The URL that Strava will redirect to after successful (or failed) authorization.</p></li>
-<li><p><strong>approval_prompt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Whether to prompt for approval even if approval already granted to app.
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
+<li><p><strong>redirect_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The URL that Strava will redirect to after successful (or failed) authorization.</p></li>
+<li><p><strong>approval_prompt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Whether to prompt for approval even if approval already granted to app.
 Choices are ‘auto’ or ‘force’.  (Default is ‘auto’)</p></li>
-<li><p><strong>scope</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – The access scope required.  Omit to imply “read” and “activity:read”
+<li><p><strong>scope</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – The access scope required.  Omit to imply “read” and “activity:read”
 Valid values are ‘read’, ‘read_all’, ‘profile:read_all’, ‘profile:write’, ‘profile:read_all’,
 ‘activity:read_all’, ‘activity:write’.</p></li>
-<li><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – An arbitrary variable that will be returned to your application in the redirect URI.</p></li>
+<li><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – An arbitrary variable that will be returned to your application in the redirect URI.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The URL to use for authorization link.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -282,9 +280,9 @@ for a short-lived access token and a refresh token (used to obtain the next acce
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The developer client secret</p></li>
-<li><p><strong>code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The temporary authorization code</p></li>
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
+<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The developer client secret</p></li>
+<li><p><strong>code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The temporary authorization code</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -292,7 +290,7 @@ for a short-lived access token and a refresh token (used to obtain the next acce
 and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -305,9 +303,9 @@ refresh token (used to obtain the next access token later on).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The developer client secret</p></li>
-<li><p><strong>refresh_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The refresh token obtained from a previous authorization request</p></li>
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
+<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The developer client secret</p></li>
+<li><p><strong>refresh_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The refresh token obtained from a previous authorization request</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -315,7 +313,7 @@ refresh token (used to obtain the next access token later on).</p>
 and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -336,11 +334,11 @@ from the athlete’s “My Apps” settings page.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>before</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) – Result will start with activities whose start date is
+<li><p><strong>before</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – Result will start with activities whose start date is
 before specified date. (UTC)</p></li>
-<li><p><strong>after</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) – Result will start with activities whose start date is after
+<li><p><strong>after</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – Result will start with activities whose start date is after
 specified value. (UTC)</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) – How many maximum activities to return.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – How many maximum activities to return.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -383,7 +381,7 @@ otherwise summary-level representation returned of athlete.</p>
 <dd class="field-even"><p>athlete_id: int</p>
 </dd>
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of athletes to return (default unlimited).</p>
+<dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum number of athletes to return (default unlimited).</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An iterator of <a class="reference internal" href="stravalib.model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> objects.</p>
@@ -427,7 +425,7 @@ otherwise summary-level representation returned of athlete.</p>
 <dd class="field-odd"><p>athlete_id</p>
 </dd>
 <dt class="field-even">Parameters</dt>
-<dd class="field-even"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of athletes to return (default unlimited).</p>
+<dd class="field-even"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum number of athletes to return (default unlimited).</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>An iterator of <a class="reference internal" href="stravalib.model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> objects.</p>
@@ -449,8 +447,8 @@ otherwise summary-level representation returned of athlete.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>athlete_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of the other athlete (for follower intersection with current athlete)</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of athletes to return. (default unlimited)</p></li>
+<li><p><strong>athlete_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of the other athlete (for follower intersection with current athlete)</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum number of athletes to return. (default unlimited)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -470,8 +468,8 @@ otherwise summary-level representation returned of athlete.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>athlete_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of the athlete.</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of KOM segment efforts to return (default unlimited).</p></li>
+<li><p><strong>athlete_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of the athlete.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum number of KOM segment efforts to return (default unlimited).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -511,7 +509,7 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dd class="field-odd"><p>A list of <a class="reference internal" href="stravalib.model.html#stravalib.model.Club" title="stravalib.model.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Club</span></code></a></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -547,7 +545,7 @@ authenticated athlete’s id and second to get the Stats.</p>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Clubs-getClubById">https://developers.strava.com/docs/reference/#api-Clubs-getClubById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of the club to fetch.</p>
+<dd class="field-odd"><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of the club to fetch.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="stravalib.model.html#stravalib.model.Club" title="stravalib.model.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Club</span></code></a></p>
@@ -563,8 +561,8 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric ID for the club.</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of athletes to return. (default unlimited)</p></li>
+<li><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric ID for the club.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum number of athletes to return. (default unlimited)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -584,8 +582,8 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The numeric ID for the club.</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of activities to return. (default unlimited)</p></li>
+<li><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric ID for the club.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum number of activities to return. (default unlimited)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -606,8 +604,8 @@ authenticated athlete’s id and second to get the Stats.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of activity to fetch.</p></li>
-<li><p><strong>include_all_efforts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Whether to include segment efforts - only
+<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of activity to fetch.</p></li>
+<li><p><strong>include_all_efforts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to include segment efforts - only
 available to the owner of the activty.</p></li>
 </ul>
 </dd>
@@ -623,7 +621,7 @@ available to the owner of the activty.</p></li>
 <dd><p>DEPRECATED This endpoint was removed by Strava in Jan 2018.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Maximum number of activities to return. (default unlimited)</p>
+<dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum number of activities to return. (default unlimited)</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An iterator of <a class="reference internal" href="stravalib.model.html#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a> objects.</p>
@@ -643,14 +641,14 @@ available to the owner of the activty.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of the activity.</p></li>
-<li><p><strong>activity_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The activity type (case-insensitive).
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the activity.</p></li>
+<li><p><strong>activity_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The activity type (case-insensitive).
 Possible values: ride, run, swim, workout, hike, walk, nordicski,
 alpineski, backcountryski, iceskate, inlineskate, kitesurf, rollerski,
 windsurf, workout, snowboard, snowshoe</p></li>
-<li><p><strong>start_date_local</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> or string in ISO8601 format.) – Local date/time of activity start. (TZ info will be ignored)</p></li>
-<li><p><strong>elapsed_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> or int (seconds)) – The time in seconds or a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> object.</p></li>
-<li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The description for the activity.</p></li>
+<li><p><strong>start_date_local</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> or string in ISO8601 format.) – Local date/time of activity start. (TZ info will be ignored)</p></li>
+<li><p><strong>elapsed_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> or int (seconds)) – The time in seconds or a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> object.</p></li>
+<li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The description for the activity.</p></li>
 <li><p><strong>distance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">units.quantity.Quantity</span></code> or float (meters)) – The distance in meters (float) or a <code class="xref py py-class docutils literal notranslate"><span class="pre">units.quantity.Quantity</span></code> instance.</p></li>
 </ul>
 </dd>
@@ -665,7 +663,7 @@ windsurf, workout, snowboard, snowshoe</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of the activity to update.</p></li>
+<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of the activity to update.</p></li>
 <li><p><strong>name</strong> – The name of the activity.</p></li>
 <li><p><strong>activity_type</strong> – The activity type (case-insensitive).
 Possible values: ride, run, swim, workout, hike,
@@ -697,17 +695,17 @@ windsurf, workout, snowboard, snowshoe</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>activity_file</strong> (<em>file</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The file object to upload or file contents.</p></li>
-<li><p><strong>data_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – File format for upload. Possible values: fit, fit.gz, tcx, tcx.gz, gpx, gpx.gz</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) if not provided, will be populated using start date and location, if available</p></li>
+<li><p><strong>activity_file</strong> (<em>file</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The file object to upload or file contents.</p></li>
+<li><p><strong>data_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – File format for upload. Possible values: fit, fit.gz, tcx, tcx.gz, gpx, gpx.gz</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) if not provided, will be populated using start date and location, if available</p></li>
 <li><p><strong>description</strong> – (optional) The description for the activity</p></li>
-<li><p><strong>activity_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) case-insensitive type of activity.
+<li><p><strong>activity_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) case-insensitive type of activity.
 possible values: ride, run, swim, workout, hike, walk,
 nordicski, alpineski, backcountryski, iceskate, inlineskate,
 kitesurf, rollerski, windsurf, workout, snowboard, snowshoe
 Type detected from file overrides, uses athlete’s default type if not specified</p></li>
-<li><p><strong>private</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (optional) set to True to mark the resulting activity as private, ‘view_private’ permissions will be necessary to view the activity</p></li>
-<li><p><strong>external_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) An arbitrary unique identifier may be specified which will be included in status responses.</p></li>
+<li><p><strong>private</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – (optional) set to True to mark the resulting activity as private, ‘view_private’ permissions will be necessary to view the activity</p></li>
+<li><p><strong>external_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) An arbitrary unique identifier may be specified which will be included in status responses.</p></li>
 </ul>
 </dd>
 </dl>
@@ -720,7 +718,7 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities">https://developers.strava.com/docs/reference/#api-Activities</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity to delete.</p>
+<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The activity to delete.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -733,13 +731,13 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId">https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to zones.</p>
+<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The activity for which to zones.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An list of <a class="reference internal" href="stravalib.model.html#stravalib.model.ActivityComment" title="stravalib.model.ActivityComment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityComment</span></code></a> objects.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -752,9 +750,9 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to fetch comments.</p></li>
-<li><p><strong>markdown</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Whether to include markdown in comments (default is false/filterout).</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Max rows to return (default unlimited).</p></li>
+<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The activity for which to fetch comments.</p></li>
+<li><p><strong>markdown</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to include markdown in comments (default is false/filterout).</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Max rows to return (default unlimited).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -774,8 +772,8 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to fetch kudos.</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Max rows to return (default unlimited).</p></li>
+<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The activity for which to fetch kudos.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Max rows to return (default unlimited).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -795,10 +793,10 @@ Type detected from file overrides, uses athlete’s default type if not specifie
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to fetch photos.</p></li>
-<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – the requested size of the activity’s photos. URLs for the photos will be returned that best match
+<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The activity for which to fetch photos.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – the requested size of the activity’s photos. URLs for the photos will be returned that best match
 the requested size. If not included, the smallest size is returned</p></li>
-<li><p><strong>only_instagram</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Parameter to preserve legacy behavior of only returning Instagram photos.</p></li>
+<li><p><strong>only_instagram</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Parameter to preserve legacy behavior of only returning Instagram photos.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -817,7 +815,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Activities-getLapsByActivityId">https://developers.strava.com/docs/reference/#api-Activities-getLapsByActivityId</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to fetch laps.</p>
+<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The activity for which to fetch laps.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An iterator of <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityLaps</span></code> objects.</p>
@@ -834,7 +832,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dd><p>Deprecated. This endpoint was removed by strava in Jan 2018.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The activity for which to fetch related activities.</p>
+<dd class="field-odd"><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The activity for which to fetch related activities.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An iterator of <a class="reference internal" href="stravalib.model.html#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a> objects.</p>
@@ -852,7 +850,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Gears">https://developers.strava.com/docs/reference/#api-Gears</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>gear_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The gear id.</p>
+<dd class="field-odd"><p><strong>gear_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The gear id.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The Bike or Shoe subclass object.</p>
@@ -870,7 +868,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-SegmentEfforts">https://developers.strava.com/docs/reference/#api-SegmentEfforts</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>effort_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The id of associated effort to fetch.</p>
+<dd class="field-odd"><p><strong>effort_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The id of associated effort to fetch.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The specified effort on a segment.</p>
@@ -888,7 +886,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById">https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>segment_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The segment to fetch.</p>
+<dd class="field-odd"><p><strong>segment_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The segment to fetch.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A segment object.</p>
@@ -909,7 +907,7 @@ the requested size. If not included, the smallest size is returned</p></li>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments">https://developers.strava.com/docs/reference/#api-Segments-getLoggedInAthleteStarredSegments</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional), limit number of starred segments returned.</p>
+<dd class="field-odd"><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional), limit number of starred segments returned.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An iterator of <a class="reference internal" href="stravalib.model.html#stravalib.model.Segment" title="stravalib.model.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Segment</span></code></a> starred by authenticated user.</p>
@@ -931,8 +929,8 @@ the requested size. If not included, the smallest size is returned</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>athlete_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of the athlete.</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional), limit number of starred segments returned.</p></li>
+<li><p><strong>athlete_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of the athlete.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional), limit number of starred segments returned.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -956,18 +954,18 @@ parameter; however, the other 5 results will be included if the current user has
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>segment_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – ID of the segment.</p></li>
-<li><p><strong>gender</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) ‘M’ or ‘F’</p></li>
-<li><p><strong>age_group</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) ‘0_24’, ‘25_34’, ‘35_44’, ‘45_54’, ‘55_64’, ‘65_plus’</p></li>
-<li><p><strong>weight_class</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) pounds ‘0_124’, ‘125_149’, ‘150_164’, ‘165_179’, ‘180_199’, ‘200_plus’
+<li><p><strong>segment_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – ID of the segment.</p></li>
+<li><p><strong>gender</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) ‘M’ or ‘F’</p></li>
+<li><p><strong>age_group</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) ‘0_24’, ‘25_34’, ‘35_44’, ‘45_54’, ‘55_64’, ‘65_plus’</p></li>
+<li><p><strong>weight_class</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) pounds ‘0_124’, ‘125_149’, ‘150_164’, ‘165_179’, ‘180_199’, ‘200_plus’
 or kilograms ‘0_54’, ‘55_64’, ‘65_74’, ‘75_84’, ‘85_94’, ‘95_plus’</p></li>
-<li><p><strong>following</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (optional) Limit to athletes current user is following.</p></li>
-<li><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional) limit to specific club</p></li>
-<li><p><strong>timeframe</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional)  ‘this_year’, ‘this_month’, ‘this_week’, ‘today’</p></li>
-<li><p><strong>top_results_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional, strava default is 10 + 5 from end) How many of leading leaderboard entries to display.
+<li><p><strong>following</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – (optional) Limit to athletes current user is following.</p></li>
+<li><p><strong>club_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional) limit to specific club</p></li>
+<li><p><strong>timeframe</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional)  ‘this_year’, ‘this_month’, ‘this_week’, ‘today’</p></li>
+<li><p><strong>top_results_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional, strava default is 10 + 5 from end) How many of leading leaderboard entries to display.
 See description for why this is a little confusing.</p></li>
-<li><p><strong>page</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional, strava default is 1) Page number of leaderboard to return, sorted by highest ranking leaders</p></li>
-<li><p><strong>context_entries</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional, strava default is 2, max is 15) number of entries surrounding requesting athlete to return</p></li>
+<li><p><strong>page</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional, strava default is 1) Page number of leaderboard to return, sorted by highest ranking leaders</p></li>
+<li><p><strong>context_entries</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional, strava default is 2, max is 15) number of entries surrounding requesting athlete to return</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1000,11 +998,11 @@ for a segment in San Francisco, CA can be fetched using
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>segment_id</strong> (<em>param</em>) – ID of the segment.</p></li>
-<li><p><strong>start_date_local</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) efforts before this date will be excluded.
+<li><p><strong>start_date_local</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) efforts before this date will be excluded.
 Either as ISO8601 or datetime object</p></li>
-<li><p><strong>end_date_local</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional) efforts after this date will be excluded.
+<li><p><strong>end_date_local</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><em>datetime.datetime</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) efforts after this date will be excluded.
 Either as ISO8601 or datetime object</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional), limit number of efforts.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional), limit number of efforts.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Int athlete_id</dt>
@@ -1028,16 +1026,16 @@ Either as ISO8601 or datetime object</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bounds</strong> (<em>list of 4 floats</em><em> or </em><em>list of 2</em><em> (</em><em>lat</em><em>,</em><em>lon</em><em>) </em><em>tuples</em>) – list of bounding box corners lat/lon [sw.lat, sw.lng, ne.lat, ne.lng] (south,west,north,east)</p></li>
-<li><p><strong>activity_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional, default is riding)  ‘running’ or ‘riding’</p></li>
-<li><p><strong>min_cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional) Minimum climb category filter</p></li>
-<li><p><strong>max_cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (optional) Maximum climb category filter</p></li>
+<li><p><strong>activity_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is riding)  ‘running’ or ‘riding’</p></li>
+<li><p><strong>min_cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional) Minimum climb category filter</p></li>
+<li><p><strong>max_cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional) Maximum climb category filter</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An list of <a class="reference internal" href="stravalib.model.html#stravalib.model.Segment" title="stravalib.model.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Segment</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1060,12 +1058,12 @@ results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of activity.</p></li>
-<li><p><strong>types</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – (optional) A list of the the types of streams to fetch.</p></li>
-<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional, default is ‘all’) indicates desired number
+<li><p><strong>activity_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of activity.</p></li>
+<li><p><strong>types</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – (optional) A list of the the types of streams to fetch.</p></li>
+<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is ‘all’) indicates desired number
 of data points. ‘low’ (100), ‘medium’ (1000),
 ‘high’ (10000) or ‘all’.</p></li>
-<li><p><strong>series_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional, default is ‘distance’.  Relevant only if
+<li><p><strong>series_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is ‘distance’.  Relevant only if
 using resolution either ‘time’ or ‘distance’.
 Used to index the streams if the stream is being
 reduced.</p></li>
@@ -1075,7 +1073,7 @@ reduced.</p></li>
 <dd class="field-even"><p>An dictionary of <a class="reference internal" href="stravalib.model.html#stravalib.model.Stream" title="stravalib.model.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Stream</span></code></a> from the activity or None if there are no streams.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1098,12 +1096,12 @@ results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>effort_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of effort.</p></li>
-<li><p><strong>types</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – (optional) A list of the the types of streams to fetch.</p></li>
-<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional, default is ‘all’) indicates desired number
+<li><p><strong>effort_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of effort.</p></li>
+<li><p><strong>types</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – (optional) A list of the the types of streams to fetch.</p></li>
+<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is ‘all’) indicates desired number
 of data points. ‘low’ (100), ‘medium’ (1000),
 ‘high’ (10000) or ‘all’.</p></li>
-<li><p><strong>series_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional, default is ‘distance’.  Relevant only if
+<li><p><strong>series_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is ‘distance’.  Relevant only if
 using resolution either ‘time’ or ‘distance’.
 Used to index the streams if the stream is being
 reduced.</p></li>
@@ -1113,7 +1111,7 @@ reduced.</p></li>
 <dd class="field-even"><p>An dictionary of <a class="reference internal" href="stravalib.model.html#stravalib.model.Stream" title="stravalib.model.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Stream</span></code></a> from the effort.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1136,12 +1134,12 @@ results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>segment_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of segment.</p></li>
-<li><p><strong>types</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – (optional) A list of the the types of streams to fetch.</p></li>
-<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional, default is ‘all’) indicates desired number
+<li><p><strong>segment_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of segment.</p></li>
+<li><p><strong>types</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – (optional) A list of the the types of streams to fetch.</p></li>
+<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is ‘all’) indicates desired number
 of data points. ‘low’ (100), ‘medium’ (1000),
 ‘high’ (10000) or ‘all’.</p></li>
-<li><p><strong>series_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (optional, default is ‘distance’.  Relevant only if
+<li><p><strong>series_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is ‘distance’.  Relevant only if
 using resolution either ‘time’ or ‘distance’.
 Used to index the streams if the stream is being
 reduced.</p></li>
@@ -1151,7 +1149,7 @@ reduced.</p></li>
 <dd class="field-even"><p>An dictionary of <a class="reference internal" href="stravalib.model.html#stravalib.model.Stream" title="stravalib.model.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Stream</span></code></a> from the effort.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1198,7 +1196,7 @@ reduced.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>athlete_id</strong> – id for the</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Max rows to return (default unlimited).</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Max rows to return (default unlimited).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1218,7 +1216,7 @@ reduced.</p></li>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Routes-getRouteById">https://developers.strava.com/docs/reference/#api-Routes-getRouteById</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>route_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of route to fetch.</p>
+<dd class="field-odd"><p><strong>route_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of route to fetch.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="stravalib.model.html#stravalib.model.Route" title="stravalib.model.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Route</span></code></a></p>
@@ -1237,13 +1235,13 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <p>See: <a class="reference external" href="https://developers.strava.com/docs/reference/#api-Streams-getRouteStreams">https://developers.strava.com/docs/reference/#api-Streams-getRouteStreams</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>route_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The ID of activity.</p>
+<dd class="field-odd"><p><strong>route_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of activity.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dictionary of <a class="reference internal" href="stravalib.model.html#stravalib.model.Stream" title="stravalib.model.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Stream</span></code></a> from the route.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1255,10 +1253,10 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – application’s ID, obtained during registration</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – application’s secret, obtained during registration</p></li>
-<li><p><strong>callback_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – callback URL where Strava will first send a GET request to validate, then subsequently send POST requests with updates</p></li>
-<li><p><strong>verify_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – a token you can use to verify Strava’s GET callback request</p></li>
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – application’s ID, obtained during registration</p></li>
+<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – application’s secret, obtained during registration</p></li>
+<li><p><strong>callback_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – callback URL where Strava will first send a GET request to validate, then subsequently send POST requests with updates</p></li>
+<li><p><strong>verify_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – a token you can use to verify Strava’s GET callback request</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1282,7 +1280,7 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dd class="field-odd"><p>The JSON response expected by Strava to the challenge request.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+<dd class="field-even"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1308,8 +1306,8 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – application’s ID, obtained during registration</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – application’s secret, obtained during registration</p></li>
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – application’s ID, obtained during registration</p></li>
+<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – application’s secret, obtained during registration</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1328,9 +1326,9 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subscription_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – ID of subscription to remove.</p></li>
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – application’s ID, obtained during registration</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – application’s secret, obtained during registration</p></li>
+<li><p><strong>subscription_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – ID of subscription to remove.</p></li>
+<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – application’s ID, obtained during registration</p></li>
+<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – application’s secret, obtained during registration</p></li>
 </ul>
 </dd>
 </dl>
@@ -1341,7 +1339,7 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.client.BatchedResultsIterator">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.client.</span></span><span class="sig-name descname"><span class="pre">BatchedResultsIterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_fetcher</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#BatchedResultsIterator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.BatchedResultsIterator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>An iterator that enables iterating over requests that return paged results.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.client.BatchedResultsIterator.default_per_page">
@@ -1363,7 +1361,7 @@ stream types <cite>distance</cite>, <cite>altitude</cite> and <cite>latlng</cite
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.client.ActivityUploader">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.client.</span></span><span class="sig-name descname"><span class="pre">ActivityUploader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_exc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#ActivityUploader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.ActivityUploader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>The “future” object that holds information about an activity file upload and can
 wait for upload to finish, etc.</p>
 <dl class="py method">
@@ -1373,8 +1371,8 @@ wait for upload to finish, etc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>response</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – The response object (dict).</p></li>
-<li><p><strong>raise_exc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Whether to raise an exception if the response
+<li><p><strong>response</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – The response object (dict).</p></li>
+<li><p><strong>raise_exc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to raise an exception if the response
 indicates an error state. (default True)</p></li>
 </ul>
 </dd>
@@ -1423,9 +1421,9 @@ indicates an error state. (default True)</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – The max seconds to wait. Will raise TimeoutExceeded
+<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The max seconds to wait. Will raise TimeoutExceeded
 exception if this time passes without success or error response.</p></li>
-<li><p><strong>poll_interval</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – How long to wait between upload checks.  Strava
+<li><p><strong>poll_interval</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – How long to wait between upload checks.  Strava
 recommends 1s minimum. (default 1.0s)</p></li>
 </ul>
 </dd>
@@ -1448,18 +1446,29 @@ timeout has elapsed.</p></li>
 
 </dd></dl>
 
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="stravalib.attributes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Attributes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="stravalib.exc.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exc</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-
-
-              </div>
-              
-              
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="stravalib.attributes.html" title="previous page">Attributes</a>
-    <a class='right-next' id="next-link" href="stravalib.exc.html" title="next page">Exc</a>
-
-              </div>
               
           </main>
           
@@ -1467,20 +1476,19 @@ timeout has elapsed.</p></li>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  <footer class="footer mt-5 mt-md-0">
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Hans Lellelid.<br/>
+    &copy; Copyright 2021, Hans Lellelid.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

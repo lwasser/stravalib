@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Client &#8212; stravalib 0.6.0 documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -23,10 +24,10 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,7 +40,10 @@
     <link rel="next" title="Protocol" href="stravalib.protocol.html" />
     <link rel="prev" title="Exc" href="stravalib.exc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,12 +100,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../api.html">
-  API Reference V2
  </a>
 </li>
 
@@ -226,13 +224,13 @@
               
               <div>
                 
-  <span class="target" id="module-stravalib.model"></span><div class="section" id="client">
+  <span class="target" id="module-stravalib.model"></span><section id="client">
 <h1>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h1>
 <p>Entity classes for representing the various Strava datatypes.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.BaseEntity">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">BaseEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#BaseEntity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.BaseEntity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A base class for all entities in the system, including objects that may not
 be first-class entities in Strava.</p>
 <dl class="py method">
@@ -244,7 +242,7 @@ that are passed to the <cite>from_dict()</cite> method.  This intended for seria
 debug/etc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</p>
+<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, Any]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -583,7 +581,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityTotals.elapsed_time">
 <span class="sig-name descname"><span class="pre">elapsed_time</span></span><a class="headerlink" href="#stravalib.model.ActivityTotals.elapsed_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of total elapsed time</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of total elapsed time</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -595,7 +593,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityTotals.moving_time">
 <span class="sig-name descname"><span class="pre">moving_time</span></span><a class="headerlink" href="#stravalib.model.ActivityTotals.moving_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of total moving time</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of total moving time</p>
 </dd></dl>
 
 </dd></dl>
@@ -753,13 +751,13 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.created_at">
 <span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#stravalib.model.Athlete.created_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was created.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was created.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.updated_at">
 <span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#stravalib.model.Athlete.updated_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was last updated.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was last updated.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -819,19 +817,19 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.clubs">
 <span class="sig-name descname"><span class="pre">clubs</span></span><a class="headerlink" href="#stravalib.model.Athlete.clubs" title="Permalink to this definition">¶</a></dt>
-<dd><p>(detailed-only) Which clubs athlete belongs to. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Club" title="stravalib.model.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Club</span></code></a>)</p>
+<dd><p>(detailed-only) Which clubs athlete belongs to. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Club" title="stravalib.model.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Club</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.bikes">
 <span class="sig-name descname"><span class="pre">bikes</span></span><a class="headerlink" href="#stravalib.model.Athlete.bikes" title="Permalink to this definition">¶</a></dt>
-<dd><p>(detailed-only) Which bikes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Bike" title="stravalib.model.Bike"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Bike</span></code></a>)</p>
+<dd><p>(detailed-only) Which bikes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Bike" title="stravalib.model.Bike"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Bike</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.shoes">
 <span class="sig-name descname"><span class="pre">shoes</span></span><a class="headerlink" href="#stravalib.model.Athlete.shoes" title="Permalink to this definition">¶</a></dt>
-<dd><p>(detailed-only) Which shoes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Shoe" title="stravalib.model.Shoe"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Shoe</span></code></a>)</p>
+<dd><p>(detailed-only) Which shoes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Shoe" title="stravalib.model.Shoe"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Shoe</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -927,7 +925,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.premium_expiration_date">
 <span class="sig-name descname"><span class="pre">premium_expiration_date</span></span><a class="headerlink" href="#stravalib.model.Athlete.premium_expiration_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>(undocumented, detailed-only) When does premium membership expire (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> unix epoch)</p>
+<dd><p>(undocumented, detailed-only) When does premium membership expire (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> unix epoch)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1076,7 +1074,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityComment.created_at">
 <span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#stravalib.model.ActivityComment.created_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was coment created</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was coment created</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1205,19 +1203,19 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhoto.uploaded_at">
 <span class="sig-name descname"><span class="pre">uploaded_at</span></span><a class="headerlink" href="#stravalib.model.ActivityPhoto.uploaded_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was photo uploaded</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was photo uploaded</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhoto.created_at">
 <span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#stravalib.model.ActivityPhoto.created_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was photo created</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was photo created</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhoto.created_at_local">
 <span class="sig-name descname"><span class="pre">created_at_local</span></span><a class="headerlink" href="#stravalib.model.ActivityPhoto.created_at_local" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was photo created</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was photo created</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1332,13 +1330,13 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityKudos.created_at">
 <span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#stravalib.model.ActivityKudos.created_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was created.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was created.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityKudos.updated_at">
 <span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#stravalib.model.ActivityKudos.updated_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was last updated.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when athlete record was last updated.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1374,25 +1372,25 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap.elapsed_time">
 <span class="sig-name descname"><span class="pre">elapsed_time</span></span><a class="headerlink" href="#stravalib.model.ActivityLap.elapsed_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of elapsed time for lap</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of elapsed time for lap</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap.moving_time">
 <span class="sig-name descname"><span class="pre">moving_time</span></span><a class="headerlink" href="#stravalib.model.ActivityLap.moving_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of moving time for lap</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of moving time for lap</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap.start_date">
 <span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#stravalib.model.ActivityLap.start_date" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when lap was started in GMT</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when lap was started in GMT</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap.start_date_local">
 <span class="sig-name descname"><span class="pre">start_date_local</span></span><a class="headerlink" href="#stravalib.model.ActivityLap.start_date_local" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when lap was started local</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when lap was started local</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1518,7 +1516,7 @@ on the units used in this object, just the binning of values).</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Split.elapsed_time">
 <span class="sig-name descname"><span class="pre">elapsed_time</span></span><a class="headerlink" href="#stravalib.model.Split.elapsed_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of elapsed time for split</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of elapsed time for split</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1530,7 +1528,7 @@ on the units used in this object, just the binning of values).</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Split.moving_time">
 <span class="sig-name descname"><span class="pre">moving_time</span></span><a class="headerlink" href="#stravalib.model.Split.moving_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of moving time for split</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> of moving time for split</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1756,37 +1754,37 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.start_latlng">
 <span class="sig-name descname"><span class="pre">start_latlng</span></span><a class="headerlink" href="#stravalib.model.Segment.start_latlng" title="Permalink to this definition">¶</a></dt>
-<dd><p>The start lat/lon (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
+<dd><p>The start lat/lon (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.end_latlng">
 <span class="sig-name descname"><span class="pre">end_latlng</span></span><a class="headerlink" href="#stravalib.model.Segment.end_latlng" title="Permalink to this definition">¶</a></dt>
-<dd><p>The end lat/lon (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
+<dd><p>The end lat/lon (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.start_latitude">
 <span class="sig-name descname"><span class="pre">start_latitude</span></span><a class="headerlink" href="#stravalib.model.Segment.start_latitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>The start latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
+<dd><p>The start latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.end_latitude">
 <span class="sig-name descname"><span class="pre">end_latitude</span></span><a class="headerlink" href="#stravalib.model.Segment.end_latitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>The end latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
+<dd><p>The end latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.start_longitude">
 <span class="sig-name descname"><span class="pre">start_longitude</span></span><a class="headerlink" href="#stravalib.model.Segment.start_longitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>The start longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
+<dd><p>The start longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.end_longitude">
 <span class="sig-name descname"><span class="pre">end_longitude</span></span><a class="headerlink" href="#stravalib.model.Segment.end_longitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>The end longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
+<dd><p>The end longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1834,13 +1832,13 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.created_at">
 <span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#stravalib.model.Segment.created_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was segment created.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was segment created.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.updated_at">
 <span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#stravalib.model.Segment.updated_at" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was segment last updated.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when was segment last updated.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1980,25 +1978,25 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.moving_time">
 <span class="sig-name descname"><span class="pre">moving_time</span></span><a class="headerlink" href="#stravalib.model.BaseEffort.moving_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a></p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.elapsed_time">
 <span class="sig-name descname"><span class="pre">elapsed_time</span></span><a class="headerlink" href="#stravalib.model.BaseEffort.elapsed_time" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a></p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.start_date">
 <span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#stravalib.model.BaseEffort.start_date" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when effort was started in GMT</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when effort was started in GMT</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.start_date_local">
 <span class="sig-name descname"><span class="pre">start_date_local</span></span><a class="headerlink" href="#stravalib.model.BaseEffort.start_date_local" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when effort was started in activity timezone for this effort</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when effort was started in activity timezone for this effort</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2364,13 +2362,13 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.start_date">
 <span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#stravalib.model.Activity.start_date" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when activity was started in GMT</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when activity was started in GMT</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.start_date_local">
 <span class="sig-name descname"><span class="pre">start_date_local</span></span><a class="headerlink" href="#stravalib.model.Activity.start_date_local" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when activity was started in activity timezone</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when activity was started in activity timezone</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2388,13 +2386,13 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.start_latlng">
 <span class="sig-name descname"><span class="pre">start_latlng</span></span><a class="headerlink" href="#stravalib.model.Activity.start_latlng" title="Permalink to this definition">¶</a></dt>
-<dd><p>The start location (lat/lon <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
+<dd><p>The start location (lat/lon <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.end_latlng">
 <span class="sig-name descname"><span class="pre">end_latlng</span></span><a class="headerlink" href="#stravalib.model.Activity.end_latlng" title="Permalink to this definition">¶</a></dt>
-<dd><p>The end location (lat/lon <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
+<dd><p>The end location (lat/lon <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2544,25 +2542,25 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.best_efforts">
 <span class="sig-name descname"><span class="pre">best_efforts</span></span><a class="headerlink" href="#stravalib.model.Activity.best_efforts" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="#stravalib.model.BestEffort" title="stravalib.model.BestEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BestEffort</span></code></a> summaries</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="#stravalib.model.BestEffort" title="stravalib.model.BestEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BestEffort</span></code></a> summaries</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.segment_efforts">
 <span class="sig-name descname"><span class="pre">segment_efforts</span></span><a class="headerlink" href="#stravalib.model.Activity.segment_efforts" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.SegmentEffort" title="stravalib.model.SegmentEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentEffort</span></code></a> efforts for activity.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.SegmentEffort" title="stravalib.model.SegmentEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentEffort</span></code></a> efforts for activity.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.splits_metric">
 <span class="sig-name descname"><span class="pre">splits_metric</span></span><a class="headerlink" href="#stravalib.model.Activity.splits_metric" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.splits_standard">
 <span class="sig-name descname"><span class="pre">splits_standard</span></span><a class="headerlink" href="#stravalib.model.Activity.splits_standard" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of standard/imperial <a class="reference internal" href="#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of standard/imperial <a class="reference internal" href="#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2700,7 +2698,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.laps">
 <span class="sig-name descname"><span class="pre">laps</span></span><a class="headerlink" href="#stravalib.model.Activity.laps" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityLap" title="stravalib.model.ActivityLap"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityLap</span></code></a> objects.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityLap" title="stravalib.model.ActivityLap"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityLap</span></code></a> objects.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -2712,20 +2710,20 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Activity.zones">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">zones</span></span><a class="headerlink" href="#stravalib.model.Activity.zones" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityZone</span></code> objects for this activity.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityZone</span></code> objects for this activity.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Activity.kudos">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">kudos</span></span><a class="headerlink" href="#stravalib.model.Activity.kudos" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityKudos" title="stravalib.model.ActivityKudos"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityKudos</span></code></a> objects for this activity.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityKudos" title="stravalib.model.ActivityKudos"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityKudos</span></code></a> objects for this activity.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Activity.full_photos">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">full_photos</span></span><a class="headerlink" href="#stravalib.model.Activity.full_photos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a list of photos using default options.</p>
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityPhoto" title="stravalib.model.ActivityPhoto"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityPhoto</span></code></a> objects for this activity.</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityPhoto" title="stravalib.model.ActivityPhoto"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityPhoto</span></code></a> objects for this activity.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -2766,13 +2764,13 @@ of instances of this class.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.SegmentLeaderboardEntry.start_date">
 <span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#stravalib.model.SegmentLeaderboardEntry.start_date" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when this effot was started in GMT</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when this effot was started in GMT</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.SegmentLeaderboardEntry.start_date_local">
 <span class="sig-name descname"><span class="pre">start_date_local</span></span><a class="headerlink" href="#stravalib.model.SegmentLeaderboardEntry.start_date_local" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when this effort was started in activity timezone</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when this effort was started in activity timezone</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2786,7 +2784,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SegmentLeaderboard">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SegmentLeaderboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SegmentLeaderboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SegmentLeaderboard" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a>, <a class="reference internal" href="#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a>, <a class="reference internal" href="#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a></p>
 <p>The ranked leaderboard for a segment.</p>
 <p>This class is effectively a collection of <a class="reference internal" href="#stravalib.model.SegmentLeaderboardEntry" title="stravalib.model.SegmentLeaderboardEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentLeaderboardEntry</span></code></a> objects.</p>
 <dl class="py attribute">
@@ -2834,7 +2832,7 @@ of instances of this class.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.DistributionBucket.time">
 <span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#stravalib.model.DistributionBucket.time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time in seconds (<em>not</em> a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a>)</p>
+<dd><p>Time in seconds (<em>not</em> a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a>)</p>
 </dd></dl>
 
 </dd></dl>
@@ -3015,7 +3013,7 @@ of instances of this class.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.RunningRace.start_date_local">
 <span class="sig-name descname"><span class="pre">start_date_local</span></span><a class="headerlink" href="#stravalib.model.RunningRace.start_date_local" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when race was started local</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> when race was started local</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3282,18 +3280,29 @@ of instances of this class.</p>
 
 </dd></dl>
 
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="stravalib.exc.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Exc</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="stravalib.protocol.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Protocol</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-
-
-              </div>
-              
-              
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="stravalib.exc.html" title="previous page">Exc</a>
-    <a class='right-next' id="next-link" href="stravalib.protocol.html" title="next page">Protocol</a>
-
-              </div>
               
           </main>
           
@@ -3301,20 +3310,19 @@ of instances of this class.</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  <footer class="footer mt-5 mt-md-0">
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Hans Lellelid.<br/>
+    &copy; Copyright 2021, Hans Lellelid.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

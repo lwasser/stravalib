@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Usage Overview &#8212; stravalib 0.6.0 documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -23,10 +24,10 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,7 +40,10 @@
     <link rel="next" title="Contribute to Stravalib" href="../contributing.html" />
     <link rel="prev" title="Activities" href="activities.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,12 +100,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../api.html">
-  API Reference V2
  </a>
 </li>
 
@@ -236,11 +234,11 @@
               
               <div>
                 
-  <div class="section" id="usage-overview">
+  <section id="usage-overview">
 <span id="overview"></span><h1>Usage Overview<a class="headerlink" href="#usage-overview" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client" title="stravalib.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code></a> class exposes methods that loosely correspond
 with the REST methods exposed by the Strava API.</p>
-<div class="section" id="retrieving-single-entities">
+<section id="retrieving-single-entities">
 <h2>Retrieving Single Entities<a class="headerlink" href="#retrieving-single-entities" title="Permalink to this headline">¶</a></h2>
 <p>The simplest case are the client methods that return single entities. The entity object
 types are instances of <a class="reference internal" href="../api/stravalib.model.html#module-stravalib.model" title="stravalib.model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stravalib.model</span></code></a> classes. For example:</p>
@@ -250,7 +248,7 @@ types are instances of <a class="reference internal" href="../api/stravalib.mode
 <span class="c1"># &quot;Hello, John.  I know your email is john@example.com&quot;</span>
 </pre></div>
 </div>
-<div class="section" id="entity-resource-states">
+<section id="entity-resource-states">
 <h3>Entity Resource States<a class="headerlink" href="#entity-resource-states" title="Permalink to this headline">¶</a></h3>
 <p>Entities in Strava’s API exist at different detail levels, denoted by the numeric
 <cite>resource_state</cite> attribute (1=metadata, 2=summary, 3=detailed).  In general, detail level
@@ -262,9 +260,9 @@ information is available to others.  For example:</p>
 <span class="c1"># other_athlete.email</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="retrieving-entity-result-sets">
+</section>
+</section>
+<section id="retrieving-entity-result-sets">
 <h2>Retrieving Entity Result Sets<a class="headerlink" href="#retrieving-entity-result-sets" title="Permalink to this headline">¶</a></h2>
 <p>A number of Strava API endpoints return paged results.  The stravalib library abstracts over
 the paging to provide an iterator that will iterate over the entire resultset, fetching 200-page
@@ -289,27 +287,27 @@ attributes on entities.:</p>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">comments</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="attribute-types-and-units">
+</section>
+<section id="attribute-types-and-units">
 <h2>Attribute Types and Units<a class="headerlink" href="#attribute-types-and-units" title="Permalink to this headline">¶</a></h2>
 <p>Many of the attributes in the Strava API are either temporal (or interval) types or quantities
 that have implicit units associated with them. In both cases these are represented using
 richer python types than the simple string or numeric values that Strava REST API returns.</p>
-<div class="section" id="date-time-types">
+<section id="date-time-types">
 <h3>Date/Time Types<a class="headerlink" href="#date-time-types" title="Permalink to this headline">¶</a></h3>
-<p>The date+time responses are encoded as python native <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> objects.:</p>
+<p>The date+time responses are encoded as python native <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> objects.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="mi">96089609</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">start_date</span><span class="p">)</span>
 <span class="c1"># 2013-11-17 16:00:00+00:00</span>
 </pre></div>
 </div>
-<p>Date values which have no time component are encoded as python native <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> objects.:</p>
+<p>Date values which have no time component are encoded as python native <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> objects.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">me</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_athlete</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">me</span><span class="o">.</span><span class="n">dateofbirth</span><span class="p">)</span>
 <span class="c1"># 2010-12-26</span>
 </pre></div>
 </div>
-<p>Interval/duration values are represented using <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> objects, which allows
+<p>Interval/duration values are represented using <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> objects, which allows
 them to be added to datetime objects, etc.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="mi">96089609</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">elapsed_time</span><span class="p">)</span>
@@ -318,8 +316,8 @@ them to be added to datetime objects, etc.:</p>
 <span class="c1"># 38700</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="quantities-and-units">
+</section>
+<section id="quantities-and-units">
 <h3>Quantities and Units<a class="headerlink" href="#quantities-and-units" title="Permalink to this headline">¶</a></h3>
 <p>Typically the units for quantity attributes returned by the Strava REST API are not
 what people would actually want to see (e.g. meters-per-second instead of
@@ -351,20 +349,31 @@ or just cast to a numeric type (e.g. float).:</p>
 <span class="c1"># 13.9999900581</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="activities.html" title="previous page">Activities</a>
-    <a class='right-next' id="next-link" href="../contributing.html" title="next page">Contribute to Stravalib</a>
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="activities.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Activities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../contributing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Contribute to Stravalib</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
               
           </main>
           
@@ -372,20 +381,19 @@ or just cast to a numeric type (e.g. float).:</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  <footer class="footer mt-5 mt-md-0">
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Hans Lellelid.<br/>
+    &copy; Copyright 2021, Hans Lellelid.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

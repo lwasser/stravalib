@@ -220,6 +220,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_gear.html">
+     stravalib.Client.get_gear
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.join_club.html">
      stravalib.Client.join_club
     </a>
@@ -305,11 +310,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="stravalib.Client.get_gear.html">
-     stravalib.Client.get_gear
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.get_segment_effort.html">
      stravalib.Client.get_segment_effort
     </a>
@@ -370,6 +370,21 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_routes.html">
+     stravalib.Client.get_routes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_route.html">
+     stravalib.Client.get_route
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_route_streams.html">
+     stravalib.Client.get_route_streams
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.create_subscription.html">
      stravalib.Client.create_subscription
     </a>
@@ -418,6 +433,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../attributes.html">
+   Attributes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.html">
+     stravalib.attributes.Attribute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.marshal.html">
+     stravalib.attributes.Attribute.marshal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.unmarshal.html">
+     stravalib.attributes.Attribute.unmarshal
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
   </div>
@@ -461,26 +503,22 @@
 <span class="sig-prename descclassname"><span class="pre">Client.</span></span><span class="sig-name descname"><span class="pre">authorization_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">approval_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/client.html#Client.authorization_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.Client.authorization_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the URL needed to authorize your application to access a Strava user’s information.</p>
 <p>See <a class="reference external" href="https://developers.strava.com/docs/authentication/">https://developers.strava.com/docs/authentication/</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>redirect_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The URL that Strava will redirect to after successful (or failed) authorization.</p></li>
-<li><p><strong>approval_prompt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Whether to prompt for approval even if approval already granted to app.
-Choices are ‘auto’ or ‘force’.  (Default is ‘auto’)</p></li>
-<li><p><strong>scope</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – The access scope required.  Omit to imply “read” and “activity:read”
+<dl class="simple">
+<dt>client_id<span class="classifier">int</span></dt><dd><p>The numeric developer client id.</p>
+</dd>
+<dt>redirect_uri<span class="classifier">str</span></dt><dd><p>The URL that Strava will redirect to after successful (or failed) authorization.</p>
+</dd>
+<dt>approval_prompt<span class="classifier">str</span></dt><dd><p>Whether to prompt for approval even if approval already granted to app.
+Choices are ‘auto’ or ‘force’.  (Default is ‘auto’)</p>
+</dd>
+<dt>scope<span class="classifier">list[str]</span></dt><dd><p>The access scope required.  Omit to imply “read” and “activity:read”
 Valid values are ‘read’, ‘read_all’, ‘profile:read_all’, ‘profile:write’, ‘profile:read_all’,
-‘activity:read_all’, ‘activity:write’.</p></li>
-<li><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – An arbitrary variable that will be returned to your application in the redirect URI.</p></li>
-</ul>
+‘activity:read_all’, ‘activity:write’.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The URL to use for authorization link.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+<dt>state<span class="classifier">str</span></dt><dd><p>An arbitrary variable that will be returned to your application in the redirect URI.</p>
 </dd>
 </dl>
+<p>string : The URL string to use for authorization link.</p>
 </dd></dl>
 
 </section>

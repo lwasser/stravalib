@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>stravalib.Client.explore_segments &#8212; stravalib 0.6.0 documentation</title>
+    <title>stravalib.attributes.Attribute.unmarshal &#8212; stravalib 0.6.0 documentation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="stravalib.Client.get_activity_streams" href="stravalib.Client.get_activity_streams.html" />
-    <link rel="prev" title="stravalib.Client.get_segment_efforts" href="stravalib.Client.get_segment_efforts.html" />
+    <link rel="next" title="stravalib package" href="../../api/stravalib.html" />
+    <link rel="prev" title="stravalib.attributes.Attribute.marshal" href="stravalib.attributes.Attribute.marshal.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,16 +139,16 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../client.html">
    Client
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.html">
      stravalib.Client
@@ -339,8 +339,8 @@
      stravalib.Client.get_segment_efforts
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.explore_segments.html">
      stravalib.Client.explore_segments
     </a>
    </li>
@@ -433,16 +433,16 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../attributes.html">
    Attributes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="stravalib.attributes.Attribute.html">
      stravalib.attributes.Attribute
@@ -453,8 +453,8 @@
      stravalib.attributes.Attribute.marshal
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="stravalib.attributes.Attribute.unmarshal.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      stravalib.attributes.Attribute.unmarshal
     </a>
    </li>
@@ -496,29 +496,15 @@
               
               <div>
                 
-  <section id="stravalib-client-explore-segments">
-<h1>stravalib.Client.explore_segments<a class="headerlink" href="#stravalib-client-explore-segments" title="Permalink to this headline">¶</a></h1>
+  <section id="stravalib-attributes-attribute-unmarshal">
+<h1>stravalib.attributes.Attribute.unmarshal<a class="headerlink" href="#stravalib-attributes-attribute-unmarshal" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
-<dt class="sig sig-object py" id="stravalib.Client.explore_segments">
-<span class="sig-prename descclassname"><span class="pre">Client.</span></span><span class="sig-name descname"><span class="pre">explore_segments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activity_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_cat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/client.html#Client.explore_segments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.Client.explore_segments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an array of up to 10 segments.</p>
-<p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-Segments-exploreSegments">https://developers.strava.com/docs/reference/#api-Segments-exploreSegments</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>bounds</strong> (<em>list of 4 floats</em><em> or </em><em>list of 2</em><em> (</em><em>lat</em><em>,</em><em>lon</em><em>) </em><em>tuples</em>) – list of bounding box corners lat/lon [sw.lat, sw.lng, ne.lat, ne.lng] (south,west,north,east)</p></li>
-<li><p><strong>activity_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional, default is riding)  ‘running’ or ‘riding’</p></li>
-<li><p><strong>min_cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional) Minimum climb category filter</p></li>
-<li><p><strong>max_cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – (optional) Maximum climb category filter</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An list of <a class="reference internal" href="../../api/stravalib.model.html#stravalib.model.Segment" title="stravalib.model.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Segment</span></code></a>.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="stravalib.attributes.Attribute.unmarshal">
+<span class="sig-prename descclassname"><span class="pre">Attribute.</span></span><span class="sig-name descname"><span class="pre">unmarshal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/attributes.html#Attribute.unmarshal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.attributes.Attribute.unmarshal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the value from parsed JSON structure to native python representation.</p>
+<p>By default this will leave the value as-is since the JSON parsing routines
+typically convert to native types. The exception may be date strings or other
+more complex types, where subclasses will override this behavior.</p>
 </dd></dl>
 
 </section>
@@ -529,17 +515,17 @@
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="stravalib.Client.get_segment_efforts.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="stravalib.attributes.Attribute.marshal.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">stravalib.Client.get_segment_efforts</p>
+            <p class="prev-next-title">stravalib.attributes.Attribute.marshal</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="stravalib.Client.get_activity_streams.html" title="next page">
+    <a class='right-next' id="next-link" href="../../api/stravalib.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">stravalib.Client.get_activity_streams</p>
+        <p class="prev-next-title">stravalib package</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

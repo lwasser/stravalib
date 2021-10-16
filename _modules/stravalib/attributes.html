@@ -187,18 +187,18 @@
 <span class="n">DETAILED</span> <span class="o">=</span> <span class="mi">3</span>
 
 
-<div class="viewcode-block" id="Attribute"><a class="viewcode-back" href="../../api/stravalib.attributes.html#stravalib.attributes.Attribute">[docs]</a><span class="k">class</span> <span class="nc">Attribute</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Attribute"><a class="viewcode-back" href="../../reference/api/stravalib.attributes.Attribute.html#stravalib.attributes.Attribute">[docs]</a><span class="k">class</span> <span class="nc">Attribute</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base descriptor class for a Strava model attribute.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_type</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_</span><span class="p">,</span> <span class="n">resource_states</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Attribute.__init__"><a class="viewcode-back" href="../../reference/api/stravalib.attributes.Attribute.html#stravalib.attributes.Attribute.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_</span><span class="p">,</span> <span class="n">resource_states</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">type_</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource_states</span> <span class="o">=</span> <span class="n">resource_states</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">WeakKeyDictionary</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">units</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">units</span></div>
 
     <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">clazz</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -227,7 +227,7 @@
     <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="n">v</span>
 
-<div class="viewcode-block" id="Attribute.marshal"><a class="viewcode-back" href="../../api/stravalib.attributes.html#stravalib.attributes.Attribute.marshal">[docs]</a>    <span class="k">def</span> <span class="nf">marshal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<div class="viewcode-block" id="Attribute.marshal"><a class="viewcode-back" href="../../reference/api/stravalib.attributes.Attribute.marshal.html#stravalib.attributes.Attribute.marshal">[docs]</a>    <span class="k">def</span> <span class="nf">marshal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Turn this value into format for wire (JSON).</span>
 
@@ -239,7 +239,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">v</span></div>
 
-<div class="viewcode-block" id="Attribute.unmarshal"><a class="viewcode-back" href="../../api/stravalib.attributes.html#stravalib.attributes.Attribute.unmarshal">[docs]</a>    <span class="k">def</span> <span class="nf">unmarshal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<div class="viewcode-block" id="Attribute.unmarshal"><a class="viewcode-back" href="../../reference/api/stravalib.attributes.Attribute.unmarshal.html#stravalib.attributes.Attribute.unmarshal">[docs]</a>    <span class="k">def</span> <span class="nf">unmarshal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert the value from parsed JSON structure to native python representation.</span>
 

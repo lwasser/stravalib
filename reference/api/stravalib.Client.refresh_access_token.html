@@ -220,6 +220,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_gear.html">
+     stravalib.Client.get_gear
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.join_club.html">
      stravalib.Client.join_club
     </a>
@@ -305,11 +310,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="stravalib.Client.get_gear.html">
-     stravalib.Client.get_gear
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.get_segment_effort.html">
      stravalib.Client.get_segment_effort
     </a>
@@ -370,6 +370,21 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_routes.html">
+     stravalib.Client.get_routes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_route.html">
+     stravalib.Client.get_route
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_route_streams.html">
+     stravalib.Client.get_route_streams
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.create_subscription.html">
      stravalib.Client.create_subscription
     </a>
@@ -418,6 +433,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../attributes.html">
+   Attributes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.html">
+     stravalib.attributes.Attribute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.marshal.html">
+     stravalib.attributes.Attribute.marshal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.unmarshal.html">
+     stravalib.attributes.Attribute.unmarshal
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
   </div>
@@ -461,22 +503,16 @@
 <span class="sig-prename descclassname"><span class="pre">Client.</span></span><span class="sig-name descname"><span class="pre">refresh_access_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/client.html#Client.refresh_access_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.Client.refresh_access_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exchanges the previous refresh token for a short-lived access token and a new
 refresh token (used to obtain the next access token later on).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The developer client secret</p></li>
-<li><p><strong>refresh_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The refresh token obtained from a previous authorization request</p></li>
-</ul>
+<dl class="simple">
+<dt>client_id<span class="classifier">int</span></dt><dd><p>The numeric developer client id.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dictionary containing the access_token, refresh_token
-and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
+<dt>client_secret<span class="classifier">str</span></dt><dd><p>The developer client secret</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<dt>refresh_token<span class="classifier">str</span></dt><dd><p>The refresh token obtained from a previous authorization request</p>
 </dd>
 </dl>
+<p>Dictionary containing the access_token, refresh_token
+and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
 </dd></dl>
 
 </section>

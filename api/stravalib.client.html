@@ -234,11 +234,6 @@
 <p>Main client class for interacting with the exposed Strava v3 API methods.</p>
 <p>This class can be instantiated without an access_token when performing authentication;
 however, most methods will require a valid access token.</p>
-<dl class="simple">
-<dt>access_token<span class="classifier">str</span></dt><dd><p>The token that provides access to a specific Strava account.  If empty, assume that this
-account is not yet authenticated.</p>
-</dd>
-</dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.client.Client.access_token">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">access_token</span></span><a class="headerlink" href="#stravalib.client.Client.access_token" title="Permalink to this definition">¶</a></dt>
@@ -250,26 +245,22 @@ account is not yet authenticated.</p>
 <span class="sig-name descname"><span class="pre">authorization_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">approval_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.authorization_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.authorization_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the URL needed to authorize your application to access a Strava user’s information.</p>
 <p>See <a class="reference external" href="https://developers.strava.com/docs/authentication/">https://developers.strava.com/docs/authentication/</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>redirect_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The URL that Strava will redirect to after successful (or failed) authorization.</p></li>
-<li><p><strong>approval_prompt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Whether to prompt for approval even if approval already granted to app.
-Choices are ‘auto’ or ‘force’.  (Default is ‘auto’)</p></li>
-<li><p><strong>scope</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – The access scope required.  Omit to imply “read” and “activity:read”
+<dl class="simple">
+<dt>client_id<span class="classifier">int</span></dt><dd><p>The numeric developer client id.</p>
+</dd>
+<dt>redirect_uri<span class="classifier">str</span></dt><dd><p>The URL that Strava will redirect to after successful (or failed) authorization.</p>
+</dd>
+<dt>approval_prompt<span class="classifier">str</span></dt><dd><p>Whether to prompt for approval even if approval already granted to app.
+Choices are ‘auto’ or ‘force’.  (Default is ‘auto’)</p>
+</dd>
+<dt>scope<span class="classifier">list[str]</span></dt><dd><p>The access scope required.  Omit to imply “read” and “activity:read”
 Valid values are ‘read’, ‘read_all’, ‘profile:read_all’, ‘profile:write’, ‘profile:read_all’,
-‘activity:read_all’, ‘activity:write’.</p></li>
-<li><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – An arbitrary variable that will be returned to your application in the redirect URI.</p></li>
-</ul>
+‘activity:read_all’, ‘activity:write’.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The URL to use for authorization link.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+<dt>state<span class="classifier">str</span></dt><dd><p>An arbitrary variable that will be returned to your application in the redirect URI.</p>
 </dd>
 </dl>
+<p>string : The URL string to use for authorization link.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -277,22 +268,16 @@ Valid values are ‘read’, ‘read_all’, ‘profile:read_all’, ‘profile:
 <span class="sig-name descname"><span class="pre">exchange_code_for_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.exchange_code_for_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.exchange_code_for_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exchange the temporary authorization code (returned with redirect from strava authorization URL)
 for a short-lived access token and a refresh token (used to obtain the next access token later on).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The developer client secret</p></li>
-<li><p><strong>code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The temporary authorization code</p></li>
-</ul>
+<dl class="simple">
+<dt>client_id<span class="classifier">int</span></dt><dd><p>The numeric developer client id.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dictionary containing the access_token, refresh_token
-and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
+<dt>client_secret<span class="classifier">str</span></dt><dd><p>The developer client secret</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<dt>code<span class="classifier">str</span></dt><dd><p>The temporary authorization code</p>
 </dd>
 </dl>
+<p>Dictionary containing the access_token, refresh_token
+and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -300,22 +285,16 @@ and expires_at (number of seconds since Epoch when the provided access token wil
 <span class="sig-name descname"><span class="pre">refresh_access_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/client.html#Client.refresh_access_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.client.Client.refresh_access_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exchanges the previous refresh token for a short-lived access token and a new
 refresh token (used to obtain the next access token later on).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numeric developer client id.</p></li>
-<li><p><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The developer client secret</p></li>
-<li><p><strong>refresh_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The refresh token obtained from a previous authorization request</p></li>
-</ul>
+<dl class="simple">
+<dt>client_id<span class="classifier">int</span></dt><dd><p>The numeric developer client id.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dictionary containing the access_token, refresh_token
-and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
+<dt>client_secret<span class="classifier">str</span></dt><dd><p>The developer client secret</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<dt>refresh_token<span class="classifier">str</span></dt><dd><p>The refresh token obtained from a previous authorization request</p>
 </dd>
 </dl>
+<p>Dictionary containing the access_token, refresh_token
+and expires_at (number of seconds since Epoch when the provided access token will expire)</p>
 </dd></dl>
 
 <dl class="py method">

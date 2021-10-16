@@ -220,6 +220,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.get_gear.html">
+     stravalib.Client.get_gear
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="api/stravalib.Client.join_club.html">
      stravalib.Client.join_club
     </a>
@@ -305,11 +310,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="api/stravalib.Client.get_gear.html">
-     stravalib.Client.get_gear
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="api/stravalib.Client.get_segment_effort.html">
      stravalib.Client.get_segment_effort
     </a>
@@ -370,6 +370,21 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.get_routes.html">
+     stravalib.Client.get_routes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.get_route.html">
+     stravalib.Client.get_route
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.Client.get_route_streams.html">
+     stravalib.Client.get_route_streams
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="api/stravalib.Client.create_subscription.html">
      stravalib.Client.create_subscription
     </a>
@@ -414,6 +429,33 @@
    <li class="toctree-l2">
     <a class="reference internal" href="api/stravalib.client.ActivityUploader.update_from_response.html">
      stravalib.client.ActivityUploader.update_from_response
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="attributes.html">
+   Attributes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.attributes.Attribute.html">
+     stravalib.attributes.Attribute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.attributes.Attribute.marshal.html">
+     stravalib.attributes.Attribute.marshal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/stravalib.attributes.Attribute.unmarshal.html">
+     stravalib.attributes.Attribute.unmarshal
     </a>
    </li>
   </ul>
@@ -582,6 +624,9 @@ accessible via the API.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.get_athlete_clubs.html#stravalib.Client.get_athlete_clubs" title="stravalib.Client.get_athlete_clubs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_athlete_clubs</span></code></a>()</p></td>
 <td><p>List the clubs for the currently authenticated athlete.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/stravalib.Client.get_gear.html#stravalib.Client.get_gear" title="stravalib.Client.get_gear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_gear</span></code></a>(gear_id)</p></td>
+<td><p>Get details for an item of gear.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -655,9 +700,6 @@ accessible via the API.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="api/stravalib.Client.get_related_activities.html#stravalib.Client.get_related_activities" title="stravalib.Client.get_related_activities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_related_activities</span></code></a>(activity_id[, ...])</p></td>
 <td><p>Deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.get_gear.html#stravalib.Client.get_gear" title="stravalib.Client.get_gear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_gear</span></code></a>(gear_id)</p></td>
-<td><p>Get details for an item of gear.</p></td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -721,6 +763,23 @@ accessible via the API.</p>
 </section>
 <section id="route-related-methods">
 <h2>Route related methods<a class="headerlink" href="#route-related-methods" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.get_routes.html#stravalib.Client.get_routes" title="stravalib.Client.get_routes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_routes</span></code></a>([athlete_id, limit])</p></td>
+<td><p>Gets the routes list for an authenticated user.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/stravalib.Client.get_route.html#stravalib.Client.get_route" title="stravalib.Client.get_route"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_route</span></code></a>(route_id)</p></td>
+<td><p>Gets specified route.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/stravalib.Client.get_route_streams.html#stravalib.Client.get_route_streams" title="stravalib.Client.get_route_streams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client.get_route_streams</span></code></a>(route_id)</p></td>
+<td><p>Returns streams for a route.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="subscription-related-methods">
 <h2>Subscription related methods<a class="headerlink" href="#subscription-related-methods" title="Permalink to this headline">¶</a></h2>

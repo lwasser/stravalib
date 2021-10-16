@@ -192,11 +192,6 @@
 <span class="sd">    This class can be instantiated without an access_token when performing authentication;</span>
 <span class="sd">    however, most methods will require a valid access token.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    access_token : str</span>
-<span class="sd">        The token that provides access to a specific Strava account.  If empty, assume that this</span>
-<span class="sd">        account is not yet authenticated.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Client.__init__"><a class="viewcode-back" href="../../reference/api/stravalib.Client.html#stravalib.client.Client.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -210,14 +205,14 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        access_token : str</span>
-<span class="sd">            The token that provides access to a specific Strava account.  If empty, assume that this</span>
+<span class="sd">            The token that provides access to a specific Strava account. If empty, assume that this</span>
 <span class="sd">            account is not yet authenticated.</span>
 <span class="sd">        rate_limit_requests : bool</span>
 <span class="sd">            Whether to apply a rate limiter to the requests. (default True)</span>
 <span class="sd">        rate_limiter : callable</span>
-<span class="sd">            A :class:`stravalib.util.limiter.RateLimiter&#39; object to use.</span>
+<span class="sd">            A :class:`stravalib.util.limiter.RateLimiter` object to use.</span>
 <span class="sd">            If not specified (and rate_limit_requests is True), then</span>
-<span class="sd">            :class:`stravalib.util.limiter.DefaultRateLimiter&#39; will be used.</span>
+<span class="sd">            :class:`stravalib.util.limiter.DefaultRateLimiter` will be used.</span>
 <span class="sd">        requests_session : requests.Session() object</span>
 <span class="sd">            (Optional) pass request session object.</span>
 
@@ -259,26 +254,25 @@
 
 <span class="sd">        See https://developers.strava.com/docs/authentication/</span>
 
-<span class="sd">        :param client_id: The numeric developer client id.</span>
-<span class="sd">        :type client_id: int</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        client_id : int</span>
+<span class="sd">            The numeric developer client id.</span>
+<span class="sd">        redirect_uri : str</span>
+<span class="sd">            The URL that Strava will redirect to after successful (or failed) authorization.</span>
+<span class="sd">        approval_prompt : str</span>
+<span class="sd">            Whether to prompt for approval even if approval already granted to app.</span>
+<span class="sd">            Choices are &#39;auto&#39; or &#39;force&#39;.  (Default is &#39;auto&#39;)</span>
+<span class="sd">        scope : list[str]</span>
+<span class="sd">            The access scope required.  Omit to imply &quot;read&quot; and &quot;activity:read&quot;</span>
+<span class="sd">            Valid values are &#39;read&#39;, &#39;read_all&#39;, &#39;profile:read_all&#39;, &#39;profile:write&#39;, &#39;profile:read_all&#39;,</span>
+<span class="sd">            &#39;activity:read_all&#39;, &#39;activity:write&#39;.</span>
+<span class="sd">        state : str</span>
+<span class="sd">            An arbitrary variable that will be returned to your application in the redirect URI.</span>
 
-<span class="sd">        :param redirect_uri: The URL that Strava will redirect to after successful (or failed) authorization.</span>
-<span class="sd">        :type redirect_uri: str</span>
-
-<span class="sd">        :param approval_prompt: Whether to prompt for approval even if approval already granted to app.</span>
-<span class="sd">                                Choices are &#39;auto&#39; or &#39;force&#39;.  (Default is &#39;auto&#39;)</span>
-<span class="sd">        :type approval_prompt: str</span>
-
-<span class="sd">        :param scope: The access scope required.  Omit to imply &quot;read&quot; and &quot;activity:read&quot;</span>
-<span class="sd">                      Valid values are &#39;read&#39;, &#39;read_all&#39;, &#39;profile:read_all&#39;, &#39;profile:write&#39;, &#39;profile:read_all&#39;,</span>
-<span class="sd">                      &#39;activity:read_all&#39;, &#39;activity:write&#39;.</span>
-<span class="sd">        :type scope: list[str]</span>
-
-<span class="sd">        :param state: An arbitrary variable that will be returned to your application in the redirect URI.</span>
-<span class="sd">        :type state: str</span>
-
-<span class="sd">        :return: The URL to use for authorization link.</span>
-<span class="sd">        :rtype: str</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        string : The URL string to use for authorization link.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">authorization_url</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
                                                <span class="n">redirect_uri</span><span class="o">=</span><span class="n">redirect_uri</span><span class="p">,</span>
@@ -290,18 +284,19 @@
 <span class="sd">        Exchange the temporary authorization code (returned with redirect from strava authorization URL)</span>
 <span class="sd">        for a short-lived access token and a refresh token (used to obtain the next access token later on).</span>
 
-<span class="sd">        :param client_id: The numeric developer client id.</span>
-<span class="sd">        :type client_id: int</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        client_id : int</span>
+<span class="sd">            The numeric developer client id.</span>
+<span class="sd">        client_secret : str</span>
+<span class="sd">            The developer client secret</span>
+<span class="sd">        code : str</span>
+<span class="sd">            The temporary authorization code</span>
 
-<span class="sd">        :param client_secret: The developer client secret</span>
-<span class="sd">        :type client_secret: str</span>
-
-<span class="sd">        :param code: The temporary authorization code</span>
-<span class="sd">        :type code: str</span>
-
-<span class="sd">        :return: Dictionary containing the access_token, refresh_token</span>
-<span class="sd">                 and expires_at (number of seconds since Epoch when the provided access token will expire)</span>
-<span class="sd">        :rtype: dict</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Dictionary containing the access_token, refresh_token</span>
+<span class="sd">        and expires_at (number of seconds since Epoch when the provided access token will expire)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">exchange_code_for_token</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
                                                      <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
@@ -312,18 +307,19 @@
 <span class="sd">        Exchanges the previous refresh token for a short-lived access token and a new</span>
 <span class="sd">        refresh token (used to obtain the next access token later on).</span>
 
-<span class="sd">        :param client_id: The numeric developer client id.</span>
-<span class="sd">        :type client_id: int</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        client_id : int</span>
+<span class="sd">            The numeric developer client id.</span>
+<span class="sd">        client_secret : str</span>
+<span class="sd">            The developer client secret</span>
+<span class="sd">        refresh_token : str</span>
+<span class="sd">            The refresh token obtained from a previous authorization request</span>
 
-<span class="sd">        :param client_secret: The developer client secret</span>
-<span class="sd">        :type client_secret: str</span>
-
-<span class="sd">        :param refresh_token: The refresh token obtained from a previous authorization request</span>
-<span class="sd">        :type refresh_token: str</span>
-
-<span class="sd">        :return: Dictionary containing the access_token, refresh_token</span>
-<span class="sd">                 and expires_at (number of seconds since Epoch when the provided access token will expire)</span>
-<span class="sd">        :rtype: dict</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Dictionary containing the access_token, refresh_token</span>
+<span class="sd">        and expires_at (number of seconds since Epoch when the provided access token will expire)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">refresh_access_token</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
                                                   <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
@@ -342,10 +338,15 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert the specified datetime value to a unix epoch timestamp (seconds since epoch).</span>
 
-<span class="sd">        :param activity_datetime: A string which may contain tzinfo (offset) or a datetime object (naive datetime will</span>
-<span class="sd">                                    be considered to be UTC).</span>
-<span class="sd">        :return: Epoch timestamp.</span>
-<span class="sd">        :rtype: int</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        activity_datetime : str</span>
+<span class="sd">            A string which may contain tzinfo (offset) or a datetime object (naive datetime will</span>
+<span class="sd">            be considered to be UTC).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Epoch timestamp in int format.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">activity_datetime</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">activity_datetime</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">activity_datetime</span><span class="p">)</span><span class="o">.</span><span class="n">datetime</span>

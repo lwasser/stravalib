@@ -220,6 +220,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_gear.html">
+     stravalib.Client.get_gear
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.join_club.html">
      stravalib.Client.join_club
     </a>
@@ -305,11 +310,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="stravalib.Client.get_gear.html">
-     stravalib.Client.get_gear
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.get_segment_effort.html">
      stravalib.Client.get_segment_effort
     </a>
@@ -370,6 +370,21 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_routes.html">
+     stravalib.Client.get_routes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_route.html">
+     stravalib.Client.get_route
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.Client.get_route_streams.html">
+     stravalib.Client.get_route_streams
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="stravalib.Client.create_subscription.html">
      stravalib.Client.create_subscription
     </a>
@@ -418,6 +433,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../attributes.html">
+   Attributes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.html">
+     stravalib.attributes.Attribute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.marshal.html">
+     stravalib.attributes.Attribute.marshal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stravalib.attributes.Attribute.unmarshal.html">
+     stravalib.attributes.Attribute.unmarshal
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
   </div>
@@ -462,24 +504,19 @@
 <dd><p>Main client class for interacting with the exposed Strava v3 API methods.</p>
 <p>This class can be instantiated without an access_token when performing authentication;
 however, most methods will require a valid access token.</p>
-<dl class="simple">
-<dt>access_token<span class="classifier">str</span></dt><dd><p>The token that provides access to a specific Strava account.  If empty, assume that this
-account is not yet authenticated.</p>
-</dd>
-</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="stravalib.Client.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limit_requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_limiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/stravalib/client.html#Client.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.Client.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a new client object.</p>
 <dl class="simple">
-<dt>access_token<span class="classifier">str</span></dt><dd><p>The token that provides access to a specific Strava account.  If empty, assume that this
+<dt>access_token<span class="classifier">str</span></dt><dd><p>The token that provides access to a specific Strava account. If empty, assume that this
 account is not yet authenticated.</p>
 </dd>
 <dt>rate_limit_requests<span class="classifier">bool</span></dt><dd><p>Whether to apply a rate limiter to the requests. (default True)</p>
 </dd>
-<dt>rate_limiter<span class="classifier">callable</span></dt><dd><p>A :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>stravalib.util.limiter.RateLimiter’ object to use.
+<dt>rate_limiter<span class="classifier">callable</span></dt><dd><p>A <a class="reference internal" href="../../api/stravalib.util.limiter.html#stravalib.util.limiter.RateLimiter" title="stravalib.util.limiter.RateLimiter"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.util.limiter.RateLimiter</span></code></a> object to use.
 If not specified (and rate_limit_requests is True), then
-:class:<a href="#id3"><span class="problematic" id="id4">`</span></a>stravalib.util.limiter.DefaultRateLimiter’ will be used.</p>
+<a class="reference internal" href="../../api/stravalib.util.limiter.html#stravalib.util.limiter.DefaultRateLimiter" title="stravalib.util.limiter.DefaultRateLimiter"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.util.limiter.DefaultRateLimiter</span></code></a> will be used.</p>
 </dd>
 <dt>requests_session<span class="classifier">requests.Session() object</span></dt><dd><p>(Optional) pass request session object.</p>
 </dd>

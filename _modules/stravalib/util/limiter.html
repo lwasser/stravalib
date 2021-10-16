@@ -189,7 +189,7 @@
 <span class="kn">from</span> <span class="nn">stravalib</span> <span class="kn">import</span> <span class="n">exc</span>
 
 
-<div class="viewcode-block" id="total_seconds"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.total_seconds">[docs]</a><span class="k">def</span> <span class="nf">total_seconds</span><span class="p">(</span><span class="n">td</span><span class="p">):</span>
+<div class="viewcode-block" id="total_seconds"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.total_seconds">[docs]</a><span class="k">def</span> <span class="nf">total_seconds</span><span class="p">(</span><span class="n">td</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Alternative to datetime.timedelta.total_seconds</span>
 <span class="sd">    total_seconds() only available since Python 2.7</span>
 <span class="sd">    https://docs.python.org/2/library/datetime.html#datetime.timedelta.total_seconds</span>
@@ -200,7 +200,7 @@
 <span class="n">RequestRate</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;RequestRate&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;short_usage&#39;</span><span class="p">,</span> <span class="s1">&#39;long_usage&#39;</span><span class="p">,</span> <span class="s1">&#39;short_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;long_limit&#39;</span><span class="p">])</span>
 
 
-<div class="viewcode-block" id="get_rates_from_response_headers"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.get_rates_from_response_headers">[docs]</a><span class="k">def</span> <span class="nf">get_rates_from_response_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">):</span>
+<div class="viewcode-block" id="get_rates_from_response_headers"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.get_rates_from_response_headers">[docs]</a><span class="k">def</span> <span class="nf">get_rates_from_response_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a namedtuple with values for short - and long usage and limit rates found in provided HTTP response headers</span>
 <span class="sd">    :param headers: HTTP response headers</span>
@@ -218,7 +218,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 
-<div class="viewcode-block" id="get_seconds_until_next_quarter"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.get_seconds_until_next_quarter">[docs]</a><span class="k">def</span> <span class="nf">get_seconds_until_next_quarter</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_seconds_until_next_quarter"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.get_seconds_until_next_quarter">[docs]</a><span class="k">def</span> <span class="nf">get_seconds_until_next_quarter</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the number of seconds until the next quarter of an hour. This is the short-term rate limit used by Strava.</span>
 <span class="sd">    :param now: A (utc) timestamp</span>
@@ -230,7 +230,7 @@
     <span class="k">return</span> <span class="mi">899</span> <span class="o">-</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">minute</span><span class="o">=</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">//</span> <span class="mi">15</span><span class="p">)</span> <span class="o">*</span> <span class="mi">15</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">seconds</span></div>
 
 
-<div class="viewcode-block" id="get_seconds_until_next_day"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.get_seconds_until_next_day">[docs]</a><span class="k">def</span> <span class="nf">get_seconds_until_next_day</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_seconds_until_next_day"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.get_seconds_until_next_day">[docs]</a><span class="k">def</span> <span class="nf">get_seconds_until_next_day</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the number of seconds until the next day (utc midnight). This is the long-term rate limit used by Strava.</span>
 <span class="sd">    :param now: A (utc) timestamp</span>
@@ -242,7 +242,7 @@
     <span class="k">return</span> <span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span></div>
 
 
-<div class="viewcode-block" id="XRateLimitRule"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.XRateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">XRateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="XRateLimitRule"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.XRateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">XRateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limits</span><span class="p">,</span> <span class="n">force_limits</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -307,7 +307,7 @@
                                    <span class="n">limit</span><span class="o">=</span><span class="n">limit_rate</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SleepingRateLimitRule"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.SleepingRateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">SleepingRateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="SleepingRateLimitRule"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.SleepingRateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">SleepingRateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A rate limit rule that can be prioritized and can dynamically adapt its limits based on API responses.</span>
 <span class="sd">    Given its priority, it will enforce a variable &quot;cool-down&quot; period after each response. When rate limits</span>
@@ -363,7 +363,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">long_limit</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">long_limit</span></div>
 
 
-<div class="viewcode-block" id="RateLimitRule"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.RateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">RateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="RateLimitRule"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.RateLimitRule">[docs]</a><span class="k">class</span> <span class="nc">RateLimitRule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">raise_exc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -401,7 +401,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">tab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span></div>
 
 
-<div class="viewcode-block" id="RateLimiter"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.RateLimiter">[docs]</a><span class="k">class</span> <span class="nc">RateLimiter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="RateLimiter"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.RateLimiter">[docs]</a><span class="k">class</span> <span class="nc">RateLimiter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
@@ -415,7 +415,7 @@
             <span class="n">r</span><span class="p">(</span><span class="n">args</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="DefaultRateLimiter"><a class="viewcode-back" href="../../../api/stravalib.util.limiter.html#stravalib.util.limiter.DefaultRateLimiter">[docs]</a><span class="k">class</span> <span class="nc">DefaultRateLimiter</span><span class="p">(</span><span class="n">RateLimiter</span><span class="p">):</span>
+<div class="viewcode-block" id="DefaultRateLimiter"><a class="viewcode-back" href="../../../reference/utilities.html#stravalib.util.limiter.DefaultRateLimiter">[docs]</a><span class="k">class</span> <span class="nc">DefaultRateLimiter</span><span class="p">(</span><span class="n">RateLimiter</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements something similar to the default rate limit for Strava apps.</span>
 

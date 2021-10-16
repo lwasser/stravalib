@@ -236,12 +236,12 @@
                 
   <section id="usage-overview">
 <span id="overview"></span><h1>Usage Overview<a class="headerlink" href="#usage-overview" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.Client" title="stravalib.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code></a> class exposes methods that loosely correspond
+<p>The <a class="reference internal" href="../reference/api/stravalib.client.Client.html#stravalib.client.Client" title="stravalib.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code></a> class exposes methods that loosely correspond
 with the REST methods exposed by the Strava API.</p>
 <section id="retrieving-single-entities">
 <h2>Retrieving Single Entities<a class="headerlink" href="#retrieving-single-entities" title="Permalink to this headline">¶</a></h2>
 <p>The simplest case are the client methods that return single entities. The entity object
-types are instances of <a class="reference internal" href="../api/stravalib.model.html#module-stravalib.model" title="stravalib.model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stravalib.model</span></code></a> classes. For example:</p>
+types are instances of <a class="reference internal" href="../reference/model.html#module-stravalib.model" title="stravalib.model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stravalib.model</span></code></a> classes. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">access_token</span><span class="o">=</span><span class="n">JOHNS_ACCESS_TOKEN</span><span class="p">)</span>
 <span class="n">athlete</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_athlete</span><span class="p">()</span> <span class="c1"># Get John&#39;s full athlete record</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, </span><span class="si">{}</span><span class="s2">. I know your email is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">athlete</span><span class="o">.</span><span class="n">firstname</span><span class="p">,</span> <span class="n">athlete</span><span class="o">.</span><span class="n">email</span><span class="p">))</span>

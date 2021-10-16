@@ -158,9 +158,10 @@
                 
   <h1>Source code for stravalib.exc</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Exc</span>
-<span class="sd">==============</span>
-<span class="sd">More here...</span>
+<span class="sd">Exceptions &amp; Error Handling</span>
+<span class="sd">============================</span>
+<span class="sd">Exceptions and error handling for stravalib.</span>
+<span class="sd">These are classes designed to capture and handle various errors encountered when interacting with the Strava API.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
@@ -168,45 +169,45 @@
 <span class="kn">import</span> <span class="nn">requests.exceptions</span>
 
 
-<div class="viewcode-block" id="AuthError"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.AuthError">[docs]</a><span class="k">class</span> <span class="nc">AuthError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<div class="viewcode-block" id="AuthError"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.AuthError">[docs]</a><span class="k">class</span> <span class="nc">AuthError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="LoginFailed"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.LoginFailed">[docs]</a><span class="k">class</span> <span class="nc">LoginFailed</span><span class="p">(</span><span class="n">AuthError</span><span class="p">):</span>
+<div class="viewcode-block" id="LoginFailed"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.LoginFailed">[docs]</a><span class="k">class</span> <span class="nc">LoginFailed</span><span class="p">(</span><span class="n">AuthError</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="LoginRequired"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.LoginRequired">[docs]</a><span class="k">class</span> <span class="nc">LoginRequired</span><span class="p">(</span><span class="n">AuthError</span><span class="p">):</span>
+<div class="viewcode-block" id="LoginRequired"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.LoginRequired">[docs]</a><span class="k">class</span> <span class="nc">LoginRequired</span><span class="p">(</span><span class="n">AuthError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Login is required to perform specified action.</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="UnboundEntity"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.UnboundEntity">[docs]</a><span class="k">class</span> <span class="nc">UnboundEntity</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<div class="viewcode-block" id="UnboundEntity"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.UnboundEntity">[docs]</a><span class="k">class</span> <span class="nc">UnboundEntity</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception used to indicate that a model Entity is not bound to client instances.</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="Fault"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.Fault">[docs]</a><span class="k">class</span> <span class="nc">Fault</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">):</span>
+<div class="viewcode-block" id="Fault"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.Fault">[docs]</a><span class="k">class</span> <span class="nc">Fault</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Container for exceptions raised by the remote server.</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="ObjectNotFound"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.ObjectNotFound">[docs]</a><span class="k">class</span> <span class="nc">ObjectNotFound</span><span class="p">(</span><span class="n">Fault</span><span class="p">):</span>
+<div class="viewcode-block" id="ObjectNotFound"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.ObjectNotFound">[docs]</a><span class="k">class</span> <span class="nc">ObjectNotFound</span><span class="p">(</span><span class="n">Fault</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    When we get a 404 back from an API call.</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="AccessUnauthorized"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.AccessUnauthorized">[docs]</a><span class="k">class</span> <span class="nc">AccessUnauthorized</span><span class="p">(</span><span class="n">Fault</span><span class="p">):</span>
+<div class="viewcode-block" id="AccessUnauthorized"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.AccessUnauthorized">[docs]</a><span class="k">class</span> <span class="nc">AccessUnauthorized</span><span class="p">(</span><span class="n">Fault</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    When we get a 401 back from an API call.</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="RateLimitExceeded"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.RateLimitExceeded">[docs]</a><span class="k">class</span> <span class="nc">RateLimitExceeded</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<div class="viewcode-block" id="RateLimitExceeded"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.RateLimitExceeded">[docs]</a><span class="k">class</span> <span class="nc">RateLimitExceeded</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when the client rate limit has been exceeded.</span>
 
@@ -218,7 +219,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span></div>
 
 
-<div class="viewcode-block" id="RateLimitTimeout"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.RateLimitTimeout">[docs]</a><span class="k">class</span> <span class="nc">RateLimitTimeout</span><span class="p">(</span><span class="n">RateLimitExceeded</span><span class="p">):</span>
+<div class="viewcode-block" id="RateLimitTimeout"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.RateLimitTimeout">[docs]</a><span class="k">class</span> <span class="nc">RateLimitTimeout</span><span class="p">(</span><span class="n">RateLimitExceeded</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when the client rate limit has been exceeded</span>
 <span class="sd">    and the time to clear the limit (timeout) has not yet been reached</span>
@@ -227,23 +228,23 @@
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="ActivityUploadFailed"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.ActivityUploadFailed">[docs]</a><span class="k">class</span> <span class="nc">ActivityUploadFailed</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityUploadFailed"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.ActivityUploadFailed">[docs]</a><span class="k">class</span> <span class="nc">ActivityUploadFailed</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="ErrorProcessingActivity"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.ErrorProcessingActivity">[docs]</a><span class="k">class</span> <span class="nc">ErrorProcessingActivity</span><span class="p">(</span><span class="n">ActivityUploadFailed</span><span class="p">):</span>
+<div class="viewcode-block" id="ErrorProcessingActivity"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.ErrorProcessingActivity">[docs]</a><span class="k">class</span> <span class="nc">ErrorProcessingActivity</span><span class="p">(</span><span class="n">ActivityUploadFailed</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CreatedActivityDeleted"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.CreatedActivityDeleted">[docs]</a><span class="k">class</span> <span class="nc">CreatedActivityDeleted</span><span class="p">(</span><span class="n">ActivityUploadFailed</span><span class="p">):</span>
+<div class="viewcode-block" id="CreatedActivityDeleted"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.CreatedActivityDeleted">[docs]</a><span class="k">class</span> <span class="nc">CreatedActivityDeleted</span><span class="p">(</span><span class="n">ActivityUploadFailed</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="TimeoutExceeded"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.TimeoutExceeded">[docs]</a><span class="k">class</span> <span class="nc">TimeoutExceeded</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<div class="viewcode-block" id="TimeoutExceeded"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.TimeoutExceeded">[docs]</a><span class="k">class</span> <span class="nc">TimeoutExceeded</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="NotAuthenticatedAthlete"><a class="viewcode-back" href="../../api/stravalib.exc.html#stravalib.exc.NotAuthenticatedAthlete">[docs]</a><span class="k">class</span> <span class="nc">NotAuthenticatedAthlete</span><span class="p">(</span><span class="n">AuthError</span><span class="p">):</span>
+<div class="viewcode-block" id="NotAuthenticatedAthlete"><a class="viewcode-back" href="../../reference/exceptions.html#stravalib.exc.NotAuthenticatedAthlete">[docs]</a><span class="k">class</span> <span class="nc">NotAuthenticatedAthlete</span><span class="p">(</span><span class="n">AuthError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception when trying to access data which requires an authenticated athlete</span>
 <span class="sd">    &quot;&quot;&quot;</span>

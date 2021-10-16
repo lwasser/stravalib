@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Client &#8212; stravalib 0.6.0 documentation</title>
+    <title>Model &#8212; stravalib 0.6.0 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Protocol" href="stravalib.protocol.html" />
-    <link rel="prev" title="Exc" href="stravalib.exc.html" />
+    <link rel="prev" title="Exceptions &amp; Error Handling" href="stravalib.exc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -170,12 +170,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="stravalib.exc.html">
-   Exc
+   Exceptions &amp; Error Handling
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Client
+   Model
   </a>
  </li>
  <li class="toctree-l1">
@@ -224,8 +224,8 @@
               
               <div>
                 
-  <span class="target" id="module-stravalib.model"></span><section id="client">
-<h1>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="module-stravalib.model"></span><section id="model">
+<h1>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h1>
 <p>Entity classes for representing the various Strava datatypes.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.BaseEntity">
@@ -265,7 +265,7 @@ debug/etc.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ResourceStateEntity">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ResourceStateEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ResourceStateEntity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ResourceStateEntity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>Mixin for entities that include the resource_state attribute.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ResourceStateEntity.resource_state">
@@ -278,7 +278,7 @@ debug/etc.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.IdentifiableEntity">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">IdentifiableEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#IdentifiableEntity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.IdentifiableEntity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.ResourceStateEntity" title="stravalib.model.ResourceStateEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ResourceStateEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.ResourceStateEntity" title="stravalib.model.ResourceStateEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ResourceStateEntity</span></code></a></p>
 <p>Mixin for entities that include an ID attribute.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.IdentifiableEntity.id">
@@ -291,12 +291,12 @@ debug/etc.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.BoundEntity">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">BoundEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#BoundEntity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.BoundEntity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>Base class for entities that support lazy loading additional data using a bound client.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BoundEntity.bind_client">
 <span class="sig-name descname"><span class="pre">bind_client</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#stravalib.model.BoundEntity.bind_client" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="stravalib.client.html#stravalib.client.Client" title="stravalib.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code></a> that can be used to load related resources.</p>
+<dd><p>The <a class="reference internal" href="../reference/api/stravalib.client.Client.html#stravalib.client.Client" title="stravalib.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.Client</span></code></a> that can be used to load related resources.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -315,7 +315,7 @@ debug/etc.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.LoadableEntity">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">LoadableEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#LoadableEntity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.LoadableEntity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a>, <a class="reference internal" href="#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a>, <a class="reference internal" href="../reference/model.html#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
 <p>Base class for entities that are bound and have an ID associated with them.</p>
 <p>In theory these entities can be “expaned” by additional Client queries.  In practice this is not
 implemented, since usefulness is limited due to resource-state limitations, etc.</p>
@@ -331,7 +331,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Club">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Club</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Club"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Club" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Class to represent a club.</p>
 <p>Currently summary and detail resource states have the same attributes.</p>
 <dl class="py attribute">
@@ -451,13 +451,13 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Club.members">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">members</span></span><a class="headerlink" href="#stravalib.model.Club.members" title="Permalink to this definition">¶</a></dt>
-<dd><p>An iterator of <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> members of this club.</p>
+<dd><p>An iterator of <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> members of this club.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Club.activities">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">activities</span></span><a class="headerlink" href="#stravalib.model.Club.activities" title="Permalink to this definition">¶</a></dt>
-<dd><p>An iterator of reverse-chronological <a class="reference internal" href="#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a> activities for this club.</p>
+<dd><p>An iterator of reverse-chronological <a class="reference internal" href="../reference/model.html#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a> activities for this club.</p>
 </dd></dl>
 
 </dd></dl>
@@ -465,7 +465,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Gear">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Gear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Gear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Gear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
 <p>Information about Gear (bike or shoes) used during activity.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Gear.id">
@@ -520,7 +520,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Bike">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Bike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Bike"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Bike" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.Gear" title="stravalib.model.Gear"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Gear</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.Gear" title="stravalib.model.Gear"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Gear</span></code></a></p>
 <p>Represents an athlete’s bike.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Bike.frame_type">
@@ -533,7 +533,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Shoe">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Shoe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Shoe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Shoe" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.Gear" title="stravalib.model.Gear"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Gear</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.Gear" title="stravalib.model.Gear"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Gear</span></code></a></p>
 <p>Represents an athlete’s pair of shoes.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Shoe.nickname">
@@ -558,7 +558,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ActivityTotals">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ActivityTotals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ActivityTotals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ActivityTotals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>Represent ytd/recent/all run/ride totals.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityTotals.achievement_count">
@@ -601,7 +601,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">AthleteStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#AthleteStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.AthleteStats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>Represents a combined set of an Athlete’s statistics.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.biggest_ride_distance">
@@ -618,55 +618,55 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.recent_ride_totals">
 <span class="sig-name descname"><span class="pre">recent_ride_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.recent_ride_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recent totals for rides. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>Recent totals for rides. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.recent_run_totals">
 <span class="sig-name descname"><span class="pre">recent_run_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.recent_run_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recent totals for runs. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>Recent totals for runs. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.recent_swim_totals">
 <span class="sig-name descname"><span class="pre">recent_swim_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.recent_swim_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recent totals for swims. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>Recent totals for swims. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.ytd_ride_totals">
 <span class="sig-name descname"><span class="pre">ytd_ride_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.ytd_ride_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Year-to-date totals for rides. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>Year-to-date totals for rides. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.ytd_run_totals">
 <span class="sig-name descname"><span class="pre">ytd_run_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.ytd_run_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Year-to-date totals for runs. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>Year-to-date totals for runs. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.ytd_swim_totals">
 <span class="sig-name descname"><span class="pre">ytd_swim_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.ytd_swim_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Year-to-date totals for swims. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>Year-to-date totals for swims. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.all_ride_totals">
 <span class="sig-name descname"><span class="pre">all_ride_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.all_ride_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>All-time totals for rides. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>All-time totals for rides. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.all_run_totals">
 <span class="sig-name descname"><span class="pre">all_run_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.all_run_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>All-time totals for runs. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>All-time totals for runs. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteStats.all_swim_totals">
 <span class="sig-name descname"><span class="pre">all_swim_totals</span></span><a class="headerlink" href="#stravalib.model.AthleteStats.all_swim_totals" title="Permalink to this definition">¶</a></dt>
-<dd><p>All-time totals for swims. (<a class="reference internal" href="#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
+<dd><p>All-time totals for swims. (<a class="reference internal" href="../reference/model.html#stravalib.model.ActivityTotals" title="stravalib.model.ActivityTotals"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityTotals</span></code></a>)</p>
 </dd></dl>
 
 </dd></dl>
@@ -674,7 +674,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Athlete">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Athlete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Athlete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Athlete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a Strava athlete.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.firstname">
@@ -817,19 +817,19 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.clubs">
 <span class="sig-name descname"><span class="pre">clubs</span></span><a class="headerlink" href="#stravalib.model.Athlete.clubs" title="Permalink to this definition">¶</a></dt>
-<dd><p>(detailed-only) Which clubs athlete belongs to. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Club" title="stravalib.model.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Club</span></code></a>)</p>
+<dd><p>(detailed-only) Which clubs athlete belongs to. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="../reference/model.html#stravalib.model.Club" title="stravalib.model.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Club</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.bikes">
 <span class="sig-name descname"><span class="pre">bikes</span></span><a class="headerlink" href="#stravalib.model.Athlete.bikes" title="Permalink to this definition">¶</a></dt>
-<dd><p>(detailed-only) Which bikes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Bike" title="stravalib.model.Bike"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Bike</span></code></a>)</p>
+<dd><p>(detailed-only) Which bikes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="../reference/model.html#stravalib.model.Bike" title="stravalib.model.Bike"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Bike</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Athlete.shoes">
 <span class="sig-name descname"><span class="pre">shoes</span></span><a class="headerlink" href="#stravalib.model.Athlete.shoes" title="Permalink to this definition">¶</a></dt>
-<dd><p>(detailed-only) Which shoes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.Shoe" title="stravalib.model.Shoe"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Shoe</span></code></a>)</p>
+<dd><p>(detailed-only) Which shoes this athlete owns. (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="../reference/model.html#stravalib.model.Shoe" title="stravalib.model.Shoe"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Shoe</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1027,7 +1027,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">friends</span></span><a class="headerlink" href="#stravalib.model.Athlete.friends" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Iterator of <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> friend objects for this athlete.</p>
+<dd class="field-odd"><p>Iterator of <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> friend objects for this athlete.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1037,7 +1037,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">followers</span></span><a class="headerlink" href="#stravalib.model.Athlete.followers" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Iterator of <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> followers objects for this athlete.</p>
+<dd class="field-odd"><p>Iterator of <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> followers objects for this athlete.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1047,7 +1047,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">stats</span></span><a class="headerlink" href="#stravalib.model.Athlete.stats" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Associated <a class="reference internal" href="#stravalib.model.AthleteStats" title="stravalib.model.AthleteStats"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.AthleteStats</span></code></a></p>
+<dd class="field-odd"><p>Associated <a class="reference internal" href="../reference/model.html#stravalib.model.AthleteStats" title="stravalib.model.AthleteStats"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.AthleteStats</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1057,7 +1057,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ActivityComment">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ActivityComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ActivityComment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ActivityComment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Comments attached to an activity.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityComment.activity_id">
@@ -1080,7 +1080,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityComment.athlete">
 <span class="sig-name descname"><span class="pre">athlete</span></span><a class="headerlink" href="#stravalib.model.ActivityComment.athlete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Associated <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> (summary-level representation)</p>
+<dd><p>Associated <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> (summary-level representation)</p>
 </dd></dl>
 
 </dd></dl>
@@ -1088,7 +1088,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhotoPrimary">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ActivityPhotoPrimary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ActivityPhotoPrimary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ActivityPhotoPrimary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>A primary photo attached to an activity (different structure from full photo record)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhotoPrimary.id">
@@ -1125,7 +1125,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhotoMeta">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ActivityPhotoMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ActivityPhotoMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ActivityPhotoMeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>The photos structure returned with the activity, not to be confused with the full loaded photos for an activity.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhotoMeta.count">
@@ -1150,7 +1150,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhoto">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ActivityPhoto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ActivityPhoto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ActivityPhoto" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>A full photo record attached to an activity.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityPhoto.athlete_id">
@@ -1259,7 +1259,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ActivityKudos">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ActivityKudos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ActivityKudos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ActivityKudos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Activity kudos are a subset of athlete properties.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityKudos.firstname">
@@ -1350,7 +1350,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">ActivityLap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#ActivityLap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.ActivityLap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap.name">
 <span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#stravalib.model.ActivityLap.name" title="Permalink to this definition">¶</a></dt>
@@ -1360,13 +1360,13 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap.activity">
 <span class="sig-name descname"><span class="pre">activity</span></span><a class="headerlink" href="#stravalib.model.ActivityLap.activity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The associated <a class="reference internal" href="#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a></p>
+<dd><p>The associated <a class="reference internal" href="../reference/model.html#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.ActivityLap.athlete">
 <span class="sig-name descname"><span class="pre">athlete</span></span><a class="headerlink" href="#stravalib.model.ActivityLap.athlete" title="Permalink to this definition">¶</a></dt>
-<dd><p>The associated <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a></p>
+<dd><p>The associated <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1480,7 +1480,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Map">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Map.id">
 <span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#stravalib.model.Map.id" title="Permalink to this definition">¶</a></dt>
@@ -1504,7 +1504,7 @@ implemented, since usefulness is limited due to resource-state limitations, etc.
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Split">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Split" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>A split – may be metric or standard units (which has no bearing
 on the units used in this object, just the binning of values).</p>
 <dl class="py attribute">
@@ -1566,7 +1566,7 @@ on the units used in this object, just the binning of values).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SegmentExplorerResult">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SegmentExplorerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SegmentExplorerResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SegmentExplorerResult" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a segment result from the segment explorer feature.</p>
 <p>(These are not full segment objects, but the segment object can be fetched
 via the ‘segment’ property of this object.)</p>
@@ -1639,7 +1639,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.SegmentExplorerResult.segment">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">segment</span></span><a class="headerlink" href="#stravalib.model.SegmentExplorerResult.segment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Associated (full) <a class="reference internal" href="#stravalib.model.Segment" title="stravalib.model.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Segment</span></code></a> object.</p>
+<dd><p>Associated (full) <a class="reference internal" href="../reference/model.html#stravalib.model.Segment" title="stravalib.model.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Segment</span></code></a> object.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1647,7 +1647,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.AthleteSegmentStats">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">AthleteSegmentStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#AthleteSegmentStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.AthleteSegmentStats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>An undocumented structure being returned for segment stats for current athlete.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthleteSegmentStats.effort_count">
@@ -1672,7 +1672,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.AthletePrEffort">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">AthletePrEffort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#AthletePrEffort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.AthletePrEffort" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.IdentifiableEntity" title="stravalib.model.IdentifiableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.IdentifiableEntity</span></code></a></p>
 <p>An undocumented structure being returned for segment Athlete Pr Effort.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.AthletePrEffort.distance">
@@ -1707,7 +1707,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Segment">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Segment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Segment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a single Strava segment.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.name">
@@ -1850,7 +1850,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Segment.map">
 <span class="sig-name descname"><span class="pre">map</span></span><a class="headerlink" href="#stravalib.model.Segment.map" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="#stravalib.model.Map" title="stravalib.model.Map"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Map</span></code></a> object for segment.</p>
+<dd><p><a class="reference internal" href="../reference/model.html#stravalib.model.Map" title="stravalib.model.Map"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Map</span></code></a> object for segment.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1904,7 +1904,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Segment.leaderboard">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">leaderboard</span></span><a class="headerlink" href="#stravalib.model.Segment.leaderboard" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="#stravalib.model.SegmentLeaderboard" title="stravalib.model.SegmentLeaderboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentLeaderboard</span></code></a> object for this segment.</p>
+<dd><p>The <a class="reference internal" href="../reference/model.html#stravalib.model.SegmentLeaderboard" title="stravalib.model.SegmentLeaderboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentLeaderboard</span></code></a> object for this segment.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1912,7 +1912,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SegmentEfforAchievement">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SegmentEfforAchievement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SegmentEfforAchievement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SegmentEfforAchievement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>An undocumented structure being returned for segment efforts.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.SegmentEfforAchievement.rank">
@@ -1937,7 +1937,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">BaseEffort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#BaseEffort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.BaseEffort" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Base class for a best effort or segment effort.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.name">
@@ -1948,19 +1948,19 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.segment">
 <span class="sig-name descname"><span class="pre">segment</span></span><a class="headerlink" href="#stravalib.model.BaseEffort.segment" title="Permalink to this definition">¶</a></dt>
-<dd><p>The associated <a class="reference internal" href="#stravalib.model.Segment" title="stravalib.model.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Segment</span></code></a> for this effort</p>
+<dd><p>The associated <a class="reference internal" href="../reference/model.html#stravalib.model.Segment" title="stravalib.model.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Segment</span></code></a> for this effort</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.activity">
 <span class="sig-name descname"><span class="pre">activity</span></span><a class="headerlink" href="#stravalib.model.BaseEffort.activity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The associated <a class="reference internal" href="#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a></p>
+<dd><p>The associated <a class="reference internal" href="../reference/model.html#stravalib.model.Activity" title="stravalib.model.Activity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Activity</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseEffort.athlete">
 <span class="sig-name descname"><span class="pre">athlete</span></span><a class="headerlink" href="#stravalib.model.BaseEffort.athlete" title="Permalink to this definition">¶</a></dt>
-<dd><p>The associated <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a></p>
+<dd><p>The associated <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2058,14 +2058,14 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.BestEffort">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">BestEffort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#BestEffort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.BestEffort" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEffort" title="stravalib.model.BaseEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEffort</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEffort" title="stravalib.model.BaseEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEffort</span></code></a></p>
 <p>Class representing a best effort (e.g. best time for 5k)</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SegmentEffort">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SegmentEffort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SegmentEffort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SegmentEffort" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEffort" title="stravalib.model.BaseEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEffort</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEffort" title="stravalib.model.BaseEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEffort</span></code></a></p>
 <p>Class representing a best effort on a particular segment.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.SegmentEffort.hidden">
@@ -2084,7 +2084,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Activity">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Activity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Activity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents an activity (ride, run, etc.).</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.ALPINESKI">
@@ -2308,7 +2308,7 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.athlete">
 <span class="sig-name descname"><span class="pre">athlete</span></span><a class="headerlink" href="#stravalib.model.Activity.athlete" title="Permalink to this definition">¶</a></dt>
-<dd><p>The associated <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> that performed this activity.</p>
+<dd><p>The associated <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> that performed this activity.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2542,25 +2542,25 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.best_efforts">
 <span class="sig-name descname"><span class="pre">best_efforts</span></span><a class="headerlink" href="#stravalib.model.Activity.best_efforts" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="#stravalib.model.BestEffort" title="stravalib.model.BestEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BestEffort</span></code></a> summaries</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="../reference/model.html#stravalib.model.BestEffort" title="stravalib.model.BestEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BestEffort</span></code></a> summaries</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.segment_efforts">
 <span class="sig-name descname"><span class="pre">segment_efforts</span></span><a class="headerlink" href="#stravalib.model.Activity.segment_efforts" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.SegmentEffort" title="stravalib.model.SegmentEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentEffort</span></code></a> efforts for activity.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="../reference/model.html#stravalib.model.SegmentEffort" title="stravalib.model.SegmentEffort"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentEffort</span></code></a> efforts for activity.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.splits_metric">
 <span class="sig-name descname"><span class="pre">splits_metric</span></span><a class="headerlink" href="#stravalib.model.Activity.splits_metric" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of metric <a class="reference internal" href="../reference/model.html#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.splits_standard">
 <span class="sig-name descname"><span class="pre">splits_standard</span></span><a class="headerlink" href="#stravalib.model.Activity.splits_standard" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of standard/imperial <a class="reference internal" href="#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of standard/imperial <a class="reference internal" href="../reference/model.html#stravalib.model.Split" title="stravalib.model.Split"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Split</span></code></a> summaries (running activities only)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2698,13 +2698,13 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Activity.laps">
 <span class="sig-name descname"><span class="pre">laps</span></span><a class="headerlink" href="#stravalib.model.Activity.laps" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityLap" title="stravalib.model.ActivityLap"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityLap</span></code></a> objects.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="../reference/model.html#stravalib.model.ActivityLap" title="stravalib.model.ActivityLap"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityLap</span></code></a> objects.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Activity.comments">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">comments</span></span><a class="headerlink" href="#stravalib.model.Activity.comments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Iterator of <a class="reference internal" href="#stravalib.model.ActivityComment" title="stravalib.model.ActivityComment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityComment</span></code></a> objects for this activity.</p>
+<dd><p>Iterator of <a class="reference internal" href="../reference/model.html#stravalib.model.ActivityComment" title="stravalib.model.ActivityComment"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityComment</span></code></a> objects for this activity.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -2716,14 +2716,14 @@ via the ‘segment’ property of this object.)</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Activity.kudos">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">kudos</span></span><a class="headerlink" href="#stravalib.model.Activity.kudos" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityKudos" title="stravalib.model.ActivityKudos"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityKudos</span></code></a> objects for this activity.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="../reference/model.html#stravalib.model.ActivityKudos" title="stravalib.model.ActivityKudos"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityKudos</span></code></a> objects for this activity.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="stravalib.model.Activity.full_photos">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">full_photos</span></span><a class="headerlink" href="#stravalib.model.Activity.full_photos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a list of photos using default options.</p>
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#stravalib.model.ActivityPhoto" title="stravalib.model.ActivityPhoto"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityPhoto</span></code></a> objects for this activity.</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="../reference/model.html#stravalib.model.ActivityPhoto" title="stravalib.model.ActivityPhoto"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.ActivityPhoto</span></code></a> objects for this activity.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -2738,9 +2738,9 @@ with this activity.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SegmentLeaderboardEntry">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SegmentLeaderboardEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SegmentLeaderboardEntry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SegmentLeaderboardEntry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a></p>
 <p>Represents a single entry on a segment leaderboard.</p>
-<p>The <a class="reference internal" href="#stravalib.model.SegmentLeaderboard" title="stravalib.model.SegmentLeaderboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentLeaderboard</span></code></a> object is essentially a collection
+<p>The <a class="reference internal" href="../reference/model.html#stravalib.model.SegmentLeaderboard" title="stravalib.model.SegmentLeaderboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentLeaderboard</span></code></a> object is essentially a collection
 of instances of this class.</p>
 <p>NOTE: This changed Jan 2018 to provide far less detail than before</p>
 <dl class="py attribute">
@@ -2784,9 +2784,9 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SegmentLeaderboard">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SegmentLeaderboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SegmentLeaderboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SegmentLeaderboard" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a>, <a class="reference internal" href="#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a>, <a class="reference internal" href="../reference/model.html#stravalib.model.BoundEntity" title="stravalib.model.BoundEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BoundEntity</span></code></a></p>
 <p>The ranked leaderboard for a segment.</p>
-<p>This class is effectively a collection of <a class="reference internal" href="#stravalib.model.SegmentLeaderboardEntry" title="stravalib.model.SegmentLeaderboardEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentLeaderboardEntry</span></code></a> objects.</p>
+<p>This class is effectively a collection of <a class="reference internal" href="../reference/model.html#stravalib.model.SegmentLeaderboardEntry" title="stravalib.model.SegmentLeaderboardEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.SegmentLeaderboardEntry</span></code></a> objects.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.SegmentLeaderboard.entry_count">
 <span class="sig-name descname"><span class="pre">entry_count</span></span><a class="headerlink" href="#stravalib.model.SegmentLeaderboard.entry_count" title="Permalink to this definition">¶</a></dt>
@@ -2815,7 +2815,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.DistributionBucket">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">DistributionBucket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#DistributionBucket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.DistributionBucket" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseEntity" title="stravalib.model.BaseEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseEntity</span></code></a></p>
 <p>A single distribution bucket object, used for activity zones.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.DistributionBucket.max">
@@ -2840,13 +2840,13 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.BaseActivityZone">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">BaseActivityZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#BaseActivityZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.BaseActivityZone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Base class for activity zones.</p>
-<p>A collection of <a class="reference internal" href="#stravalib.model.DistributionBucket" title="stravalib.model.DistributionBucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.DistributionBucket</span></code></a> objects.</p>
+<p>A collection of <a class="reference internal" href="../reference/model.html#stravalib.model.DistributionBucket" title="stravalib.model.DistributionBucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.DistributionBucket</span></code></a> objects.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.BaseActivityZone.distribution_buckets">
 <span class="sig-name descname"><span class="pre">distribution_buckets</span></span><a class="headerlink" href="#stravalib.model.BaseActivityZone.distribution_buckets" title="Permalink to this definition">¶</a></dt>
-<dd><p>The collection of <a class="reference internal" href="#stravalib.model.DistributionBucket" title="stravalib.model.DistributionBucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.DistributionBucket</span></code></a> objects</p>
+<dd><p>The collection of <a class="reference internal" href="../reference/model.html#stravalib.model.DistributionBucket" title="stravalib.model.DistributionBucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.DistributionBucket</span></code></a> objects</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2872,7 +2872,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.HeartrateActivityZone">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">HeartrateActivityZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#HeartrateActivityZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.HeartrateActivityZone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseActivityZone" title="stravalib.model.BaseActivityZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseActivityZone</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseActivityZone" title="stravalib.model.BaseActivityZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseActivityZone</span></code></a></p>
 <p>Activity zone for heart rate.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.HeartrateActivityZone.score">
@@ -2903,7 +2903,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.PaceActivityZone">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">PaceActivityZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#PaceActivityZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.PaceActivityZone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseActivityZone" title="stravalib.model.BaseActivityZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseActivityZone</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseActivityZone" title="stravalib.model.BaseActivityZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseActivityZone</span></code></a></p>
 <p>Activity zone for pace.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.PaceActivityZone.score">
@@ -2928,7 +2928,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.PowerActivityZone">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">PowerActivityZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#PowerActivityZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.PowerActivityZone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.BaseActivityZone" title="stravalib.model.BaseActivityZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseActivityZone</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.BaseActivityZone" title="stravalib.model.BaseActivityZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.BaseActivityZone</span></code></a></p>
 <p>Activity zone for power.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.PowerActivityZone.bike_weight">
@@ -2947,7 +2947,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Stream">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Stream" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Stream of readings from the activity, effort or segment.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Stream.type">
@@ -2984,7 +2984,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.RunningRace">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">RunningRace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#RunningRace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.RunningRace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a RunningRace.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.RunningRace.name">
@@ -3075,7 +3075,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Route">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Route"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Route" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a Route.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Route.name">
@@ -3092,7 +3092,7 @@ of instances of this class.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Route.athlete">
 <span class="sig-name descname"><span class="pre">athlete</span></span><a class="headerlink" href="#stravalib.model.Route.athlete" title="Permalink to this definition">¶</a></dt>
-<dd><p>The associated <a class="reference internal" href="#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> that performed this activity.</p>
+<dd><p>The associated <a class="reference internal" href="../reference/model.html#stravalib.model.Athlete" title="stravalib.model.Athlete"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Athlete</span></code></a> that performed this activity.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3110,7 +3110,7 @@ of instances of this class.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.Route.map">
 <span class="sig-name descname"><span class="pre">map</span></span><a class="headerlink" href="#stravalib.model.Route.map" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="#stravalib.model.Map" title="stravalib.model.Map"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Map</span></code></a> object for route.</p>
+<dd><p><a class="reference internal" href="../reference/model.html#stravalib.model.Map" title="stravalib.model.Map"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.Map</span></code></a> object for route.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3148,7 +3148,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.Subscription">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">Subscription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#Subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.Subscription" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a Webhook Event Subscription.</p>
 <p><a class="reference external" href="https://developers.strava.com/docs/reference/#api-models-SummaryAthlete">https://developers.strava.com/docs/reference/#api-models-SummaryAthlete</a></p>
 <dl class="py attribute">
@@ -3205,7 +3205,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SubscriptionCallback">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SubscriptionCallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SubscriptionCallback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SubscriptionCallback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a Webhook Event Subscription Callback.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.SubscriptionCallback.hub_mode">
@@ -3235,7 +3235,7 @@ of instances of this class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="stravalib.model.SubscriptionUpdate">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.model.</span></span><span class="sig-name descname"><span class="pre">SubscriptionUpdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bind_client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/model.html#SubscriptionUpdate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.model.SubscriptionUpdate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/model.html#stravalib.model.LoadableEntity" title="stravalib.model.LoadableEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.model.LoadableEntity</span></code></a></p>
 <p>Represents a Webhook Event Subscription Update.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="stravalib.model.SubscriptionUpdate.subscription_id">
@@ -3292,7 +3292,7 @@ of instances of this class.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Exc</p>
+            <p class="prev-next-title">Exceptions &amp; Error Handling</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="stravalib.protocol.html" title="next page">

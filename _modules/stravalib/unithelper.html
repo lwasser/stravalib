@@ -186,29 +186,42 @@
 <span class="n">pound</span> <span class="o">=</span> <span class="n">pounds</span> <span class="o">=</span> <span class="n">lb</span> <span class="o">=</span> <span class="n">lbs</span> <span class="o">=</span> <span class="n">unit</span><span class="p">(</span><span class="s1">&#39;lb&#39;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="c2f"><a class="viewcode-back" href="../../api/stravalib.unithelper.html#stravalib.unithelper.c2f">[docs]</a><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">celsius</span><span class="p">):</span>
+<div class="viewcode-block" id="c2f"><a class="viewcode-back" href="../../reference/unithelper.html#stravalib.unithelper.c2f">[docs]</a><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">celsius</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert Celsius to Fahrenheit.</span>
 
-<span class="sd">    :param celsius: Temperature in Celsius.</span>
-<span class="sd">    :type celcius: float</span>
-<span class="sd">    :return: Temperature in Fahrenheit.</span>
-<span class="sd">    :rtype: float</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    celsius :</span>
+<span class="sd">        Temperature in Celsius.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Temperature in Fahrenheit.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="mf">9.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">celsius</span> <span class="o">+</span> <span class="mi">32</span></div>
 
 
-<div class="viewcode-block" id="timedelta_to_seconds"><a class="viewcode-back" href="../../api/stravalib.unithelper.html#stravalib.unithelper.timedelta_to_seconds">[docs]</a><span class="k">def</span> <span class="nf">timedelta_to_seconds</span><span class="p">(</span><span class="n">td</span><span class="p">):</span>
+<div class="viewcode-block" id="timedelta_to_seconds"><a class="viewcode-back" href="../../reference/unithelper.html#stravalib.unithelper.timedelta_to_seconds">[docs]</a><span class="k">def</span> <span class="nf">timedelta_to_seconds</span><span class="p">(</span><span class="n">td</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a timedelta to total seconds, including support for microseconds.</span>
-
+<span class="sd">    </span>
 <span class="sd">    Return value is (potentially truncated) integer.</span>
-
+<span class="sd">    </span>
 <span class="sd">    (This is built-in in Python &gt;= 2.7, but we are still supporting Python 2.6 here.)</span>
-<span class="sd">    :param td: The timedelta object</span>
-<span class="sd">    :type td: datetime.timedelta</span>
-<span class="sd">    :return: The number of total seconds in the timedelta object.</span>
-<span class="sd">    :rtype: int</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    td : datetime.timedelta</span>
+<span class="sd">        The timedelta object</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">        The number of total seconds in the timedelta object.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">td</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>

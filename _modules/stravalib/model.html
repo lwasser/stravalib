@@ -158,7 +158,7 @@
                 
   <h1>Source code for stravalib.model</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Client</span>
+<span class="sd">Model</span>
 <span class="sd">==============</span>
 <span class="sd">Entity classes for representing the various Strava datatypes.</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -183,7 +183,7 @@
                                   <span class="n">DateAttribute</span><span class="p">,</span> <span class="n">ChoicesAttribute</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="BaseEntity"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BaseEntity">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">)</span>
+<div class="viewcode-block" id="BaseEntity"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BaseEntity">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">BaseEntity</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A base class for all entities in the system, including objects that may not</span>
@@ -194,7 +194,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.__module__}</span><span class="s1">.</span><span class="si">{0.__name__}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseEntity.to_dict"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BaseEntity.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseEntity.to_dict"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BaseEntity.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a dictionary based on the loaded attributes in this object (will not lazy load).</span>
 
@@ -212,7 +212,7 @@
                     <span class="n">d</span><span class="p">[</span><span class="n">attrname</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">marshal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">d</span></div>
 
-<div class="viewcode-block" id="BaseEntity.from_dict"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BaseEntity.from_dict">[docs]</a>    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseEntity.from_dict"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BaseEntity.from_dict">[docs]</a>    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Populates this object from specified dict.</span>
 
@@ -232,7 +232,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;No such attribute </span><span class="si">{0}</span><span class="s2"> on entity </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="BaseEntity.deserialize"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BaseEntity.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="BaseEntity.deserialize"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BaseEntity.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new object based on serialized (dict) struct.</span>
@@ -253,21 +253,21 @@
         <span class="k">return</span> <span class="s1">&#39;&lt;</span><span class="si">{0}{1}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">attrs</span><span class="p">)</span> <span class="k">if</span> <span class="n">attrs</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ResourceStateEntity"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ResourceStateEntity">[docs]</a><span class="k">class</span> <span class="nc">ResourceStateEntity</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourceStateEntity"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ResourceStateEntity">[docs]</a><span class="k">class</span> <span class="nc">ResourceStateEntity</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Mixin for entities that include the resource_state attribute.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">resource_state</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: The detail-level for this entity.</span></div>
 
 
-<div class="viewcode-block" id="IdentifiableEntity"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.IdentifiableEntity">[docs]</a><span class="k">class</span> <span class="nc">IdentifiableEntity</span><span class="p">(</span><span class="n">ResourceStateEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="IdentifiableEntity"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.IdentifiableEntity">[docs]</a><span class="k">class</span> <span class="nc">IdentifiableEntity</span><span class="p">(</span><span class="n">ResourceStateEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Mixin for entities that include an ID attribute.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: The numeric ID for this entity.</span></div>
 
 
-<div class="viewcode-block" id="BoundEntity"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BoundEntity">[docs]</a><span class="k">class</span> <span class="nc">BoundEntity</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="BoundEntity"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BoundEntity">[docs]</a><span class="k">class</span> <span class="nc">BoundEntity</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for entities that support lazy loading additional data using a bound client.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -285,7 +285,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">bind_client</span> <span class="o">=</span> <span class="n">bind_client</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">BoundEntity</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BoundEntity.deserialize"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BoundEntity.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="BoundEntity.deserialize"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BoundEntity.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new object based on serialized (dict) struct.</span>
@@ -296,19 +296,19 @@
         <span class="n">o</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">o</span></div>
 
-<div class="viewcode-block" id="BoundEntity.assert_bind_client"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BoundEntity.assert_bind_client">[docs]</a>    <span class="k">def</span> <span class="nf">assert_bind_client</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="BoundEntity.assert_bind_client"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BoundEntity.assert_bind_client">[docs]</a>    <span class="k">def</span> <span class="nf">assert_bind_client</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bind_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">UnboundEntity</span><span class="p">(</span><span class="s2">&quot;Unable to fetch objects for unbound </span><span class="si">{0}</span><span class="s2"> entity.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span></div></div>
 
 
-<div class="viewcode-block" id="LoadableEntity"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.LoadableEntity">[docs]</a><span class="k">class</span> <span class="nc">LoadableEntity</span><span class="p">(</span><span class="n">BoundEntity</span><span class="p">,</span> <span class="n">IdentifiableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="LoadableEntity"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.LoadableEntity">[docs]</a><span class="k">class</span> <span class="nc">LoadableEntity</span><span class="p">(</span><span class="n">BoundEntity</span><span class="p">,</span> <span class="n">IdentifiableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for entities that are bound and have an ID associated with them.</span>
 
 <span class="sd">    In theory these entities can be &quot;expaned&quot; by additional Client queries.  In practice this is not</span>
 <span class="sd">    implemented, since usefulness is limited due to resource-state limitations, etc.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="LoadableEntity.expand"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.LoadableEntity.expand">[docs]</a>    <span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="LoadableEntity.expand"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.LoadableEntity.expand">[docs]</a>    <span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Expand this object with data from the bound client.</span>
 
@@ -317,7 +317,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>  <span class="c1"># This is a little harder now due to resource states, etc.</span></div></div>
 
 
-<div class="viewcode-block" id="Club"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Club">[docs]</a><span class="k">class</span> <span class="nc">Club</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Club"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Club">[docs]</a><span class="k">class</span> <span class="nc">Club</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to represent a club.</span>
 
@@ -363,7 +363,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activities</span></div>
 
 
-<div class="viewcode-block" id="Gear"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Gear">[docs]</a><span class="k">class</span> <span class="nc">Gear</span><span class="p">(</span><span class="n">IdentifiableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Gear"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Gear">[docs]</a><span class="k">class</span> <span class="nc">Gear</span><span class="p">(</span><span class="n">IdentifiableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Information about Gear (bike or shoes) used during activity.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -375,7 +375,7 @@
     <span class="n">model_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">DETAILED</span><span class="p">,))</span>  <span class="c1">#: Modelname of bike/shoes.</span>
     <span class="n">description</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">DETAILED</span><span class="p">,))</span>  <span class="c1">#: Description of bike/shoe item.</span>
 
-<div class="viewcode-block" id="Gear.deserialize"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Gear.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Gear.deserialize"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Gear.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new object based on serialized (dict) struct.</span>
@@ -393,14 +393,14 @@
         <span class="k">return</span> <span class="n">o</span></div></div>
 
 
-<div class="viewcode-block" id="Bike"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Bike">[docs]</a><span class="k">class</span> <span class="nc">Bike</span><span class="p">(</span><span class="n">Gear</span><span class="p">):</span>
+<div class="viewcode-block" id="Bike"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Bike">[docs]</a><span class="k">class</span> <span class="nc">Bike</span><span class="p">(</span><span class="n">Gear</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents an athlete&#39;s bike.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">frame_type</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">DETAILED</span><span class="p">,))</span>  <span class="c1">#: (detailed-only) Type of bike frame.</span></div>
 
 
-<div class="viewcode-block" id="Shoe"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Shoe">[docs]</a><span class="k">class</span> <span class="nc">Shoe</span><span class="p">(</span><span class="n">Gear</span><span class="p">):</span>
+<div class="viewcode-block" id="Shoe"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Shoe">[docs]</a><span class="k">class</span> <span class="nc">Shoe</span><span class="p">(</span><span class="n">Gear</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents an athlete&#39;s pair of shoes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -409,7 +409,7 @@
     <span class="n">retired</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="ActivityTotals"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ActivityTotals">[docs]</a><span class="k">class</span> <span class="nc">ActivityTotals</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityTotals"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityTotals">[docs]</a><span class="k">class</span> <span class="nc">ActivityTotals</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represent ytd/recent/all run/ride totals.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -421,7 +421,7 @@
     <span class="n">moving_time</span> <span class="o">=</span> <span class="n">TimeIntervalAttribute</span><span class="p">()</span>  <span class="c1">#: :class:`datetime.timedelta` of total moving time</span></div>
 
 
-<div class="viewcode-block" id="AthleteStats"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.AthleteStats">[docs]</a><span class="k">class</span> <span class="nc">AthleteStats</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="AthleteStats"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.AthleteStats">[docs]</a><span class="k">class</span> <span class="nc">AthleteStats</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a combined set of an Athlete&#39;s statistics.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -438,7 +438,7 @@
     <span class="n">all_swim_totals</span> <span class="o">=</span> <span class="n">EntityAttribute</span><span class="p">(</span><span class="n">ActivityTotals</span><span class="p">)</span>  <span class="c1">#: All-time totals for swims. (:class:`stravalib.model.ActivityTotals`)</span></div>
 
 
-<div class="viewcode-block" id="Athlete"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Athlete">[docs]</a><span class="k">class</span> <span class="nc">Athlete</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Athlete"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Athlete">[docs]</a><span class="k">class</span> <span class="nc">Athlete</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a Strava athlete.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -528,7 +528,7 @@
                                                                                  <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">firstname</span><span class="p">,</span>
                                                                                  <span class="n">lname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lastname</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Athlete.is_authenticated_athlete"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Athlete.is_authenticated_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">is_authenticated_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Athlete.is_authenticated_athlete"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Athlete.is_authenticated_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">is_authenticated_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: Boolean as to whether the athlete is the authenticated athlete.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -584,7 +584,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stats</span></div>
 
 
-<div class="viewcode-block" id="ActivityComment"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ActivityComment">[docs]</a><span class="k">class</span> <span class="nc">ActivityComment</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityComment"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityComment">[docs]</a><span class="k">class</span> <span class="nc">ActivityComment</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Comments attached to an activity.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -594,7 +594,7 @@
     <span class="n">athlete</span> <span class="o">=</span> <span class="n">EntityAttribute</span><span class="p">(</span><span class="n">Athlete</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Associated :class:`stravalib.model.Athlete` (summary-level representation)</span></div>
 
 
-<div class="viewcode-block" id="ActivityPhotoPrimary"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ActivityPhotoPrimary">[docs]</a><span class="k">class</span> <span class="nc">ActivityPhotoPrimary</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityPhotoPrimary"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityPhotoPrimary">[docs]</a><span class="k">class</span> <span class="nc">ActivityPhotoPrimary</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A primary photo attached to an activity (different structure from full photo record)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -605,7 +605,7 @@
     <span class="n">use_primary_photo</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,(</span><span class="n">META</span><span class="p">,</span> <span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: (undocumented)</span></div>
 
 
-<div class="viewcode-block" id="ActivityPhotoMeta"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ActivityPhotoMeta">[docs]</a><span class="k">class</span> <span class="nc">ActivityPhotoMeta</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityPhotoMeta"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityPhotoMeta">[docs]</a><span class="k">class</span> <span class="nc">ActivityPhotoMeta</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The photos structure returned with the activity, not to be confused with the full loaded photos for an activity.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -617,7 +617,7 @@
         <span class="k">return</span> <span class="s1">&#39;&lt;</span><span class="si">{0}</span><span class="s1"> count=</span><span class="si">{1}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ActivityPhoto"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ActivityPhoto">[docs]</a><span class="k">class</span> <span class="nc">ActivityPhoto</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityPhoto"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityPhoto">[docs]</a><span class="k">class</span> <span class="nc">ActivityPhoto</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A full photo record attached to an activity.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -661,7 +661,7 @@
                                                       <span class="nb">id</span><span class="o">=</span><span class="n">idval</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ActivityKudos"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ActivityKudos">[docs]</a><span class="k">class</span> <span class="nc">ActivityKudos</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityKudos"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityKudos">[docs]</a><span class="k">class</span> <span class="nc">ActivityKudos</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activity kudos are a subset of athlete properties.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -683,7 +683,7 @@
     <span class="n">approve_followers</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Whether athlete has elected to approve followers</span></div>
 
 
-<div class="viewcode-block" id="ActivityLap"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.ActivityLap">[docs]</a><span class="k">class</span> <span class="nc">ActivityLap</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ActivityLap"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityLap">[docs]</a><span class="k">class</span> <span class="nc">ActivityLap</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
 
     <span class="n">name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Name of lap</span>
     <span class="n">activity</span> <span class="o">=</span> <span class="n">EntityAttribute</span><span class="p">(</span><span class="s2">&quot;Activity&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: The associated :class:`stravalib.model.Activity`</span>
@@ -709,13 +709,13 @@
     <span class="n">split</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Split number</span></div>
 
 
-<div class="viewcode-block" id="Map"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Map">[docs]</a><span class="k">class</span> <span class="nc">Map</span><span class="p">(</span><span class="n">IdentifiableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Map"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Map">[docs]</a><span class="k">class</span> <span class="nc">Map</span><span class="p">(</span><span class="n">IdentifiableEntity</span><span class="p">):</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Alpha-numeric identifier</span>
     <span class="n">polyline</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Google polyline encoding</span>
     <span class="n">summary_polyline</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Google polyline encoding for summary shape</span></div>
 
 
-<div class="viewcode-block" id="Split"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Split">[docs]</a><span class="k">class</span> <span class="nc">Split</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Split"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Split">[docs]</a><span class="k">class</span> <span class="nc">Split</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A split -- may be metric or standard units (which has no bearing</span>
 <span class="sd">    on the units used in this object, just the binning of values).</span>
@@ -734,7 +734,7 @@
         <span class="k">return</span> <span class="s1">&#39;&lt;Split split=</span><span class="si">{}</span><span class="s1"> distance=</span><span class="si">{}</span><span class="s1"> elapsed_time=</span><span class="si">{}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">elapsed_time</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SegmentExplorerResult"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SegmentExplorerResult">[docs]</a><span class="k">class</span> <span class="nc">SegmentExplorerResult</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="SegmentExplorerResult"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SegmentExplorerResult">[docs]</a><span class="k">class</span> <span class="nc">SegmentExplorerResult</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a segment result from the segment explorer feature.</span>
 
@@ -764,7 +764,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_segment</span></div>
 
 
-<div class="viewcode-block" id="AthleteSegmentStats"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.AthleteSegmentStats">[docs]</a><span class="k">class</span> <span class="nc">AthleteSegmentStats</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="AthleteSegmentStats"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.AthleteSegmentStats">[docs]</a><span class="k">class</span> <span class="nc">AthleteSegmentStats</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An undocumented structure being returned for segment stats for current athlete.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -772,7 +772,7 @@
     <span class="n">pr_elapsed_time</span> <span class="o">=</span> <span class="n">TimeIntervalAttribute</span><span class="p">()</span> <span class="c1">#: (UNDOCUMENTED) Presumably PR elapsed time for segment.</span>
     <span class="n">pr_date</span> <span class="o">=</span> <span class="n">DateAttribute</span><span class="p">()</span>  <span class="c1">#: (UNDOCUMENTED) Presumably date of PR :)</span></div>
 
-<div class="viewcode-block" id="AthletePrEffort"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.AthletePrEffort">[docs]</a><span class="k">class</span> <span class="nc">AthletePrEffort</span><span class="p">(</span><span class="n">IdentifiableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="AthletePrEffort"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.AthletePrEffort">[docs]</a><span class="k">class</span> <span class="nc">AthletePrEffort</span><span class="p">(</span><span class="n">IdentifiableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An undocumented structure being returned for segment Athlete Pr Effort.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -782,7 +782,7 @@
     <span class="n">start_date_local</span> <span class="o">=</span> <span class="n">TimestampAttribute</span><span class="p">((</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>
     <span class="n">is_kom</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Segment"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Segment">[docs]</a><span class="k">class</span> <span class="nc">Segment</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Segment"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Segment">[docs]</a><span class="k">class</span> <span class="nc">Segment</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a single Strava segment.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -837,7 +837,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_leaderboard</span></div>
 
 
-<div class="viewcode-block" id="SegmentEfforAchievement"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SegmentEfforAchievement">[docs]</a><span class="k">class</span> <span class="nc">SegmentEfforAchievement</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="SegmentEfforAchievement"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SegmentEfforAchievement">[docs]</a><span class="k">class</span> <span class="nc">SegmentEfforAchievement</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An undocumented structure being returned for segment efforts.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -846,7 +846,7 @@
     <span class="n">type_id</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>  <span class="c1">#: Numeric ID for type of achievement?  (6 = year_pr, 2 = overall ??? other?)</span></div>
 
 
-<div class="viewcode-block" id="BaseEffort"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BaseEffort">[docs]</a><span class="k">class</span> <span class="nc">BaseEffort</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseEffort"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BaseEffort">[docs]</a><span class="k">class</span> <span class="nc">BaseEffort</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for a best effort or segment effort.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -872,13 +872,13 @@
     <span class="n">achievements</span> <span class="o">=</span> <span class="n">EntityCollection</span><span class="p">(</span><span class="n">SegmentEfforAchievement</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Undocumented attribute includes list of achievements for this effort.</span></div>
 
 
-<div class="viewcode-block" id="BestEffort"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BestEffort">[docs]</a><span class="k">class</span> <span class="nc">BestEffort</span><span class="p">(</span><span class="n">BaseEffort</span><span class="p">):</span>
+<div class="viewcode-block" id="BestEffort"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BestEffort">[docs]</a><span class="k">class</span> <span class="nc">BestEffort</span><span class="p">(</span><span class="n">BaseEffort</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class representing a best effort (e.g. best time for 5k)</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="SegmentEffort"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SegmentEffort">[docs]</a><span class="k">class</span> <span class="nc">SegmentEffort</span><span class="p">(</span><span class="n">BaseEffort</span><span class="p">):</span>
+<div class="viewcode-block" id="SegmentEffort"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SegmentEffort">[docs]</a><span class="k">class</span> <span class="nc">SegmentEffort</span><span class="p">(</span><span class="n">BaseEffort</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class representing a best effort on a particular segment.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -886,7 +886,7 @@
     <span class="n">device_watts</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: True if the watts are from a power meter, false if estimated</span></div>
 
 
-<div class="viewcode-block" id="Activity"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Activity">[docs]</a><span class="k">class</span> <span class="nc">Activity</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Activity"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Activity">[docs]</a><span class="k">class</span> <span class="nc">Activity</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents an activity (ride, run, etc.).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1113,7 +1113,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_related</span></div>
 
 
-<div class="viewcode-block" id="SegmentLeaderboardEntry"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SegmentLeaderboardEntry">[docs]</a><span class="k">class</span> <span class="nc">SegmentLeaderboardEntry</span><span class="p">(</span><span class="n">BoundEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="SegmentLeaderboardEntry"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SegmentLeaderboardEntry">[docs]</a><span class="k">class</span> <span class="nc">SegmentLeaderboardEntry</span><span class="p">(</span><span class="n">BoundEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a single entry on a segment leaderboard.</span>
 
@@ -1133,7 +1133,7 @@
         <span class="k">return</span> <span class="s1">&#39;&lt;SegmentLeaderboardEntry rank=</span><span class="si">{0}</span><span class="s1"> athlete_name=</span><span class="si">{1!r}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">athlete_name</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SegmentLeaderboard"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SegmentLeaderboard">[docs]</a><span class="k">class</span> <span class="nc">SegmentLeaderboard</span><span class="p">(</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">BoundEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="SegmentLeaderboard"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SegmentLeaderboard">[docs]</a><span class="k">class</span> <span class="nc">SegmentLeaderboard</span><span class="p">(</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">BoundEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The ranked leaderboard for a segment.</span>
 
@@ -1158,7 +1158,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">k</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="DistributionBucket"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.DistributionBucket">[docs]</a><span class="k">class</span> <span class="nc">DistributionBucket</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributionBucket"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.DistributionBucket">[docs]</a><span class="k">class</span> <span class="nc">DistributionBucket</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A single distribution bucket object, used for activity zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1167,7 +1167,7 @@
     <span class="n">time</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">uh</span><span class="o">.</span><span class="n">seconds</span><span class="p">)</span>  <span class="c1">#: Time in seconds (*not* a :class:`datetime.timedelta`)</span></div>
 
 
-<div class="viewcode-block" id="BaseActivityZone"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BaseActivityZone">[docs]</a><span class="k">class</span> <span class="nc">BaseActivityZone</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseActivityZone"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BaseActivityZone">[docs]</a><span class="k">class</span> <span class="nc">BaseActivityZone</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for activity zones.</span>
 
@@ -1177,7 +1177,7 @@
     <span class="nb">type</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Type of activity zone (heartrate, power, pace).</span>
     <span class="n">sensor_based</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Whether zone data is sensor-based (as opposed to calculated)</span>
 
-<div class="viewcode-block" id="BaseActivityZone.deserialize"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.BaseActivityZone.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="BaseActivityZone.deserialize"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.BaseActivityZone.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new object based on serialized (dict) struct.</span>
@@ -1197,7 +1197,7 @@
             <span class="k">return</span> <span class="n">o</span></div></div>
 
 
-<div class="viewcode-block" id="HeartrateActivityZone"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.HeartrateActivityZone">[docs]</a><span class="k">class</span> <span class="nc">HeartrateActivityZone</span><span class="p">(</span><span class="n">BaseActivityZone</span><span class="p">):</span>
+<div class="viewcode-block" id="HeartrateActivityZone"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.HeartrateActivityZone">[docs]</a><span class="k">class</span> <span class="nc">HeartrateActivityZone</span><span class="p">(</span><span class="n">BaseActivityZone</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activity zone for heart rate.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1207,7 +1207,7 @@
     <span class="nb">max</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: The max heartrate</span></div>
 
 
-<div class="viewcode-block" id="PaceActivityZone"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.PaceActivityZone">[docs]</a><span class="k">class</span> <span class="nc">PaceActivityZone</span><span class="p">(</span><span class="n">BaseActivityZone</span><span class="p">):</span>
+<div class="viewcode-block" id="PaceActivityZone"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.PaceActivityZone">[docs]</a><span class="k">class</span> <span class="nc">PaceActivityZone</span><span class="p">(</span><span class="n">BaseActivityZone</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activity zone for pace.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1216,7 +1216,7 @@
     <span class="n">sample_race_time</span> <span class="o">=</span> <span class="n">TimeIntervalAttribute</span><span class="p">((</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: (Not sure?)</span></div>
 
 
-<div class="viewcode-block" id="PowerActivityZone"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.PowerActivityZone">[docs]</a><span class="k">class</span> <span class="nc">PowerActivityZone</span><span class="p">(</span><span class="n">BaseActivityZone</span><span class="p">):</span>
+<div class="viewcode-block" id="PowerActivityZone"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.PowerActivityZone">[docs]</a><span class="k">class</span> <span class="nc">PowerActivityZone</span><span class="p">(</span><span class="n">BaseActivityZone</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activity zone for power.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1226,7 +1226,7 @@
     <span class="n">athlete_weight</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="n">uh</span><span class="o">.</span><span class="n">kgs</span><span class="p">)</span>  <span class="c1">#: Weight of athlete (factored into power calculations)</span></div>
 
 
-<div class="viewcode-block" id="Stream"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Stream">[docs]</a><span class="k">class</span> <span class="nc">Stream</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Stream">[docs]</a><span class="k">class</span> <span class="nc">Stream</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Stream of readings from the activity, effort or segment.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1240,7 +1240,7 @@
         <span class="k">return</span> <span class="s1">&#39;&lt;Stream type=</span><span class="si">{}</span><span class="s1"> resolution=</span><span class="si">{}</span><span class="s1"> original_size=</span><span class="si">{}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
                                                                         <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span><span class="p">,</span>
                                                                         <span class="bp">self</span><span class="o">.</span><span class="n">original_size</span><span class="p">,)</span></div>
-<div class="viewcode-block" id="RunningRace"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.RunningRace">[docs]</a><span class="k">class</span> <span class="nc">RunningRace</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="RunningRace"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.RunningRace">[docs]</a><span class="k">class</span> <span class="nc">RunningRace</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a RunningRace.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1260,7 +1260,7 @@
     <span class="n">status</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: (undocumented attribute)</span></div>
 
 
-<div class="viewcode-block" id="Route"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Route">[docs]</a><span class="k">class</span> <span class="nc">Route</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Route"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Route">[docs]</a><span class="k">class</span> <span class="nc">Route</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a Route.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1278,7 +1278,7 @@
     <span class="c1"># segments = NOT IMPLEMENTED</span>
 
 <span class="c1"># OLD URL - http://strava.github.io/api/partner/v3/events/</span>
-<div class="viewcode-block" id="Subscription"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.Subscription">[docs]</a><span class="k">class</span> <span class="nc">Subscription</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Subscription"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.Subscription">[docs]</a><span class="k">class</span> <span class="nc">Subscription</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a Webhook Event Subscription.</span>
 
@@ -1297,7 +1297,7 @@
     <span class="n">updated_at</span> <span class="o">=</span> <span class="n">TimestampAttribute</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="SubscriptionCallback"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SubscriptionCallback">[docs]</a><span class="k">class</span> <span class="nc">SubscriptionCallback</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="SubscriptionCallback"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SubscriptionCallback">[docs]</a><span class="k">class</span> <span class="nc">SubscriptionCallback</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a Webhook Event Subscription Callback.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1305,11 +1305,11 @@
     <span class="n">hub_verify_token</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">)</span>
     <span class="n">hub_challenge</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SubscriptionCallback.validate"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SubscriptionCallback.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verify_token</span><span class="o">=</span><span class="n">Subscription</span><span class="o">.</span><span class="n">VERIFY_TOKEN_DEFAULT</span><span class="p">):</span>
+<div class="viewcode-block" id="SubscriptionCallback.validate"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SubscriptionCallback.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verify_token</span><span class="o">=</span><span class="n">Subscription</span><span class="o">.</span><span class="n">VERIFY_TOKEN_DEFAULT</span><span class="p">):</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_verify_token</span> <span class="o">==</span> <span class="n">verify_token</span></div></div>
 
 
-<div class="viewcode-block" id="SubscriptionUpdate"><a class="viewcode-back" href="../../api/stravalib.model.html#stravalib.model.SubscriptionUpdate">[docs]</a><span class="k">class</span> <span class="nc">SubscriptionUpdate</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="SubscriptionUpdate"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.SubscriptionUpdate">[docs]</a><span class="k">class</span> <span class="nc">SubscriptionUpdate</span><span class="p">(</span><span class="n">LoadableEntity</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a Webhook Event Subscription Update.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

@@ -185,7 +185,7 @@
 <span class="kn">from</span> <span class="nn">stravalib</span> <span class="kn">import</span> <span class="n">unithelper</span>
 
 
-<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../reference/api/stravalib.Client.html#stravalib.client.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.html#stravalib.client.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Main client class for interacting with the exposed Strava v3 API methods.</span>
 
@@ -194,7 +194,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Client.__init__"><a class="viewcode-back" href="../../reference/api/stravalib.Client.html#stravalib.client.Client.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.__init__"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.html#stravalib.client.Client.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">rate_limit_requests</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                  <span class="n">rate_limiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -243,7 +243,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">access_token</span> <span class="o">=</span> <span class="n">v</span>
 
-<div class="viewcode-block" id="Client.authorization_url"><a class="viewcode-back" href="../../reference/api/stravalib.Client.authorization_url.html#stravalib.client.Client.authorization_url">[docs]</a>    <span class="k">def</span> <span class="nf">authorization_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.authorization_url"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.authorization_url.html#stravalib.client.Client.authorization_url">[docs]</a>    <span class="k">def</span> <span class="nf">authorization_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                           <span class="n">client_id</span><span class="p">,</span>
                           <span class="n">redirect_uri</span><span class="p">,</span>
                           <span class="n">approval_prompt</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
@@ -279,7 +279,7 @@
                                                <span class="n">approval_prompt</span><span class="o">=</span><span class="n">approval_prompt</span><span class="p">,</span>
                                                <span class="n">scope</span><span class="o">=</span><span class="n">scope</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.exchange_code_for_token"><a class="viewcode-back" href="../../reference/api/stravalib.Client.exchange_code_for_token.html#stravalib.client.Client.exchange_code_for_token">[docs]</a>    <span class="k">def</span> <span class="nf">exchange_code_for_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.exchange_code_for_token"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.exchange_code_for_token.html#stravalib.client.Client.exchange_code_for_token">[docs]</a>    <span class="k">def</span> <span class="nf">exchange_code_for_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Exchange the temporary authorization code (returned with redirect from strava authorization URL)</span>
 <span class="sd">        for a short-lived access token and a refresh token (used to obtain the next access token later on).</span>
@@ -302,7 +302,7 @@
                                                      <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
                                                      <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.refresh_access_token"><a class="viewcode-back" href="../../reference/api/stravalib.Client.refresh_access_token.html#stravalib.client.Client.refresh_access_token">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.refresh_access_token"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.refresh_access_token.html#stravalib.client.Client.refresh_access_token">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Exchanges the previous refresh token for a short-lived access token and a new</span>
 <span class="sd">        refresh token (used to obtain the next access token later on).</span>
@@ -325,7 +325,7 @@
                                                   <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
                                                   <span class="n">refresh_token</span><span class="o">=</span><span class="n">refresh_token</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.deauthorize"><a class="viewcode-back" href="../../reference/api/stravalib.Client.deauthorize.html#stravalib.client.Client.deauthorize">[docs]</a>    <span class="k">def</span> <span class="nf">deauthorize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.deauthorize"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.deauthorize.html#stravalib.client.Client.deauthorize">[docs]</a>    <span class="k">def</span> <span class="nf">deauthorize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deauthorize the application. This causes the application to be removed</span>
 <span class="sd">        from the athlete&#39;s &quot;My Apps&quot; settings page.</span>
@@ -356,7 +356,7 @@
 
         <span class="k">return</span> <span class="n">calendar</span><span class="o">.</span><span class="n">timegm</span><span class="p">(</span><span class="n">activity_datetime</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
 
-<div class="viewcode-block" id="Client.get_activities"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activities.html#stravalib.client.Client.get_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activities"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activities.html#stravalib.client.Client.get_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get activities for authenticated user sorted by newest first.</span>
 
@@ -396,7 +396,7 @@
 
 
     <span class="c1"># TODO: Doble check these endpoint doc URLs are correct</span>
-<div class="viewcode-block" id="Client.get_athlete"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete.html#stravalib.client.Client.get_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_athlete"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_athlete.html#stravalib.client.Client.get_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the specified athlete; if athlete_id is None then retrieves a</span>
 <span class="sd">        detail-level representation of currently authenticated athlete;</span>
@@ -420,7 +420,7 @@
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Athlete</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
     <span class="c1"># TODO: this endpoint was removed so do we want to remove the URL altogether?</span>
-<div class="viewcode-block" id="Client.get_athlete_friends"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete_friends.html#stravalib.client.Client.get_athlete_friends">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_friends</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_athlete_friends"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_athlete_friends.html#stravalib.client.Client.get_athlete_friends">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_friends</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets friends for current (or specified) athlete.</span>
 
@@ -449,7 +449,7 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.update_athlete"><a class="viewcode-back" href="../../reference/api/stravalib.Client.update_athlete.html#stravalib.client.Client.update_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">update_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.update_athlete"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.update_athlete.html#stravalib.client.Client.update_athlete">[docs]</a>    <span class="k">def</span> <span class="nf">update_athlete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Updates the properties of the authorized athlete.</span>
 
@@ -475,7 +475,7 @@
         <span class="n">raw_athlete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;/athlete&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Athlete</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw_athlete</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_athlete_followers"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete_followers.html#stravalib.client.Client.get_athlete_followers">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_followers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_athlete_followers"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_athlete_followers.html#stravalib.client.Client.get_athlete_followers">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_followers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets followers for current (or specified) athlete.</span>
 
@@ -502,7 +502,7 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_both_following"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_both_following.html#stravalib.client.Client.get_both_following">[docs]</a>    <span class="k">def</span> <span class="nf">get_both_following</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_both_following"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_both_following.html#stravalib.client.Client.get_both_following">[docs]</a>    <span class="k">def</span> <span class="nf">get_both_following</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve the athletes who both the authenticated user and the indicated</span>
 <span class="sd">         athlete are following.</span>
@@ -530,7 +530,7 @@
         <span class="c1">#                               limit=limit)</span>
 
     <span class="c1"># TODO: Can&#39;t find this in the api documentation either. Does it still work?</span>
-<div class="viewcode-block" id="Client.get_athlete_koms"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete_koms.html#stravalib.client.Client.get_athlete_koms">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_koms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_athlete_koms"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_athlete_koms.html#stravalib.client.Client.get_athlete_koms">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_koms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets Q/KOMs/CRs for specified athlete.</span>
 
@@ -554,7 +554,7 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_athlete_stats"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete_stats.html#stravalib.client.Client.get_athlete_stats">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_athlete_stats"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_athlete_stats.html#stravalib.client.Client.get_athlete_stats">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns Statistics for the athlete.</span>
 <span class="sd">        athlete_id must be the id of the authenticated athlete or left blank.</span>
@@ -575,7 +575,7 @@
 
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">AthleteStats</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_athlete_clubs"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete_clubs.html#stravalib.client.Client.get_athlete_clubs">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_clubs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_athlete_clubs"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_athlete_clubs.html#stravalib.client.Client.get_athlete_clubs">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_clubs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List the clubs for the currently authenticated athlete.</span>
 
@@ -587,7 +587,7 @@
         <span class="n">club_structs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/athlete/clubs&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">Club</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">club_structs</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Client.join_club"><a class="viewcode-back" href="../../reference/api/stravalib.Client.join_club.html#stravalib.client.Client.join_club">[docs]</a>    <span class="k">def</span> <span class="nf">join_club</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.join_club"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.join_club.html#stravalib.client.Client.join_club">[docs]</a>    <span class="k">def</span> <span class="nf">join_club</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Joins the club on behalf of authenticated athlete.</span>
 
@@ -597,7 +597,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;clubs/</span><span class="si">{id}</span><span class="s1">/join&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">club_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.leave_club"><a class="viewcode-back" href="../../reference/api/stravalib.Client.leave_club.html#stravalib.client.Client.leave_club">[docs]</a>    <span class="k">def</span> <span class="nf">leave_club</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.leave_club"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.leave_club.html#stravalib.client.Client.leave_club">[docs]</a>    <span class="k">def</span> <span class="nf">leave_club</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Leave club on behalf of authenticated user.</span>
 
@@ -607,7 +607,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;clubs/</span><span class="si">{id}</span><span class="s1">/leave&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">club_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_club"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_club.html#stravalib.client.Client.get_club">[docs]</a>    <span class="k">def</span> <span class="nf">get_club</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_club"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_club.html#stravalib.client.Client.get_club">[docs]</a>    <span class="k">def</span> <span class="nf">get_club</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a specific club object.</span>
 
@@ -621,7 +621,7 @@
         <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/clubs/</span><span class="si">{id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">club_id</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Club</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_club_members"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_club_members.html#stravalib.client.Client.get_club_members">[docs]</a>    <span class="k">def</span> <span class="nf">get_club_members</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_club_members"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_club_members.html#stravalib.client.Client.get_club_members">[docs]</a>    <span class="k">def</span> <span class="nf">get_club_members</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the member objects for specified club ID.</span>
 
@@ -643,7 +643,7 @@
         <span class="k">return</span> <span class="n">BatchedResultsIterator</span><span class="p">(</span><span class="n">entity</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">Athlete</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_club_activities"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_club_activities.html#stravalib.client.Client.get_club_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_club_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_club_activities"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_club_activities.html#stravalib.client.Client.get_club_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_club_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">club_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the activities associated with specified club.</span>
 
@@ -665,7 +665,7 @@
         <span class="k">return</span> <span class="n">BatchedResultsIterator</span><span class="p">(</span><span class="n">entity</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">Activity</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_activity"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activity.html#stravalib.client.Client.get_activity">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">include_all_efforts</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activity"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activity.html#stravalib.client.Client.get_activity">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">include_all_efforts</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets specified activity.</span>
 
@@ -686,7 +686,7 @@
                                 <span class="n">include_all_efforts</span><span class="o">=</span><span class="n">include_all_efforts</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Activity</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_friend_activities"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_friend_activities.html#stravalib.client.Client.get_friend_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_friend_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_friend_activities"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_friend_activities.html#stravalib.client.Client.get_friend_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_friend_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        DEPRECATED This endpoint was removed by Strava in Jan 2018.</span>
 
@@ -704,7 +704,7 @@
         <span class="c1"># return BatchedResultsIterator(entity=model.Activity, bind_client=self,</span>
         <span class="c1">#                               result_fetcher=result_fetcher, limit=limit)</span>
 
-<div class="viewcode-block" id="Client.create_activity"><a class="viewcode-back" href="../../reference/api/stravalib.Client.create_activity.html#stravalib.client.Client.create_activity">[docs]</a>    <span class="k">def</span> <span class="nf">create_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">activity_type</span><span class="p">,</span> <span class="n">start_date_local</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.create_activity"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.create_activity.html#stravalib.client.Client.create_activity">[docs]</a>    <span class="k">def</span> <span class="nf">create_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">activity_type</span><span class="p">,</span> <span class="n">start_date_local</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">,</span>
                         <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a new manual activity.</span>
@@ -758,7 +758,7 @@
 
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Activity</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw_activity</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.update_activity"><a class="viewcode-back" href="../../reference/api/stravalib.Client.update_activity.html#stravalib.client.Client.update_activity">[docs]</a>    <span class="k">def</span> <span class="nf">update_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">activity_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.update_activity"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.update_activity.html#stravalib.client.Client.update_activity">[docs]</a>    <span class="k">def</span> <span class="nf">update_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">activity_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">private</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">commute</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gear_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">device_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -819,7 +819,7 @@
 
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Activity</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw_activity</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.upload_activity"><a class="viewcode-back" href="../../reference/api/stravalib.Client.upload_activity.html#stravalib.client.Client.upload_activity">[docs]</a>    <span class="k">def</span> <span class="nf">upload_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_file</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.upload_activity"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.upload_activity.html#stravalib.client.Client.upload_activity">[docs]</a>    <span class="k">def</span> <span class="nf">upload_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_file</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">activity_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">external_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uploads a GPS file (tcx, gpx) to create a new activity for current athlete.</span>
@@ -885,7 +885,7 @@
         <span class="k">return</span> <span class="n">ActivityUploader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">initial_response</span><span class="p">)</span></div>
 
     <span class="c1"># TODO: I don&#39;t think this is the correct link but can&#39;t find it in the docs</span>
-<div class="viewcode-block" id="Client.delete_activity"><a class="viewcode-back" href="../../reference/api/stravalib.Client.delete_activity.html#stravalib.client.Client.delete_activity">[docs]</a>    <span class="k">def</span> <span class="nf">delete_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.delete_activity"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.delete_activity.html#stravalib.client.Client.delete_activity">[docs]</a>    <span class="k">def</span> <span class="nf">delete_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deletes the specified activity.</span>
 
@@ -896,7 +896,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;/activities/</span><span class="si">{id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">activity_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_activity_zones"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activity_zones.html#stravalib.client.Client.get_activity_zones">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_zones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activity_zones"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activity_zones.html#stravalib.client.Client.get_activity_zones">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_zones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets zones for activity.</span>
 
@@ -914,7 +914,7 @@
         <span class="c1"># We use a factory to give us the correct zone based on type.</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">BaseActivityZone</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">zones</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Client.get_activity_comments"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activity_comments.html#stravalib.client.Client.get_activity_comments">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_comments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">markdown</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activity_comments"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activity_comments.html#stravalib.client.Client.get_activity_comments">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_comments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">markdown</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the comments for an activity.</span>
 
@@ -940,7 +940,7 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_activity_kudos"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activity_kudos.html#stravalib.client.Client.get_activity_kudos">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_kudos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activity_kudos"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activity_kudos.html#stravalib.client.Client.get_activity_kudos">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_kudos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the kudos for an activity.</span>
 
@@ -965,7 +965,7 @@
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
     <span class="c1"># TODO not sure this is the correct api doc link - couldn&#39;t find &quot;photos&quot;</span>
-<div class="viewcode-block" id="Client.get_activity_photos"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activity_photos.html#stravalib.client.Client.get_activity_photos">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_photos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">only_instagram</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activity_photos"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activity_photos.html#stravalib.client.Client.get_activity_photos">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_photos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">only_instagram</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the photos from an activity.</span>
 
@@ -1000,7 +1000,7 @@
                                       <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_activity_laps"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activity_laps.html#stravalib.client.Client.get_activity_laps">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_laps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_activity_laps"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activity_laps.html#stravalib.client.Client.get_activity_laps">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_laps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the laps from an activity.</span>
 
@@ -1020,7 +1020,7 @@
                                       <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_related_activities"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_related_activities.html#stravalib.client.Client.get_related_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_related_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_related_activities"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_related_activities.html#stravalib.client.Client.get_related_activities">[docs]</a>    <span class="k">def</span> <span class="nf">get_related_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deprecated. This endpoint was removed by strava in Jan 2018.</span>
 
@@ -1042,7 +1042,7 @@
         <span class="c1">#                               result_fetcher=result_fetcher,</span>
         <span class="c1">#                               limit=limit)</span>
 
-<div class="viewcode-block" id="Client.get_gear"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_gear.html#stravalib.client.Client.get_gear">[docs]</a>    <span class="k">def</span> <span class="nf">get_gear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gear_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_gear"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_gear.html#stravalib.client.Client.get_gear">[docs]</a>    <span class="k">def</span> <span class="nf">get_gear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gear_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get details for an item of gear.</span>
 
@@ -1056,7 +1056,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Gear</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/gear/</span><span class="si">{id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">gear_id</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Client.get_segment_effort"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_segment_effort.html#stravalib.client.Client.get_segment_effort">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_effort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effort_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_segment_effort"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_segment_effort.html#stravalib.client.Client.get_segment_effort">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_effort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effort_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a specific segment effort by ID.</span>
 
@@ -1071,7 +1071,7 @@
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">SegmentEffort</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/segment_efforts/</span><span class="si">{id}</span><span class="s1">&#39;</span><span class="p">,</span>
                                                                  <span class="nb">id</span><span class="o">=</span><span class="n">effort_id</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Client.get_segment"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_segment.html#stravalib.client.Client.get_segment">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_segment"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_segment.html#stravalib.client.Client.get_segment">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets a specific segment by ID.</span>
 
@@ -1086,7 +1086,7 @@
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Segment</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/segments/</span><span class="si">{id}</span><span class="s1">&#39;</span><span class="p">,</span>
                                          <span class="nb">id</span><span class="o">=</span><span class="n">segment_id</span><span class="p">),</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_starred_segments"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_starred_segments.html#stravalib.client.Client.get_starred_segments">[docs]</a>    <span class="k">def</span> <span class="nf">get_starred_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_starred_segments"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_starred_segments.html#stravalib.client.Client.get_starred_segments">[docs]</a>    <span class="k">def</span> <span class="nf">get_starred_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a summary representation of the segments starred by the</span>
 <span class="sd">         authenticated user. Pagination is supported.</span>
@@ -1114,7 +1114,7 @@
 
     <span class="c1"># TODO: i&#39;m not sure what the diff is between this method and the one above</span>
     <span class="c1"># So i used the SAME API doc link for both. may need to revisit</span>
-<div class="viewcode-block" id="Client.get_athlete_starred_segments"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_athlete_starred_segments.html#stravalib.client.Client.get_athlete_starred_segments">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_starred_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_athlete_starred_segments"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_athlete_starred_segments.html#stravalib.client.Client.get_athlete_starred_segments">[docs]</a>    <span class="k">def</span> <span class="nf">get_athlete_starred_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a summary representation of the segments starred by the</span>
 <span class="sd">         specified athlete. Pagination is supported.</span>
@@ -1140,7 +1140,7 @@
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
     <span class="c1"># TODO find the new equavilent link in the strava docs</span>
-<div class="viewcode-block" id="Client.get_segment_leaderboard"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_segment_leaderboard.html#stravalib.client.Client.get_segment_leaderboard">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_leaderboard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">age_group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weight_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.get_segment_leaderboard"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_segment_leaderboard.html#stravalib.client.Client.get_segment_leaderboard">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_leaderboard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">age_group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weight_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                 <span class="n">following</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">club_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeframe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top_results_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                 <span class="n">page</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context_entries</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1233,7 +1233,7 @@
                                                                       <span class="o">**</span><span class="n">params</span><span class="p">),</span>
                                                     <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_segment_efforts"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_segment_efforts.html#stravalib.client.Client.get_segment_efforts">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_efforts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.get_segment_efforts"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_segment_efforts.html#stravalib.client.Client.get_segment_efforts">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_efforts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                             <span class="n">start_date_local</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_date_local</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                             <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1302,7 +1302,7 @@
         <span class="k">return</span> <span class="n">BatchedResultsIterator</span><span class="p">(</span><span class="n">entity</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">BaseEffort</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.explore_segments"><a class="viewcode-back" href="../../reference/api/stravalib.Client.explore_segments.html#stravalib.client.Client.explore_segments">[docs]</a>    <span class="k">def</span> <span class="nf">explore_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">activity_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_cat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_cat</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.explore_segments"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.explore_segments.html#stravalib.client.Client.explore_segments">[docs]</a>    <span class="k">def</span> <span class="nf">explore_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">activity_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_cat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_cat</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns an array of up to 10 segments.</span>
 
@@ -1346,7 +1346,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">SegmentExplorerResult</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">raw</span><span class="p">[</span><span class="s1">&#39;segments&#39;</span><span class="p">]]</span></div>
 
-<div class="viewcode-block" id="Client.get_activity_streams"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_activity_streams.html#stravalib.client.Client.get_activity_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.get_activity_streams"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_activity_streams.html#stravalib.client.Client.get_activity_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_activity_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity_id</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                              <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">series_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a stream for an activity.</span>
@@ -1410,7 +1410,7 @@
         <span class="k">except</span> <span class="n">exc</span><span class="o">.</span><span class="n">ObjectNotFound</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># just to be explicit.</span></div>
 
-<div class="viewcode-block" id="Client.get_effort_streams"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_effort_streams.html#stravalib.client.Client.get_effort_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_effort_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effort_id</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.get_effort_streams"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_effort_streams.html#stravalib.client.Client.get_effort_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_effort_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effort_id</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                            <span class="n">series_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns an streams for an effort.</span>
@@ -1472,7 +1472,7 @@
         <span class="c1"># Pack streams into dictionary</span>
         <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">type</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">streams</span><span class="p">}</span></div>
 
-<div class="viewcode-block" id="Client.get_segment_streams"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_segment_streams.html#stravalib.client.Client.get_segment_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.get_segment_streams"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_segment_streams.html#stravalib.client.Client.get_segment_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_segment_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segment_id</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                             <span class="n">series_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns an streams for a segment.</span>
@@ -1533,7 +1533,7 @@
         <span class="c1"># Pack streams into dictionary</span>
         <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">type</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">streams</span><span class="p">}</span></div>
 
-<div class="viewcode-block" id="Client.get_running_race"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_running_race.html#stravalib.client.Client.get_running_race">[docs]</a>    <span class="k">def</span> <span class="nf">get_running_race</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">race_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_running_race"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_running_race.html#stravalib.client.Client.get_running_race">[docs]</a>    <span class="k">def</span> <span class="nf">get_running_race</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">race_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets a running race for a given identifier.</span>
 
@@ -1547,7 +1547,7 @@
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">RunningRace</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Client.get_running_races"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_running_races.html#stravalib.client.Client.get_running_races">[docs]</a>    <span class="k">def</span> <span class="nf">get_running_races</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_running_races"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_running_races.html#stravalib.client.Client.get_running_races">[docs]</a>    <span class="k">def</span> <span class="nf">get_running_races</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets a running races for a given year.</span>
 
@@ -1571,7 +1571,7 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Client.get_routes"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_routes.html#stravalib.client.Client.get_routes">[docs]</a>    <span class="k">def</span> <span class="nf">get_routes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_routes"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_routes.html#stravalib.client.Client.get_routes">[docs]</a>    <span class="k">def</span> <span class="nf">get_routes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">athlete_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the routes list for an authenticated user.</span>
 
@@ -1596,7 +1596,7 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">,</span>
                                       <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_route"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_route.html#stravalib.client.Client.get_route">[docs]</a>    <span class="k">def</span> <span class="nf">get_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_route"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_route.html#stravalib.client.Client.get_route">[docs]</a>    <span class="k">def</span> <span class="nf">get_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets specified route.</span>
 
@@ -1612,7 +1612,7 @@
         <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/routes/</span><span class="si">{id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">route_id</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Route</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.get_route_streams"><a class="viewcode-back" href="../../reference/api/stravalib.Client.get_route_streams.html#stravalib.client.Client.get_route_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_route_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.get_route_streams"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.get_route_streams.html#stravalib.client.Client.get_route_streams">[docs]</a>    <span class="k">def</span> <span class="nf">get_route_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns streams for a route.</span>
 
@@ -1643,7 +1643,7 @@
 
     <span class="c1"># TODO: removed old link to create a subscription but can&#39;t find new equiv</span>
     <span class="c1"># in current strava docs</span>
-<div class="viewcode-block" id="Client.create_subscription"><a class="viewcode-back" href="../../reference/api/stravalib.Client.create_subscription.html#stravalib.client.Client.create_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">create_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">callback_url</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.create_subscription"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.create_subscription.html#stravalib.client.Client.create_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">create_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">callback_url</span><span class="p">,</span>
                             <span class="n">verify_token</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">Subscription</span><span class="o">.</span><span class="n">VERIFY_TOKEN_DEFAULT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a webhook event subscription.</span>
@@ -1674,7 +1674,7 @@
         <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/push_subscriptions&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">Subscription</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.handle_subscription_callback"><a class="viewcode-back" href="../../reference/api/stravalib.Client.handle_subscription_callback.html#stravalib.client.Client.handle_subscription_callback">[docs]</a>    <span class="k">def</span> <span class="nf">handle_subscription_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span>
+<div class="viewcode-block" id="Client.handle_subscription_callback"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.handle_subscription_callback.html#stravalib.client.Client.handle_subscription_callback">[docs]</a>    <span class="k">def</span> <span class="nf">handle_subscription_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span>
                                      <span class="n">verify_token</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">Subscription</span><span class="o">.</span><span class="n">VERIFY_TOKEN_DEFAULT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validate callback request and return valid response with challenge.</span>
@@ -1687,7 +1687,7 @@
         <span class="n">response_raw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;hub.challenge&#39;</span><span class="p">:</span> <span class="n">callback</span><span class="o">.</span><span class="n">hub_challenge</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">response_raw</span></div>
 
-<div class="viewcode-block" id="Client.handle_subscription_update"><a class="viewcode-back" href="../../reference/api/stravalib.Client.handle_subscription_update.html#stravalib.client.Client.handle_subscription_update">[docs]</a>    <span class="k">def</span> <span class="nf">handle_subscription_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.handle_subscription_update"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.handle_subscription_update.html#stravalib.client.Client.handle_subscription_update">[docs]</a>    <span class="k">def</span> <span class="nf">handle_subscription_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts a raw subscription update into a model.</span>
 
@@ -1697,7 +1697,7 @@
         <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">SubscriptionUpdate</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">bind_client</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
     <span class="c1"># TODO can&#39;t find a api doc link here so just removed old link.</span>
-<div class="viewcode-block" id="Client.list_subscriptions"><a class="viewcode-back" href="../../reference/api/stravalib.Client.list_subscriptions.html#stravalib.client.Client.list_subscriptions">[docs]</a>    <span class="k">def</span> <span class="nf">list_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.list_subscriptions"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.list_subscriptions.html#stravalib.client.Client.list_subscriptions">[docs]</a>    <span class="k">def</span> <span class="nf">list_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List current webhook event subscriptions in place for the current application.</span>
 
@@ -1718,7 +1718,7 @@
                                       <span class="n">result_fetcher</span><span class="o">=</span><span class="n">result_fetcher</span><span class="p">)</span></div>
 
     <span class="c1"># TODO can&#39;t find a api doc link here so just removed old link.</span>
-<div class="viewcode-block" id="Client.delete_subscription"><a class="viewcode-back" href="../../reference/api/stravalib.Client.delete_subscription.html#stravalib.client.Client.delete_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">delete_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subscription_id</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.delete_subscription"><a class="viewcode-back" href="../../reference/api/stravalib.client.Client.delete_subscription.html#stravalib.client.Client.delete_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">delete_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subscription_id</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Unsubscribe from webhook events for an existing subscription.</span>
 

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Exc &#8212; stravalib 0.6.0 documentation</title>
+    <title>Exceptions &amp; Error Handling &#8212; stravalib 0.6.0 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,7 +37,7 @@
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Client" href="stravalib.model.html" />
+    <link rel="next" title="Model" href="stravalib.model.html" />
     <link rel="prev" title="Client" href="stravalib.client.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -170,12 +170,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Exc
+   Exceptions &amp; Error Handling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="stravalib.model.html">
-   Client
+   Model
   </a>
  </li>
  <li class="toctree-l1">
@@ -224,9 +224,10 @@
               
               <div>
                 
-  <span class="target" id="module-stravalib.exc"></span><section id="exc">
-<h1>Exc<a class="headerlink" href="#exc" title="Permalink to this headline">¶</a></h1>
-<p>More here…</p>
+  <span class="target" id="module-stravalib.exc"></span><section id="exceptions-error-handling">
+<h1>Exceptions &amp; Error Handling<a class="headerlink" href="#exceptions-error-handling" title="Permalink to this headline">¶</a></h1>
+<p>Exceptions and error handling for stravalib.
+These are classes designed to capture and handle various errors encountered when interacting with the Strava API.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.AuthError">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">AuthError</span></span><a class="reference internal" href="../_modules/stravalib/exc.html#AuthError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.AuthError" title="Permalink to this definition">¶</a></dt>
@@ -236,13 +237,13 @@
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.LoginFailed">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">LoginFailed</span></span><a class="reference internal" href="../_modules/stravalib/exc.html#LoginFailed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.LoginFailed" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.AuthError" title="stravalib.exc.AuthError"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.AuthError</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.AuthError" title="stravalib.exc.AuthError"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.AuthError</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.LoginRequired">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">LoginRequired</span></span><a class="reference internal" href="../_modules/stravalib/exc.html#LoginRequired"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.LoginRequired" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.AuthError" title="stravalib.exc.AuthError"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.AuthError</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.AuthError" title="stravalib.exc.AuthError"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.AuthError</span></code></a></p>
 <p>Login is required to perform specified action.</p>
 </dd></dl>
 
@@ -263,14 +264,14 @@
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.ObjectNotFound">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">ObjectNotFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/exc.html#ObjectNotFound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.ObjectNotFound" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.Fault" title="stravalib.exc.Fault"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.Fault</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.Fault" title="stravalib.exc.Fault"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.Fault</span></code></a></p>
 <p>When we get a 404 back from an API call.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.AccessUnauthorized">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">AccessUnauthorized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/exc.html#AccessUnauthorized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.AccessUnauthorized" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.Fault" title="stravalib.exc.Fault"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.Fault</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.Fault" title="stravalib.exc.Fault"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.Fault</span></code></a></p>
 <p>When we get a 401 back from an API call.</p>
 </dd></dl>
 
@@ -285,7 +286,7 @@
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.RateLimitTimeout">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">RateLimitTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stravalib/exc.html#RateLimitTimeout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.RateLimitTimeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.RateLimitExceeded" title="stravalib.exc.RateLimitExceeded"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.RateLimitExceeded</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.RateLimitExceeded" title="stravalib.exc.RateLimitExceeded"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.RateLimitExceeded</span></code></a></p>
 <p>Exception raised when the client rate limit has been exceeded
 and the time to clear the limit (timeout) has not yet been reached</p>
 <p><a class="reference external" href="https://developers.strava.com/docs/rate-limits/">https://developers.strava.com/docs/rate-limits/</a></p>
@@ -300,13 +301,13 @@ and the time to clear the limit (timeout) has not yet been reached</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.ErrorProcessingActivity">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">ErrorProcessingActivity</span></span><a class="reference internal" href="../_modules/stravalib/exc.html#ErrorProcessingActivity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.ErrorProcessingActivity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.ActivityUploadFailed" title="stravalib.exc.ActivityUploadFailed"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.ActivityUploadFailed</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.ActivityUploadFailed" title="stravalib.exc.ActivityUploadFailed"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.ActivityUploadFailed</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.CreatedActivityDeleted">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">CreatedActivityDeleted</span></span><a class="reference internal" href="../_modules/stravalib/exc.html#CreatedActivityDeleted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.CreatedActivityDeleted" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.ActivityUploadFailed" title="stravalib.exc.ActivityUploadFailed"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.ActivityUploadFailed</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.ActivityUploadFailed" title="stravalib.exc.ActivityUploadFailed"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.ActivityUploadFailed</span></code></a></p>
 </dd></dl>
 
 <dl class="py exception">
@@ -318,7 +319,7 @@ and the time to clear the limit (timeout) has not yet been reached</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="stravalib.exc.NotAuthenticatedAthlete">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">stravalib.exc.</span></span><span class="sig-name descname"><span class="pre">NotAuthenticatedAthlete</span></span><a class="reference internal" href="../_modules/stravalib/exc.html#NotAuthenticatedAthlete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stravalib.exc.NotAuthenticatedAthlete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stravalib.exc.AuthError" title="stravalib.exc.AuthError"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.AuthError</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../reference/exceptions.html#stravalib.exc.AuthError" title="stravalib.exc.AuthError"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.exc.AuthError</span></code></a></p>
 <p>Exception when trying to access data which requires an authenticated athlete</p>
 </dd></dl>
 
@@ -340,7 +341,7 @@ and the time to clear the limit (timeout) has not yet been reached</p>
     <a class='right-next' id="next-link" href="stravalib.model.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Client</p>
+        <p class="prev-next-title">Model</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

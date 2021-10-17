@@ -84,7 +84,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../contributing.html">
-  Contributing
+  Contribute to Stravalib
  </a>
 </li>
 
@@ -97,12 +97,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../api/stravalib.html">
-  DELETE ME API Reference
  </a>
 </li>
 
@@ -1736,7 +1730,7 @@
         <span class="c1"># Expects a 204 response if all goes well.</span>
 
 
-<div class="viewcode-block" id="BatchedResultsIterator"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.BatchedResultsIterator">[docs]</a><span class="k">class</span> <span class="nc">BatchedResultsIterator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">BatchedResultsIterator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An iterator that enables iterating over requests that return paged results.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1779,11 +1773,11 @@
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;&lt;</span><span class="si">{0}</span><span class="s1"> entity=</span><span class="si">{1}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">entity</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BatchedResultsIterator.reset"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.BatchedResultsIterator.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_counter</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_page</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_all_results_fetched</span> <span class="o">=</span> <span class="kc">False</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_all_results_fetched</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="k">def</span> <span class="nf">_fill_buffer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1818,7 +1812,7 @@
     <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 
-<div class="viewcode-block" id="BatchedResultsIterator.next"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.BatchedResultsIterator.next">[docs]</a>    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_counter</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">:</span>
@@ -1829,7 +1823,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="n">result</span></div></div>
+            <span class="k">return</span> <span class="n">result</span>
 
 
 <div class="viewcode-block" id="ActivityUploader"><a class="viewcode-back" href="../../reference/api/stravalib.client.ActivityUploader.html#stravalib.client.ActivityUploader">[docs]</a><span class="k">class</span> <span class="nc">ActivityUploader</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1893,14 +1887,14 @@
     <span class="k">def</span> <span class="nf">is_complete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ActivityUploader.raise_for_error"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.ActivityUploader.raise_for_error">[docs]</a>    <span class="k">def</span> <span class="nf">raise_for_error</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">raise_for_error</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># FIXME: We need better handling of the actual responses, once those are more accurately documented.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">ActivityUploadFailed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;The created activity has been deleted.&quot;</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">CreatedActivityDeleted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span></div>
+            <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">CreatedActivityDeleted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ActivityUploader.poll"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.ActivityUploader.poll">[docs]</a>    <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update internal state from polling strava.com.</span>
 
@@ -1910,9 +1904,9 @@
                                             <span class="n">upload_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">upload_id</span><span class="p">,</span>
                                             <span class="n">check_for_errors</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">update_from_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_from_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ActivityUploader.wait"><a class="viewcode-back" href="../../api/stravalib.client.html#stravalib.client.ActivityUploader.wait">[docs]</a>    <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">poll_interval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">poll_interval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wait for the upload to complete or to err out.</span>
 
@@ -1941,7 +1935,7 @@
             <span class="k">if</span> <span class="n">timeout</span> <span class="ow">and</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">TimeoutExceeded</span><span class="p">()</span>
         <span class="c1"># If we got this far, we must have an activity!</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_id</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_id</span><span class="p">)</span></div>
 </pre></div>
 
               </div>

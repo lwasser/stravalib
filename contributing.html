@@ -87,7 +87,7 @@
 
 <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  Contributing
+  Contribute to Stravalib
  </a>
 </li>
 
@@ -100,12 +100,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="api/stravalib.html">
-  DELETE ME API Reference
  </a>
 </li>
 
@@ -151,9 +145,53 @@
               
               <div class="toc-item">
                 
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Contribute to Stravalib
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-started">
+   Get Started!
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fork-the-repository-on-github">
+     1. Fork the repository on GitHub
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clone-your-fork-locally">
+     2. Clone your fork locally
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-your-local-development-development-environment">
+     3. Set up your local development development environment
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#test-suite">
+       Test suite
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#documentation">
+       Documentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
 </nav>
               </div>
               
@@ -175,7 +213,95 @@
                 
   <section id="contribute-to-stravalib">
 <h1>Contribute to Stravalib<a class="headerlink" href="#contribute-to-stravalib" title="Permalink to this headline">¶</a></h1>
-<p>More to come..</p>
+</section>
+<section id="get-started">
+<h1>Get Started!<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<p>Ready to contribute? Here’s how to set up Stravalib for local development.</p>
+<section id="fork-the-repository-on-github">
+<h2>1. Fork the repository on GitHub<a class="headerlink" href="#fork-the-repository-on-github" title="Permalink to this headline">¶</a></h2>
+<p>To create your own copy of the repository on GitHub, navigate to the
+<a class="reference external" href="https://github.com/hozn/stravalib">hozn/stravalib</a> repository
+and click the <strong>Fork</strong> button in the top-right corner of the page.</p>
+</section>
+<section id="clone-your-fork-locally">
+<h2>2. Clone your fork locally<a class="headerlink" href="#clone-your-fork-locally" title="Permalink to this headline">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> to get a local copy of your stravalib repository on your
+local filesystem:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:your_name_here/stravalib.git
+$ cd stravalib/
+</pre></div>
+</div>
+</section>
+<section id="set-up-your-local-development-development-environment">
+<h2>3. Set up your local development development environment<a class="headerlink" href="#set-up-your-local-development-development-environment" title="Permalink to this headline">¶</a></h2>
+<p>Once you have cloned the repo locally, you are ready to setup your development environment.</p>
+<p>We suggest that you create a local virtual environment to work on this package. Instructions
+below are for doing that using _conda_. However feel free to create your environment using
+pip too.</p>
+<p>To begin, install the conda environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env create -f environment.yml
+</pre></div>
+</div>
+<p>This will create a local conda environment called stravalib_dev
+Next, activate the environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate stravalib_dev
+</pre></div>
+</div>
+<p>Finally install the dependencies and the stravalib package in development mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e .
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<section id="test-suite">
+<h3>Test suite<a class="headerlink" href="#test-suite" title="Permalink to this headline">¶</a></h3>
+<p>Tests for stravalib are developed using <code class="docutils literal notranslate"><span class="pre">nose</span></code>.
+Currently the test suite is setup to actually hit the strava api.
+You will thus need an app setup in your Strava account to run the test suite.
+We recommend that you create a dummy account for this with a single activity to avoid
+any chances of your data being unintentionally modified. Once you have the app setup
+and a valid access_token for an account with atleast one activity, follow the steps
+below.</p>
+<ol class="arabic">
+<li><p>Rename the file stravalib/stravalib/tests/test.ini-example –&gt; test.ini</p></li>
+<li><p>Add your API token to the file by replacing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">access_token</span> <span class="o">=</span> <span class="n">xxxxxxxxxxxxxxxx</span>
+
+<span class="k">with</span>
+
+<span class="n">access_token</span> <span class="o">=</span> <span class="n">your</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="n">value</span><span class="o">-</span><span class="n">here</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>NOTE: this token needs to have write access to your account. We recommend that you create
+a dummy account to ensure you aren’t modifying your actual account data.</p>
+<ol class="arabic" start="3">
+<li><p>Add a single activity id:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activity_id</span> <span class="o">=</span> <span class="n">a</span><span class="o">-</span><span class="n">valid</span><span class="o">-</span><span class="n">activity</span><span class="o">-</span><span class="nb">id</span><span class="o">-</span><span class="n">here</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>You are now ready to run the test suite. To run tests on python 3.x run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nosetest
+</pre></div>
+</div>
+<p>NOTE - there may be some changes coming to the test suite infrastructure. For now the
+steps above work but you may encounter some issues running the test suite.
+More to come …</p>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>The docs for this library are created using <cite>sphinx</cite>.
+To build the documentation, use the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make docs -B
+</pre></div>
+</div>
+<p>You can then open up the documentation locally in a web browser by opening the following
+file in a web browser on your computer:</p>
+<p>your-path-to-stravalib/stravalibe/docs/_build/html/index.html</p>
+</section>
+</section>
 </section>
 
 

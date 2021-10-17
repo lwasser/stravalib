@@ -87,7 +87,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../contributing.html">
-  Contributing
+  Contribute to Stravalib
  </a>
 </li>
 
@@ -100,12 +100,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../api/stravalib.html">
-  DELETE ME API Reference
  </a>
 </li>
 
@@ -267,7 +261,7 @@ information is available to others.  For example:</p>
 <p>A number of Strava API endpoints return paged results.  The stravalib library abstracts over
 the paging to provide an iterator that will iterate over the entire resultset, fetching 200-page
 result sets under the hood.</p>
-<p>This capability is provided by the <a class="reference internal" href="../api/stravalib.client.html#stravalib.client.BatchedResultsIterator" title="stravalib.client.BatchedResultsIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.BatchedResultsIterator</span></code></a> class.  If
+<p>This capability is provided by the <code class="xref py py-class docutils literal notranslate"><span class="pre">stravalib.client.BatchedResultsIterator</span></code> class.  If
 you only wish to fetch a few objects, you can specify a limit in the method call or set the limit
 on the resulting iterator.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activities</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_activities</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>

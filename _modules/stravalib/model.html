@@ -84,7 +84,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../contributing.html">
-  Contributing
+  Contribute to Stravalib
  </a>
 </li>
 
@@ -97,12 +97,6 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../reference.html">
   API Reference Summary
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../api/stravalib.html">
-  DELETE ME API Reference
  </a>
 </li>
 
@@ -405,8 +399,8 @@
 <span class="sd">    Represents an athlete&#39;s pair of shoes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">nickname</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="p">(</span><span class="n">DETAILED</span><span class="p">,))</span>  <span class="c1">#: Nickname for the shoe.</span>
-    <span class="n">converted_distance</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="n">uh</span><span class="o">.</span><span class="n">meters</span><span class="p">)</span> <span class="c1"># Distance on the shoe (meters)</span>
-    <span class="n">retired</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span></div>
+    <span class="n">converted_distance</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="n">uh</span><span class="o">.</span><span class="n">meters</span><span class="p">)</span>  <span class="c1">#: Distance on the shoe (meters)</span>
+    <span class="n">retired</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="p">(</span><span class="n">SUMMARY</span><span class="p">,</span> <span class="n">DETAILED</span><span class="p">))</span>  <span class="c1">#: Is the shoe retired?</span></div>
 
 
 <div class="viewcode-block" id="ActivityTotals"><a class="viewcode-back" href="../../reference/model.html#stravalib.model.ActivityTotals">[docs]</a><span class="k">class</span> <span class="nc">ActivityTotals</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>

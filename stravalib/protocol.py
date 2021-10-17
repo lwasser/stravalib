@@ -17,9 +17,7 @@ from stravalib import exc
 
 @six.add_metaclass(abc.ABCMeta)
 class ApiV3(object):
-    """
-    This class is responsible for performing the HTTP requests, rate limiting, and error handling.
-    """
+    """This class is responsible for performing the HTTP requests, rate limiting, and error handling."""
 
     server = 'www.strava.com'
     api_base = '/api/v3'
@@ -52,29 +50,30 @@ class ApiV3(object):
     def authorization_url(self, client_id, redirect_uri, approval_prompt='auto', scope=None, state=None):
         """
         Get the URL needed to authorize your application to access a Strava user's information.
-
+        
         See https://developers.strava.com/docs/authentication/
 
-        :param client_id: The numeric developer client id.
-        :type client_id: int
+        Parameters
+        ----------
+        client_id : int
+            The numeric developer client id.
+        redirect_uri : str
+            The URL that Strava will redirect to after successful (or failed) authorization.
+        approval_prompt : str
+            Whether to prompt for approval even if approval already granted to app.
+            Choices are 'auto' or 'force'.  (Default is 'auto')
+        scope : list[str]
+            The access scope required.  Omit to imply "read" and "activity:read"
+            Valid values are 'read', 'read_all', 'profile:read_all', 'profile:write', 'profile:read_all',
+            'activity:read_all', 'activity:write'. (Default value = None)
+        state : str
+            An arbitrary variable that will be returned to your application in the redirect URI. (Default value = None)
 
-        :param redirect_uri: The URL that Strava will redirect to after successful (or failed) authorization.
-        :type redirect_uri: str
+        Returns
+        -------
+        str
+            The URL to use for authorization link.
 
-        :param approval_prompt: Whether to prompt for approval even if approval already granted to app.
-                                Choices are 'auto' or 'force'.  (Default is 'auto')
-        :type approval_prompt: str
-
-        :param scope: The access scope required.  Omit to imply "read" and "activity:read"
-                      Valid values are 'read', 'read_all', 'profile:read_all', 'profile:write', 'profile:read_all',
-                      'activity:read_all', 'activity:write'.
-        :type scope: list[str]
-
-        :param state: An arbitrary variable that will be returned to your application in the redirect URI.
-        :type state: str
-
-        :return: The URL to use for authorization link.
-        :rtype: str
         """
         assert approval_prompt in ('auto', 'force')
         if scope is None:
@@ -108,18 +107,21 @@ class ApiV3(object):
         Exchange the temporary authorization code (returned with redirect from strava authorization URL)
         for a short-lived access token and a refresh token (used to obtain the next access token later on).
 
-        :param client_id: The numeric developer client id.
-        :type client_id: int
+        Parameters
+        ----------
+        client_id : int
+            The numeric developer client id.
+        client_secret : str
+            The developer client secret
+        code : str
+            The temporary authorization code
 
-        :param client_secret: The developer client secret
-        :type client_secret: str
+        Returns
+        -------
+        dict
+            Dictionary containing the access_token, refresh_token
+            and expires_at (number of seconds since Epoch when the provided access token will expire)
 
-        :param code: The temporary authorization code
-        :type code: str
-
-        :return: Dictionary containing the access_token, refresh_token
-                 and expires_at (number of seconds since Epoch when the provided access token will expire)
-        :rtype: dict
         """
         response = self._request('https://{0}/oauth/token'.format(self.server),
                                  params={'client_id': client_id, 'client_secret': client_secret, 'code': code,
@@ -138,18 +140,21 @@ class ApiV3(object):
         Exchanges the previous refresh token for a short-lived access token and a new
         refresh token (used to obtain the next access token later on).
 
-        :param client_id: The numeric developer client id.
-        :type client_id: int
+        Parameters
+        ----------
+        client_id : int
+            The numeric developer client id.
+        client_secret : str
+            The developer client secret
+        refresh_token : str
+            The refresh token obtain from a previous authorization request
 
-        :param client_secret: The developer client secret
-        :type client_secret: str
+        Returns
+        -------
+        dict
+            Dictionary containing the access_token, refresh_token
+            and expires_at (number of seconds since Epoch when the provided access token will expire)
 
-        :param refresh_token: The refresh token obtain from a previous authorization request
-        :type refresh_token: str
-
-        :return: Dictionary containing the access_token, refresh_token
-                 and expires_at (number of seconds since Epoch when the provided access token will expire)
-        :rtype: dict
         """
         response = self._request('https://{0}/oauth/token'.format(self.server),
                                  params={'client_id': client_id, 'client_secret': client_secret,
@@ -172,23 +177,24 @@ class ApiV3(object):
         """
         Perform the underlying request, returning the parsed JSON results.
 
-        :param url: The request URL.
-        :type url: str
+        Parameters
+        ----------
+        url : str
+            The request URL.
+        params : Dict[str,Any]
+            Request parameters (Default value = None)
+        files : Dict[str,file]
+            Dictionary of file name to file-like objects. (Default value = None)
+        method : str
+            The request method (GET/POST/etc.) (Default value = 'GET')
+        check_for_errors : bool
+            Whether to raise (Default value = True)
 
-        :param params: Request parameters
-        :type params: Dict[str,Any]
+        Returns
+        -------
+        Dict[str,Any]
+            The parsed JSON response.
 
-        :param files: Dictionary of file name to file-like objects.
-        :type files: Dict[str,file]
-
-        :param method: The request method (GET/POST/etc.)
-        :type method: str
-
-        :param check_for_errors: Whether to raise
-        :type check_for_errors: bool
-
-        :return: The parsed JSON response.
-        :rtype: Dict[str,Any]
         """
         url = self._resolve_url(url)
         self.log.info("{method} {url!r} with params {params!r}".format(method=method, url=url, params=params))
@@ -228,8 +234,19 @@ class ApiV3(object):
         Parses the raw response from the server, raising a :class:`stravalib.exc.Fault` if the
         server returned an error.
 
-        :param response: The response object.
-        :raises Fault: If the response contains an error.
+        Parameters
+        ----------
+        response :
+            The response object.
+
+        Returns
+        -------
+
+        Raises
+        ------
+        Fault
+            If the response contains an error.
+
         """
         error_str = None
         try:
@@ -268,9 +285,17 @@ class ApiV3(object):
         """
         Utility method to find the referenced format variables in a string.
         (Assumes string.format() format vars.)
-        :param s: The string that contains format variables. (e.g. "{foo}-text")
-        :return: The list of referenced variable names. (e.g. ['foo'])
-        :rtype: list
+
+        Parameters
+        ----------
+        s :
+            The string that contains format variables. (e.g. "{foo}-text")
+
+        Returns
+        -------
+        list
+            The list of referenced variable names. (e.g. ['foo'])
+
         """
         d = {}
         while True:
@@ -287,6 +312,19 @@ class ApiV3(object):
     def get(self, url, check_for_errors=True, **kwargs):
         """
         Performs a generic GET request for specified params, returning the response.
+
+        Parameters
+        ----------
+        url :
+            
+        check_for_errors :
+             (Default value = True)
+        **kwargs :
+            
+
+        Returns
+        -------
+
         """
         referenced = self._extract_referenced_vars(url)
         url = url.format(**kwargs)
@@ -296,6 +334,21 @@ class ApiV3(object):
     def post(self, url, files=None, check_for_errors=True, **kwargs):
         """
         Performs a generic POST request for specified params, returning the response.
+
+        Parameters
+        ----------
+        url :
+            
+        files :
+             (Default value = None)
+        check_for_errors :
+             (Default value = True)
+        **kwargs :
+            
+
+        Returns
+        -------
+
         """
         referenced = self._extract_referenced_vars(url)
         url = url.format(**kwargs)
@@ -305,6 +358,19 @@ class ApiV3(object):
     def put(self, url, check_for_errors=True, **kwargs):
         """
         Performs a generic PUT request for specified params, returning the response.
+
+        Parameters
+        ----------
+        url :
+            
+        check_for_errors :
+             (Default value = True)
+        **kwargs :
+            
+
+        Returns
+        -------
+
         """
         referenced = self._extract_referenced_vars(url)
         url = url.format(**kwargs)
@@ -314,6 +380,19 @@ class ApiV3(object):
     def delete(self, url, check_for_errors=True, **kwargs):
         """
         Performs a generic DELETE request for specified params, returning the response.
+
+        Parameters
+        ----------
+        url :
+            
+        check_for_errors :
+             (Default value = True)
+        **kwargs :
+            
+
+        Returns
+        -------
+
         """
         referenced = self._extract_referenced_vars(url)
         url = url.format(**kwargs)

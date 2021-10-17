@@ -29,9 +29,7 @@ DETAILED = 3
 
 
 class Attribute(object):
-    """
-    Base descriptor class for a Strava model attribute.
-    """
+    """Base descriptor class for a Strava model attribute."""
     _type = None
 
     def __init__(self, type_, resource_states=None, units=None):
@@ -71,9 +69,18 @@ class Attribute(object):
     def marshal(self, v):
         """
         Turn this value into format for wire (JSON).
-
+        
         (By default this will just return the underlying object; subclasses
         can override for specific behaviors -- e.g. date formatting.)
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         if isinstance(v, Quantity):
             return v.num
@@ -83,10 +90,19 @@ class Attribute(object):
     def unmarshal(self, v):
         """
         Convert the value from parsed JSON structure to native python representation.
-
+        
         By default this will leave the value as-is since the JSON parsing routines
         typically convert to native types. The exception may be date strings or other
         more complex types, where subclasses will override this behavior.
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         if self.units:
             # Note that we don't want to cast to type in this case!
@@ -98,23 +114,39 @@ class Attribute(object):
 
 
 class DateAttribute(Attribute):
-    """
-    """
+    """ """
     def __init__(self, resource_states=None):
         super(DateAttribute, self).__init__(date, resource_states=resource_states)
 
     def marshal(self, v):
         """
+        
 
-        :param v: The date object to convert.
-        :type v: date
-        :return:
+        Parameters
+        ----------
+        v : date
+            The date object to convert.
+
+        Returns
+        -------
+
         """
         return v.isoformat() if v else None
 
     def unmarshal(self, v):
         """
         Convert a date in "2012-12-13" format to a :class:`datetime.date` object.
+
+        Parameters
+        ----------
+        v : string
+            Date in string format to be converted.
+            
+
+        Returns
+        -------
+        datetime.date object containing the date formatted as a string.
+
         """
         if not isinstance(v, date):
             # 2012-12-13
@@ -123,8 +155,7 @@ class DateAttribute(Attribute):
 
 
 class TimestampAttribute(Attribute):
-    """
-    """
+    """ """
     def __init__(self, resource_states=None, tzinfo=pytz.utc):
         super(TimestampAttribute, self).__init__(datetime, resource_states=resource_states)
         self.tzinfo = tzinfo
@@ -133,15 +164,33 @@ class TimestampAttribute(Attribute):
         """
         Serialize the timestamp to string.
 
-        :param v: The timestamp.
-        :type v: datetime
-        :return: The serialized date time.
+        Parameters
+        ----------
+        v : datetime object
+            The timestamp.
+
+        Returns
+        -------
+        type
+            The serialized date time.
+
         """
         return v.isoformat() if v else None
 
     def unmarshal(self, v):
         """
         Convert a timestamp in "2012-12-13T03:43:19Z" format to a `datetime.datetime` object.
+
+        Parameters
+        ----------
+        v : string
+            String containing a date in date / time format.
+            
+
+        Returns
+        -------
+        datetime.datetime object containing the date and time elements contained in the string.
+
         """
         if not isinstance(v, datetime):
             if isinstance(v, six.integer_types):
@@ -163,8 +212,7 @@ LatLon = namedtuple('LatLon', ['lat', 'lon'])
 
 
 class LocationAttribute(Attribute):
-    """
-    """
+    """ """
     def __init__(self, resource_states=None):
         super(LocationAttribute, self).__init__(LatLon, resource_states=resource_states)
 
@@ -172,15 +220,31 @@ class LocationAttribute(Attribute):
         """
         Turn this value into format for wire (JSON).
 
-        :param v: The lat/lon.
-        :type v: LatLon
-        :return: Serialized format.
-        :rtype: str
+        Parameters
+        ----------
+        v : LatLon
+            The lat/lon.
+
+        Returns
+        -------
+        str
+            Serialized format.
+
         """
         return "{lat},{lon}".format(lat=v.lat, lon=v.lon) if v else None
 
     def unmarshal(self, v):
         """
+        
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         if not isinstance(v, LatLon):
             v = LatLon(lat=v[0], lon=v[1]) if v else None
@@ -188,8 +252,7 @@ class LocationAttribute(Attribute):
 
 
 class TimezoneAttribute(Attribute):
-    """
-    """
+    """ """
     def __init__(self, resource_states=None):
         super(TimezoneAttribute, self).__init__(pytz.timezone, resource_states=resource_states)
 
@@ -198,6 +261,15 @@ class TimezoneAttribute(Attribute):
         Convert a timestamp in format "America/Los_Angeles" or
         "(GMT-08:00) America/Los_Angeles" to
         a `pytz.timestamp` object.
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         if not isinstance(v, tzinfo):
             if ' ' in v:
@@ -213,27 +285,41 @@ class TimezoneAttribute(Attribute):
         """
         Serialize time zone name.
 
-        :param v: The timezone.
-        :type v: tzdata
-        :return: The name of the time zone.
+        Parameters
+        ----------
+        v : tzdata
+            The timezone.
+
+        Returns
+        -------
+        type
+            The name of the time zone.
+
         """
         return str(v) if v else None
 
 
 class TimeIntervalAttribute(Attribute):
-    """
-    Handles time durations, assumes upstream int value in seconds.
-    """
+    """Handles time durations, assumes upstream int value in seconds."""
     def __init__(self, resource_states=None):
         super(TimeIntervalAttribute, self).__init__(int, resource_states=resource_states)
 
     def unmarshal(self, v):
         """
         Convert the value from parsed JSON structure to native python representation.
-
+        
         By default this will leave the value as-is since the JSON parsing routines
         typically convert to native types. The exception may be date strings or other
         more complex types, where subclasses will override this behavior.
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         if not isinstance(v, timedelta):
             if isinstance(v, six.text_type) or isinstance(v, six.binary_type):
@@ -247,9 +333,16 @@ class TimeIntervalAttribute(Attribute):
         """
         Serialize native python timedelta object to seconds as int.
 
-        :param v: time interval.
-        :type v: timedelta
-        :return: time interval in seconds as int.
+        Parameters
+        ----------
+        v : timedelta
+            time interval.
+
+        Returns
+        -------
+        type
+            time interval in seconds as int.
+
         """
         if isinstance(v, timedelta):
             return v.seconds
@@ -259,8 +352,15 @@ class TimeIntervalAttribute(Attribute):
 class ChoicesAttribute(Attribute):
     """
     Attribute where there are several choices the attribute may take.
-
+    
     Allows conversion from the API value to a more helpful python value.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     def __init__(self, *args, **kwargs):
         self.choices = kwargs.pop("choices", {})
@@ -269,11 +369,20 @@ class ChoicesAttribute(Attribute):
     def marshal(self, v):
         """
         Turn this value into API format.
-
+        
         Do a reverse dictionary lookup on choices to find the original value. If
         there are no keys or too many keys for now we raise a NotImplementedError
         as marshal is not used anywhere currently. In the future we will want to
         fail gracefully.
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         if v:
             orig = [i for i in self.choices if self.choices[i] == v]
@@ -289,10 +398,19 @@ class ChoicesAttribute(Attribute):
     def unmarshal(self, v):
         """
         Convert the value from Strava API format to useful python representation.
-
+        
         If the value does not appear in the choices attribute we log an error rather
         than raising an exception as this may be caused by a change to the API upstream
         so we want to fail gracefully.
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         try:
             return self.choices[v]
@@ -303,9 +421,7 @@ class ChoicesAttribute(Attribute):
 
 
 class EntityAttribute(Attribute):
-    """
-    Attribute for another entity.
-    """
+    """Attribute for another entity."""
     _lazytype = None
 
     def __init__(self, *args, **kwargs):
@@ -340,16 +456,33 @@ class EntityAttribute(Attribute):
         """
         Turn an entity into a dictionary.
 
-        :param v: The entity to serialize.
-        :type v: stravalib.model.BaseEntity
-        :return: Dictionary of attributes
-        :rtype: Dict[str, Any]
+        Parameters
+        ----------
+        v : stravalib.model.BaseEntity
+            The entity to serialize.
+
+        Returns
+        -------
+        Dict[str, Any]
+            Dictionary of attributes
+
         """
         return v.to_dict() if v else None
 
     def unmarshal(self, value, bind_client=None):
         """
         Cast the specified value to the entity type.
+
+        Parameters
+        ----------
+        value :
+            
+        bind_client :
+             (Default value = None)
+
+        Returns
+        -------
+
         """
         #self.log.debug("Unmarshall {0!r}: {1!r}".format(self, value))
         if not isinstance(value, self.type):
@@ -376,10 +509,16 @@ class EntityCollection(EntityAttribute):
         """
         Turn a list of entities into a list of dictionaries.
 
-        :param values: The entities to serialize.
-        :type values: List[stravalib.model.BaseEntity]
-        :return: List of dictionaries of attributes
-        :rtype: List[Dict[str, Any]]
+        Parameters
+        ----------
+        values : List[stravalib.model.BaseEntity]
+            The entities to serialize.
+
+        Returns
+        -------
+        List[Dict[str, Any]]
+            List of dictionaries of attributes
+
         """
         if values is not None:
             return [super(EntityCollection, self).marshal(v) for v in values]
@@ -387,6 +526,17 @@ class EntityCollection(EntityAttribute):
     def unmarshal(self, values, bind_client=None):
         """
         Cast the list.
+
+        Parameters
+        ----------
+        values :
+            
+        bind_client :
+             (Default value = None)
+
+        Returns
+        -------
+
         """
         if values is not None:
             return [super(EntityCollection, self).unmarshal(v, bind_client=bind_client) for v in values]

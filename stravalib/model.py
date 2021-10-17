@@ -29,6 +29,13 @@ class BaseEntity(object):
     """
     A base class for all entities in the system, including objects that may not
     be first-class entities in Strava.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
 
     def __init__(self, **kwargs):
@@ -38,12 +45,17 @@ class BaseEntity(object):
     def to_dict(self):
         """
         Create a dictionary based on the loaded attributes in this object (will not lazy load).
-
+        
         Note that the dictionary created by this method will most likely not match the dictionaries
         that are passed to the `from_dict()` method.  This intended for serializing for local storage
         debug/etc.
 
-        :rtype: Dict[str, Any]
+        Parameters
+        ----------
+
+        Returns
+        -------
+
         """
         d = {}
         for cls in self.__class__.__mro__:
@@ -56,8 +68,17 @@ class BaseEntity(object):
     def from_dict(self, d):
         """
         Populates this object from specified dict.
-
+        
         Only defined attributes will be set; warnings will be logged for invalid attributes.
+
+        Parameters
+        ----------
+        d :
+            
+
+        Returns
+        -------
+
         """
         for (k, v) in d.items():
             # Handle special keys such as `hub.challenge` in `SubscriptionCallback`
@@ -77,6 +98,15 @@ class BaseEntity(object):
     def deserialize(cls, v):
         """
         Creates a new object based on serialized (dict) struct.
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         o = cls()
         o.from_dict(v)
@@ -95,23 +125,17 @@ class BaseEntity(object):
 
 
 class ResourceStateEntity(BaseEntity):
-    """
-    Mixin for entities that include the resource_state attribute.
-    """
+    """Mixin for entities that include the resource_state attribute."""
     resource_state = Attribute(int, (META, SUMMARY, DETAILED))  #: The detail-level for this entity.
 
 
 class IdentifiableEntity(ResourceStateEntity):
-    """
-    Mixin for entities that include an ID attribute.
-    """
+    """Mixin for entities that include an ID attribute."""
     id = Attribute(int, (META, SUMMARY, DETAILED))  #: The numeric ID for this entity.
 
 
 class BoundEntity(BaseEntity):
-    """
-    Base class for entities that support lazy loading additional data using a bound client.
-    """
+    """Base class for entities that support lazy loading additional data using a bound client."""
 
     bind_client = None  #: The :class:`stravalib.client.Client` that can be used to load related resources.
 
@@ -130,6 +154,17 @@ class BoundEntity(BaseEntity):
     def deserialize(cls, v, bind_client=None):
         """
         Creates a new object based on serialized (dict) struct.
+
+        Parameters
+        ----------
+        v :
+            
+        bind_client :
+             (Default value = None)
+
+        Returns
+        -------
+
         """
         if v is None:
             return None
@@ -145,15 +180,29 @@ class BoundEntity(BaseEntity):
 class LoadableEntity(BoundEntity, IdentifiableEntity):
     """
     Base class for entities that are bound and have an ID associated with them.
-
+    
     In theory these entities can be "expaned" by additional Client queries.  In practice this is not
     implemented, since usefulness is limited due to resource-state limitations, etc.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     def expand(self):
         """
         Expand this object with data from the bound client.
-
+        
         (THIS IS NOT IMPLEMENTED CURRENTLY.)
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+
         """
         raise NotImplementedError()  # This is a little harder now due to resource states, etc.
 
@@ -161,8 +210,15 @@ class LoadableEntity(BoundEntity, IdentifiableEntity):
 class Club(LoadableEntity):
     """
     Class to represent a club.
-
+    
     Currently summary and detail resource states have the same attributes.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     _members = None
     _activities = None
@@ -189,7 +245,7 @@ class Club(LoadableEntity):
 
     @property
     def members(self):
-        """ An iterator of :class:`stravalib.model.Athlete` members of this club. """
+        """An iterator of :class:`stravalib.model.Athlete` members of this club."""
         if self._members is None:
             self.assert_bind_client()
             self._members = self.bind_client.get_club_members(self.id)
@@ -197,7 +253,7 @@ class Club(LoadableEntity):
 
     @property
     def activities(self):
-        """ An iterator of reverse-chronological :class:`stravalib.model.Activity` activities for this club. """
+        """An iterator of reverse-chronological :class:`stravalib.model.Activity` activities for this club."""
         if self._activities is None:
             self.assert_bind_client()
             self._activities = self.bind_client.get_club_activities(self.id)
@@ -205,9 +261,7 @@ class Club(LoadableEntity):
 
 
 class Gear(IdentifiableEntity):
-    """
-    Information about Gear (bike or shoes) used during activity.
-    """
+    """Information about Gear (bike or shoes) used during activity."""
     id = Attribute(six.text_type, (META, SUMMARY, DETAILED))  #: Alpha-numeric gear ID.
     name = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Name athlete entered for bike (does not apply to shoes)
     distance = Attribute(float, (SUMMARY, DETAILED), units=uh.meters)  #: Distance for this bike/shoes.
@@ -220,6 +274,15 @@ class Gear(IdentifiableEntity):
     def deserialize(cls, v):
         """
         Creates a new object based on serialized (dict) struct.
+
+        Parameters
+        ----------
+        v :
+            
+
+        Returns
+        -------
+
         """
         if v is None:
             return None
@@ -235,25 +298,19 @@ class Gear(IdentifiableEntity):
 
 
 class Bike(Gear):
-    """
-    Represents an athlete's bike.
-    """
+    """Represents an athlete's bike."""
     frame_type = Attribute(int, (DETAILED,))  #: (detailed-only) Type of bike frame.
 
 
 class Shoe(Gear):
-    """
-    Represents an athlete's pair of shoes.
-    """
+    """Represents an athlete's pair of shoes."""
     nickname = Attribute(six.text_type, (DETAILED,))  #: Nickname for the shoe.
     converted_distance = Attribute(float, (SUMMARY, DETAILED), units=uh.meters)  #: Distance on the shoe (meters)
     retired = Attribute(bool, (SUMMARY, DETAILED))  #: Is the shoe retired?
 
 
 class ActivityTotals(BaseEntity):
-    """
-    Represent ytd/recent/all run/ride totals.
-    """
+    """Represent ytd/recent/all run/ride totals."""
     achievement_count = Attribute(int)  #: How many achievements
     count = Attribute(int)  #: How many activities
     distance = Attribute(float, units=uh.meters)  #: Total distance travelled
@@ -263,9 +320,7 @@ class ActivityTotals(BaseEntity):
 
 
 class AthleteStats(BaseEntity):
-    """
-    Represents a combined set of an Athlete's statistics.
-    """
+    """Represents a combined set of an Athlete's statistics."""
     biggest_ride_distance = Attribute(float, units=uh.meters)  #: Longest ride for athlete.
     biggest_climb_elevation_gain = Attribute(float, units=uh.meters)  #: Greatest single elevation gain for athlete.
     recent_ride_totals = EntityAttribute(ActivityTotals)  #: Recent totals for rides. (:class:`stravalib.model.ActivityTotals`)
@@ -280,9 +335,7 @@ class AthleteStats(BaseEntity):
 
 
 class Athlete(LoadableEntity):
-    """
-    Represents a Strava athlete.
-    """
+    """Represents a Strava athlete."""
     firstname = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Athlete's first name.
     lastname = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Athlete's last name.
     profile_medium = Attribute(six.text_type, (SUMMARY, DETAILED))  #: URL to a 62x62 pixel profile picture
@@ -370,9 +423,7 @@ class Athlete(LoadableEntity):
                                                                                  lname=self.lastname)
 
     def is_authenticated_athlete(self):
-        """
-        :return: Boolean as to whether the athlete is the authenticated athlete.
-        """
+        """:return: Boolean as to whether the athlete is the authenticated athlete."""
         if self._is_authenticated is None:
             if self.resource_state == DETAILED:
                 # If the athlete is in detailed state it must be the authenticated athlete
@@ -386,9 +437,7 @@ class Athlete(LoadableEntity):
 
     @property
     def friends(self):
-        """
-        :return: Iterator of :class:`stravalib.model.Athlete` friend objects for this athlete.
-        """
+        """:return: Iterator of :class:`stravalib.model.Athlete` friend objects for this athlete."""
         if self._friends is None:
             self.assert_bind_client()
             if self.friend_count > 0:
@@ -400,9 +449,7 @@ class Athlete(LoadableEntity):
 
     @property
     def followers(self):
-        """
-        :return: Iterator of :class:`stravalib.model.Athlete` followers objects for this athlete.
-        """
+        """:return: Iterator of :class:`stravalib.model.Athlete` followers objects for this athlete."""
         if self._followers is None:
             self.assert_bind_client()
             if self.follower_count > 0:
@@ -414,9 +461,7 @@ class Athlete(LoadableEntity):
 
     @property
     def stats(self):
-        """
-        :return: Associated :class:`stravalib.model.AthleteStats`
-        """
+        """:return: Associated :class:`stravalib.model.AthleteStats`"""
         if not self.is_authenticated_athlete():
             raise exc.NotAuthenticatedAthlete("Statistics are only available for the authenticated athlete")
         if self._stats is None:
@@ -426,9 +471,7 @@ class Athlete(LoadableEntity):
 
 
 class ActivityComment(LoadableEntity):
-    """
-    Comments attached to an activity.
-    """
+    """Comments attached to an activity."""
     activity_id = Attribute(int, (META, SUMMARY, DETAILED))  #: ID of activity
     text = Attribute(six.text_type, (META, SUMMARY, DETAILED))  #: Text of comment
     created_at = TimestampAttribute((SUMMARY, DETAILED))  #: :class:`datetime.datetime` when was coment created
@@ -436,9 +479,7 @@ class ActivityComment(LoadableEntity):
 
 
 class ActivityPhotoPrimary(LoadableEntity):
-    """
-    A primary photo attached to an activity (different structure from full photo record)
-    """
+    """A primary photo attached to an activity (different structure from full photo record)"""
     id = Attribute(int, (META, SUMMARY, DETAILED))  #: ID of photo, if external.
     unique_id = Attribute(six.text_type, (META, SUMMARY, DETAILED))  #: ID of photo, if internal.
     urls = Attribute(dict, (META, SUMMARY, DETAILED))
@@ -447,9 +488,7 @@ class ActivityPhotoPrimary(LoadableEntity):
 
 
 class ActivityPhotoMeta(BaseEntity):
-    """
-    The photos structure returned with the activity, not to be confused with the full loaded photos for an activity.
-    """
+    """The photos structure returned with the activity, not to be confused with the full loaded photos for an activity."""
     count = Attribute(int, (META, SUMMARY, DETAILED))
     primary = EntityAttribute(ActivityPhotoPrimary, (META, SUMMARY, DETAILED))
     use_primary_photo = Attribute(bool, (META, SUMMARY, DETAILED))
@@ -459,9 +498,7 @@ class ActivityPhotoMeta(BaseEntity):
 
 
 class ActivityPhoto(LoadableEntity):
-    """
-    A full photo record attached to an activity.
-    """
+    """A full photo record attached to an activity."""
     athlete_id = Attribute(int, (META, SUMMARY, DETAILED))  #: ID of athlete
     activity_id = Attribute(int, (META, SUMMARY, DETAILED))  #: ID of activity
     activity_name = Attribute(six.text_type, (META, SUMMARY, DETAILED))  #: Name of activity.
@@ -503,9 +540,7 @@ class ActivityPhoto(LoadableEntity):
 
 
 class ActivityKudos(LoadableEntity):
-    """
-    Activity kudos are a subset of athlete properties.
-    """
+    """Activity kudos are a subset of athlete properties."""
     firstname = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Athlete's first name.
     lastname = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Athlete's last name.
     profile_medium = Attribute(six.text_type, (SUMMARY, DETAILED))  #: URL to a 62x62 pixel profile picture
@@ -560,6 +595,13 @@ class Split(BaseEntity):
     """
     A split -- may be metric or standard units (which has no bearing
     on the units used in this object, just the binning of values).
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     distance = Attribute(float, units=uh.meters)  #: Distance for this split
     elapsed_time = TimeIntervalAttribute()  #: :class:`datetime.timedelta` of elapsed time for split
@@ -578,9 +620,16 @@ class Split(BaseEntity):
 class SegmentExplorerResult(LoadableEntity):
     """
     Represents a segment result from the segment explorer feature.
-
+    
     (These are not full segment objects, but the segment object can be fetched
     via the 'segment' property of this object.)
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     _segment = None
     id = Attribute(int)  #: ID of the segment.
@@ -597,7 +646,7 @@ class SegmentExplorerResult(LoadableEntity):
 
     @property
     def segment(self):
-        """ Associated (full) :class:`stravalib.model.Segment` object. """
+        """Associated (full) :class:`stravalib.model.Segment` object."""
         if self._segment is None:
             self.assert_bind_client()
             if self.id is not None:
@@ -606,17 +655,13 @@ class SegmentExplorerResult(LoadableEntity):
 
 
 class AthleteSegmentStats(BaseEntity):
-    """
-    An undocumented structure being returned for segment stats for current athlete.
-    """
+    """An undocumented structure being returned for segment stats for current athlete."""
     effort_count = Attribute(int)  #: (UNDOCUMENTED) Presumably how many efforts current athlete has on segment.
     pr_elapsed_time = TimeIntervalAttribute() #: (UNDOCUMENTED) Presumably PR elapsed time for segment.
     pr_date = DateAttribute()  #: (UNDOCUMENTED) Presumably date of PR :)
 
 class AthletePrEffort(IdentifiableEntity):
-    """
-    An undocumented structure being returned for segment Athlete Pr Effort.
-    """
+    """An undocumented structure being returned for segment Athlete Pr Effort."""
     distance = Attribute(float, (SUMMARY, DETAILED), units=uh.meters)
     elapsed_time = TimeIntervalAttribute((SUMMARY, DETAILED))
     start_date = TimestampAttribute((SUMMARY, DETAILED))
@@ -624,9 +669,7 @@ class AthletePrEffort(IdentifiableEntity):
     is_kom = Attribute(bool, (SUMMARY, DETAILED))
 
 class Segment(LoadableEntity):
-    """
-    Represents a single Strava segment.
-    """
+    """Represents a single Strava segment."""
     _leaderboard = None
 
     name = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Name of the segment.
@@ -668,9 +711,7 @@ class Segment(LoadableEntity):
 
     @property
     def leaderboard(self):
-        """
-        The :class:`stravalib.model.SegmentLeaderboard` object for this segment.
-        """
+        """The :class:`stravalib.model.SegmentLeaderboard` object for this segment."""
         if self._leaderboard is None:
             self.assert_bind_client()
             if self.id is not None:
@@ -679,18 +720,14 @@ class Segment(LoadableEntity):
 
 
 class SegmentEfforAchievement(BaseEntity):
-    """
-    An undocumented structure being returned for segment efforts.
-    """
+    """An undocumented structure being returned for segment efforts."""
     rank = Attribute(int)  #: Rank in segment (either overall leaderboard, or pr rank)
     type = Attribute(six.text_type)  #: The type of achievement -- e.g. 'year_pr' or 'overall'
     type_id = Attribute(int)  #: Numeric ID for type of achievement?  (6 = year_pr, 2 = overall ??? other?)
 
 
 class BaseEffort(LoadableEntity):
-    """
-    Base class for a best effort or segment effort.
-    """
+    """Base class for a best effort or segment effort."""
     name = Attribute(six.text_type, (SUMMARY, DETAILED))  #: The name of the segment
     segment = EntityAttribute(Segment, (SUMMARY, DETAILED))  #: The associated :class:`stravalib.model.Segment` for this effort
     activity = EntityAttribute("Activity", (SUMMARY, DETAILED))  #: The associated :class:`stravalib.model.Activity`
@@ -714,23 +751,17 @@ class BaseEffort(LoadableEntity):
 
 
 class BestEffort(BaseEffort):
-    """
-    Class representing a best effort (e.g. best time for 5k)
-    """
+    """Class representing a best effort (e.g. best time for 5k)"""
 
 
 class SegmentEffort(BaseEffort):
-    """
-    Class representing a best effort on a particular segment.
-    """
+    """Class representing a best effort on a particular segment."""
     hidden = Attribute(bool, (SUMMARY, DETAILED,))  # indicates a hidden/non-important effort when returned as part of an activity, value may change over time.
     device_watts = Attribute(bool, (SUMMARY, DETAILED))  #: True if the watts are from a power meter, false if estimated
 
 
 class Activity(LoadableEntity):
-    """
-    Represents an activity (ride, run, etc.).
-    """
+    """Represents an activity (ride, run, etc.)."""
     # "Constants" for types of activities
     ALPINESKI = "AlpineSki"
     BACKCOUNTRYSKI = "BackcountrySki"
@@ -873,9 +904,7 @@ class Activity(LoadableEntity):
 
     @property
     def comments(self):
-        """
-        Iterator of :class:`stravalib.model.ActivityComment` objects for this activity.
-        """
+        """Iterator of :class:`stravalib.model.ActivityComment` objects for this activity."""
         if self._comments is None:
             self.assert_bind_client()
             if self.comment_count > 0:
@@ -906,9 +935,7 @@ class Activity(LoadableEntity):
 
     @property
     def zones(self):
-        """
-        :class:`list` of :class:`stravalib.model.ActivityZone` objects for this activity.
-        """
+        """:class:`list` of :class:`stravalib.model.ActivityZone` objects for this activity."""
         if self._zones is None:
             self.assert_bind_client()
             self._zones = self.bind_client.get_activity_zones(self.id)
@@ -916,9 +943,7 @@ class Activity(LoadableEntity):
 
     @property
     def kudos(self):
-        """
-        :class:`list` of :class:`stravalib.model.ActivityKudos` objects for this activity.
-        """
+        """:class:`list` of :class:`stravalib.model.ActivityKudos` objects for this activity."""
         if self._kudos is None:
             self.assert_bind_client()
             self._kudos = self.bind_client.get_activity_kudos(self.id)
@@ -928,8 +953,15 @@ class Activity(LoadableEntity):
     def full_photos(self):
         """
         Gets a list of photos using default options.
-
+        
         :class:`list` of :class:`stravalib.model.ActivityPhoto` objects for this activity.
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+
         """
         if self._photos is None:
             if self.total_photo_count > 0:
@@ -944,6 +976,13 @@ class Activity(LoadableEntity):
         """
         Iterator of :class:`stravalib.model.Activty` objects for activities matched as
         with this activity.
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+
         """
         if self._related is None:
             if self.athlete_count - 1 > 0:
@@ -957,11 +996,18 @@ class Activity(LoadableEntity):
 class SegmentLeaderboardEntry(BoundEntity):
     """
     Represents a single entry on a segment leaderboard.
-
+    
     The :class:`stravalib.model.SegmentLeaderboard` object is essentially a collection
     of instances of this class.
-
+    
     NOTE: This changed Jan 2018 to provide far less detail than before
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     athlete_name = Attribute(six.text_type)  #: The public name of the athlete.
     elapsed_time = TimeIntervalAttribute()  #: The elapsed time for this effort
@@ -977,8 +1023,15 @@ class SegmentLeaderboardEntry(BoundEntity):
 class SegmentLeaderboard(Sequence, BoundEntity):
     """
     The ranked leaderboard for a segment.
-
+    
     This class is effectively a collection of :class:`stravalib.model.SegmentLeaderboardEntry` objects.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     entry_count = Attribute(int)
     effort_count = Attribute(int)
@@ -1000,9 +1053,7 @@ class SegmentLeaderboard(Sequence, BoundEntity):
 
 
 class DistributionBucket(BaseEntity):
-    """
-    A single distribution bucket object, used for activity zones.
-    """
+    """A single distribution bucket object, used for activity zones."""
     max = Attribute(int)  #: Max datatpoint
     min = Attribute(int)  #: Min datapoint
     time = Attribute(int, units=uh.seconds)  #: Time in seconds (*not* a :class:`datetime.timedelta`)
@@ -1011,8 +1062,15 @@ class DistributionBucket(BaseEntity):
 class BaseActivityZone(LoadableEntity):
     """
     Base class for activity zones.
-
+    
     A collection of :class:`stravalib.model.DistributionBucket` objects.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     distribution_buckets = EntityCollection(DistributionBucket, (SUMMARY, DETAILED))  #: The collection of :class:`stravalib.model.DistributionBucket` objects
     type = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Type of activity zone (heartrate, power, pace).
@@ -1022,6 +1080,17 @@ class BaseActivityZone(LoadableEntity):
     def deserialize(cls, v, bind_client=None):
         """
         Creates a new object based on serialized (dict) struct.
+
+        Parameters
+        ----------
+        v :
+            
+        bind_client :
+             (Default value = None)
+
+        Returns
+        -------
+
         """
         if v is None:
             return None
@@ -1039,9 +1108,7 @@ class BaseActivityZone(LoadableEntity):
 
 
 class HeartrateActivityZone(BaseActivityZone):
-    """
-    Activity zone for heart rate.
-    """
+    """Activity zone for heart rate."""
     score = Attribute(int, (SUMMARY, DETAILED))  #: The score (suffer score) for this HR zone.
     points = Attribute(int, (SUMMARY, DETAILED))  #: The points for this HR zone.
     custom_zones = Attribute(bool, (SUMMARY, DETAILED))  #: Whether athlete has setup custom zones.
@@ -1049,18 +1116,14 @@ class HeartrateActivityZone(BaseActivityZone):
 
 
 class PaceActivityZone(BaseActivityZone):
-    """
-    Activity zone for pace.
-    """
+    """Activity zone for pace."""
     score = Attribute(int, (SUMMARY, DETAILED))  #: The score for this zone.
     sample_race_distance = Attribute(int, (SUMMARY, DETAILED), units=uh.meters)  #: (Not sure?)
     sample_race_time = TimeIntervalAttribute((SUMMARY, DETAILED))  #: (Not sure?)
 
 
 class PowerActivityZone(BaseActivityZone):
-    """
-    Activity zone for power.
-    """
+    """Activity zone for power."""
     # these 2 below were removed according to June 3, 2014 update @
     # https://developers.strava.com/docs/changelog/
     bike_weight = Attribute(float, (SUMMARY, DETAILED), units=uh.kgs)  #: Weight of bike being used (factored into power calculations)
@@ -1068,9 +1131,7 @@ class PowerActivityZone(BaseActivityZone):
 
 
 class Stream(LoadableEntity):
-    """
-    Stream of readings from the activity, effort or segment.
-    """
+    """Stream of readings from the activity, effort or segment."""
     type = Attribute(six.text_type)
     data = Attribute(list)  #: array of values
     series_type = Attribute(six.text_type)  #: type of stream: time, latlng, distance, altitude, velocity_smooth, heartrate, cadence, watts, temp, moving, grade_smooth
@@ -1082,9 +1143,7 @@ class Stream(LoadableEntity):
                                                                         self.resolution,
                                                                         self.original_size,)
 class RunningRace(LoadableEntity):
-    """
-    Represents a RunningRace.
-    """
+    """Represents a RunningRace."""
     name = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Name of the race.
     id = Attribute(int) #: The unique identifier of this race.
     running_race_type = Attribute(int) #: Type of race
@@ -1102,9 +1161,7 @@ class RunningRace(LoadableEntity):
 
 
 class Route(LoadableEntity):
-    """
-    Represents a Route.
-    """
+    """Represents a Route."""
     name = Attribute(six.text_type, (SUMMARY, DETAILED))  #: Name of the route.
     description = Attribute(six.text_type, (SUMMARY, DETAILED,))  #: Description of the route.
     athlete = EntityAttribute(Athlete, (SUMMARY, DETAILED))  #: The associated :class:`stravalib.model.Athlete` that performed this activity.
@@ -1122,8 +1179,15 @@ class Route(LoadableEntity):
 class Subscription(LoadableEntity):
     """
     Represents a Webhook Event Subscription.
-
+    
     https://developers.strava.com/docs/reference/#api-models-SummaryAthlete
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
     """
     OBJECT_TYPE_ACTIVITY = 'activity'
     ASPECT_TYPE_CREATE = 'create'
@@ -1139,9 +1203,7 @@ class Subscription(LoadableEntity):
 
 
 class SubscriptionCallback(LoadableEntity):
-    """
-    Represents a Webhook Event Subscription Callback.
-    """
+    """Represents a Webhook Event Subscription Callback."""
     hub_mode = Attribute(six.text_type)
     hub_verify_token = Attribute(six.text_type)
     hub_challenge = Attribute(six.text_type)
@@ -1151,9 +1213,7 @@ class SubscriptionCallback(LoadableEntity):
 
 
 class SubscriptionUpdate(LoadableEntity):
-    """
-    Represents a Webhook Event Subscription Update.
-    """
+    """Represents a Webhook Event Subscription Update."""
     subscription_id = Attribute(int)
     owner_id = Attribute(int)
     object_id = Attribute(int)

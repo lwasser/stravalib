@@ -7,9 +7,10 @@ Welcome to Stravalib!
 
    Home <self>
    Get Started <get-started/index>
-   Contributing <contributing>
+   How to Contribute <contributing>
    Change Log <changelog>
    API Reference Summary <reference>
+
 
 **stravalib** is a python library for interacting with
 `version 3 <https://developers.strava.com/docs/reference/>`_ of the

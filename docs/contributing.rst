@@ -2,9 +2,6 @@ Contribute to Stravalib
 ============================
 
 
-
-More to come..
-
 Get Started!
 ============
 

@@ -12,3 +12,7 @@ docs/_build/
 test.ini
 #*~
 examples/strava-oauth/settings.cfg
+
+# so people don't mistakenly delete and submit a pr with these
+stravalib/tests/test.ini-example
+stravalib/tests/test.ini

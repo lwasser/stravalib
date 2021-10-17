@@ -90,4 +90,12 @@ To build the documentation, use the command::
 You can then open up the documentation locally in a web browser by opening the following
 file in a web browser on your computer:
 
-your-path-to-stravalib/stravalibe/docs/_build/html/index.html
+/your-path-to-stravalib-dir/stravalibe/docs/_build/html/index.html
+
+About the documentation CI build
+--------------------------------
+Once your create a pull request, GitHub actions will build the docs and check for any syntax
+or url errors. Once the PR is approved and merged into the master branch of the ``hozn/stravalib``
+repository, the docs will build and then get deployed to gh-pages as a live website to:
+
+TODO: ADD URL here. this won't work until the website is live.

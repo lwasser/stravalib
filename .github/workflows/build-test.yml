@@ -59,4 +59,4 @@ jobs:
         run: python -m pip freeze
       - name: Test with pytest
         run: |
-          pytest tests/unit tests/integration
+          pytest stravalib/tests/unit stravalib/tests/integration

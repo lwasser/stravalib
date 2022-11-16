@@ -4,7 +4,7 @@ on:
     types: [published]
   push:
     branches:
-      - test-build-scm
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,12 +14,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3 
         with:
-          fetch-depth: 0
+          # So scm can view previous commits
+          fetch-depth: 20
       # For testing only on this branch
       - run: git checkout test-build-scm
       # Build package 
-      - run: python3 -m pip install --upgrade build && python3 -m build
-      - name: Publish package
+      - run: |
+          python3 -m pip install --upgrade build && python3 -m build
+          echo ""
+          echo "Generated files:"
+          ls -lh dist/
+
+      - name: Check the archives
+        run: twine check dist/*
+
+      - name: Publish package to test pypi
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.TEST_PYPI_TOKEN }}

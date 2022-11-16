@@ -50,10 +50,12 @@ jobs:
         # Need tags for scm to provide a proper version #
       - name: Fetch git tags
         run: git fetch origin 'refs/tags/*:refs/tags/*'
-      - name: Build, install package
+      - name: Build package
         run: |
           # Build & install package
-          python3 -m pip install --upgrade build && python3 -m build
+          python3 -m build .
+      - name: Install package
+        run: |
           # This breaks on windows builds - not sure why yet
           python -m pip install --no-deps dist/*.whl
       - name: List installed packages

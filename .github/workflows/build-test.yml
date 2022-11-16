@@ -46,13 +46,13 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install -r requirements.txt
         # Need tags for scm to provide a proper version #
       - name: Fetch git tags
         run: git fetch origin 'refs/tags/*:refs/tags/*'
       - name: Build package
         run: |
-          # Build & install package
+          # Build package
           python3 -m build .
       - name: Install package
         run: |

@@ -53,7 +53,7 @@ jobs:
       - name: Build package
         run: |
           # Build package
-          python3 -m build .
+          python3 -m build
       - name: Install package
         run: |
           # This breaks on windows builds - not sure why yet

@@ -8,7 +8,6 @@ Welcome to Stravalib!
    Home <self>
    Get Started <get-started/index>
    How to Contribute <contributing>
-   Change Log <changelog>
    API Reference Summary <reference>
 
 

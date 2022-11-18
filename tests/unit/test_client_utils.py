@@ -1,5 +1,5 @@
 from stravalib.client import Client
-from stravalib.tests import TestBase
+from tests import TestBase
 import datetime
 import pytz
 from urllib import parse as urlparse

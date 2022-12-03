@@ -8,7 +8,7 @@ The **stravalib** Python package provides easy-to-use tools for accessing and
 downloading Strava data from the Strava V3 web service. Stravalib provides a Client class that supports:
 * Authenticating with stravalib 
 * Accessing and downloading strava activity, club and profile data 
-* Making changes to account activities 
+* Making changes to account activities  dog
 
 It also provides support for working with date/time/temporal attributes
 and quantities through the [Python units library](http://pypi.python.org/pypi/units).

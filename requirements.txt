@@ -9,6 +9,10 @@ responses
 # Code coverage
 pytest-cov
 
+# Code formatters
+blue 
+ruff
+
 # For docs build
 sphinx_copybutton
 furo

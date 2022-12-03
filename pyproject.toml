@@ -10,5 +10,11 @@ version_scheme =  "post-release"
 local_scheme = "no-local-version"
 write_to =  "stravalib/_version_generated.py"
 
+[tool.ruff]
+line-length = 79
+
+[tool.black]
+line-length = 79
+
 
 

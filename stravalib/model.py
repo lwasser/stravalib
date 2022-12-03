@@ -35,7 +35,7 @@ class BaseEntity(metaclass=abc.ABCMeta):
 
     def __init__(self, **kwargs):
         self.log = logging.getLogger(
-            '{0.__module__}.{0.__name__}'.format(self.__class__)
+            "{0.__module__}.{0.__name__}".format(self.__class__)
         )
         self.from_dict(kwargs)
 
@@ -65,12 +65,12 @@ class BaseEntity(metaclass=abc.ABCMeta):
         """
         for (k, v) in d.items():
             # Handle special keys such as `hub.challenge` in `SubscriptionCallback`
-            if '.' in k:
-                k = k.replace('.', '_')
+            if "." in k:
+                k = k.replace(".", "_")
             # Only set defined attributes.
             if hasattr(self.__class__, k):
                 self.log.debug(
-                    'Setting attribute `{0}` [{1}] on entity {2} with value {3!r}'.format(
+                    "Setting attribute `{0}` [{1}] on entity {2} with value {3!r}".format(
                         k,
                         getattr(self.__class__, k).__class__.__name__,
                         self,
@@ -81,13 +81,13 @@ class BaseEntity(metaclass=abc.ABCMeta):
                     setattr(self, k, v)
                 except AttributeError as x:
                     raise AttributeError(
-                        'Could not find attribute `{0}` on entity {1}, value: {2!r}.  (Original: {3!r})'.format(
+                        "Could not find attribute `{0}` on entity {1}, value: {2!r}.  (Original: {3!r})".format(
                             k, self, v, x
                         )
                     )
             else:
                 self.log.debug(
-                    'No such attribute {0} on entity {1}'.format(k, self)
+                    "No such attribute {0} on entity {1}".format(k, self)
                 )
 
     @classmethod
@@ -101,18 +101,18 @@ class BaseEntity(metaclass=abc.ABCMeta):
 
     def __repr__(self):
         attrs = []
-        if hasattr(self.__class__, 'id'):
-            attrs.append('id={0}'.format(self.id))
-        if hasattr(self.__class__, 'name'):
-            attrs.append('name={0!r}'.format(self.name))
+        if hasattr(self.__class__, "id"):
+            attrs.append("id={0}".format(self.id))
+        if hasattr(self.__class__, "name"):
+            attrs.append("name={0!r}".format(self.name))
         if (
-            hasattr(self.__class__, 'resource_state')
+            hasattr(self.__class__, "resource_state")
             and self.resource_state is not None
         ):
-            attrs.append('resource_state={0}'.format(self.resource_state))
+            attrs.append("resource_state={0}".format(self.resource_state))
 
-        return '<{0}{1}>'.format(
-            self.__class__.__name__, ' ' + ' '.join(attrs) if attrs else ''
+        return "<{0}{1}>".format(
+            self.__class__.__name__, " " + " ".join(attrs) if attrs else ""
         )
 
 
@@ -168,7 +168,7 @@ class BoundEntity(BaseEntity):
     def assert_bind_client(self):
         if self.bind_client is None:
             raise exc.UnboundEntity(
-                'Unable to fetch objects for unbound {0} entity.'.format(
+                "Unable to fetch objects for unbound {0} entity.".format(
                     self.__class__
                 )
             )
@@ -280,8 +280,8 @@ class Gear(IdentifiableEntity):
         """
         if v is None:
             return None
-        if cls == Gear and v.get('resource_state') == 3:
-            if 'frame_type' in v:
+        if cls == Gear and v.get("resource_state") == 3:
+            if "frame_type" in v:
                 o = Bike()
             else:
                 o = Shoe()
@@ -430,7 +430,7 @@ class Athlete(LoadableEntity):
         int, (DETAILED,)
     )  #: (detailed-only) How many people are both following and being followed by this athlete
     athlete_type = ChoicesAttribute(
-        str, (DETAILED,), choices={0: 'cyclist', 1: 'runner'}
+        str, (DETAILED,), choices={0: "cyclist", 1: "runner"}
     )  #: athlete's default sport: 0 is cyclist, 1 is runner
     date_preference = Attribute(
         str, (DETAILED,)
@@ -496,7 +496,7 @@ class Athlete(LoadableEntity):
     facebook_sharing_enabled = Attribute(
         bool, (DETAILED,)
     )  #: (undocumented, detailed-only) Whether Athlete has enabled sharing on Facebook
-    ftp = Attribute(str, (DETAILED,))   #: (undocumented, detailed-only)
+    ftp = Attribute(str, (DETAILED,))  #: (undocumented, detailed-only)
     profile_original = Attribute(
         str, (DETAILED,)
     )  #: (undocumented, detailed-only)
@@ -553,13 +553,13 @@ class Athlete(LoadableEntity):
     _is_authenticated = None
 
     def __str__(self):
-        return '<Athlete id={id} firstname={fname} lastname={lname}>'.format(
+        return "<Athlete id={id} firstname={fname} lastname={lname}>".format(
             id=self.id, fname=self.firstname, lname=self.lastname
         )
 
     def __repr__(self):
         return (
-            '<Athlete id={id} firstname={fname!r} lastname={lname!r}>'.format(
+            "<Athlete id={id} firstname={fname!r} lastname={lname!r}>".format(
                 id=self.id, fname=self.firstname, lname=self.lastname
             )
         )
@@ -616,7 +616,7 @@ class Athlete(LoadableEntity):
         """
         if not self.is_authenticated_athlete():
             raise exc.NotAuthenticatedAthlete(
-                'Statistics are only available for the authenticated athlete'
+                "Statistics are only available for the authenticated athlete"
             )
         if self._stats is None:
             self.assert_bind_client()
@@ -669,7 +669,7 @@ class ActivityPhotoMeta(BaseEntity):
     use_primary_photo = Attribute(bool, (META, SUMMARY, DETAILED))
 
     def __repr__(self):
-        return '<{0} count={1}>'.format(self.__class__.__name__, self.count)
+        return "<{0} count={1}>".format(self.__class__.__name__, self.count)
 
 
 class ActivityPhoto(LoadableEntity):
@@ -715,19 +715,19 @@ class ActivityPhoto(LoadableEntity):
 
     def __repr__(self):
         if self.source == 1:
-            photo_type = 'native'
-            idfield = 'unique_id'
+            photo_type = "native"
+            idfield = "unique_id"
             idval = self.unique_id
         elif self.source == 2:
-            photo_type = 'instagram'
-            idfield = 'uid'
+            photo_type = "instagram"
+            idfield = "uid"
             idval = self.uid
         else:
-            photo_type = '(no type)'
-            idfield = 'id'
+            photo_type = "(no type)"
+            idfield = "id"
             idval = self.id
 
-        return '<{clz} {type} {idfield}={id}>'.format(
+        return "<{clz} {type} {idfield}={id}>".format(
             clz=self.__class__.__name__,
             type=photo_type,
             idfield=idfield,
@@ -780,7 +780,7 @@ class ActivityLap(LoadableEntity):
 
     name = Attribute(str, (SUMMARY, DETAILED))  #: Name of lap
     activity = EntityAttribute(
-        'Activity', (SUMMARY, DETAILED)
+        "Activity", (SUMMARY, DETAILED)
     )  #: The associated :class:`stravalib.model.Activity`
     athlete = EntityAttribute(
         Athlete, (SUMMARY, DETAILED)
@@ -883,18 +883,18 @@ class Split(BaseEntity):
     )  #: :class:`datetime.timedelta` of elapsed time for split
     elevation_difference = Attribute(
         float, units=uh.meters
-    )   #: Elevation difference for split
+    )  #: Elevation difference for split
     moving_time = (
         TimeIntervalAttribute()
     )  #: :class:`datetime.timedelta` of moving time for split
-    average_heartrate = Attribute(float)   #: Average HR for split
+    average_heartrate = Attribute(float)  #: Average HR for split
     split = Attribute(int)  #: Which split number
     pace_zone = Attribute(int)  #: (undocumented)
     average_speed = Attribute(float, units=uh.meters_per_second)
     average_grade_adjusted_speed = Attribute(float, units=uh.meters_per_second)
 
     def __repr__(self):
-        return '<Split split={} distance={} elapsed_time={}>'.format(
+        return "<Split split={} distance={} elapsed_time={}>".format(
             self.split, self.distance, self.elapsed_time
         )
 
@@ -946,7 +946,7 @@ class AthleteSegmentStats(BaseEntity):
     )  #: (UNDOCUMENTED) Presumably how many efforts current athlete has on segment.
     pr_elapsed_time = (
         TimeIntervalAttribute()
-    )   #: (UNDOCUMENTED) Presumably PR elapsed time for segment.
+    )  #: (UNDOCUMENTED) Presumably PR elapsed time for segment.
     pr_date = DateAttribute()  #: (UNDOCUMENTED) Presumably date of PR :)
 
 
@@ -1026,7 +1026,7 @@ class Segment(LoadableEntity):
 
     athlete_segment_stats = EntityAttribute(
         AthleteSegmentStats, (DETAILED,)
-    )   #: Undocumented attrib holding stats for current athlete.
+    )  #: Undocumented attrib holding stats for current athlete.
 
     # detailed attribs
     created_at = TimestampAttribute(
@@ -1053,10 +1053,8 @@ class Segment(LoadableEntity):
     star_count = Attribute(
         int, (DETAILED,)
     )  #: number of stars on this segment.
-    pr_time = Attribute(int, (DETAILED,))   #: pr time for athlete
-    starred_date = TimestampAttribute(
-        (DETAILED,)
-    )   #: datetime when be starred
+    pr_time = Attribute(int, (DETAILED,))  #: pr time for athlete
+    starred_date = TimestampAttribute((DETAILED,))  #: datetime when be starred
     athlete_pr_effort = EntityAttribute(AthletePrEffort, (DETAILED,))
     elevation_profile = Attribute(str, (SUMMARY, DETAILED))
 
@@ -1100,7 +1098,7 @@ class BaseEffort(LoadableEntity):
         Segment, (SUMMARY, DETAILED)
     )  #: The associated :class:`stravalib.model.Segment` for this effort
     activity = EntityAttribute(
-        'Activity', (SUMMARY, DETAILED)
+        "Activity", (SUMMARY, DETAILED)
     )  #: The associated :class:`stravalib.model.Activity`
     athlete = EntityAttribute(
         Athlete, (SUMMARY, DETAILED)
@@ -1134,13 +1132,13 @@ class BaseEffort(LoadableEntity):
     )  #: True if the watts are from a power meter, false if estimated
     average_heartrate = Attribute(
         float, (SUMMARY, DETAILED)
-    )   #: Average HR during effort
+    )  #: Average HR during effort
     max_heartrate = Attribute(
         float, (SUMMARY, DETAILED)
-    )   #: Max HR during effort
+    )  #: Max HR during effort
     average_cadence = Attribute(
         float, (SUMMARY, DETAILED)
-    )   #: Average cadence during effort
+    )  #: Average cadence during effort
     start_index = Attribute(
         int, (SUMMARY, DETAILED)
     )  #: The activity stream index of the start of this effort
@@ -1182,44 +1180,44 @@ class Activity(LoadableEntity):
     """
 
     # "Constants" for types of activities
-    ALPINESKI = 'AlpineSki'
-    BACKCOUNTRYSKI = 'BackcountrySki'
-    CANOEING = 'Canoeing'
-    CROSSCOUNTRYSKIING = 'CrossCountrySkiing'
-    CROSSFIT = 'Crossfit'
-    EBIKERIDE = 'EBikeRide'
-    ELLIPTICAL = 'Elliptical'
-    GOLF = 'Golf'
-    HANDCLYCLE = 'Handcycle'
-    HIKE = 'Hike'
-    ICESKATE = 'IceSkate'
-    INLINESKATE = 'InlineSkate'
-    KAYAKING = 'Kayaking'
-    KITESURF = 'Kitesurf'
-    NORDICSKI = 'NordicSki'
-    RIDE = 'Ride'
-    ROCKCLIMBING = 'RockClimbing'
-    ROLLERSKI = 'RollerSki'
-    ROWING = 'Rowing'
-    RUN = 'Run'
-    SAIL = 'Sail'
-    SKATEBOARD = 'Skateboard'
-    SNOWBOARD = 'Snowboard'
-    SNOWSHOE = 'Snowshoe'
-    SOCCER = 'Soccer'
-    STAIRSTEPPER = 'StairStepper'
-    STANDUPPADDLING = 'StandUpPaddling'
-    SURFING = 'Surfing'
-    SWIM = 'Swim'
-    VELOMOBILE = 'Velomobile'
-    VIRTUALRIDE = 'VirtualRide'
-    VIRTUALRUN = 'VirtualRun'
-    WALK = 'Walk'
-    WEIGHTTRAINING = 'WeightTraining'
-    WHEELCHAIR = 'Wheelchair'
-    WINDSURF = 'Windsurf'
-    WORKOUT = 'Workout'
-    YOGA = 'Yoga'
+    ALPINESKI = "AlpineSki"
+    BACKCOUNTRYSKI = "BackcountrySki"
+    CANOEING = "Canoeing"
+    CROSSCOUNTRYSKIING = "CrossCountrySkiing"
+    CROSSFIT = "Crossfit"
+    EBIKERIDE = "EBikeRide"
+    ELLIPTICAL = "Elliptical"
+    GOLF = "Golf"
+    HANDCLYCLE = "Handcycle"
+    HIKE = "Hike"
+    ICESKATE = "IceSkate"
+    INLINESKATE = "InlineSkate"
+    KAYAKING = "Kayaking"
+    KITESURF = "Kitesurf"
+    NORDICSKI = "NordicSki"
+    RIDE = "Ride"
+    ROCKCLIMBING = "RockClimbing"
+    ROLLERSKI = "RollerSki"
+    ROWING = "Rowing"
+    RUN = "Run"
+    SAIL = "Sail"
+    SKATEBOARD = "Skateboard"
+    SNOWBOARD = "Snowboard"
+    SNOWSHOE = "Snowshoe"
+    SOCCER = "Soccer"
+    STAIRSTEPPER = "StairStepper"
+    STANDUPPADDLING = "StandUpPaddling"
+    SURFING = "Surfing"
+    SWIM = "Swim"
+    VELOMOBILE = "Velomobile"
+    VIRTUALRIDE = "VirtualRide"
+    VIRTUALRUN = "VirtualRun"
+    WALK = "Walk"
+    WEIGHTTRAINING = "WeightTraining"
+    WHEELCHAIR = "Wheelchair"
+    WINDSURF = "Windsurf"
+    WORKOUT = "Workout"
+    YOGA = "Yoga"
 
     _comments = None
     _zones = None
@@ -1310,7 +1308,7 @@ class Activity(LoadableEntity):
     )  #: The timezone for activity.
     utc_offset = Attribute(
         float, (SUMMARY, DETAILED)
-    )   #: The UTC offset for activity
+    )  #: The UTC offset for activity
     start_latlng = LocationAttribute(
         (SUMMARY, DETAILED)
     )  #: The start location (lat/lon :class:`tuple`)
@@ -1373,7 +1371,7 @@ class Activity(LoadableEntity):
     )  #: Whether activity is private
     flagged = Attribute(
         bool, (SUMMARY, DETAILED)
-    )   #: Whether activity was flagged.
+    )  #: Whether activity was flagged.
 
     gear_id = Attribute(
         str, (SUMMARY, DETAILED)
@@ -1462,7 +1460,7 @@ class Activity(LoadableEntity):
     )  #: (undocumented) Appears to be the ref to first associated instagram photo
 
     partner_logo_url = Attribute(str, (DETAILED,))  #: (undocumented)
-    partner_brand_tag = Attribute(str, (DETAILED,))   #: (undocumented)
+    partner_brand_tag = Attribute(str, (DETAILED,))  #: (undocumented)
 
     from_accepted_tag = Attribute(bool, (SUMMARY, DETAILED))  #: (undocumented)
     segment_leaderboard_opt_out = Attribute(
@@ -1476,7 +1474,7 @@ class Activity(LoadableEntity):
 
     hide_from_home = Attribute(
         bool, (SUMMARY, DETAILED)
-    )   #: Whether an activity is muted (hidden from Home and Club feeds).
+    )  #: Whether an activity is muted (hidden from Home and Club feeds).
 
     @property
     def comments(self):
@@ -1589,7 +1587,7 @@ class SegmentLeaderboardEntry(BoundEntity):
     rank = Attribute(int)  #: The rank on the leaderboard.
 
     def __repr__(self):
-        return '<SegmentLeaderboardEntry rank={0} athlete_name={1!r}>'.format(
+        return "<SegmentLeaderboardEntry rank={0} athlete_name={1!r}>".format(
             self.rank, self.athlete_name
         )
 
@@ -1657,15 +1655,15 @@ class BaseActivityZone(LoadableEntity):
         if v is None:
             return None
         az_classes = {
-            'heartrate': HeartrateActivityZone,
-            'power': PowerActivityZone,
-            'pace': PaceActivityZone,
+            "heartrate": HeartrateActivityZone,
+            "power": PowerActivityZone,
+            "pace": PaceActivityZone,
         }
         try:
-            clazz = az_classes[v['type']]
+            clazz = az_classes[v["type"]]
         except KeyError:
             raise ValueError(
-                'Unsupported activity zone type: {0}'.format(v['type'])
+                "Unsupported activity zone type: {0}".format(v["type"])
             )
         else:
             o = clazz(bind_client=bind_client)
@@ -1737,7 +1735,7 @@ class Stream(LoadableEntity):
     )  #: (optional, default is 'all') the desired number of data points. 'low' (100), 'medium' (1000), 'high' (10000) or 'all'
 
     def __repr__(self):
-        return '<Stream type={} resolution={} original_size={}>'.format(
+        return "<Stream type={} resolution={} original_size={}>".format(
             self.type,
             self.resolution,
             self.original_size,
@@ -1750,11 +1748,11 @@ class RunningRace(LoadableEntity):
     """
 
     name = Attribute(str, (SUMMARY, DETAILED))  #: Name of the race.
-    id = Attribute(int)   #: The unique identifier of this race.
-    running_race_type = Attribute(int)   #: Type of race
+    id = Attribute(int)  #: The unique identifier of this race.
+    running_race_type = Attribute(int)  #: Type of race
     distance = Attribute(
         float, (SUMMARY, DETAILED), units=uh.meters
-    )   #: Distance for race in meters.
+    )  #: Distance for race in meters.
     start_date_local = TimestampAttribute(
         (SUMMARY, DETAILED), tzinfo=None
     )  #: :class:`datetime.datetime` when race was started local
@@ -1770,9 +1768,7 @@ class RunningRace(LoadableEntity):
             DETAILED,
         ),
     )  #: Description of the route.
-    route_ids = Attribute(
-        list
-    )   #: Set of routes that cover this race's course
+    route_ids = Attribute(list)  #: Set of routes that cover this race's course
     measurement_preference = Attribute(
         str, (DETAILED,)
     )  #: (detailed-only) How race prefers to see measurements (i.e. "feet" (or what "meters"?))
@@ -1805,7 +1801,7 @@ class Route(LoadableEntity):
     )  #: Total elevation gain for the route.
     map = EntityAttribute(
         Map, (SUMMARY, DETAILED)
-    )   #: :class:`stravalib.model.Map` object for route.
+    )  #: :class:`stravalib.model.Map` object for route.
     type = Attribute(
         str, (SUMMARY, DETAILED)
     )  #: Activity type of route (1 for ride, 2 for run).
@@ -1832,10 +1828,10 @@ class Subscription(LoadableEntity):
     https://developers.strava.com/docs/reference/#api-models-SummaryAthlete
     """
 
-    OBJECT_TYPE_ACTIVITY = 'activity'
-    ASPECT_TYPE_CREATE = 'create'
+    OBJECT_TYPE_ACTIVITY = "activity"
+    ASPECT_TYPE_CREATE = "create"
 
-    VERIFY_TOKEN_DEFAULT = 'STRAVA'
+    VERIFY_TOKEN_DEFAULT = "STRAVA"
 
     application_id = Attribute(int)
     object_type = Attribute(str)

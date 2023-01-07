@@ -1,15 +1,22 @@
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
-[tool.setuptools_scm]
-# Make sure setuptools uses version of last created tag - this allows us to specify bump
-version_scheme =  "post-release"
-# Make sure scm doesn't use local scheme version for push to pypi 
-# (so there isn't a + in the version)
-local_scheme = "no-local-version"
-write_to =  "stravalib/_version_generated.py"
+[tool.hatch.version]
+source = "vcs"
 
+[tool.hatch.build.hooks.vcs]
+version-file = "_version_generated.py"
+
+# [tool.setuptools_scm]
+# # Make sure setuptools uses version of last created tag - this allows us to specify bump
+# version_scheme =  "post-release"
+# # Make sure scm doesn't use local scheme version for push to pypi 
+# # (so there isn't a + in the version)
+# local_scheme = "no-local-version"
+# write_to =  "stravalib/_version_generated.py"
+
+[tool.hatch]
 [project]
 name = "stravalib"
 description = "A Python package that makes it easy to access and download data from the Strava V3 REST API."
@@ -30,7 +37,6 @@ classifiers = [
   "Programming Language :: Python",
   "Intended Audience :: Science/Research",
   "Intended Audience :: Developers",
-  # Because license is listed below does it need to be here too?
   "License :: OSI Approved :: Apache Software License",
   "Natural Language :: English",
   "Operating System :: OS Independent",

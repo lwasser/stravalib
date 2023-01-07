@@ -12,6 +12,7 @@ dist/
 docs/_build/
 test.ini
 stravalib/_version_generated.py
+_version_generated.py
 #*~
 examples/strava-oauth/settings.cfg
 # Code cov

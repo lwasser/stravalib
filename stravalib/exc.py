@@ -27,7 +27,8 @@ class LoginRequired(AuthError):
 
 class UnboundEntity(RuntimeError):
     """
-    Exception used to indicate that a model Entity is not bound to client instances.
+    Exception used to indicate that a model Entity is not bound to client
+    instances.
     """
 
 
@@ -51,9 +52,13 @@ class AccessUnauthorized(Fault):
 
 class RateLimitExceeded(RuntimeError):
     """
-    Exception raised when the client rate limit has been exceeded.
-
+    Raise exception when client rate limit is exceeded.
     https://developers.strava.com/docs/rate-limits/
+
+    Raises
+    ------
+    Exception when the client rate limit has been exceeded.
+
     """
 
     def __init__(self, msg, timeout=None, limit=None):
@@ -97,7 +102,8 @@ class TimeoutExceeded(RuntimeError):
 
 class NotAuthenticatedAthlete(AuthError):
     """
-    Exception when trying to access data which requires an authenticated athlete
+    Exception when trying to access data which requires an authenticated
+    athlete
     """
 
     pass
@@ -115,8 +121,9 @@ def warn_method_deprecation(
         f" See {alt_url} for more information." if alt_url else ""
     )
     warnings.warn(
-        f'The method "{method_name}" of class "{klass}" is deprecated and will be '
-        f'removed in the future. Instead, you can use "{alternative}".{alt_support_msg}',
+        f'The method "{method_name}" of class "{klass}" is deprecated and '
+        f"will be removed in the "
+        f'future. Instead, you can use "{alternative}".{alt_support_msg}',
         DeprecationWarning,
         stacklevel=3,
     )
@@ -124,8 +131,8 @@ def warn_method_deprecation(
 
 def warn_param_deprecation(param_name: str):
     warnings.warn(
-        f'The "{param_name}" parameter is unsupported by the Strava API. It has no '
-        "effect and may lead to errors in the future.",
+        f'The "{param_name}" parameter is unsupported by the Strava API. It '
+        "has no effect and may lead to errors in the future.",
         DeprecationWarning,
         stacklevel=3,
     )
@@ -133,8 +140,8 @@ def warn_param_deprecation(param_name: str):
 
 def warn_param_unofficial(param_name: str):
     warnings.warn(
-        f'The "{param_name}" parameter is undocumented in the Strava API. Its use '
-        "may lead to unexpected behavior or errors in the future.",
+        f'The "{param_name}" parameter is undocumented in the Strava API. '
+        "Its use may lead to unexpected behavior or errors in the future.",
         FutureWarning,
         stacklevel=3,
     )
@@ -142,8 +149,8 @@ def warn_param_unofficial(param_name: str):
 
 def warn_attribute_unofficial(attr_name: str):
     warnings.warn(
-        f'The "{attr_name}" parameter is undocumented in the Strava API. Its use '
-        "may lead to unexpected behavior or errors in the future.",
+        f'The "{attr_name}" parameter is undocumented in the Strava API. '
+        "Its use may lead to unexpected behavior or errors in the future.",
         FutureWarning,
         stacklevel=3,
     )
@@ -151,8 +158,8 @@ def warn_attribute_unofficial(attr_name: str):
 
 def warn_method_unofficial(method_name: str):
     warnings.warn(
-        f'The "{method_name}" method is undocumented in the Strava API. Its use '
-        "may lead to unexpected behavior or errors in the future.",
+        f'The "{method_name}" method is undocumented in the Strava API. '
+        "Its use may lead to unexpected behavior or errors in the future.",
         FutureWarning,
         stacklevel=3,
     )
@@ -160,9 +167,10 @@ def warn_method_unofficial(method_name: str):
 
 def warn_units_deprecated():
     warnings.warn(
-        "You are using a Quantity object or attributes from the units library, which is "
-        "deprecated. Support for these types will be removed in the future. Instead, "
-        "please use Quantity objects from the Pint package (https://pint.readthedocs.io).",
+        "You are using a Quantity object or attributes from the units library, "
+        " which is deprecated. Support for these types will be removed in the "
+        "future. Instead, use Quantity objects from the Pint package "
+        "(https://pint.readthedocs.io).",
         DeprecationWarning,
         stacklevel=3,
     )

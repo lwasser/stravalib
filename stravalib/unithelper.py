@@ -1,7 +1,8 @@
 """
 Unit Helper
 ==============
-Helpers for converting Strava's units to something more practical.
+Helpers for converting Strava's units to units that are more practical to work
+with.
 """
 from numbers import Number
 from typing import Any, Protocol, Union, runtime_checkable
@@ -17,7 +18,7 @@ class UnitsQuantity(Protocol):
     """
     A type that represents the (deprecated) `units` Quantity. The `unit`
     attribute in the units library consists of other classes, so this
-    representation may not be 100% backward compatible!
+    representation may not be 100% backward compatible.
     """
 
     num: float

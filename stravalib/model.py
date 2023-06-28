@@ -85,15 +85,13 @@ def lazy_property(fn):
 
 
 # Custom validators for some edge cases:
-
-
 def check_valid_location(
     location: Optional[Union[List[float], str]]
 ) -> Optional[List[float]]:
     """
     Parameters
     ----------
-    location : list of float
+    location : list or None
         Either a list of x,y floating point values or strings or None
         (The legacy serialized format is str)
 
@@ -121,6 +119,12 @@ def check_valid_location(
 
 
 def naive_datetime(value: Optional[Any]) -> Optional[datetime]:
+    """
+    Parameters
+    ----------
+    value :
+    """
+
     if value:
         dt = parse_datetime(value)
         return dt.replace(tzinfo=None)
@@ -148,7 +152,8 @@ class DeprecatedSerializableMixin(BaseModel):
 
     def from_dict(self, attribute_value_mapping: Dict):
         """
-        Deserializes v into self, resetting and ond/or overwriting existing fields
+        Deserializes v into self, resetting and ond/or overwriting existing
+        fields
         """
         warn_method_deprecation(
             self.__class__.__name__,
@@ -156,7 +161,8 @@ class DeprecatedSerializableMixin(BaseModel):
             "parse_obj()",
             "https://docs.pydantic.dev/usage/models/#helper-functions",
         )
-        # Ugly hack is necessary because parse_obj does not behave in-place but returns a new object
+        # Ugly hack is necessary because parse_obj does not behave in-place but
+        # returns a new object
         self.__init__(**self.parse_obj(attribute_value_mapping).dict())
 
     def to_dict(self):
@@ -290,7 +296,7 @@ class AthleteStats(
     profile. Non-public activities are not counted for these totals.
     """
 
-    # field overrides from superclass for type extensions:
+    # Field overrides from superclass for type extensions:
     recent_ride_totals: Optional[ActivityTotals] = None
     recent_run_totals: Optional[ActivityTotals] = None
     recent_swim_totals: Optional[ActivityTotals] = None
@@ -389,10 +395,12 @@ class Athlete(
 
         if self.is_authenticated is None:
             if self.resource_state == 3:
-                # If the athlete is in detailed state it must be the authenticated athlete
+                # If the athlete is in detailed state it must be the
+                # authenticated athlete
                 self.is_authenticated = True
             else:
-                # We need to check this athlete's id matches the authenticated athlete's id
+                # We need to check this athlete's id matches the authenticated
+                # athlete's id
                 authenticated_athlete = self.authenticated_athlete
                 self.is_authenticated = authenticated_athlete.id == self.id
 

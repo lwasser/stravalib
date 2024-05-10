@@ -27,15 +27,12 @@ from typing import (
     get_args,
 )
 
-from pydantic import BaseModel, Field, root_validator, validator
-from pydantic.datetime_parse import parse_datetime
-from typing_extensions import Self
+from dateutil import parser
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 from stravalib import exc, strava_model
 from stravalib import unithelper as uh
 from stravalib.field_conversions import (
-    enum_value,
-    enum_values,
     timezone,
 )
 from stravalib.strava_model import (
@@ -73,6 +70,32 @@ LOGGER = logging.getLogger(__name__)
 
 T = TypeVar("T")
 U = TypeVar("U", bound="BoundClientEntity")
+
+
+# Could naive_datetime also be run in a validator?
+def naive_datetime(value: Optional[AllDateTypes]) -> Optional[datetime]:
+    """Utility helper that parses a datetime value provided in
+    JSON, string, int or other formats and returns a datetime.datetime
+    object
+
+    Parameters
+    ----------
+    value : str, int
+        A value representing a date/time that may be presented in string,
+        int, deserialized or other format.
+
+    Returns
+    -------
+    datetime.datetime
+        A datetime object representing the datetime input value.
+    """
+    if value:
+        # Use dateutil.parser.parse for parsing date strings
+        dt = parser.parse(str(value))
+        # Remove timezone information, if any
+        return dt.replace(tzinfo=None)
+    else:
+        return None
 
 
 def lazy_property(fn: Callable[[U], T]) -> Optional[T]:
@@ -127,6 +150,7 @@ def lazy_property(fn: Callable[[U], T]) -> Optional[T]:
 # Custom validators for some edge cases:
 
 
+# This is the first valid location check.
 def check_valid_location(
     location: Optional[Union[list[float], str]]
 ) -> Optional[list[float]]:
@@ -135,6 +159,7 @@ def check_valid_location(
 
     Converts a list of floating point values stored as strings to floats and
     returns either a list of floats or None if no location data is found.
+    This function is used to validate LatLon object inputs
 
     Parameters
     ----------
@@ -170,120 +195,6 @@ def check_valid_location(
 
 # Create alias for this type so docs are more readable
 AllDateTypes = Union[datetime, str, bytes, int, float]
-
-
-def naive_datetime(value: Optional[AllDateTypes]) -> Optional[datetime]:
-    """Utility helper that parses a datetime value provided in
-    JSON, string, int or other formats and returns a datetime.datetime
-    object
-
-    Parameters
-    ----------
-    value : str, int
-        A value representing a date/time that may be presented in string,
-        int, deserialized or other format.
-
-    Returns
-    -------
-    datetime.datetime
-        A datetime object representing the datetime input value.
-    """
-    if value:
-        dt = parse_datetime(value)
-        return dt.replace(tzinfo=None)
-    else:
-        return None
-
-
-class DeprecatedSerializableMixin(BaseModel):
-    """
-    Provides backward compatibility with legacy BaseEntity
-
-    Inherits from the `pydantic.BaseModel` class.
-    """
-
-    @classmethod
-    def deserialize(cls, attribute_value_mapping: dict[str, Any]) -> Self:
-        """
-        Creates and returns a new object based on serialized (dict) struct.
-
-        Parameters
-        ----------
-        attribute_value_mapping : dict
-            A dictionary representing the serialized data.
-
-        Returns
-        -------
-        DeprecatedSerializableMixin
-            A new instance of the class created from the serialized data.
-
-        Deprecated
-        ----------
-        1.0.0
-            The `deserialize()` method is deprecated in favor of `parse_obj()` method.
-            For more details, refer to the Pydantic documentation:
-            https://docs.pydantic.dev/usage/models/#helper-functions
-
-
-        """
-        exc.warn_method_deprecation(
-            cls,
-            "deserialize()",
-            "parse_obj()",
-            "https://docs.pydantic.dev/usage/models/#helper-functions",
-        )
-        return cls.parse_obj(attribute_value_mapping)
-
-    def from_dict(self, attribute_value_mapping: dict[str, Any]) -> None:
-        """
-        Deserializes a dict into self, resetting and/or overwriting existing
-        fields.
-
-        Parameters
-        ----------
-        attribute_value_mapping : dict
-            A dictionary that will be deserialized into the parent object.
-
-        Deprecated
-        ----------
-        1.0.0
-            The `from_dict()` method is deprecated in favor of `parse_obj()` method.
-            For more details, refer to the Pydantic documentation:
-            https://docs.pydantic.dev/usage/models/#helper-functions
-        """
-
-        exc.warn_method_deprecation(
-            self.__class__,
-            "from_dict()",
-            "parse_obj()",
-            "https://docs.pydantic.dev/usage/models/#helper-functions",
-        )
-        # Ugly hack is necessary because parse_obj does not behave in-place but
-        # returns a new object
-        self.__init__(**self.parse_obj(attribute_value_mapping).dict())  # type: ignore[misc]
-
-    def to_dict(self) -> dict[str, Any]:
-        """
-        Returns a dict representation of self
-
-        Returns
-        -------
-        dict
-            A dictionary containing the data from the instance.
-
-        Deprecated
-        ----------
-            The `to_dict()` method is deprecated in favor of `dict()` method.
-            For more details, refer to the Pydantic documentation:
-            https://docs.pydantic.dev/1.10/usage/exporting_models/
-        """
-        exc.warn_method_deprecation(
-            self.__class__,
-            "to_dict()",
-            "dict()",
-            "https://docs.pydantic.dev/1.10/usage/exporting_models/",
-        )
-        return self.dict()
 
 
 class BackwardCompatibilityMixin:
@@ -328,10 +239,11 @@ class BackwardCompatibilityMixin:
         ):
             return value
         try:
+            # This won't return a attribute error if it's none
             if attr in self._field_conversions:
                 return self._field_conversions[attr](value)
-        except AttributeError:
-            # Current model class has no field conversions defined
+        except (TypeError, AttributeError):
+            # Handle case where _field_conversions is None or not subscriptable
             pass
         try:
             value.bound_client = self.bound_client
@@ -358,63 +270,67 @@ class BoundClientEntity(BaseModel):
 
 
 class RelaxedActivityType(ActivityType):
-    @root_validator(pre=True)
-    def check_activity_type(cls, values: dict[str, Any]) -> dict[str, Any]:
+    @model_validator(mode="before")
+    def check_activity_type(cls, values: str) -> str:
         """Pydantic validator that checks whether an activity type value is
         valid prior to populating the model. If the available activity type
         is not valid, it assigns the value to be "Workout".
 
         Parameters
         ----------
-        values : dict[str, Any]
+        values : str
             A dictionary containing an activity type key value pair.
 
         Returns
         -------
-        dict
+        str
             A dictionary with a validated activity type value assigned.
         """
-        v = values["__root__"]
-        if v not in get_args(ActivityType.__fields__["__root__"].type_):
+
+        if values not in get_args(
+            ActivityType.model_fields["root"].annotation
+        ):
             LOGGER.warning(
-                f'Unexpected activity type. Given={v}, replacing by "Workout"'
+                f'Unexpected activity type. Given={values}, replacing by "Workout"'
             )
-            values["__root__"] = "Workout"
+            values = "Workout"
         return values
 
 
 class RelaxedSportType(SportType):
-    @root_validator(pre=True)
-    def check_sport_type(cls, values: dict[str, Any]) -> dict[str, Any]:
+    @model_validator(mode="before")
+    def check_sport_type(cls, values: str) -> str:
         """Pydantic validator that checks whether a sport type value is
         valid prior to populating the model. If the existing sport type
         is not valid, it assigns the value to be "Workout".
 
         Parameters
         ----------
-        values : dict[str, Any]
+        values : str
             A dictionary containing an sport type key value pair.
 
         Returns
         -------
-        dict
-            A dictionary with a validated sport type value assigned.
+        str
+            A str containing the validated sport type.
         """
-        v = values["__root__"]
-        if v not in get_args(SportType.__fields__["__root__"].type_):
+
+        if values not in SportType.__annotations__["root"]:
             LOGGER.warning(
-                f'Unexpected sport type. Given={v}, replacing by "Workout"'
+                f'Unexpected sport type. Given={values}, replacing by "Workout"'
             )
-            values["__root__"] = "Workout"
+            values = "Workout"
         return values
 
 
-class LatLon(LatLng, BackwardCompatibilityMixin, DeprecatedSerializableMixin):
+class LatLon(LatLng, BackwardCompatibilityMixin):
     """
     Enables backward compatibility for legacy namedtuple
     """
 
-    @root_validator
+    # It seems like we are validating LatLon twice which is a bit confusing.
+    # Once here and once when we ingest lat long into the Activity Object.
+    @model_validator(mode="before")
     def check_valid_latlng(cls, values: list[float]) -> Optional[list[float]]:
         """Validate that Strava returned an actual lat/lon rather than an empty
         list. If list is empty, return None
@@ -430,6 +346,11 @@ class LatLon(LatLng, BackwardCompatibilityMixin, DeprecatedSerializableMixin):
         list or None
             list of lat/lon values or None
 
+        Notes
+        ------
+        This is the second validation of lat lon but it's a validator
+        the first is check is def check_valid_location above.
+
         """
         # Strava sometimes returns empty list in case of activities without GPS
         return values if values else None
@@ -443,7 +364,7 @@ class LatLon(LatLng, BackwardCompatibilityMixin, DeprecatedSerializableMixin):
         float
             The latitude value.
         """
-        return self.__root__[0]
+        return self.root[0]
 
     @property
     def lon(self) -> float:
@@ -455,12 +376,11 @@ class LatLon(LatLng, BackwardCompatibilityMixin, DeprecatedSerializableMixin):
         float
             The longitude value.
         """
-        return self.__root__[1]
+        return self.root[1]
 
 
 class Club(
     DetailedClub,
-    DeprecatedSerializableMixin,
     BackwardCompatibilityMixin,
     BoundClientEntity,
 ):
@@ -471,11 +391,14 @@ class Club(
     See Also
     --------
     DetailedClub : A class representing a club's detailed information.
-    DeprecatedSerializableMixin : A mixin to provide backward compatibility
-        with legacy BaseEntity.
     BackwardCompatibilityMixin : A mixin to provide backward compatibility with
         legacy BaseDetailedEntity.
     BoundClientEntity : A mixin to bind the club with a Strava API client.
+
+    Notes
+    -----
+    Clubs are the only object that can have multiple valid
+    `activity_types`. Activities only have one
 
     """
 
@@ -483,8 +406,6 @@ class Club(
     profile: Optional[str] = None
     description: Optional[str] = None
     club_type: Optional[str] = None
-
-    _field_conversions = {"activity_types": enum_values}
 
     @lazy_property
     def members(self) -> BatchedResultsIterator[Athlete]:
@@ -513,9 +434,7 @@ class Club(
         return self.bound_client.get_club_activities(self.id)
 
 
-class Gear(
-    DetailedGear, DeprecatedSerializableMixin, BackwardCompatibilityMixin
-):
+class Gear(DetailedGear, BackwardCompatibilityMixin):
     """
     Represents a piece of gear (equipment) used in physical activities.
     """
@@ -541,9 +460,7 @@ class Shoe(Gear):
     pass
 
 
-class ActivityTotals(
-    ActivityTotal, DeprecatedSerializableMixin, BackwardCompatibilityMixin
-):
+class ActivityTotals(ActivityTotal, BackwardCompatibilityMixin):
     """An objecting containing a set of total values for an activity including
     elapsed time, moving time, distance and elevation gain."""
 
@@ -555,9 +472,7 @@ class ActivityTotals(
     moving_time: Optional[timedelta] = None  # type: ignore[assignment]
 
 
-class AthleteStats(
-    ActivityStats, DeprecatedSerializableMixin, BackwardCompatibilityMixin
-):
+class AthleteStats(ActivityStats, BackwardCompatibilityMixin):
     """
     Summary totals for rides, runs and swims, as shown in an athlete's public
     profile. Non-public activities are not counted for these totals.
@@ -582,7 +497,6 @@ class AthleteStats(
 
 class Athlete(
     DetailedAthlete,
-    DeprecatedSerializableMixin,
     BackwardCompatibilityMixin,
     BoundClientEntity,
 ):
@@ -640,7 +554,7 @@ class Athlete(
     owner: Optional[bool] = None
     subscription_permissions: Optional[list[bool]] = None
 
-    @validator("athlete_type", pre=True)
+    @field_validator("athlete_type", mode="before")
     def to_str_representation(
         cls, raw_type: int
     ) -> Optional[Literal["cyclist", "runner"]]:
@@ -784,7 +698,7 @@ class ActivityPhotoMeta(PhotosSummary):
     use_primary_photo: Optional[bool] = None
 
 
-class ActivityPhoto(BackwardCompatibilityMixin, DeprecatedSerializableMixin):
+class ActivityPhoto(BaseModel, BackwardCompatibilityMixin):
     """A full photo record attached to an activity.
 
     Notes
@@ -811,10 +725,8 @@ class ActivityPhoto(BackwardCompatibilityMixin, DeprecatedSerializableMixin):
     default_photo: Optional[bool] = None
     source: Optional[int] = None
 
-    _naive_local = validator("created_at_local", allow_reuse=True)(
-        naive_datetime
-    )
-    _check_latlng = validator("location", allow_reuse=True, pre=True)(
+    _naive_local = field_validator("created_at_local")(naive_datetime)
+    _check_latlng = field_validator("location", mode="before")(
         check_valid_location
     )
 
@@ -860,7 +772,6 @@ class ActivityKudos(Athlete):
 class ActivityLap(
     Lap,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
     BoundClientEntity,
 ):
     # Field overrides from superclass for type extensions:
@@ -882,9 +793,7 @@ class ActivityLap(
     elapsed_time: Optional[timedelta] = None  # type: ignore[assignment]
     moving_time: Optional[timedelta] = None  # type: ignore[assignment]
 
-    _naive_local = validator("start_date_local", allow_reuse=True)(
-        naive_datetime
-    )
+    _naive_local = field_validator("start_date_local")(naive_datetime)
 
 
 class Map(PolylineMap):
@@ -896,7 +805,6 @@ class Map(PolylineMap):
 class Split(
     strava_model.Split,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
 ):
     """
     A split -- may be metric or standard units (which has no bearing
@@ -920,7 +828,6 @@ class Split(
 class SegmentExplorerResult(
     ExplorerSegment,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
     BoundClientEntity,
 ):
     """
@@ -939,8 +846,8 @@ class SegmentExplorerResult(
 
     _field_conversions = {"elev_difference", uh.meters, "distance", uh.meters}
 
-    _check_latlng = validator(
-        "start_latlng", "end_latlng", allow_reuse=True, pre=True
+    _check_latlng = field_validator(
+        "start_latlng", "end_latlng", mode="before"
     )(check_valid_location)
 
     @lazy_property
@@ -963,7 +870,6 @@ class SegmentExplorerResult(
 class AthleteSegmentStats(
     SummarySegmentEffort,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
 ):
     """
     A structure being returned for segment stats for current athlete.
@@ -979,15 +885,12 @@ class AthleteSegmentStats(
     }
     elapsed_time: Optional[timedelta] = None  # type: ignore[assignment]
 
-    _naive_local = validator("start_date_local", allow_reuse=True)(
-        naive_datetime
-    )
+    _naive_local = field_validator("start_date_local")(naive_datetime)
 
 
 class AthletePrEffort(
     SummaryPRSegmentEffort,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
 ):
     # Undocumented attributes:
     distance: Optional[float] = None
@@ -1000,9 +903,7 @@ class AthletePrEffort(
     }
     pr_elapsed_time: Optional[timedelta] = None  # type: ignore[assignment]
 
-    _naive_local = validator("start_date_local", allow_reuse=True)(
-        naive_datetime
-    )
+    _naive_local = field_validator("start_date_local")(naive_datetime)
 
     @property
     def elapsed_time(self) -> Optional[timedelta]:
@@ -1015,7 +916,6 @@ class AthletePrEffort(
 class Segment(
     DetailedSegment,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
     BoundClientEntity,
 ):
     """
@@ -1045,11 +945,10 @@ class Segment(
         "elevation_high": uh.meters,
         "elevation_low": uh.meters,
         "total_elevation_gain": uh.meters,
-        "activity_type": enum_value,
     }
 
-    _latlng_check = validator(
-        "start_latlng", "end_latlng", allow_reuse=True, pre=True
+    _latlng_check = field_validator(
+        "start_latlng", "end_latlng", mode="before"
     )(check_valid_location)
 
 
@@ -1083,7 +982,6 @@ class SegmentEffortAchievement(BaseModel):
 class BaseEffort(
     DetailedSegmentEffort,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
     BoundClientEntity,
 ):
     """
@@ -1101,9 +999,7 @@ class BaseEffort(
     moving_time: Optional[timedelta] = None  # type: ignore[assignment]
     elapsed_time: Optional[timedelta] = None  # type: ignore[assignment]
 
-    _naive_local = validator("start_date_local", allow_reuse=True)(
-        naive_datetime
-    )
+    _naive_local = field_validator("start_date_local")(naive_datetime)
 
 
 class BestEffort(BaseEffort):
@@ -1125,7 +1021,6 @@ class SegmentEffort(BaseEffort):
 class Activity(
     DetailedActivity,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
     BoundClientEntity,
 ):
     """
@@ -1151,11 +1046,11 @@ class Activity(
     # Added for backward compatibility
     # TODO maybe deprecate?
     TYPES: ClassVar[tuple[Any, ...]] = get_args(
-        ActivityType.__fields__["__root__"].type_
+        ActivityType.model_fields["root"].annotation
     )
 
     SPORT_TYPES: ClassVar[tuple[Any, ...]] = get_args(
-        SportType.__fields__["__root__"].type_
+        SportType.model_fields["root"].annotation
     )
 
     # Undocumented attributes:
@@ -1186,18 +1081,14 @@ class Activity(
         "total_elevation_gain": uh.meters,
         "average_speed": uh.meters_per_second,
         "max_speed": uh.meters_per_second,
-        "type": enum_value,
-        "sport_type": enum_value,
     }
     moving_time: Optional[timedelta] = None  # type: ignore[assignment]
     elapsed_time: Optional[timedelta] = None  # type: ignore[assignment]
 
-    _latlng_check = validator(
-        "start_latlng", "end_latlng", allow_reuse=True, pre=True
+    _latlng_check = field_validator(
+        "start_latlng", "end_latlng", mode="before"
     )(check_valid_location)
-    _naive_local = validator("start_date_local", allow_reuse=True)(
-        naive_datetime
-    )
+    _naive_local = field_validator("start_date_local")(naive_datetime)
 
     @lazy_property
     def comments(self) -> BatchedResultsIterator[ActivityComment]:
@@ -1236,15 +1127,26 @@ class Activity(
 class DistributionBucket(TimedZoneRange):
     """
     A single distribution bucket object, used for activity zones.
+
+    Notes
+    -----
+    In this object, we override types for min/max values. The
+    strava API incorrectly types zones as being `int`. However it can
+    return `int` or `float`.
     """
 
     _field_conversions = {"time": uh.seconds}
+
+    # Overrides due to a bug in the Strava API docs
+    # Because the created strava_model.py has this typed as int we will need
+    # to override these types
+    min: Optional[int | float] = None  # type: ignore
+    max: Optional[int | float] = None  # type: ignore
 
 
 class BaseActivityZone(
     ActivityZone,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
     BoundClientEntity,
 ):
     """
@@ -1261,9 +1163,7 @@ class BaseActivityZone(
     type: Optional[Literal["heartrate", "power", "pace"]] = None  # type: ignore[assignment]
 
 
-class Stream(
-    BaseStream, BackwardCompatibilityMixin, DeprecatedSerializableMixin
-):
+class Stream(BaseStream, BackwardCompatibilityMixin):
     """
     Stream of readings from the activity, effort or segment.
     """
@@ -1278,7 +1178,6 @@ class Stream(
 class Route(
     RouteStrava,
     BackwardCompatibilityMixin,
-    DeprecatedSerializableMixin,
     BoundClientEntity,
 ):
     """
@@ -1293,9 +1192,7 @@ class Route(
     _field_conversions = {"distance": uh.meters, "elevation_gain": uh.meters}
 
 
-class Subscription(
-    BackwardCompatibilityMixin, DeprecatedSerializableMixin, BoundClientEntity
-):
+class Subscription(BackwardCompatibilityMixin, BoundClientEntity):
     """
     Represents a Webhook Event Subscription.
     """
@@ -1313,9 +1210,10 @@ class Subscription(
     updated_at: Optional[datetime] = None
 
 
-class SubscriptionCallback(
-    BackwardCompatibilityMixin, DeprecatedSerializableMixin
-):
+# Note: the DeprecatedSerializableMixin inherited from BaseModel
+# So we may have to add BaseModel to some of these smaller objects that
+# relied upon the mixin
+class SubscriptionCallback(BaseModel, BackwardCompatibilityMixin):
     """
     Represents a Webhook Event Subscription Callback.
     """
@@ -1350,9 +1248,7 @@ class SubscriptionCallback(
         assert self.hub_verify_token == verify_token
 
 
-class SubscriptionUpdate(
-    BackwardCompatibilityMixin, DeprecatedSerializableMixin, BoundClientEntity
-):
+class SubscriptionUpdate(BackwardCompatibilityMixin, BoundClientEntity):
     """
     Represents a Webhook Event Subscription Update.
     """

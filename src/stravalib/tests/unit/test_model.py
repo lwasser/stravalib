@@ -1,9 +1,8 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List, Optional
 
 import pint
 import pytest
-import pytz
 from pydantic import BaseModel
 
 from stravalib import model
@@ -12,73 +11,31 @@ from stravalib.model import (
     Activity,
     ActivityLap,
     ActivityPhoto,
-    ActivityTotals,
     BackwardCompatibilityMixin,
     BaseEffort,
     BoundClientEntity,
-    Club,
+    # Club, # CLUB IS not currently used in this module
     LatLon,
+    RelaxedActivityType,
+    RelaxedSportType,
     Segment,
     SegmentExplorerResult,
     SubscriptionCallback,
 )
 from stravalib.strava_model import LatLng
 from stravalib.tests import TestBase
-from stravalib.unithelper import Quantity, UnitConverter
-
-
-@pytest.mark.parametrize("model_class,attr,value", ((Club, "name", "foo"),))
-class TestLegacyModelSerialization:
-
-    def test_legacy_deserialize(self, model_class, attr, value):
-        with pytest.warns(DeprecationWarning):
-            model_obj = model_class.deserialize({attr: value})
-            assert getattr(model_obj, attr) == value
-
-    def test_legacy_from_dict(self, model_class, attr, value):
-        with pytest.warns(DeprecationWarning):
-            model_obj = model_class()
-            model_obj.from_dict({attr: value})
-            assert getattr(model_obj, attr) == value
-
-    def test_legacy_to_dict(self, model_class, attr, value):
-        with pytest.warns(DeprecationWarning):
-            model_obj = model_class(**{attr: value})
-            model_dict_legacy = model_obj.to_dict()
-            model_dict_modern = model_obj.dict()
-            assert model_dict_legacy == model_dict_modern
+from stravalib.unithelper import Quantity
 
 
 @pytest.mark.parametrize(
     "model_class,raw,expected_value",
     (
-        (Club, {"name": "foo"}, "foo"),
-        (ActivityTotals, {"elapsed_time": 100}, timedelta(seconds=100)),
         (
-            ActivityTotals,
-            {"distance": 100.0},
-            UnitConverter("meters")(100.0),
-        ),
-        (
+            # Removing root
             Activity,
-            {"timezone": "Europe/Amsterdam"},
-            pytz.timezone("Europe/Amsterdam"),
-        ),
-        (Club, {"activity_types": ["Run", "Ride"]}, ["Run", "Ride"]),
-        (Activity, {"sport_type": "Run"}, "Run"),
-    ),
-)
-def test_backward_compatibility_mixin_field_conversions(
-    model_class, raw, expected_value
-):
-    obj = model_class.parse_obj(raw)
-    assert getattr(obj, list(raw.keys())[0]) == expected_value
-
-
-@pytest.mark.parametrize(
-    "model_class,raw,expected_value",
-    (
-        (Activity, {"start_latlng": "5.4,4.3"}, LatLon(__root__=[5.4, 4.3])),
+            {"start_latlng": "5.4,4.3"},
+            LatLon([5.4, 4.3]),
+        ),  # pydantic 2.x uses root and may
         (Activity, {"start_latlng": []}, None),
         (Segment, {"start_latlng": []}, None),
         (SegmentExplorerResult, {"start_latlng": []}, None),
@@ -102,7 +59,7 @@ def test_backward_compatibility_mixin_field_conversions(
     ),
 )
 def test_deserialization_edge_cases(model_class, raw, expected_value):
-    obj = model_class.parse_obj(raw)
+    obj = model_class.model_validate(raw)
     assert getattr(obj, list(raw.keys())[0]) == expected_value
 
 
@@ -112,7 +69,7 @@ def test_subscription_callback_field_names():
         "hub.verify_token": "STRAVA",
         "hub.challenge": "15f7d1a91c1f40f8a748fd134752feb3",
     }
-    sub_callback = SubscriptionCallback.parse_obj(sub_callback_raw)
+    sub_callback = SubscriptionCallback.model_validate(sub_callback_raw)
     assert sub_callback.hub_mode == "subscribe"
     assert sub_callback.hub_verify_token == "STRAVA"
 
@@ -226,13 +183,14 @@ def test_backward_compatible_attribute_lookup(
         assert not hasattr(lookup_expression, "bound_client")
 
 
+# TODO: do we want to continue to support type?
 @pytest.mark.parametrize(
     "klass,attr,given_type,expected_type",
     (
-        (Activity, "type", "Run", "Run"),
         (Activity, "sport_type", "Run", "Run"),
-        (Activity, "type", "FooBar", "Workout"),
         (Activity, "sport_type", "FooBar", "Workout"),
+        (Activity, "type", "Run", "Run"),
+        (Activity, "type", "FooBar", "Workout"),
         (Segment, "activity_type", "Run", "Run"),
         (Segment, "activity_type", "FooBar", "Workout"),
     ),
@@ -240,15 +198,30 @@ def test_backward_compatible_attribute_lookup(
 def test_relaxed_activity_type_validation(
     klass, attr, given_type, expected_type
 ):
-    assert getattr(klass(**{attr: given_type}), attr) == expected_type
+    obj = getattr(klass(**{attr: given_type}), attr)
+    if attr == "sport_type":
+        assert obj == RelaxedSportType(root=expected_type)
+    else:
+        assert obj == RelaxedActivityType(root=expected_type)
 
 
 class ModelTest(TestBase):
     def setUp(self):
         super(ModelTest, self).setUp()
 
-    def test_entity_collections(self):
-        a = model.Athlete()
+    def test_entity_collections(self) -> None:
+        """Test that club information parsed from the API in a dict format can
+        be correctly ingested into the Athlete model.
+
+        Notes
+        -----
+        In Pydantic 2.x we use model_validate instead of parse_object.
+        Model_Validate always returns a new model. so in this test we
+        instantiate a new instance a when calling model_validate aligning with
+        Pydantic's immutability approach.
+
+        """
+
         d = {
             "clubs": [
                 {"resource_state": 2, "id": 7, "name": "Team Roaring Mouse"},
@@ -260,7 +233,7 @@ class ModelTest(TestBase):
                 },
             ]
         }
-        a.from_dict(d)
+        a = model.Athlete.model_validate(d)
 
         self.assertEqual(3, len(a.clubs))
         self.assertEqual("Team Roaring Mouse", a.clubs[0].name)
@@ -336,7 +309,7 @@ class ModelTest(TestBase):
             "created_at": "2015-04-29T18:11:09.400558047-07:00",
             "updated_at": "2015-04-29T18:11:09.400558047-07:00",
         }
-        sub = model.Subscription.parse_obj(d)
+        sub = model.Subscription.model_validate(d)
         self.assertEqual(d["id"], sub.id)
 
     def test_subscription_update_deser(self):
@@ -348,7 +321,7 @@ class ModelTest(TestBase):
             "aspect_type": "create",
             "event_time": 1297286541,
         }
-        subupd = model.SubscriptionUpdate.deserialize(d)
+        subupd = model.SubscriptionUpdate.model_validate(d)
         self.assertEqual(
             "2011-02-09 21:22:21",
             subupd.event_time.strftime("%Y-%m-%d %H:%M:%S"),

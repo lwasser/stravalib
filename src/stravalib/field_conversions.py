@@ -1,14 +1,11 @@
 from __future__ import annotations
 
 import logging
-from collections.abc import Sequence
 from functools import wraps
 from typing import Callable, TypeVar
 
 import pytz
 from pytz.exceptions import UnknownTimeZoneError
-
-from stravalib.strava_model import ActivityType, SportType
 
 LOGGER = logging.getLogger(__name__)
 
@@ -33,25 +30,6 @@ def optional_input(
             return None
 
     return fn_wrapper
-
-
-@optional_input
-def enum_value(v: ActivityType | SportType) -> str:
-    try:
-        return v.__root__
-    except AttributeError:
-        LOGGER.warning(
-            f"{v} is not an enum, returning itself instead of its value"
-        )
-        return v  # type: ignore[return-value]
-
-
-@optional_input
-def enum_values(enums: Sequence[ActivityType | SportType]) -> list[str | None]:
-    # Pydantic (1.x) has config for using enum values, but unfortunately
-    # it doesn't work for lists of enums.
-    # See https://github.com/pydantic/pydantic/issues/5005
-    return [enum_value(e) for e in enums]
 
 
 @optional_input

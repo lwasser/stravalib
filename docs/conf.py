@@ -86,16 +86,18 @@ inheritance_node_attrs = dict(
     # rankdir="BT",
     shape="ellipse",
     fontsize=16,
-    color="darkorchid4",
-    height=0.85,
+    # https://graphviz.org/doc/info/colors.html
+    color="plum3",
+    height=1.05,
     # Line weight of shape
     style="bold",
 )
 
 # Edit the arrow and line attributes
 inheritance_edge_attrs = dict(
-    color="dodgerblue1",
-    # Line weight of shap
+    color="plum3",
+    # Line weight of shape
+    style="dashed",
 )
 
 remove_from_toctrees = ["docs/reference/api/*"]
@@ -145,6 +147,7 @@ html_theme_options = {
     # "navbar_align": "left",  # [left, content, right] For testing that the navbar items align properly
     "github_url": "https://github.com/stravalib/stravalib",
     "footer_start": ["copyright"],
+    "announcement": "Test drive Stravalib 2.x before we make a formal release. Learn more <a href=''>here</a>",
 }
 
 html_context = {

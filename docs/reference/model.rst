@@ -56,7 +56,6 @@ Summary Activity Classes
    TimedZoneDistribution
    ActivityZone
    ActivityTotals
-   ActivityComment
    Lap
    Split
    RelaxedActivityType

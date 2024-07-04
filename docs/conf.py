@@ -147,11 +147,7 @@ html_theme_options = {
     # "navbar_align": "left",  # [left, content, right] For testing that the navbar items align properly
     "github_url": "https://github.com/stravalib/stravalib",
     "footer_start": ["copyright"],
-<<<<<<< HEAD
     "announcement": "<a href='stravalib-2.html'>Stravalib 2.x is out 🚀! Check out our migration guide for tips on changes from Stravalib V1!</a>",
-=======
-    "announcement": "Test drive Stravalib 2.x before we make a formal release. Learn more <a href=''>here</a>",
->>>>>>> 08b81c8 (Fix: add more inheritance charts)
 }
 
 html_context = {

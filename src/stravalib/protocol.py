@@ -145,6 +145,7 @@ class ApiV3(metaclass=abc.ABCMeta):
         bool
             True if token has expired, otherwise returns false
         """
+        # Right now the issue is the self.token_expires is not being populated
         if verbose:
             print("Your token has expired; Refreshing it now.")
         if time.time() > self.token_expires:
